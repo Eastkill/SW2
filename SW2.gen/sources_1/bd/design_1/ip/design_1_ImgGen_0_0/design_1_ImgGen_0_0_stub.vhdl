@@ -2,10 +2,10 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Tue Apr 28 15:54:43 2026
--- Host        : Lab016-05 running 64-bit major release  (build 9200)
+-- Date        : Tue May 26 15:55:20 2026
+-- Host        : Lab016-03 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/lab/Desktop/SpaceWar/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0_stub.vhdl
+--               c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0_stub.vhdl
 -- Design      : design_1_ImgGen_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xczu3eg-sfvc784-2-e
@@ -20,6 +20,7 @@ entity design_1_ImgGen_0_0 is
     RstN : in STD_LOGIC;
     PosX : in STD_LOGIC_VECTOR ( 9 downto 0 );
     PosY : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    Enemies_in : in STD_LOGIC_VECTOR ( 263 downto 0 );
     R : out STD_LOGIC_VECTOR ( 7 downto 0 );
     G : out STD_LOGIC_VECTOR ( 7 downto 0 );
     B : out STD_LOGIC_VECTOR ( 7 downto 0 )
@@ -39,7 +40,7 @@ architecture stub of design_1_ImgGen_0_0 is
   attribute syn_black_box : boolean;
   attribute black_box_pad_pin : string;
   attribute syn_black_box of stub : architecture is true;
-  attribute black_box_pad_pin of stub : architecture is "ANG[4:0],Clk,RstN,PosX[9:0],PosY[9:0],R[7:0],G[7:0],B[7:0]";
+  attribute black_box_pad_pin of stub : architecture is "ANG[4:0],Clk,RstN,PosX[9:0],PosY[9:0],Enemies_in[263:0],R[7:0],G[7:0],B[7:0]";
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Clk : signal is "xilinx.com:signal:clock:1.0 Clk CLK";
   attribute X_INTERFACE_MODE : string;

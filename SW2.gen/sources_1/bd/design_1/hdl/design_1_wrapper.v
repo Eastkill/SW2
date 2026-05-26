@@ -2,8 +2,8 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Tue Apr 28 15:53:36 2026
-//Host        : Lab016-05 running 64-bit major release  (build 9200)
+//Date        : Tue May 26 15:53:52 2026
+//Host        : Lab016-03 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
 //Purpose     : IP block netlist
@@ -19,6 +19,7 @@ module design_1_wrapper
     HDMI_D1_P,
     HDMI_D2_N,
     HDMI_D2_P,
+    PL_USER_LED,
     PL_USER_PB0,
     ROT_A,
     ROT_B,
@@ -32,6 +33,7 @@ module design_1_wrapper
   output HDMI_D1_P;
   output HDMI_D2_N;
   output HDMI_D2_P;
+  output [4:0]PL_USER_LED;
   input PL_USER_PB0;
   input ROT_A;
   input ROT_B;
@@ -46,6 +48,7 @@ module design_1_wrapper
   wire HDMI_D1_P;
   wire HDMI_D2_N;
   wire HDMI_D2_P;
+  wire [4:0]PL_USER_LED;
   wire PL_USER_PB0;
   wire ROT_A;
   wire ROT_B;
@@ -61,6 +64,7 @@ module design_1_wrapper
         .HDMI_D1_P(HDMI_D1_P),
         .HDMI_D2_N(HDMI_D2_N),
         .HDMI_D2_P(HDMI_D2_P),
+        .PL_USER_LED(PL_USER_LED),
         .PL_USER_PB0(PL_USER_PB0),
         .ROT_A(ROT_A),
         .ROT_B(ROT_B),

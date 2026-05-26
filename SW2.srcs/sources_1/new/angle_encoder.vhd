@@ -16,37 +16,35 @@ architecture Behavioral of angle_encoder is
     signal rot_l_delayed : std_logic := '0';
 begin
 
-    process(CLK)
-    begin
-        if rising_edge(CLK) then
-            if RST = '1' then
-                angle_reg <= (others => '0');
-            else
-                -- Zapamiętujemy poprzedni stan, aby wykryć zmianę (zbocze)
-                rot_r_delayed <= ROT_R;
-                rot_l_delayed <= ROT_L;
+process(CLK)
+begin
+    if rising_edge(CLK) then
+        if RST = '1' then
+            angle_reg <= (others => '0');
+        else
+            -- Zapamiętanie poprzednich stanów
+            rot_r_delayed <= ROT_R;
+            rot_l_delayed <= ROT_L;
 
-                -- Prosta logika detekcji ruchu (zbocze narastające na ROT_R przy ROT_L = '0')
-                if (ROT_R = '1' and rot_r_delayed = '0') then
-                    if ROT_L = '0' then
-                        -- Obrót w prawo
-                        if angle_reg < 23 then
-                            angle_reg <= angle_reg + 1;
-                        else
-                            angle_reg <= (others => '0'); -- Powrót do początku koła
-                        end if;
-                    else
-                        -- Obrót w lewo
-                        if angle_reg > 0 then
-                            angle_reg <= angle_reg - 1;
-                        else
-                            angle_reg <= to_unsigned(23, 5); -- Skok na koniec koła
-                        end if;
-                    end if;
+            -- Detekcja obrotu w prawo (zbocze na ROT_R)
+            if (ROT_R = '1' and rot_r_delayed = '0') then
+                if angle_reg < 23 then
+                    angle_reg <= angle_reg + 1;
+                else
+                    angle_reg <= (others => '0');
+                end if;
+                
+            -- Detekcja obrotu w lewo (zbocze na ROT_L)
+            elsif (ROT_L = '1' and rot_l_delayed = '0') then
+                if angle_reg > 0 then
+                    angle_reg <= angle_reg - 1;
+                else
+                    angle_reg <= to_unsigned(23, 5);
                 end if;
             end if;
         end if;
-    end process;
+    end if;
+end process;
 
     ANG <= std_logic_vector(angle_reg);
 

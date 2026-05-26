@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/lab/Desktop/SpaceWar/SW2/SW2.runs/design_1_VideoTiming_0_0_synth_1'
+HD_PWD='C:/Users/lab/Documents/GitHub/SW2/SW2.runs/design_1_VideoTiming_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

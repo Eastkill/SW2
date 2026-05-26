@@ -60,6 +60,7 @@ module design_1_ImgGen_0_0 (
   RstN,
   PosX,
   PosY,
+  Enemies_in,
   R,
   G,
   B
@@ -76,6 +77,7 @@ input wire Clk;
 input wire RstN;
 input wire [9 : 0] PosX;
 input wire [9 : 0] PosY;
+input wire [263 : 0] Enemies_in;
 output wire [7 : 0] R;
 output wire [7 : 0] G;
 output wire [7 : 0] B;
@@ -86,6 +88,7 @@ output wire [7 : 0] B;
     .RstN(RstN),
     .PosX(PosX),
     .PosY(PosY),
+    .Enemies_in(Enemies_in),
     .R(R),
     .G(G),
     .B(B)

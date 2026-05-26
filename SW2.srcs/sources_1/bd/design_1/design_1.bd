@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xED58EEA8C6A06108",
+      "boundary_crc": "0xD33906ACFAA3F9E2",
       "device": "xczu3eg-sfvc784-2-e",
       "gen_directory": "../../../../SW2.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -15,8 +15,9 @@
       "HDMI_TX_0": "",
       "VideoTiming_0": "",
       "ImgGen_0": "",
-      "angle_encoder_0": "",
-      "RotaryEnc_0": ""
+      "RotaryEnc_0": "",
+      "angle_encoder_1": "",
+      "EnemyController_0": ""
     },
     "interface_ports": {
       "clk_100mhz": {
@@ -77,6 +78,11 @@
       },
       "PL_USER_PB0": {
         "direction": "I"
+      },
+      "PL_USER_LED": {
+        "direction": "O",
+        "left": "4",
+        "right": "0"
       }
     },
     "components": {
@@ -270,6 +276,11 @@
             "left": "9",
             "right": "0"
           },
+          "Enemies_in": {
+            "direction": "I",
+            "left": "263",
+            "right": "0"
+          },
           "R": {
             "direction": "O",
             "left": "7",
@@ -287,12 +298,20 @@
           }
         }
       },
-      "angle_encoder_0": {
+      "RotaryEnc_0": {
+        "vlnv": "JS_WUST:UCiSW:RotaryEnc:1.0",
+        "ip_revision": "2",
+        "xci_name": "design_1_RotaryEnc_0_0",
+        "xci_path": "ip\\design_1_RotaryEnc_0_0\\design_1_RotaryEnc_0_0.xci",
+        "inst_hier_path": "RotaryEnc_0",
+        "has_run_ip_tcl": "true"
+      },
+      "angle_encoder_1": {
         "vlnv": "xilinx.com:module_ref:angle_encoder:1.0",
         "ip_revision": "1",
-        "xci_name": "design_1_angle_encoder_0_0",
-        "xci_path": "ip\\design_1_angle_encoder_0_0\\design_1_angle_encoder_0_0.xci",
-        "inst_hier_path": "angle_encoder_0",
+        "xci_name": "design_1_angle_encoder_1_0",
+        "xci_path": "ip\\design_1_angle_encoder_1_0\\design_1_angle_encoder_1_0.xci",
+        "inst_hier_path": "angle_encoder_1",
         "has_run_ip_tcl": "true",
         "reference_info": {
           "ref_type": "hdl",
@@ -301,10 +320,30 @@
         },
         "ports": {
           "ROT_L": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "PortType": {
+                "value": "undef",
+                "value_src": "ip_prop"
+              },
+              "PortType.PROP_SRC": {
+                "value": "false",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "ROT_R": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "PortType": {
+                "value": "undef",
+                "value_src": "ip_prop"
+              },
+              "PortType.PROP_SRC": {
+                "value": "false",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "RST": {
             "type": "rst",
@@ -339,13 +378,60 @@
           }
         }
       },
-      "RotaryEnc_0": {
-        "vlnv": "JS_WUST:UCiSW:RotaryEnc:1.0",
-        "ip_revision": "2",
-        "xci_name": "design_1_RotaryEnc_0_0",
-        "xci_path": "ip\\design_1_RotaryEnc_0_0\\design_1_RotaryEnc_0_0.xci",
-        "inst_hier_path": "RotaryEnc_0",
-        "has_run_ip_tcl": "true"
+      "EnemyController_0": {
+        "vlnv": "xilinx.com:module_ref:EnemyController:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_EnemyController_0_0",
+        "xci_path": "ip\\design_1_EnemyController_0_0\\design_1_EnemyController_0_0.xci",
+        "inst_hier_path": "EnemyController_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "EnemyController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RstN",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_wiz_0_0_clk25",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RstN": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "FrameTick": {
+            "direction": "I"
+          },
+          "EnemiesOut": {
+            "direction": "O",
+            "left": "263",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -357,6 +443,12 @@
       }
     },
     "nets": {
+      "EnemyController_0_EnemiesOut": {
+        "ports": [
+          "EnemyController_0/EnemiesOut",
+          "ImgGen_0/Enemies_in"
+        ]
+      },
       "HDMI_TX_0_HDMI_CK_N": {
         "ports": [
           "HDMI_TX_0/HDMI_CK_N",
@@ -426,7 +518,8 @@
       "PL_USER_PB0_1": {
         "ports": [
           "PL_USER_PB0",
-          "angle_encoder_0/RST"
+          "angle_encoder_1/RST",
+          "EnemyController_0/RstN"
         ]
       },
       "ROT_A_1": {
@@ -444,13 +537,13 @@
       "RotaryEnc_0_RotL": {
         "ports": [
           "RotaryEnc_0/RotL",
-          "angle_encoder_0/ROT_L"
+          "angle_encoder_1/ROT_R"
         ]
       },
       "RotaryEnc_0_RotR": {
         "ports": [
           "RotaryEnc_0/RotR",
-          "angle_encoder_0/ROT_R"
+          "angle_encoder_1/ROT_L"
         ]
       },
       "VideoTiming_0_DE": {
@@ -480,22 +573,25 @@
       "VideoTiming_0_VSync": {
         "ports": [
           "VideoTiming_0/VSync",
-          "HDMI_TX_0/VSync"
+          "HDMI_TX_0/VSync",
+          "EnemyController_0/FrameTick"
         ]
       },
       "angle_encoder_0_ANG": {
         "ports": [
-          "angle_encoder_0/ANG",
+          "angle_encoder_1/ANG",
+          "PL_USER_LED",
           "ImgGen_0/ANG"
         ]
       },
       "clk_wiz_0_clk25": {
         "ports": [
           "clk_wiz_0/clk25",
-          "VideoTiming_0/pixClk",
           "HDMI_TX_0/pxClk",
-          "angle_encoder_0/CLK",
           "RotaryEnc_0/Clk",
+          "VideoTiming_0/pixClk",
+          "angle_encoder_1/CLK",
+          "EnemyController_0/Clk",
           "ImgGen_0/Clk"
         ]
       },
@@ -508,8 +604,8 @@
       "clk_wiz_0_locked": {
         "ports": [
           "clk_wiz_0/locked",
-          "VideoTiming_0/ResetN",
           "HDMI_TX_0/ResetN",
+          "VideoTiming_0/ResetN",
           "ImgGen_0/RstN"
         ]
       }

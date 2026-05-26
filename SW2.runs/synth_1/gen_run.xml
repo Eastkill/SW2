@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xczu3eg-sfvc784-2-e" LaunchTime="1777384419" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ImgGen.dcp">
+<GenRun Id="synth_1" LaunchPart="xczu3eg-sfvc784-2-e" LaunchTime="1779803914" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ImgGen.dcp">
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="design_1_wrapper.vds"/>
@@ -12,6 +12,12 @@
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/VideoTiming.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/GameMathPkg.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -31,6 +37,12 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/angle_encoder.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/EnemyController.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -95,7 +107,8 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_ImgGen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_HDMI_TX_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_VideoTiming_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_angle_encoder_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_angle_encoder_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_RotaryEnc_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_VideoTiming_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_EnemyController_0_0"/>
 </GenRun>

@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Tue Apr 28 15:55:45 2026
-| Host         : Lab016-05 running 64-bit major release  (build 9200)
+| Date         : Tue May 26 16:00:29 2026
+| Host         : Lab016-03 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
 | Device       : xczu3eg-sfvc784-2-e
@@ -96,7 +96,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +------------------+------+-------+------------+-----------+-------+
 |     Site Type    | Used | Fixed | Prohibited | Available | Util% |
 +------------------+------+-------+------------+-----------+-------+
-| Bonded IOB       |   11 |     0 |          0 |       252 |  4.37 |
+| Bonded IOB       |   16 |     0 |          0 |       252 |  6.35 |
 |   HPIOB_M        |    0 |     0 |          0 |        72 |  0.00 |
 |   HPIOB_S        |    0 |     0 |          0 |        72 |  0.00 |
 |   HDIOB_M        |    0 |     0 |          0 |        48 |  0.00 |
@@ -161,7 +161,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |    8 |                 I/O |
+| OBUF     |   13 |                 I/O |
 | INBUF    |    3 |                 I/O |
 | IBUFCTRL |    3 |              Others |
 +----------+------+---------------------+
@@ -170,16 +170,17 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 9. Black Boxes
 --------------
 
-+----------------------------+------+
-|          Ref Name          | Used |
-+----------------------------+------+
-| design_1_clk_wiz_0_0       |    1 |
-| design_1_angle_encoder_0_0 |    1 |
-| design_1_VideoTiming_0_0   |    1 |
-| design_1_RotaryEnc_0_0     |    1 |
-| design_1_ImgGen_0_0        |    1 |
-| design_1_HDMI_TX_0_0       |    1 |
-+----------------------------+------+
++------------------------------+------+
+|           Ref Name           | Used |
++------------------------------+------+
+| design_1_clk_wiz_0_0         |    1 |
+| design_1_angle_encoder_1_0   |    1 |
+| design_1_VideoTiming_0_0     |    1 |
+| design_1_RotaryEnc_0_0       |    1 |
+| design_1_ImgGen_0_0          |    1 |
+| design_1_HDMI_TX_0_0         |    1 |
+| design_1_EnemyController_0_0 |    1 |
++------------------------------+------+
 
 
 10. Instantiated Netlists

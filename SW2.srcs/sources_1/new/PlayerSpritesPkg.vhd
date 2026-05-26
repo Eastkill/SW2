@@ -33,8 +33,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 package PlayerSpritesPkg is
 
+-- Typ (zakładam, że masz coś w tym stylu)
     type sprite_rom_type is array (0 to 255) of std_logic_vector(7 downto 0);
-    
+
+    -- ==========================================
+    -- DEKLARACJE FUNKCJI (muszą być przed stałymi)
+    -- ==========================================
+    function flip_horizontal(s : sprite_rom_type) return sprite_rom_type;
+    function flip_vertical(s : sprite_rom_type) return sprite_rom_type;
+    function transpose_diagonal(s : sprite_rom_type) return sprite_rom_type;    
     constant SHIP_UP : sprite_rom_type := (
         x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", 
         x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"49", x"49", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", 
@@ -131,3 +138,43 @@ package PlayerSpritesPkg is
     );
 
 end PlayerSpritesPkg;
+
+package body PlayerSpritesPkg is
+
+    -- Odbicie w poziomie (Lewo <-> Prawo)
+    function flip_horizontal(s : sprite_rom_type) return sprite_rom_type is
+        variable res : sprite_rom_type;
+    begin
+        for y in 0 to 15 loop
+            for x in 0 to 15 loop
+                res(y * 16 + x) := s(y * 16 + (15 - x));
+            end loop;
+        end loop;
+        return res;
+    end function;
+
+    -- Odbicie w pionie (Góra <-> Dół)
+    function flip_vertical(s : sprite_rom_type) return sprite_rom_type is
+        variable res : sprite_rom_type;
+    begin
+        for y in 0 to 15 loop
+            for x in 0 to 15 loop
+                res(y * 16 + x) := s((15 - y) * 16 + x);
+            end loop;
+        end loop;
+        return res;
+    end function;
+
+    -- Transpozycja (Odbicie po przekątnej)
+    function transpose_diagonal(s : sprite_rom_type) return sprite_rom_type is
+        variable res : sprite_rom_type;
+    begin
+        for y in 0 to 15 loop
+            for x in 0 to 15 loop
+                res(y * 16 + x) := s(x * 16 + y);
+            end loop;
+        end loop;
+        return res;
+    end function;
+
+end package body PlayerSpritesPkg;

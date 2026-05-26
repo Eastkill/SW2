@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Tue Apr 28 15:54:43 2026
-| Host         : Lab016-05 running 64-bit major release  (build 9200)
+| Date         : Tue May 26 15:55:20 2026
+| Host         : Lab016-03 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_ImgGen_0_0_utilization_synth.rpt -pb design_1_ImgGen_0_0_utilization_synth.pb
 | Design       : design_1_ImgGen_0_0
 | Device       : xczu3eg-sfvc784-2-e
@@ -32,15 +32,15 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*               |  161 |     0 |          0 |     70560 |  0.23 |
-|   LUT as Logic          |  161 |     0 |          0 |     70560 |  0.23 |
+| CLB LUTs*               | 6643 |     0 |          0 |     70560 |  9.41 |
+|   LUT as Logic          | 6643 |     0 |          0 |     70560 |  9.41 |
 |   LUT as Memory         |    0 |     0 |          0 |     28800 |  0.00 |
-| CLB Registers           |    7 |     0 |          0 |    141120 | <0.01 |
+| CLB Registers           |    0 |     0 |          0 |    141120 |  0.00 |
 |   Register as Flip Flop |    0 |     0 |          0 |    141120 |  0.00 |
-|   Register as Latch     |    7 |     0 |          0 |    141120 | <0.01 |
-| CARRY8                  |    0 |     0 |          0 |      8820 |  0.00 |
-| F7 Muxes                |    7 |     0 |          0 |     35280 |  0.02 |
-| F8 Muxes                |    0 |     0 |          0 |     17640 |  0.00 |
+|   Register as Latch     |    0 |     0 |          0 |    141120 |  0.00 |
+| CARRY8                  |  760 |     0 |          0 |      8820 |  8.62 |
+| F7 Muxes                |   24 |     0 |          0 |     35280 |  0.07 |
+| F8 Muxes                |    3 |     0 |          0 |     17640 |  0.02 |
 | F9 Muxes                |    0 |     0 |          0 |      8820 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -61,7 +61,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 7     |          Yes |           - |        Reset |
+| 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -83,11 +83,12 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 3. ARITHMETIC
 -------------
 
-+-----------+------+-------+------------+-----------+-------+
-| Site Type | Used | Fixed | Prohibited | Available | Util% |
-+-----------+------+-------+------------+-----------+-------+
-| DSPs      |    0 |     0 |          0 |       360 |  0.00 |
-+-----------+------+-------+------------+-----------+-------+
++----------------+------+-------+------------+-----------+-------+
+|    Site Type   | Used | Fixed | Prohibited | Available | Util% |
++----------------+------+-------+------------+-----------+-------+
+| DSPs           |   38 |     0 |          0 |       360 | 10.56 |
+|   DSP48E2 only |   38 |       |            |           |       |
++----------------+------+-------+------------+-----------+-------+
 
 
 4. I/O
@@ -161,13 +162,16 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  122 |                 CLB |
-| LUT5     |   28 |                 CLB |
-| LUT4     |   13 |                 CLB |
-| LUT2     |   13 |                 CLB |
-| MUXF7    |    7 |                 CLB |
-| LDCE     |    7 |            Register |
-| LUT3     |    5 |                 CLB |
+| LUT2     | 3943 |                 CLB |
+| LUT1     | 1236 |                 CLB |
+| LUT6     | 1137 |                 CLB |
+| CARRY8   |  760 |                 CLB |
+| LUT3     |  621 |                 CLB |
+| LUT4     |  566 |                 CLB |
+| LUT5     |  488 |                 CLB |
+| DSP48E2  |   38 |          Arithmetic |
+| MUXF7    |   24 |                 CLB |
+| MUXF8    |    3 |                 CLB |
 +----------+------+---------------------+
 
 

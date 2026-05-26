@@ -2,10 +2,10 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Tue Apr 28 15:54:43 2026
-// Host        : Lab016-05 running 64-bit major release  (build 9200)
+// Date        : Tue May 26 15:55:20 2026
+// Host        : Lab016-03 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/Users/lab/Desktop/SpaceWar/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0_stub.v
+//               c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0_stub.v
 // Design      : design_1_ImgGen_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xczu3eg-sfvc784-2-e
@@ -16,13 +16,14 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* CHECK_LICENSE_TYPE = "design_1_ImgGen_0_0,ImgGen,{}" *) (* CORE_GENERATION_INFO = "design_1_ImgGen_0_0,ImgGen,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=ImgGen,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) 
 (* IP_DEFINITION_SOURCE = "module_ref" *) (* X_CORE_INFO = "ImgGen,Vivado 2025.1" *) 
-module design_1_ImgGen_0_0(ANG, Clk, RstN, PosX, PosY, R, G, B)
-/* synthesis syn_black_box black_box_pad_pin="ANG[4:0],Clk,RstN,PosX[9:0],PosY[9:0],R[7:0],G[7:0],B[7:0]" */;
+module design_1_ImgGen_0_0(ANG, Clk, RstN, PosX, PosY, Enemies_in, R, G, B)
+/* synthesis syn_black_box black_box_pad_pin="ANG[4:0],Clk,RstN,PosX[9:0],PosY[9:0],Enemies_in[263:0],R[7:0],G[7:0],B[7:0]" */;
   input [4:0]ANG;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clk CLK" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clk, ASSOCIATED_RESET RstN, FREQ_HZ 25000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_0_clk25, INSERT_VIP 0" *) input Clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RstN RST" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RstN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input RstN;
   input [9:0]PosX;
   input [9:0]PosY;
+  input [263:0]Enemies_in;
   output [7:0]R;
   output [7:0]G;
   output [7:0]B;
