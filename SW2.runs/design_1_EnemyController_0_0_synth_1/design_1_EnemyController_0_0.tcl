@@ -56,11 +56,9 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "design_1_EnemyController_0_0_synth_1" START { ROLLUP_AUTO }
-set_param general.maxThreads 6
 set_param chipscope.maxJobs 3
 set_param general.usePosixSpawnForFork 1
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/mref
@@ -90,7 +88,7 @@ read_vhdl -library xil_defaultlib {
   C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/sources_1/new/GameMathPkg.vhd
   C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/sources_1/new/EnemyController.vhd
 }
-read_ip -quiet c:/Users/lab/Documents/GitHub/SW2/SW2.srcs/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0.xci
+read_ip -quiet C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

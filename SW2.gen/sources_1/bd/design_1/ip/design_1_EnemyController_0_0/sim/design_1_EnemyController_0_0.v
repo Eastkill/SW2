@@ -63,7 +63,7 @@ module design_1_EnemyController_0_0 (
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clk CLK" *)
 (* X_INTERFACE_MODE = "slave" *)
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clk, ASSOCIATED_RESET RstN, FREQ_HZ 25000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_0_clk25, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clk, ASSOCIATED_RESET RstN, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *)
 input wire Clk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RstN RST" *)
 (* X_INTERFACE_MODE = "slave" *)

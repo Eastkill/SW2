@@ -7,7 +7,7 @@ entity EnemyController is
     Port (
         Clk       : in STD_LOGIC;
         RstN      : in STD_LOGIC;
-        FrameTick : in STD_LOGIC; -- Impuls 1 na klatkę (np. z VSync)
+        FrameTick : in STD_LOGIC; -- Impuls 1 na klatkę 
         EnemiesOut: out std_logic_vector(263 downto 0)
     );
 end EnemyController;
@@ -21,7 +21,7 @@ architecture Behavioral of EnemyController is
     
     -- Stałe konfiguracyjne gry
     constant SPAWN_CHANCE : integer := 200; -- Szansa na spawn (im mniejsza, tym częściej)
-    constant STARTING_R   : integer := 400; -- Promień początkowy (poza środkiem ekranu)
+    constant STARTING_R   : integer := 120; -- Promień początkowy (poza środkiem ekranu)
     constant MIN_R        : integer := 20;  -- Minimalny promień (położenie gracza)
     constant SPEED        : integer := 2;   -- O ile pikseli maleje promień co klatkę
 
@@ -31,7 +31,8 @@ begin
         variable rand_angle : integer range 0 to 23;
         variable feedback : std_logic;
     begin
-        if RstN = '0' then
+        if RstN = '0'
+         then
             lfsr <= x"ACE1";
             for i in 0 to 23 loop
                 enemies(i).is_active <= '0';

@@ -10,6 +10,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.PlayerSpritesPkg.all;
 use work.GameMathPkg.all; -- Dodajemy nasz nowy pakiet
+use work.EnemySpritesPkg.all;
 
 entity ImgGen is
     Port (
@@ -69,6 +70,7 @@ architecture Behavioral of ImgGen is
     constant S_315 : sprite_rom_type := flip_horizontal(SHIP_HALF_ANGLE);
     constant S_330 : sprite_rom_type := flip_horizontal(SHIP_ANGLE_2);
     constant S_345 : sprite_rom_type := flip_horizontal(SHIP_ANGLE_1);
+  
 
 begin
 process(Enemies_in)
@@ -172,10 +174,16 @@ process(Enemies_in)
                     if sPosX >= enemyX(i)-ENEMY_SIZE and sPosX < enemyX(i)+ENEMY_SIZE and
                        sPosY >= enemyY(i)-ENEMY_SIZE and sPosY < enemyY(i)+ENEMY_SIZE then
                         
-                        -- Generujemy czerwony kwadrat dla wroga (możesz podmienić na sprite)
-                        R <= "11111111"; -- Pełny czerwony
-                        G <= "00000000";
-                        B <= "00000000";
+--                        relX := to_integer((sPosX - (X - SQ_SIZE*2))/4);
+--                        relY := to_integer((sPosY - (Y - SQ_SIZE*2))/4);
+--                        sprite_idx := (relY * 16) + relX;
+--                        pixel_color := ENEMY(sprite_idx);
+--                        R <= pixel_color;
+--                        G <= pixel_color;
+--                        B <= pixel_color;
+R <= "11111111";
+G <= "00000000";
+B <= "00000000";
                         drawing_enemy := true;
                         exit; -- Narysowaliśmy przeciwnika (najwyższego w pętli), kończymy sprawdzanie reszty
                     end if;

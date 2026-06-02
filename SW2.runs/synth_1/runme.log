@@ -8,12 +8,12 @@
   **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
   **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
   **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-  **** Start of session at: Tue May 26 15:59:33 2026
+  **** Start of session at: Tue Jun  2 14:48:49 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
-Sourcing tcl script 'C:/Users/lab/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
 source design_1_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 491.688 ; gain = 209.324
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Xilinx/IP_Repo'.
 WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/Xilinx/IP_Repo/OLED_ASCII'. The path is contained within another repository.
@@ -28,49 +28,51 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu3eg
 INFO: [Device 21-403] Loading part xczu3eg-sfvc784-2-e
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 6 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10416
+INFO: [Synth 8-7075] Helper process launched with PID 7048
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1680.406 ; gain = 198.656
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1677.254 ; gain = 200.180
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [C:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_EnemyController_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_EnemyController_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_EnemyController_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_EnemyController_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_HDMI_TX_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_HDMI_TX_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_HDMI_TX_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_HDMI_TX_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ImgGen_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_ImgGen_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ImgGen_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_ImgGen_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_RotaryEnc_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_RotaryEnc_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_RotaryEnc_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_RotaryEnc_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_VideoTiming_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_VideoTiming_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_VideoTiming_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_VideoTiming_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_angle_encoder_1_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_angle_encoder_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_angle_encoder_1_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_angle_encoder_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_clk_wiz_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-11996-Lab016-03/realtime/design_1_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_EnemyController_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_EnemyController_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_EnemyController_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_EnemyController_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_HDMI_TX_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_HDMI_TX_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_HDMI_TX_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_HDMI_TX_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ImgGen_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_ImgGen_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ImgGen_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_ImgGen_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_RotaryEnc_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_RotaryEnc_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_RotaryEnc_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_RotaryEnc_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_TickGenerator_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_TickGenerator_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_TickGenerator_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_TickGenerator_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_VideoTiming_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_VideoTiming_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_VideoTiming_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_VideoTiming_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_angle_encoder_1_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_angle_encoder_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_angle_encoder_1_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_angle_encoder_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-576-Lab016-09/realtime/design_1_clk_wiz_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1788.715 ; gain = 306.965
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1785.234 ; gain = 308.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1788.715 ; gain = 306.965
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1785.234 ; gain = 308.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1788.715 ; gain = 306.965
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1785.234 ; gain = 308.160
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1788.715 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1785.234 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
-create_clock: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1807.457 ; gain = 13.570
+create_clock: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1808.172 ; gain = 13.113
 Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
 Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0_in_context.xdc] for cell 'design_1_i/HDMI_TX_0'
 Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0_in_context.xdc] for cell 'design_1_i/HDMI_TX_0'
@@ -84,6 +86,8 @@ Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_
 Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0_in_context.xdc] for cell 'design_1_i/angle_encoder_1'
 Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0/design_1_EnemyController_0_0_in_context.xdc] for cell 'design_1_i/EnemyController_0'
 Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0/design_1_EnemyController_0_0_in_context.xdc] for cell 'design_1_i/EnemyController_0'
+Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0_in_context.xdc] for cell 'design_1_i/TickGenerator_0'
+Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0_in_context.xdc] for cell 'design_1_i/TickGenerator_0'
 Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]
 Finished Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
@@ -96,15 +100,15 @@ Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/dont_touch.
 Finished Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1807.457 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1808.172 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1807.457 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1808.172 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1807.457 ; gain = 325.707
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1808.172 ; gain = 331.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -112,16 +116,16 @@ Start Loading Part and Timing Information
 Loading part: xczu3eg-sfvc784-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1807.457 ; gain = 325.707
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1808.172 ; gain = 331.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1807.457 ; gain = 325.707
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1808.172 ; gain = 331.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1807.457 ; gain = 325.707
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1808.172 ; gain = 331.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -144,25 +148,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1820.160 ; gain = 338.410
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1808.172 ; gain = 331.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2521.398 ; gain = 1039.648
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2505.215 ; gain = 1028.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2521.398 ; gain = 1039.648
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2505.215 ; gain = 1028.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2531.086 ; gain = 1049.336
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2514.977 ; gain = 1037.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -180,37 +184,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -224,9 +228,10 @@ Report BlackBoxes:
 |2     |design_1_HDMI_TX_0_0         |         1|
 |3     |design_1_ImgGen_0_0          |         1|
 |4     |design_1_RotaryEnc_0_0       |         1|
-|5     |design_1_VideoTiming_0_0     |         1|
-|6     |design_1_angle_encoder_1_0   |         1|
-|7     |design_1_clk_wiz_0_0         |         1|
+|5     |design_1_TickGenerator_0_0   |         1|
+|6     |design_1_VideoTiming_0_0     |         1|
+|7     |design_1_angle_encoder_1_0   |         1|
+|8     |design_1_clk_wiz_0_0         |         1|
 +------+-----------------------------+----------+
 
 Report Cell Usage: 
@@ -237,35 +242,36 @@ Report Cell Usage:
 |2     |design_1_HDMI_TX_0         |     1|
 |3     |design_1_ImgGen_0          |     1|
 |4     |design_1_RotaryEnc_0       |     1|
-|5     |design_1_VideoTiming_0     |     1|
-|6     |design_1_angle_encoder_1   |     1|
-|7     |design_1_clk_wiz_0         |     1|
-|8     |IBUF                       |     3|
-|9     |OBUF                       |    13|
+|5     |design_1_TickGenerator_0   |     1|
+|6     |design_1_VideoTiming_0     |     1|
+|7     |design_1_angle_encoder_1   |     1|
+|8     |design_1_clk_wiz_0         |     1|
+|9     |IBUF                       |     3|
+|10    |OBUF                       |    13|
 +------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 2766.441 ; gain = 1265.949
-Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2766.441 ; gain = 1284.691
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 2750.312 ; gain = 1250.301
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2750.312 ; gain = 1273.238
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2766.441 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2750.312 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2766.441 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2750.312 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 3 instances were transformed.
   IBUF => IBUF (IBUFCTRL, INBUF): 3 instances
 
-Synth Design complete | Checksum: fba8e7ab
+Synth Design complete | Checksum: 83b5a490
 INFO: [Common 17-83] Releasing license: Synthesis
-44 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+46 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 2766.441 ; gain = 2209.945
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2766.441 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:47 . Memory (MB): peak = 2750.312 ; gain = 2201.781
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2750.312 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue May 26 16:00:29 2026...
+INFO: [Common 17-206] Exiting Vivado at Tue Jun  2 14:49:46 2026...

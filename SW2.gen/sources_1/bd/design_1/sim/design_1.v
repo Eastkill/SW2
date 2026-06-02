@@ -2,15 +2,15 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Tue May 26 15:53:52 2026
-//Host        : Lab016-03 running 64-bit major release  (build 9200)
+//Date        : Tue Jun  2 14:02:15 2026
+//Host        : Lab016-09 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=8,numReposBlks=8,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (HDMI_CK_N,
     HDMI_CK_P,
@@ -59,6 +59,7 @@ module design_1
   wire ROT_B;
   wire RotaryEnc_0_RotL;
   wire RotaryEnc_0_RotR;
+  wire TickGenerator_0_FrameTick;
   wire VideoTiming_0_DE;
   wire VideoTiming_0_HSync;
   wire [9:0]VideoTiming_0_PosX;
@@ -71,7 +72,7 @@ module design_1
   wire clk_wiz_0_locked;
 
   design_1_EnemyController_0_0 EnemyController_0
-       (.Clk(clk_wiz_0_clk25),
+       (.Clk(TickGenerator_0_FrameTick),
         .EnemiesOut(EnemyController_0_EnemiesOut),
         .FrameTick(VideoTiming_0_VSync),
         .RstN(PL_USER_PB0));
@@ -109,6 +110,10 @@ module design_1
         .ROT_B(ROT_B),
         .RotL(RotaryEnc_0_RotL),
         .RotR(RotaryEnc_0_RotR));
+  design_1_TickGenerator_0_0 TickGenerator_0
+       (.Clk(clk_wiz_0_clk25),
+        .FrameTick(TickGenerator_0_FrameTick),
+        .RstN(PL_USER_PB0));
   design_1_VideoTiming_0_0 VideoTiming_0
        (.DE(VideoTiming_0_DE),
         .HSync(VideoTiming_0_HSync),

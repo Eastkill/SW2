@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xczu3eg-sfvc784-2-e" LaunchTime="1779803914" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ImgGen.dcp">
+<GenRun Id="synth_1" LaunchPart="xczu3eg-sfvc784-2-e" LaunchTime="1780404528" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ImgGen.dcp">
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="design_1_wrapper.vds"/>
@@ -48,6 +48,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/TickGenerator.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -59,6 +65,13 @@
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/EnemySpritesPkg.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -111,4 +124,5 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_RotaryEnc_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_VideoTiming_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_EnemyController_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_TickGenerator_0_0"/>
 </GenRun>

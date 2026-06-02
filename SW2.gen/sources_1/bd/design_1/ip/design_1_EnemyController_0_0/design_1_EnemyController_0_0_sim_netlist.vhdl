@@ -2,8 +2,8 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Tue May 26 15:59:30 2026
--- Host        : Lab016-03 running 64-bit major release  (build 9200)
+-- Date        : Tue Jun  2 14:03:16 2026
+-- Host        : Lab016-09 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0_sim_netlist.vhdl
 -- Design      : design_1_EnemyController_0_0
@@ -18,13 +18,14 @@ use UNISIM.VCOMPONENTS.ALL;
 entity design_1_EnemyController_0_0_EnemyController is
   port (
     Q : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    \enemies_reg[19][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    \enemies_reg[17][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    \enemies_reg[16][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[23][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[22][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[21][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[20][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    \enemies_reg[19][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    \enemies_reg[18][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    \enemies_reg[17][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    \enemies_reg[16][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[15][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[14][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[13][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
@@ -40,7 +41,30 @@ entity design_1_EnemyController_0_0_EnemyController is
     \enemies_reg[3][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[2][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[1][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    EnemiesOut : out STD_LOGIC_VECTOR ( 32 downto 0 );
+    \enemies_reg[0][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[23][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[22][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[21][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[20][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[19][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[18][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[17][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[16][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[15][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[14][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[13][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[12][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[11][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[10][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[9][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[8][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[7][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[6][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[5][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[4][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[3][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[2][is_active]_0\ : out STD_LOGIC;
+    \enemies_reg[1][is_active]_0\ : out STD_LOGIC;
     FrameTick : in STD_LOGIC;
     Clk : in STD_LOGIC;
     RstN : in STD_LOGIC
@@ -50,7 +74,6 @@ entity design_1_EnemyController_0_0_EnemyController is
 end design_1_EnemyController_0_0_EnemyController;
 
 architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
-  signal \^enemiesout\ : STD_LOGIC_VECTOR ( 32 downto 0 );
   signal \^q\ : STD_LOGIC_VECTOR ( 8 downto 0 );
   signal \enemies[0][R]\ : STD_LOGIC;
   signal \enemies[0][R][1]_i_1_n_0\ : STD_LOGIC;
@@ -86,9 +109,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[10][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[10][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[10][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[10][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[10][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[10][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[10][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[10][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[10][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[10][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -106,9 +129,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[11][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[11][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[11][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[11][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[11][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[11][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[11][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[11][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[11][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[11][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -127,9 +150,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[12][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[12][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[12][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[12][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[12][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[12][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[12][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[12][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[12][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[12][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -147,9 +170,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[13][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[13][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[13][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[13][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[13][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[13][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[13][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[13][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[13][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[13][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -167,9 +190,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[14][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[14][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[14][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[14][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[14][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[14][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[14][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[14][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[14][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[14][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -187,9 +210,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[15][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[15][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[15][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[15][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[15][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[15][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[15][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[15][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[15][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[15][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -278,14 +301,18 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[19][is_active]_i_3_n_0\ : STD_LOGIC;
   signal \enemies[19][is_active]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[1][R]\ : STD_LOGIC;
+  signal \enemies[1][R][1]_i_1_n_0\ : STD_LOGIC;
+  signal \enemies[1][R][2]_i_1_n_0\ : STD_LOGIC;
+  signal \enemies[1][R][3]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[1][R][3]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[1][R][4]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[1][R][4]_i_2_n_0\ : STD_LOGIC;
+  signal \enemies[1][R][5]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[1][R][5]_i_2_n_0\ : STD_LOGIC;
+  signal \enemies[1][R][6]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[1][R][6]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[1][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[1][R][7]_i_2_n_0\ : STD_LOGIC;
-  signal \enemies[1][R][8]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[1][R][9]_i_3_n_0\ : STD_LOGIC;
   signal \enemies[1][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[1][is_active]_i_1_n_0\ : STD_LOGIC;
@@ -305,9 +332,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[20][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[20][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[20][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[20][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[20][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[20][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[20][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[20][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[20][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[20][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -326,9 +353,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[21][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[21][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[21][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[21][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[21][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[21][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[21][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[21][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[21][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[21][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -347,9 +374,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[22][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[22][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[22][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[22][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[22][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[22][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[22][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[22][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[22][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[22][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -368,15 +395,14 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[23][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[23][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[23][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[23][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[23][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[23][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[23][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_10_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_11_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_12_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_13_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_14_n_0\ : STD_LOGIC;
-  signal \enemies[23][is_active]_i_15_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[23][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -391,20 +417,19 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[2][R][2]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[2][R][3]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[2][R][4]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[2][R][4]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[2][R][5]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[2][R][5]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[2][R][6]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[2][R][6]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[2][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[2][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[2][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[2][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[2][R][9]_i_3_n_0\ : STD_LOGIC;
   signal \enemies[2][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[2][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[2][is_active]_i_3_n_0\ : STD_LOGIC;
   signal \enemies[2][is_active]_i_4_n_0\ : STD_LOGIC;
+  signal \enemies[2][is_active]_i_5_n_0\ : STD_LOGIC;
   signal \enemies[3][R]\ : STD_LOGIC;
   signal \enemies[3][R][1]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[3][R][2]_i_1_n_0\ : STD_LOGIC;
@@ -440,9 +465,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[4][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[4][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[4][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[4][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[4][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[4][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[4][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[4][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[4][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[4][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -460,9 +485,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[5][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[5][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[5][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[5][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[5][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[5][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[5][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[5][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[5][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[5][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -480,9 +505,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[6][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[6][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[6][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[6][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[6][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[6][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[6][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[6][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[6][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[6][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -500,9 +525,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[7][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[7][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[7][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[7][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[7][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[7][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[7][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[7][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[7][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[7][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -521,9 +546,9 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[8][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[8][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[8][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[8][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[8][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[8][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[8][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[8][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[8][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[8][is_active]_i_3_n_0\ : STD_LOGIC;
@@ -541,34 +566,59 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[9][R][7]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[9][R][7]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[9][R][8]_i_1_n_0\ : STD_LOGIC;
-  signal \enemies[9][R][8]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[9][R][9]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[9][R][9]_i_3_n_0\ : STD_LOGIC;
+  signal \enemies[9][R][9]_i_4_n_0\ : STD_LOGIC;
   signal \enemies[9][is_active]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[9][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[9][is_active]_i_3_n_0\ : STD_LOGIC;
+  signal \^enemies_reg[0][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[10][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[10][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[11][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[11][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[12][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[12][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[13][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[13][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[14][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[14][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[15][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[15][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[16][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[16][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[17][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[17][is_active]_0\ : STD_LOGIC;
+  signal \^enemies_reg[18][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[18][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[19][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[19][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[1][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[1][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[20][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[20][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[21][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[21][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[22][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[22][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[23][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[23][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[2][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[2][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[3][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[3][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[4][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[4][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[5][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[5][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[6][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[6][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[7][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[7][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[8][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[8][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[9][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal \^enemies_reg[9][is_active]_0\ : STD_LOGIC;
   signal \lfsr_reg_n_0_[0]\ : STD_LOGIC;
   signal \lfsr_reg_n_0_[11]\ : STD_LOGIC;
   signal \lfsr_reg_n_0_[12]\ : STD_LOGIC;
@@ -578,219 +628,259 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \lfsr_reg_n_0_[1]\ : STD_LOGIC;
   signal \lfsr_reg_n_0_[2]\ : STD_LOGIC;
   signal p_0_in : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 9 downto 1 );
+  signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 9 downto 8 );
   signal p_0_out : STD_LOGIC_VECTOR ( 0 to 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \enemies[0][R][3]_i_2\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \enemies[0][R][4]_i_2\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \enemies[0][R][5]_i_2\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \enemies[0][R][6]_i_2\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \enemies[0][R][9]_i_3\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \enemies[0][R][9]_i_4\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \enemies[0][is_active]_i_2\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \enemies[10][R][3]_i_2\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \enemies[10][R][4]_i_2\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \enemies[10][R][5]_i_2\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \enemies[10][R][6]_i_2\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \enemies[10][R][8]_i_2\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \enemies[10][is_active]_i_3\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \enemies[11][R][3]_i_2\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \enemies[11][R][4]_i_2\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \enemies[11][R][5]_i_2\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \enemies[11][R][6]_i_2\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \enemies[11][R][8]_i_2\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \enemies[11][is_active]_i_4\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \enemies[12][R][3]_i_2\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \enemies[12][R][4]_i_2\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \enemies[12][R][5]_i_2\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \enemies[12][R][6]_i_2\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \enemies[12][R][8]_i_2\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \enemies[12][is_active]_i_3\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \enemies[13][R][3]_i_2\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \enemies[13][R][4]_i_2\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \enemies[13][R][5]_i_2\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \enemies[13][R][6]_i_2\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \enemies[13][R][8]_i_2\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \enemies[13][is_active]_i_3\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \enemies[14][R][3]_i_2\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \enemies[14][R][4]_i_2\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \enemies[14][R][5]_i_2\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \enemies[14][R][6]_i_2\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \enemies[14][R][8]_i_2\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \enemies[14][is_active]_i_3\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \enemies[15][R][3]_i_2\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \enemies[15][R][4]_i_2\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \enemies[15][R][5]_i_2\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \enemies[15][R][6]_i_2\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \enemies[15][R][8]_i_2\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \enemies[15][is_active]_i_5\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \enemies[16][R][3]_i_2\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \enemies[16][R][4]_i_2\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \enemies[16][R][5]_i_2\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \enemies[16][R][6]_i_2\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \enemies[16][R][9]_i_3\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \enemies[16][R][9]_i_4\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \enemies[16][is_active]_i_3\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \enemies[17][R][3]_i_2\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \enemies[17][R][4]_i_2\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \enemies[17][R][5]_i_2\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \enemies[17][R][6]_i_2\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \enemies[17][R][9]_i_3\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \enemies[17][R][9]_i_4\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \enemies[17][is_active]_i_3\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \enemies[18][R][4]_i_2\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \enemies[18][R][5]_i_2\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \enemies[18][R][9]_i_3\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \enemies[18][R][9]_i_4\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \enemies[18][is_active]_i_5\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \enemies[19][R][3]_i_2\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \enemies[19][R][4]_i_2\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \enemies[19][R][5]_i_2\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \enemies[19][R][6]_i_2\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \enemies[19][R][9]_i_3\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \enemies[19][R][9]_i_4\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \enemies[19][is_active]_i_4\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \enemies[1][R][3]_i_2\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \enemies[1][R][4]_i_2\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \enemies[1][R][5]_i_2\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \enemies[1][R][6]_i_2\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \enemies[1][R][9]_i_3\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \enemies[1][R][9]_i_4\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \enemies[1][is_active]_i_3\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \enemies[20][R][3]_i_2\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \enemies[20][R][4]_i_2\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \enemies[20][R][5]_i_2\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \enemies[20][R][6]_i_2\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \enemies[20][R][8]_i_2\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \enemies[20][is_active]_i_4\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \enemies[21][R][3]_i_2\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \enemies[21][R][4]_i_2\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \enemies[21][R][5]_i_2\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \enemies[21][R][6]_i_2\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \enemies[21][R][8]_i_2\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \enemies[21][is_active]_i_4\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \enemies[22][R][3]_i_2\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \enemies[22][R][4]_i_2\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \enemies[22][R][5]_i_2\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \enemies[22][R][6]_i_2\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \enemies[22][R][8]_i_2\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \enemies[22][is_active]_i_4\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \enemies[23][R][3]_i_2\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \enemies[23][R][4]_i_2\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \enemies[23][R][5]_i_2\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \enemies[23][R][6]_i_2\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \enemies[23][R][8]_i_2\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \enemies[23][is_active]_i_7\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \enemies[2][R][4]_i_2\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \enemies[2][R][5]_i_2\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \enemies[2][R][7]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \enemies[2][R][9]_i_3\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \enemies[2][is_active]_i_3\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \enemies[3][R][3]_i_2\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \enemies[3][R][4]_i_2\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \enemies[3][R][5]_i_2\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \enemies[3][R][6]_i_2\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \enemies[3][R][9]_i_3\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \enemies[3][R][9]_i_4\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \enemies[3][is_active]_i_4\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \enemies[4][R][3]_i_2\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \enemies[4][R][4]_i_2\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \enemies[4][R][5]_i_2\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \enemies[4][R][6]_i_2\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \enemies[4][R][8]_i_2\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \enemies[4][is_active]_i_3\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \enemies[5][R][3]_i_2\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \enemies[5][R][4]_i_2\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \enemies[5][R][5]_i_2\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \enemies[5][R][6]_i_2\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \enemies[5][R][8]_i_2\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \enemies[5][is_active]_i_3\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \enemies[6][R][3]_i_2\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \enemies[6][R][4]_i_2\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \enemies[6][R][5]_i_2\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \enemies[6][R][6]_i_2\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \enemies[6][R][8]_i_2\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \enemies[6][is_active]_i_3\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \enemies[7][R][3]_i_2\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \enemies[7][R][4]_i_2\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \enemies[7][R][5]_i_2\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \enemies[7][R][6]_i_2\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \enemies[7][R][8]_i_2\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \enemies[7][is_active]_i_4\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \enemies[8][R][3]_i_2\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \enemies[8][R][4]_i_2\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \enemies[8][R][5]_i_2\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \enemies[8][R][6]_i_2\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \enemies[8][R][8]_i_2\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \enemies[8][is_active]_i_3\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \enemies[9][R][3]_i_2\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \enemies[9][R][4]_i_2\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \enemies[9][R][5]_i_2\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \enemies[9][R][6]_i_2\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \enemies[9][R][8]_i_2\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \enemies[9][is_active]_i_3\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \enemies[0][R][3]_i_2\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \enemies[0][R][4]_i_2\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \enemies[0][R][5]_i_2\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \enemies[0][R][6]_i_2\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \enemies[0][R][9]_i_3\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \enemies[0][R][9]_i_4\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \enemies[0][is_active]_i_2\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \enemies[10][R][3]_i_2\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \enemies[10][R][4]_i_2\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \enemies[10][R][5]_i_2\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \enemies[10][R][6]_i_2\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \enemies[10][R][9]_i_3\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \enemies[10][R][9]_i_4\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \enemies[10][is_active]_i_3\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \enemies[11][R][3]_i_2\ : label is "soft_lutpair70";
+  attribute SOFT_HLUTNM of \enemies[11][R][4]_i_2\ : label is "soft_lutpair70";
+  attribute SOFT_HLUTNM of \enemies[11][R][5]_i_2\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \enemies[11][R][6]_i_2\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \enemies[11][R][9]_i_3\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \enemies[11][R][9]_i_4\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \enemies[11][is_active]_i_4\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \enemies[12][R][3]_i_2\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \enemies[12][R][4]_i_2\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \enemies[12][R][5]_i_2\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \enemies[12][R][6]_i_2\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \enemies[12][R][9]_i_3\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \enemies[12][R][9]_i_4\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \enemies[12][is_active]_i_3\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \enemies[13][R][3]_i_2\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \enemies[13][R][4]_i_2\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \enemies[13][R][5]_i_2\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \enemies[13][R][6]_i_2\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \enemies[13][R][9]_i_3\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \enemies[13][R][9]_i_4\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \enemies[13][is_active]_i_3\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \enemies[14][R][3]_i_2\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \enemies[14][R][4]_i_2\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \enemies[14][R][5]_i_2\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \enemies[14][R][6]_i_2\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \enemies[14][R][9]_i_3\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \enemies[14][R][9]_i_4\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \enemies[14][is_active]_i_3\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \enemies[15][R][3]_i_2\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \enemies[15][R][4]_i_2\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \enemies[15][R][5]_i_2\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \enemies[15][R][6]_i_2\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \enemies[15][R][9]_i_3\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \enemies[15][R][9]_i_4\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \enemies[15][is_active]_i_5\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \enemies[16][R][3]_i_2\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \enemies[16][R][4]_i_2\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \enemies[16][R][5]_i_2\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \enemies[16][R][6]_i_2\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \enemies[16][R][9]_i_3\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \enemies[16][R][9]_i_4\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \enemies[16][is_active]_i_3\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \enemies[17][R][3]_i_2\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \enemies[17][R][4]_i_2\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \enemies[17][R][5]_i_2\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \enemies[17][R][6]_i_2\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \enemies[17][R][9]_i_3\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \enemies[17][R][9]_i_4\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \enemies[17][is_active]_i_3\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \enemies[18][R][9]_i_3\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \enemies[18][R][9]_i_4\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \enemies[18][is_active]_i_3\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \enemies[18][is_active]_i_4\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \enemies[18][is_active]_i_5\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \enemies[19][R][3]_i_2\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \enemies[19][R][4]_i_2\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \enemies[19][R][5]_i_2\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \enemies[19][R][6]_i_2\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \enemies[19][R][9]_i_3\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \enemies[19][R][9]_i_4\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \enemies[19][is_active]_i_4\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \enemies[1][R][3]_i_2\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \enemies[1][R][4]_i_2\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \enemies[1][R][5]_i_2\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \enemies[1][R][6]_i_2\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \enemies[1][R][9]_i_3\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \enemies[1][R][9]_i_4\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \enemies[1][is_active]_i_3\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \enemies[20][R][3]_i_2\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \enemies[20][R][4]_i_2\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \enemies[20][R][5]_i_2\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \enemies[20][R][6]_i_2\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \enemies[20][R][9]_i_3\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \enemies[20][R][9]_i_4\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \enemies[20][is_active]_i_4\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \enemies[21][R][3]_i_2\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of \enemies[21][R][4]_i_2\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of \enemies[21][R][5]_i_2\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \enemies[21][R][6]_i_2\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \enemies[21][R][9]_i_3\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \enemies[21][R][9]_i_4\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \enemies[21][is_active]_i_4\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \enemies[22][R][3]_i_2\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \enemies[22][R][4]_i_2\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \enemies[22][R][5]_i_2\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \enemies[22][R][6]_i_2\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \enemies[22][R][9]_i_3\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \enemies[22][R][9]_i_4\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \enemies[22][is_active]_i_4\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \enemies[23][R][3]_i_2\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \enemies[23][R][4]_i_2\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \enemies[23][R][5]_i_2\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \enemies[23][R][6]_i_2\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \enemies[23][R][9]_i_3\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \enemies[23][R][9]_i_4\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \enemies[23][is_active]_i_6\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \enemies[2][R][2]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \enemies[2][R][3]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \enemies[2][R][7]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \enemies[2][R][8]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \enemies[2][is_active]_i_5\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \enemies[3][R][3]_i_2\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \enemies[3][R][4]_i_2\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \enemies[3][R][5]_i_2\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \enemies[3][R][6]_i_2\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \enemies[3][R][9]_i_3\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \enemies[3][R][9]_i_4\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \enemies[3][is_active]_i_4\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \enemies[4][R][3]_i_2\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \enemies[4][R][4]_i_2\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \enemies[4][R][5]_i_2\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \enemies[4][R][6]_i_2\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \enemies[4][R][9]_i_3\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \enemies[4][R][9]_i_4\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \enemies[4][is_active]_i_3\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \enemies[5][R][3]_i_2\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \enemies[5][R][4]_i_2\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \enemies[5][R][5]_i_2\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \enemies[5][R][6]_i_2\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \enemies[5][R][9]_i_3\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \enemies[5][R][9]_i_4\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \enemies[5][is_active]_i_3\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \enemies[6][R][3]_i_2\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \enemies[6][R][4]_i_2\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \enemies[6][R][5]_i_2\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \enemies[6][R][6]_i_2\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \enemies[6][R][9]_i_3\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \enemies[6][R][9]_i_4\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \enemies[6][is_active]_i_3\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \enemies[7][R][3]_i_2\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \enemies[7][R][4]_i_2\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \enemies[7][R][5]_i_2\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \enemies[7][R][6]_i_2\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \enemies[7][R][9]_i_3\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \enemies[7][R][9]_i_4\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \enemies[7][is_active]_i_4\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \enemies[8][R][3]_i_2\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \enemies[8][R][4]_i_2\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \enemies[8][R][5]_i_2\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \enemies[8][R][6]_i_2\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \enemies[8][R][9]_i_3\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \enemies[8][R][9]_i_4\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \enemies[8][is_active]_i_3\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \enemies[9][R][3]_i_2\ : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \enemies[9][R][4]_i_2\ : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \enemies[9][R][5]_i_2\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \enemies[9][R][6]_i_2\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \enemies[9][R][9]_i_3\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \enemies[9][R][9]_i_4\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \enemies[9][is_active]_i_3\ : label is "soft_lutpair44";
 begin
-  EnemiesOut(32 downto 0) <= \^enemiesout\(32 downto 0);
   Q(8 downto 0) <= \^q\(8 downto 0);
+  \enemies_reg[0][is_active]_0\ <= \^enemies_reg[0][is_active]_0\;
   \enemies_reg[10][R][9]_0\(8 downto 0) <= \^enemies_reg[10][r][9]_0\(8 downto 0);
+  \enemies_reg[10][is_active]_0\ <= \^enemies_reg[10][is_active]_0\;
   \enemies_reg[11][R][9]_0\(8 downto 0) <= \^enemies_reg[11][r][9]_0\(8 downto 0);
+  \enemies_reg[11][is_active]_0\ <= \^enemies_reg[11][is_active]_0\;
   \enemies_reg[12][R][9]_0\(8 downto 0) <= \^enemies_reg[12][r][9]_0\(8 downto 0);
+  \enemies_reg[12][is_active]_0\ <= \^enemies_reg[12][is_active]_0\;
   \enemies_reg[13][R][9]_0\(8 downto 0) <= \^enemies_reg[13][r][9]_0\(8 downto 0);
+  \enemies_reg[13][is_active]_0\ <= \^enemies_reg[13][is_active]_0\;
   \enemies_reg[14][R][9]_0\(8 downto 0) <= \^enemies_reg[14][r][9]_0\(8 downto 0);
+  \enemies_reg[14][is_active]_0\ <= \^enemies_reg[14][is_active]_0\;
   \enemies_reg[15][R][9]_0\(8 downto 0) <= \^enemies_reg[15][r][9]_0\(8 downto 0);
+  \enemies_reg[15][is_active]_0\ <= \^enemies_reg[15][is_active]_0\;
   \enemies_reg[16][R][9]_0\(8 downto 0) <= \^enemies_reg[16][r][9]_0\(8 downto 0);
+  \enemies_reg[16][is_active]_0\ <= \^enemies_reg[16][is_active]_0\;
   \enemies_reg[17][R][9]_0\(8 downto 0) <= \^enemies_reg[17][r][9]_0\(8 downto 0);
+  \enemies_reg[17][is_active]_0\ <= \^enemies_reg[17][is_active]_0\;
+  \enemies_reg[18][R][9]_0\(8 downto 0) <= \^enemies_reg[18][r][9]_0\(8 downto 0);
+  \enemies_reg[18][is_active]_0\ <= \^enemies_reg[18][is_active]_0\;
   \enemies_reg[19][R][9]_0\(8 downto 0) <= \^enemies_reg[19][r][9]_0\(8 downto 0);
+  \enemies_reg[19][is_active]_0\ <= \^enemies_reg[19][is_active]_0\;
   \enemies_reg[1][R][9]_0\(8 downto 0) <= \^enemies_reg[1][r][9]_0\(8 downto 0);
+  \enemies_reg[1][is_active]_0\ <= \^enemies_reg[1][is_active]_0\;
   \enemies_reg[20][R][9]_0\(8 downto 0) <= \^enemies_reg[20][r][9]_0\(8 downto 0);
+  \enemies_reg[20][is_active]_0\ <= \^enemies_reg[20][is_active]_0\;
   \enemies_reg[21][R][9]_0\(8 downto 0) <= \^enemies_reg[21][r][9]_0\(8 downto 0);
+  \enemies_reg[21][is_active]_0\ <= \^enemies_reg[21][is_active]_0\;
   \enemies_reg[22][R][9]_0\(8 downto 0) <= \^enemies_reg[22][r][9]_0\(8 downto 0);
+  \enemies_reg[22][is_active]_0\ <= \^enemies_reg[22][is_active]_0\;
   \enemies_reg[23][R][9]_0\(8 downto 0) <= \^enemies_reg[23][r][9]_0\(8 downto 0);
+  \enemies_reg[23][is_active]_0\ <= \^enemies_reg[23][is_active]_0\;
   \enemies_reg[2][R][9]_0\(8 downto 0) <= \^enemies_reg[2][r][9]_0\(8 downto 0);
+  \enemies_reg[2][is_active]_0\ <= \^enemies_reg[2][is_active]_0\;
   \enemies_reg[3][R][9]_0\(8 downto 0) <= \^enemies_reg[3][r][9]_0\(8 downto 0);
+  \enemies_reg[3][is_active]_0\ <= \^enemies_reg[3][is_active]_0\;
   \enemies_reg[4][R][9]_0\(8 downto 0) <= \^enemies_reg[4][r][9]_0\(8 downto 0);
+  \enemies_reg[4][is_active]_0\ <= \^enemies_reg[4][is_active]_0\;
   \enemies_reg[5][R][9]_0\(8 downto 0) <= \^enemies_reg[5][r][9]_0\(8 downto 0);
+  \enemies_reg[5][is_active]_0\ <= \^enemies_reg[5][is_active]_0\;
   \enemies_reg[6][R][9]_0\(8 downto 0) <= \^enemies_reg[6][r][9]_0\(8 downto 0);
+  \enemies_reg[6][is_active]_0\ <= \^enemies_reg[6][is_active]_0\;
   \enemies_reg[7][R][9]_0\(8 downto 0) <= \^enemies_reg[7][r][9]_0\(8 downto 0);
+  \enemies_reg[7][is_active]_0\ <= \^enemies_reg[7][is_active]_0\;
   \enemies_reg[8][R][9]_0\(8 downto 0) <= \^enemies_reg[8][r][9]_0\(8 downto 0);
+  \enemies_reg[8][is_active]_0\ <= \^enemies_reg[8][is_active]_0\;
   \enemies_reg[9][R][9]_0\(8 downto 0) <= \^enemies_reg[9][r][9]_0\(8 downto 0);
+  \enemies_reg[9][is_active]_0\ <= \^enemies_reg[9][is_active]_0\;
 \enemies[0][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"00000000AAAAAAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \lfsr_reg_n_0_[0]\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \enemies[3][is_active]_i_3_n_0\,
-      I4 => \enemies[0][is_active]_i_2_n_0\,
-      I5 => \^enemiesout\(0),
+      I0 => \enemies[0][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \lfsr_reg_n_0_[0]\,
+      I3 => \lfsr_reg_n_0_[1]\,
+      I4 => \enemies[3][is_active]_i_3_n_0\,
+      I5 => \^q\(0),
       O => \enemies[0][R][1]_i_1_n_0\
     );
 \enemies[0][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[0][is_active]_i_2_n_0\,
-      I4 => \^enemiesout\(1),
-      I5 => \^enemiesout\(0),
+      I0 => \enemies[0][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[20][is_active]_i_3_n_0\,
+      I3 => \enemies[3][is_active]_i_3_n_0\,
+      I4 => \^q\(1),
+      I5 => \^q\(0),
       O => \enemies[0][R][2]_i_1_n_0\
     );
 \enemies[0][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"FF0101FF01010101"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[0][is_active]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \^q\(2),
       I4 => \enemies[0][R][3]_i_2_n_0\,
-      I5 => \^enemiesout\(2),
+      I5 => \enemies[0][is_active]_i_2_n_0\,
       O => \enemies[0][R][3]_i_1_n_0\
     );
 \enemies[0][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -798,8 +888,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => \^enemiesout\(0),
-      I1 => \^enemiesout\(1),
+      I0 => \^q\(0),
+      I1 => \^q\(1),
       O => \enemies[0][R][3]_i_2_n_0\
     );
 \enemies[0][R][4]_i_1\: unisim.vcomponents.LUT6
@@ -810,7 +900,7 @@ begin
       I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \^enemiesout\(3),
+      I3 => \^q\(3),
       I4 => \enemies[0][R][4]_i_2_n_0\,
       I5 => \enemies[0][is_active]_i_2_n_0\,
       O => \enemies[0][R][4]_i_1_n_0\
@@ -820,61 +910,12 @@ begin
       INIT => X"FE"
     )
         port map (
-      I0 => \^enemiesout\(2),
-      I1 => \^enemiesout\(1),
-      I2 => \^enemiesout\(0),
+      I0 => \^q\(2),
+      I1 => \^q\(1),
+      I2 => \^q\(0),
       O => \enemies[0][R][4]_i_2_n_0\
     );
 \enemies[0][R][5]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FE0000000000FE00"
-    )
-        port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[0][is_active]_i_2_n_0\,
-      I4 => \enemies[0][R][5]_i_2_n_0\,
-      I5 => \^enemiesout\(4),
-      O => \enemies[0][R][5]_i_1_n_0\
-    );
-\enemies[0][R][5]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => \^enemiesout\(3),
-      I1 => \^enemiesout\(0),
-      I2 => \^enemiesout\(1),
-      I3 => \^enemiesout\(2),
-      O => \enemies[0][R][5]_i_2_n_0\
-    );
-\enemies[0][R][6]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FE0000000000FE00"
-    )
-        port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[0][is_active]_i_2_n_0\,
-      I4 => \enemies[0][R][6]_i_2_n_0\,
-      I5 => \^enemiesout\(5),
-      O => \enemies[0][R][6]_i_1_n_0\
-    );
-\enemies[0][R][6]_i_2\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => \^enemiesout\(4),
-      I1 => \^enemiesout\(2),
-      I2 => \^enemiesout\(1),
-      I3 => \^enemiesout\(0),
-      I4 => \^enemiesout\(3),
-      O => \enemies[0][R][6]_i_2_n_0\
-    );
-\enemies[0][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FF0101FF01010101"
     )
@@ -882,25 +923,23 @@ begin
       I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \^enemiesout\(6),
-      I4 => \enemies[0][R][7]_i_2_n_0\,
+      I3 => \^q\(4),
+      I4 => \enemies[0][R][5]_i_2_n_0\,
       I5 => \enemies[0][is_active]_i_2_n_0\,
-      O => \enemies[0][R][7]_i_1_n_0\
+      O => \enemies[0][R][5]_i_1_n_0\
     );
-\enemies[0][R][7]_i_2\: unisim.vcomponents.LUT6
+\enemies[0][R][5]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => \^enemiesout\(5),
-      I1 => \^enemiesout\(3),
-      I2 => \^enemiesout\(0),
-      I3 => \^enemiesout\(1),
-      I4 => \^enemiesout\(2),
-      I5 => \^enemiesout\(4),
-      O => \enemies[0][R][7]_i_2_n_0\
+      I0 => \^q\(3),
+      I1 => \^q\(0),
+      I2 => \^q\(1),
+      I3 => \^q\(2),
+      O => \enemies[0][R][5]_i_2_n_0\
     );
-\enemies[0][R][8]_i_1\: unisim.vcomponents.LUT6
+\enemies[0][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"01FFFF0101010101"
     )
@@ -908,9 +947,60 @@ begin
       I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \^enemiesout\(7),
-      I4 => \enemies[0][R][9]_i_4_n_0\,
+      I3 => \^q\(5),
+      I4 => \enemies[0][R][6]_i_2_n_0\,
       I5 => \enemies[0][is_active]_i_2_n_0\,
+      O => \enemies[0][R][6]_i_1_n_0\
+    );
+\enemies[0][R][6]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000001"
+    )
+        port map (
+      I0 => \^q\(4),
+      I1 => \^q\(2),
+      I2 => \^q\(1),
+      I3 => \^q\(0),
+      I4 => \^q\(3),
+      O => \enemies[0][R][6]_i_2_n_0\
+    );
+\enemies[0][R][7]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AAA800000000AAA8"
+    )
+        port map (
+      I0 => \enemies[0][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[20][is_active]_i_3_n_0\,
+      I3 => \enemies[3][is_active]_i_3_n_0\,
+      I4 => \enemies[0][R][7]_i_2_n_0\,
+      I5 => \^q\(6),
+      O => \enemies[0][R][7]_i_1_n_0\
+    );
+\enemies[0][R][7]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFFFE"
+    )
+        port map (
+      I0 => \^q\(5),
+      I1 => \^q\(3),
+      I2 => \^q\(0),
+      I3 => \^q\(1),
+      I4 => \^q\(2),
+      I5 => \^q\(4),
+      O => \enemies[0][R][7]_i_2_n_0\
+    );
+\enemies[0][R][8]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6060606060606000"
+    )
+        port map (
+      I0 => \enemies[0][R][9]_i_3_n_0\,
+      I1 => \^q\(7),
+      I2 => \enemies[0][is_active]_i_2_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[20][is_active]_i_3_n_0\,
+      I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[0][R][8]_i_1_n_0\
     );
 \enemies[0][R][9]_i_1\: unisim.vcomponents.LUT6
@@ -923,23 +1013,32 @@ begin
       I2 => \lfsr_reg_n_0_[0]\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \enemies[3][is_active]_i_3_n_0\,
-      I5 => \^enemiesout\(9),
+      I5 => \^enemies_reg[0][is_active]_0\,
       O => \enemies[0][R]\
     );
 \enemies[0][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E000E0E000E00000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[0][R][9]_i_3_n_0\,
-      I2 => \enemies[0][is_active]_i_2_n_0\,
-      I3 => \^enemiesout\(7),
-      I4 => \enemies[0][R][9]_i_4_n_0\,
-      I5 => \^enemiesout\(8),
+      I0 => \enemies[0][R][9]_i_3_n_0\,
+      I1 => \^q\(7),
+      I2 => \^q\(8),
+      I3 => \enemies[0][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[0][R][9]_i_4_n_0\,
       O => \enemies[0][R][9]_i_2_n_0\
     );
-\enemies[0][R][9]_i_3\: unisim.vcomponents.LUT5
+\enemies[0][R][9]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^q\(6),
+      I1 => \enemies[0][R][7]_i_2_n_0\,
+      O => \enemies[0][R][9]_i_3_n_0\
+    );
+\enemies[0][R][9]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFFE"
     )
@@ -949,15 +1048,6 @@ begin
       I2 => p_0_in(0),
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \lfsr_reg_n_0_[0]\,
-      O => \enemies[0][R][9]_i_3_n_0\
-    );
-\enemies[0][R][9]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemiesout\(6),
-      I1 => \enemies[0][R][7]_i_2_n_0\,
       O => \enemies[0][R][9]_i_4_n_0\
     );
 \enemies[0][is_active]_i_1\: unisim.vcomponents.LUT6
@@ -970,7 +1060,7 @@ begin
       I2 => \enemies[20][is_active]_i_3_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[0][is_active]_i_2_n_0\,
-      I5 => \^enemiesout\(9),
+      I5 => \^enemies_reg[0][is_active]_0\,
       O => \enemies[0][is_active]_i_1_n_0\
     );
 \enemies[0][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -978,9 +1068,9 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => \^enemiesout\(4),
-      I1 => \^enemiesout\(7),
-      I2 => \^enemiesout\(6),
+      I0 => \^q\(4),
+      I1 => \^q\(7),
+      I2 => \^q\(6),
       I3 => \enemies[0][is_active]_i_3_n_0\,
       O => \enemies[0][is_active]_i_2_n_0\
     );
@@ -989,49 +1079,49 @@ begin
       INIT => X"FFF8"
     )
         port map (
-      I0 => \^enemiesout\(3),
-      I1 => \^enemiesout\(2),
-      I2 => \^enemiesout\(8),
-      I3 => \^enemiesout\(5),
+      I0 => \^q\(3),
+      I1 => \^q\(2),
+      I2 => \^q\(8),
+      I3 => \^q\(5),
       O => \enemies[0][is_active]_i_3_n_0\
     );
 \enemies[10][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[10][is_active]_i_2_n_0\,
+      I0 => \enemies[10][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[10][r][9]_0\(0),
       O => \enemies[10][R][1]_i_1_n_0\
     );
 \enemies[10][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[10][is_active]_i_2_n_0\,
+      I0 => \enemies[10][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[10][r][9]_0\(1),
       I5 => \^enemies_reg[10][r][9]_0\(0),
       O => \enemies[10][R][2]_i_1_n_0\
     );
 \enemies[10][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[10][is_active]_i_2_n_0\,
-      I4 => \enemies[10][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[10][r][9]_0\(2),
+      I0 => \^enemies_reg[10][r][9]_0\(2),
+      I1 => \enemies[10][R][3]_i_2_n_0\,
+      I2 => \enemies[10][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[10][R][3]_i_1_n_0\
     );
 \enemies[10][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1068,15 +1158,15 @@ begin
     );
 \enemies[10][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[10][is_active]_i_2_n_0\,
-      I4 => \enemies[10][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[10][r][9]_0\(4),
+      I0 => \^enemies_reg[10][r][9]_0\(4),
+      I1 => \enemies[10][R][5]_i_2_n_0\,
+      I2 => \enemies[10][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[10][R][5]_i_1_n_0\
     );
 \enemies[10][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1092,20 +1182,20 @@ begin
     );
 \enemies[10][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[10][is_active]_i_2_n_0\,
-      I4 => \enemies[10][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[10][r][9]_0\(5),
+      I0 => \^enemies_reg[10][r][9]_0\(5),
+      I1 => \enemies[10][R][6]_i_2_n_0\,
+      I2 => \enemies[10][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[10][R][6]_i_1_n_0\
     );
 \enemies[10][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[10][r][9]_0\(4),
@@ -1117,15 +1207,15 @@ begin
     );
 \enemies[10][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[10][r][9]_0\(6),
-      I1 => \enemies[10][R][7]_i_2_n_0\,
-      I2 => \enemies[10][is_active]_i_2_n_0\,
+      I0 => \enemies[10][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[10][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[10][r][9]_0\(6),
       O => \enemies[10][R][7]_i_1_n_0\
     );
 \enemies[10][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -1143,25 +1233,16 @@ begin
     );
 \enemies[10][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[10][r][9]_0\(7),
-      I1 => \enemies[10][R][8]_i_2_n_0\,
+      I0 => \enemies[10][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[10][r][9]_0\(7),
       I2 => \enemies[10][is_active]_i_2_n_0\,
-      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[10][R][8]_i_1_n_0\
-    );
-\enemies[10][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[10][r][9]_0\(6),
-      I1 => \enemies[10][R][7]_i_2_n_0\,
-      O => \enemies[10][R][8]_i_2_n_0\
     );
 \enemies[10][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1169,7 +1250,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(19),
+      I1 => \^enemies_reg[10][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -1178,27 +1259,37 @@ begin
     );
 \enemies[10][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[10][is_active]_i_2_n_0\,
-      I5 => \enemies[10][R][9]_i_3_n_0\,
+      I0 => \enemies[10][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[10][r][9]_0\(7),
+      I2 => \^enemies_reg[10][r][9]_0\(8),
+      I3 => \enemies[10][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[10][R][9]_i_4_n_0\,
       O => \enemies[10][R][9]_i_2_n_0\
     );
-\enemies[10][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[10][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[10][r][9]_0\(8),
-      I1 => \^enemies_reg[10][r][9]_0\(6),
-      I2 => \enemies[10][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[10][r][9]_0\(7),
+      I0 => \^enemies_reg[10][r][9]_0\(6),
+      I1 => \enemies[10][R][7]_i_2_n_0\,
       O => \enemies[10][R][9]_i_3_n_0\
+    );
+\enemies[10][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFDFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[10][R][9]_i_4_n_0\
     );
 \enemies[10][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1206,7 +1297,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(19),
+      I1 => \^enemies_reg[10][is_active]_0\,
       I2 => \enemies[10][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
@@ -1237,41 +1328,41 @@ begin
     );
 \enemies[11][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"00000000A8AAAAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[11][is_active]_i_2_n_0\,
+      I0 => \enemies[11][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[11][r][9]_0\(0),
       O => \enemies[11][R][1]_i_1_n_0\
     );
 \enemies[11][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[11][is_active]_i_2_n_0\,
+      I0 => \enemies[11][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[11][r][9]_0\(1),
       I5 => \^enemies_reg[11][r][9]_0\(0),
       O => \enemies[11][R][2]_i_1_n_0\
     );
 \enemies[11][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[11][is_active]_i_2_n_0\,
-      I4 => \enemies[11][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[11][r][9]_0\(2),
+      I0 => \^enemies_reg[11][r][9]_0\(2),
+      I1 => \enemies[11][R][3]_i_2_n_0\,
+      I2 => \enemies[11][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[11][R][3]_i_1_n_0\
     );
 \enemies[11][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1291,7 +1382,7 @@ begin
       I0 => \^enemies_reg[11][r][9]_0\(3),
       I1 => \enemies[11][R][4]_i_2_n_0\,
       I2 => \enemies[11][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[11][R][4]_i_1_n_0\
@@ -1308,15 +1399,15 @@ begin
     );
 \enemies[11][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[11][is_active]_i_2_n_0\,
-      I4 => \enemies[11][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[11][r][9]_0\(4),
+      I0 => \^enemies_reg[11][r][9]_0\(4),
+      I1 => \enemies[11][R][5]_i_2_n_0\,
+      I2 => \enemies[11][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[11][R][5]_i_1_n_0\
     );
 \enemies[11][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1332,20 +1423,20 @@ begin
     );
 \enemies[11][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[11][is_active]_i_2_n_0\,
-      I4 => \enemies[11][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[11][r][9]_0\(5),
+      I0 => \^enemies_reg[11][r][9]_0\(5),
+      I1 => \enemies[11][R][6]_i_2_n_0\,
+      I2 => \enemies[11][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[11][R][6]_i_1_n_0\
     );
 \enemies[11][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[11][r][9]_0\(4),
@@ -1357,15 +1448,15 @@ begin
     );
 \enemies[11][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[11][r][9]_0\(6),
-      I1 => \enemies[11][R][7]_i_2_n_0\,
-      I2 => \enemies[11][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[11][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[11][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[11][r][9]_0\(6),
       O => \enemies[11][R][7]_i_1_n_0\
     );
 \enemies[11][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -1383,25 +1474,16 @@ begin
     );
 \enemies[11][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[11][r][9]_0\(7),
-      I1 => \enemies[11][R][8]_i_2_n_0\,
+      I0 => \enemies[11][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[11][r][9]_0\(7),
       I2 => \enemies[11][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[11][R][8]_i_1_n_0\
-    );
-\enemies[11][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[11][r][9]_0\(6),
-      I1 => \enemies[11][R][7]_i_2_n_0\,
-      O => \enemies[11][R][8]_i_2_n_0\
     );
 \enemies[11][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1409,7 +1491,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(20),
+      I1 => \^enemies_reg[11][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -1418,27 +1500,37 @@ begin
     );
 \enemies[11][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[11][is_active]_i_2_n_0\,
-      I5 => \enemies[11][R][9]_i_3_n_0\,
+      I0 => \enemies[11][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[11][r][9]_0\(7),
+      I2 => \^enemies_reg[11][r][9]_0\(8),
+      I3 => \enemies[11][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[11][R][9]_i_4_n_0\,
       O => \enemies[11][R][9]_i_2_n_0\
     );
-\enemies[11][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[11][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[11][r][9]_0\(8),
-      I1 => \^enemies_reg[11][r][9]_0\(6),
-      I2 => \enemies[11][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[11][r][9]_0\(7),
+      I0 => \^enemies_reg[11][r][9]_0\(6),
+      I1 => \enemies[11][R][7]_i_2_n_0\,
       O => \enemies[11][R][9]_i_3_n_0\
+    );
+\enemies[11][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFF7FF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[11][R][9]_i_4_n_0\
     );
 \enemies[11][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1446,11 +1538,11 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(20),
+      I1 => \^enemies_reg[11][is_active]_0\,
       I2 => \enemies[11][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_6_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[11][is_active]_i_1_n_0\
     );
 \enemies[11][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -1487,41 +1579,41 @@ begin
     );
 \enemies[12][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"00000000AAAAAAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[12][is_active]_i_2_n_0\,
+      I0 => \enemies[12][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[12][r][9]_0\(0),
       O => \enemies[12][R][1]_i_1_n_0\
     );
 \enemies[12][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[12][is_active]_i_2_n_0\,
+      I0 => \enemies[12][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[12][r][9]_0\(1),
       I5 => \^enemies_reg[12][r][9]_0\(0),
       O => \enemies[12][R][2]_i_1_n_0\
     );
 \enemies[12][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[12][is_active]_i_2_n_0\,
-      I4 => \enemies[12][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[12][r][9]_0\(2),
+      I0 => \^enemies_reg[12][r][9]_0\(2),
+      I1 => \enemies[12][R][3]_i_2_n_0\,
+      I2 => \enemies[12][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[12][R][3]_i_1_n_0\
     );
 \enemies[12][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1558,15 +1650,15 @@ begin
     );
 \enemies[12][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[12][is_active]_i_2_n_0\,
-      I4 => \enemies[12][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[12][r][9]_0\(4),
+      I0 => \^enemies_reg[12][r][9]_0\(4),
+      I1 => \enemies[12][R][5]_i_2_n_0\,
+      I2 => \enemies[12][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[12][R][5]_i_1_n_0\
     );
 \enemies[12][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1582,20 +1674,20 @@ begin
     );
 \enemies[12][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[12][is_active]_i_2_n_0\,
-      I4 => \enemies[12][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[12][r][9]_0\(5),
+      I0 => \^enemies_reg[12][r][9]_0\(5),
+      I1 => \enemies[12][R][6]_i_2_n_0\,
+      I2 => \enemies[12][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[12][R][6]_i_1_n_0\
     );
 \enemies[12][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[12][r][9]_0\(4),
@@ -1607,15 +1699,15 @@ begin
     );
 \enemies[12][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[12][r][9]_0\(6),
-      I1 => \enemies[12][R][7]_i_2_n_0\,
-      I2 => \enemies[12][is_active]_i_2_n_0\,
+      I0 => \enemies[12][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[12][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[12][r][9]_0\(6),
       O => \enemies[12][R][7]_i_1_n_0\
     );
 \enemies[12][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -1633,25 +1725,16 @@ begin
     );
 \enemies[12][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[12][r][9]_0\(7),
-      I1 => \enemies[12][R][8]_i_2_n_0\,
+      I0 => \enemies[12][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[12][r][9]_0\(7),
       I2 => \enemies[12][is_active]_i_2_n_0\,
-      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[12][R][8]_i_1_n_0\
-    );
-\enemies[12][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[12][r][9]_0\(6),
-      I1 => \enemies[12][R][7]_i_2_n_0\,
-      O => \enemies[12][R][8]_i_2_n_0\
     );
 \enemies[12][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1659,7 +1742,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(21),
+      I1 => \^enemies_reg[12][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[15][is_active]_i_4_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -1668,27 +1751,37 @@ begin
     );
 \enemies[12][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[12][is_active]_i_2_n_0\,
-      I5 => \enemies[12][R][9]_i_3_n_0\,
+      I0 => \enemies[12][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[12][r][9]_0\(7),
+      I2 => \^enemies_reg[12][r][9]_0\(8),
+      I3 => \enemies[12][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[12][R][9]_i_4_n_0\,
       O => \enemies[12][R][9]_i_2_n_0\
     );
-\enemies[12][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[12][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[12][r][9]_0\(8),
-      I1 => \^enemies_reg[12][r][9]_0\(6),
-      I2 => \enemies[12][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[12][r][9]_0\(7),
+      I0 => \^enemies_reg[12][r][9]_0\(6),
+      I1 => \enemies[12][R][7]_i_2_n_0\,
       O => \enemies[12][R][9]_i_3_n_0\
+    );
+\enemies[12][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFEFFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[12][R][9]_i_4_n_0\
     );
 \enemies[12][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1696,7 +1789,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(21),
+      I1 => \^enemies_reg[12][is_active]_0\,
       I2 => \enemies[12][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
@@ -1727,41 +1820,41 @@ begin
     );
 \enemies[13][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[13][is_active]_i_2_n_0\,
+      I0 => \enemies[13][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[1]\,
+      I4 => \lfsr_reg_n_0_[0]\,
       I5 => \^enemies_reg[13][r][9]_0\(0),
       O => \enemies[13][R][1]_i_1_n_0\
     );
 \enemies[13][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[13][is_active]_i_2_n_0\,
+      I0 => \enemies[13][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[13][r][9]_0\(1),
       I5 => \^enemies_reg[13][r][9]_0\(0),
       O => \enemies[13][R][2]_i_1_n_0\
     );
 \enemies[13][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[13][is_active]_i_2_n_0\,
-      I4 => \enemies[13][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[13][r][9]_0\(2),
+      I0 => \^enemies_reg[13][r][9]_0\(2),
+      I1 => \enemies[13][R][3]_i_2_n_0\,
+      I2 => \enemies[13][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[13][R][3]_i_1_n_0\
     );
 \enemies[13][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1798,15 +1891,15 @@ begin
     );
 \enemies[13][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[13][is_active]_i_2_n_0\,
-      I4 => \enemies[13][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[13][r][9]_0\(4),
+      I0 => \^enemies_reg[13][r][9]_0\(4),
+      I1 => \enemies[13][R][5]_i_2_n_0\,
+      I2 => \enemies[13][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[13][R][5]_i_1_n_0\
     );
 \enemies[13][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1822,20 +1915,20 @@ begin
     );
 \enemies[13][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[13][is_active]_i_2_n_0\,
-      I4 => \enemies[13][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[13][r][9]_0\(5),
+      I0 => \^enemies_reg[13][r][9]_0\(5),
+      I1 => \enemies[13][R][6]_i_2_n_0\,
+      I2 => \enemies[13][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[13][R][6]_i_1_n_0\
     );
 \enemies[13][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[13][r][9]_0\(4),
@@ -1847,15 +1940,15 @@ begin
     );
 \enemies[13][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[13][r][9]_0\(6),
-      I1 => \enemies[13][R][7]_i_2_n_0\,
-      I2 => \enemies[13][is_active]_i_2_n_0\,
+      I0 => \enemies[13][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[13][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[13][r][9]_0\(6),
       O => \enemies[13][R][7]_i_1_n_0\
     );
 \enemies[13][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -1873,25 +1966,16 @@ begin
     );
 \enemies[13][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[13][r][9]_0\(7),
-      I1 => \enemies[13][R][8]_i_2_n_0\,
+      I0 => \enemies[13][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[13][r][9]_0\(7),
       I2 => \enemies[13][is_active]_i_2_n_0\,
-      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[13][R][8]_i_1_n_0\
-    );
-\enemies[13][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[13][r][9]_0\(6),
-      I1 => \enemies[13][R][7]_i_2_n_0\,
-      O => \enemies[13][R][8]_i_2_n_0\
     );
 \enemies[13][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1899,7 +1983,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(22),
+      I1 => \^enemies_reg[13][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[15][is_active]_i_4_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -1908,27 +1992,37 @@ begin
     );
 \enemies[13][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[13][is_active]_i_2_n_0\,
-      I5 => \enemies[13][R][9]_i_3_n_0\,
+      I0 => \enemies[13][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[13][r][9]_0\(7),
+      I2 => \^enemies_reg[13][r][9]_0\(8),
+      I3 => \enemies[13][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[13][R][9]_i_4_n_0\,
       O => \enemies[13][R][9]_i_2_n_0\
     );
-\enemies[13][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[13][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[13][r][9]_0\(8),
-      I1 => \^enemies_reg[13][r][9]_0\(6),
-      I2 => \enemies[13][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[13][r][9]_0\(7),
+      I0 => \^enemies_reg[13][r][9]_0\(6),
+      I1 => \enemies[13][R][7]_i_2_n_0\,
       O => \enemies[13][R][9]_i_3_n_0\
+    );
+\enemies[13][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFDFFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[0]\,
+      I1 => \lfsr_reg_n_0_[1]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[13][R][9]_i_4_n_0\
     );
 \enemies[13][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -1936,7 +2030,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(22),
+      I1 => \^enemies_reg[13][is_active]_0\,
       I2 => \enemies[13][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
@@ -1967,41 +2061,41 @@ begin
     );
 \enemies[14][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[14][is_active]_i_2_n_0\,
+      I0 => \enemies[14][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[14][r][9]_0\(0),
       O => \enemies[14][R][1]_i_1_n_0\
     );
 \enemies[14][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[14][is_active]_i_2_n_0\,
+      I0 => \enemies[14][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[14][r][9]_0\(1),
       I5 => \^enemies_reg[14][r][9]_0\(0),
       O => \enemies[14][R][2]_i_1_n_0\
     );
 \enemies[14][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[14][is_active]_i_2_n_0\,
-      I4 => \enemies[14][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[14][r][9]_0\(2),
+      I0 => \^enemies_reg[14][r][9]_0\(2),
+      I1 => \enemies[14][R][3]_i_2_n_0\,
+      I2 => \enemies[14][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[14][R][3]_i_1_n_0\
     );
 \enemies[14][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -2038,15 +2132,15 @@ begin
     );
 \enemies[14][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[14][is_active]_i_2_n_0\,
-      I4 => \enemies[14][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[14][r][9]_0\(4),
+      I0 => \^enemies_reg[14][r][9]_0\(4),
+      I1 => \enemies[14][R][5]_i_2_n_0\,
+      I2 => \enemies[14][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[14][R][5]_i_1_n_0\
     );
 \enemies[14][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -2062,20 +2156,20 @@ begin
     );
 \enemies[14][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[14][is_active]_i_2_n_0\,
-      I4 => \enemies[14][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[14][r][9]_0\(5),
+      I0 => \^enemies_reg[14][r][9]_0\(5),
+      I1 => \enemies[14][R][6]_i_2_n_0\,
+      I2 => \enemies[14][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[14][R][6]_i_1_n_0\
     );
 \enemies[14][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[14][r][9]_0\(4),
@@ -2087,15 +2181,15 @@ begin
     );
 \enemies[14][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[14][r][9]_0\(6),
-      I1 => \enemies[14][R][7]_i_2_n_0\,
-      I2 => \enemies[14][is_active]_i_2_n_0\,
+      I0 => \enemies[14][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[14][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[14][r][9]_0\(6),
       O => \enemies[14][R][7]_i_1_n_0\
     );
 \enemies[14][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -2113,25 +2207,16 @@ begin
     );
 \enemies[14][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[14][r][9]_0\(7),
-      I1 => \enemies[14][R][8]_i_2_n_0\,
+      I0 => \enemies[14][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[14][r][9]_0\(7),
       I2 => \enemies[14][is_active]_i_2_n_0\,
-      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[14][R][8]_i_1_n_0\
-    );
-\enemies[14][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[14][r][9]_0\(6),
-      I1 => \enemies[14][R][7]_i_2_n_0\,
-      O => \enemies[14][R][8]_i_2_n_0\
     );
 \enemies[14][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -2139,7 +2224,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(23),
+      I1 => \^enemies_reg[14][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[15][is_active]_i_4_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -2148,27 +2233,37 @@ begin
     );
 \enemies[14][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[14][is_active]_i_2_n_0\,
-      I5 => \enemies[14][R][9]_i_3_n_0\,
+      I0 => \enemies[14][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[14][r][9]_0\(7),
+      I2 => \^enemies_reg[14][r][9]_0\(8),
+      I3 => \enemies[14][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[14][R][9]_i_4_n_0\,
       O => \enemies[14][R][9]_i_2_n_0\
     );
-\enemies[14][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[14][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[14][r][9]_0\(8),
-      I1 => \^enemies_reg[14][r][9]_0\(6),
-      I2 => \enemies[14][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[14][r][9]_0\(7),
+      I0 => \^enemies_reg[14][r][9]_0\(6),
+      I1 => \enemies[14][R][7]_i_2_n_0\,
       O => \enemies[14][R][9]_i_3_n_0\
+    );
+\enemies[14][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFDFFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[14][R][9]_i_4_n_0\
     );
 \enemies[14][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -2176,7 +2271,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(23),
+      I1 => \^enemies_reg[14][is_active]_0\,
       I2 => \enemies[14][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
@@ -2207,41 +2302,41 @@ begin
     );
 \enemies[15][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"00000000A8AAAAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[15][is_active]_i_2_n_0\,
+      I0 => \enemies[15][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[15][r][9]_0\(0),
       O => \enemies[15][R][1]_i_1_n_0\
     );
 \enemies[15][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[15][is_active]_i_2_n_0\,
+      I0 => \enemies[15][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[15][r][9]_0\(1),
       I5 => \^enemies_reg[15][r][9]_0\(0),
       O => \enemies[15][R][2]_i_1_n_0\
     );
 \enemies[15][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"FF0101FF01010101"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[23][is_active]_i_5_n_0\,
       I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[15][is_active]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \^enemies_reg[15][r][9]_0\(2),
       I4 => \enemies[15][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[15][r][9]_0\(2),
+      I5 => \enemies[15][is_active]_i_2_n_0\,
       O => \enemies[15][R][3]_i_1_n_0\
     );
 \enemies[15][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -2255,15 +2350,15 @@ begin
     );
 \enemies[15][R][4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"FF0101FF01010101"
     )
         port map (
-      I0 => \^enemies_reg[15][r][9]_0\(3),
-      I1 => \enemies[15][R][4]_i_2_n_0\,
-      I2 => \enemies[15][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[23][is_active]_i_5_n_0\,
+      I1 => \enemies[15][is_active]_i_4_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \^enemies_reg[15][r][9]_0\(3),
+      I4 => \enemies[15][R][4]_i_2_n_0\,
+      I5 => \enemies[15][is_active]_i_2_n_0\,
       O => \enemies[15][R][4]_i_1_n_0\
     );
 \enemies[15][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -2278,15 +2373,15 @@ begin
     );
 \enemies[15][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"FF0101FF01010101"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[23][is_active]_i_5_n_0\,
       I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[15][is_active]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \^enemies_reg[15][r][9]_0\(4),
       I4 => \enemies[15][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[15][r][9]_0\(4),
+      I5 => \enemies[15][is_active]_i_2_n_0\,
       O => \enemies[15][R][5]_i_1_n_0\
     );
 \enemies[15][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -2302,20 +2397,20 @@ begin
     );
 \enemies[15][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"01FFFF0101010101"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[23][is_active]_i_5_n_0\,
       I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[15][is_active]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \^enemies_reg[15][r][9]_0\(5),
       I4 => \enemies[15][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[15][r][9]_0\(5),
+      I5 => \enemies[15][is_active]_i_2_n_0\,
       O => \enemies[15][R][6]_i_1_n_0\
     );
 \enemies[15][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[15][r][9]_0\(4),
@@ -2327,15 +2422,15 @@ begin
     );
 \enemies[15][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[15][r][9]_0\(6),
-      I1 => \enemies[15][R][7]_i_2_n_0\,
-      I2 => \enemies[15][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[15][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[15][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[15][r][9]_0\(6),
       O => \enemies[15][R][7]_i_1_n_0\
     );
 \enemies[15][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -2353,62 +2448,63 @@ begin
     );
 \enemies[15][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[15][r][9]_0\(7),
-      I1 => \enemies[15][R][8]_i_2_n_0\,
+      I0 => \enemies[15][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[15][r][9]_0\(7),
       I2 => \enemies[15][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[15][R][8]_i_1_n_0\
     );
-\enemies[15][R][8]_i_2\: unisim.vcomponents.LUT2
+\enemies[15][R][9]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AAAAAAAA02000000"
+    )
+        port map (
+      I0 => FrameTick,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
+      I5 => \^enemies_reg[15][is_active]_0\,
+      O => \enemies[15][R]\
+    );
+\enemies[15][R][9]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D200D200D2000000"
+    )
+        port map (
+      I0 => \enemies[15][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[15][r][9]_0\(7),
+      I2 => \^enemies_reg[15][r][9]_0\(8),
+      I3 => \enemies[15][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[15][R][9]_i_4_n_0\,
+      O => \enemies[15][R][9]_i_2_n_0\
+    );
+\enemies[15][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => \^enemies_reg[15][r][9]_0\(6),
       I1 => \enemies[15][R][7]_i_2_n_0\,
-      O => \enemies[15][R][8]_i_2_n_0\
-    );
-\enemies[15][R][9]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"888A888888888888"
-    )
-        port map (
-      I0 => FrameTick,
-      I1 => \^enemiesout\(24),
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[15][is_active]_i_4_n_0\,
-      I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \lfsr_reg_n_0_[1]\,
-      O => \enemies[15][R]\
-    );
-\enemies[15][R][9]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"00000000EFFF0000"
-    )
-        port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[15][is_active]_i_2_n_0\,
-      I5 => \enemies[15][R][9]_i_3_n_0\,
-      O => \enemies[15][R][9]_i_2_n_0\
-    );
-\enemies[15][R][9]_i_3\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"5556"
-    )
-        port map (
-      I0 => \^enemies_reg[15][r][9]_0\(8),
-      I1 => \^enemies_reg[15][r][9]_0\(6),
-      I2 => \enemies[15][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[15][r][9]_0\(7),
       O => \enemies[15][R][9]_i_3_n_0\
+    );
+\enemies[15][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFF7FFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[15][R][9]_i_4_n_0\
     );
 \enemies[15][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -2416,11 +2512,11 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(24),
+      I1 => \^enemies_reg[15][is_active]_0\,
       I2 => \enemies[15][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[23][is_active]_i_6_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[15][is_active]_i_1_n_0\
     );
 \enemies[15][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -2436,15 +2532,15 @@ begin
     );
 \enemies[15][is_active]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFDDFCDDCFDDCCDD"
+      INIT => X"FFDDCFDDFCDDCCDD"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_8_n_0\,
-      I1 => \enemies[23][is_active]_i_9_n_0\,
+      I0 => \enemies[23][is_active]_i_7_n_0\,
+      I1 => \enemies[23][is_active]_i_8_n_0\,
       I2 => \lfsr_reg_n_0_[2]\,
       I3 => p_0_in(1),
-      I4 => \enemies[23][is_active]_i_10_n_0\,
-      I5 => \enemies[23][is_active]_i_11_n_0\,
+      I4 => \enemies[23][is_active]_i_9_n_0\,
+      I5 => \enemies[23][is_active]_i_10_n_0\,
       O => \enemies[15][is_active]_i_3_n_0\
     );
 \enemies[15][is_active]_i_4\: unisim.vcomponents.LUT3
@@ -2470,41 +2566,41 @@ begin
     );
 \enemies[16][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"00000000AAAAAAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[16][is_active]_i_2_n_0\,
+      I0 => \enemies[16][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[16][r][9]_0\(0),
       O => \enemies[16][R][1]_i_1_n_0\
     );
 \enemies[16][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[16][is_active]_i_2_n_0\,
+      I0 => \enemies[16][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[16][r][9]_0\(1),
       I5 => \^enemies_reg[16][r][9]_0\(0),
       O => \enemies[16][R][2]_i_1_n_0\
     );
 \enemies[16][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[16][is_active]_i_2_n_0\,
-      I4 => \enemies[16][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[16][r][9]_0\(2),
+      I0 => \^enemies_reg[16][r][9]_0\(2),
+      I1 => \enemies[16][R][3]_i_2_n_0\,
+      I2 => \enemies[16][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[16][R][3]_i_1_n_0\
     );
 \enemies[16][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -2526,7 +2622,7 @@ begin
       I2 => \enemies[16][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[16][R][4]_i_1_n_0\
     );
 \enemies[16][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -2541,15 +2637,15 @@ begin
     );
 \enemies[16][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[16][is_active]_i_2_n_0\,
-      I4 => \enemies[16][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[16][r][9]_0\(4),
+      I0 => \^enemies_reg[16][r][9]_0\(4),
+      I1 => \enemies[16][R][5]_i_2_n_0\,
+      I2 => \enemies[16][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[16][R][5]_i_1_n_0\
     );
 \enemies[16][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -2565,20 +2661,20 @@ begin
     );
 \enemies[16][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[16][is_active]_i_2_n_0\,
-      I4 => \enemies[16][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[16][r][9]_0\(5),
+      I0 => \^enemies_reg[16][r][9]_0\(5),
+      I1 => \enemies[16][R][6]_i_2_n_0\,
+      I2 => \enemies[16][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[16][R][6]_i_1_n_0\
     );
 \enemies[16][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[16][r][9]_0\(4),
@@ -2590,15 +2686,15 @@ begin
     );
 \enemies[16][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[16][r][9]_0\(6),
-      I1 => \enemies[16][R][7]_i_2_n_0\,
-      I2 => \enemies[16][is_active]_i_2_n_0\,
+      I0 => \enemies[16][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[16][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[16][r][9]_0\(6),
       O => \enemies[16][R][7]_i_1_n_0\
     );
 \enemies[16][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -2616,15 +2712,15 @@ begin
     );
 \enemies[16][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[16][r][9]_0\(7),
-      I1 => \enemies[16][R][9]_i_4_n_0\,
+      I0 => \enemies[16][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[16][r][9]_0\(7),
       I2 => \enemies[16][is_active]_i_2_n_0\,
-      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[16][R][8]_i_1_n_0\
     );
 \enemies[16][R][9]_i_1\: unisim.vcomponents.LUT6
@@ -2633,8 +2729,8 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(25),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I1 => \^enemies_reg[16][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[19][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -2642,18 +2738,27 @@ begin
     );
 \enemies[16][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E000E0E000E00000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[16][R][9]_i_3_n_0\,
-      I2 => \enemies[16][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[16][r][9]_0\(7),
-      I4 => \enemies[16][R][9]_i_4_n_0\,
-      I5 => \^enemies_reg[16][r][9]_0\(8),
+      I0 => \enemies[16][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[16][r][9]_0\(7),
+      I2 => \^enemies_reg[16][r][9]_0\(8),
+      I3 => \enemies[16][is_active]_i_2_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[16][R][9]_i_4_n_0\,
       O => \enemies[16][R][9]_i_2_n_0\
     );
-\enemies[16][R][9]_i_3\: unisim.vcomponents.LUT5
+\enemies[16][R][9]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^enemies_reg[16][r][9]_0\(6),
+      I1 => \enemies[16][R][7]_i_2_n_0\,
+      O => \enemies[16][R][9]_i_3_n_0\
+    );
+\enemies[16][R][9]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFEFF"
     )
@@ -2663,15 +2768,6 @@ begin
       I2 => \lfsr_reg_n_0_[2]\,
       I3 => p_0_in(1),
       I4 => p_0_in(0),
-      O => \enemies[16][R][9]_i_3_n_0\
-    );
-\enemies[16][R][9]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[16][r][9]_0\(6),
-      I1 => \enemies[16][R][7]_i_2_n_0\,
       O => \enemies[16][R][9]_i_4_n_0\
     );
 \enemies[16][is_active]_i_1\: unisim.vcomponents.LUT6
@@ -2680,9 +2776,9 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(25),
+      I1 => \^enemies_reg[16][is_active]_0\,
       I2 => \enemies[16][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[16][is_active]_i_1_n_0\
@@ -2711,41 +2807,41 @@ begin
     );
 \enemies[17][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[17][is_active]_i_2_n_0\,
+      I0 => \enemies[17][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[1]\,
+      I4 => \lfsr_reg_n_0_[0]\,
       I5 => \^enemies_reg[17][r][9]_0\(0),
       O => \enemies[17][R][1]_i_1_n_0\
     );
 \enemies[17][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[17][is_active]_i_2_n_0\,
+      I0 => \enemies[17][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[17][r][9]_0\(1),
       I5 => \^enemies_reg[17][r][9]_0\(0),
       O => \enemies[17][R][2]_i_1_n_0\
     );
 \enemies[17][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[17][is_active]_i_2_n_0\,
-      I4 => \enemies[17][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[17][r][9]_0\(2),
+      I0 => \^enemies_reg[17][r][9]_0\(2),
+      I1 => \enemies[17][R][3]_i_2_n_0\,
+      I2 => \enemies[17][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[17][R][3]_i_1_n_0\
     );
 \enemies[17][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -2767,7 +2863,7 @@ begin
       I2 => \enemies[17][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[17][R][4]_i_1_n_0\
     );
 \enemies[17][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -2782,15 +2878,15 @@ begin
     );
 \enemies[17][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[17][is_active]_i_2_n_0\,
-      I4 => \enemies[17][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[17][r][9]_0\(4),
+      I0 => \^enemies_reg[17][r][9]_0\(4),
+      I1 => \enemies[17][R][5]_i_2_n_0\,
+      I2 => \enemies[17][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[17][R][5]_i_1_n_0\
     );
 \enemies[17][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -2806,20 +2902,20 @@ begin
     );
 \enemies[17][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[17][is_active]_i_2_n_0\,
-      I4 => \enemies[17][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[17][r][9]_0\(5),
+      I0 => \^enemies_reg[17][r][9]_0\(5),
+      I1 => \enemies[17][R][6]_i_2_n_0\,
+      I2 => \enemies[17][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[17][R][6]_i_1_n_0\
     );
 \enemies[17][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[17][r][9]_0\(4),
@@ -2831,15 +2927,15 @@ begin
     );
 \enemies[17][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[17][r][9]_0\(6),
-      I1 => \enemies[17][R][7]_i_2_n_0\,
-      I2 => \enemies[17][is_active]_i_2_n_0\,
+      I0 => \enemies[17][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[17][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[17][r][9]_0\(6),
       O => \enemies[17][R][7]_i_1_n_0\
     );
 \enemies[17][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -2857,15 +2953,15 @@ begin
     );
 \enemies[17][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[17][r][9]_0\(7),
-      I1 => \enemies[17][R][9]_i_4_n_0\,
+      I0 => \enemies[17][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[17][r][9]_0\(7),
       I2 => \enemies[17][is_active]_i_2_n_0\,
-      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[17][R][8]_i_1_n_0\
     );
 \enemies[17][R][9]_i_1\: unisim.vcomponents.LUT6
@@ -2874,8 +2970,8 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(26),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I1 => \^enemies_reg[17][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[19][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \lfsr_reg_n_0_[0]\,
@@ -2883,18 +2979,27 @@ begin
     );
 \enemies[17][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E000E0E000E00000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[17][R][9]_i_3_n_0\,
-      I2 => \enemies[17][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[17][r][9]_0\(7),
-      I4 => \enemies[17][R][9]_i_4_n_0\,
-      I5 => \^enemies_reg[17][r][9]_0\(8),
+      I0 => \enemies[17][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[17][r][9]_0\(7),
+      I2 => \^enemies_reg[17][r][9]_0\(8),
+      I3 => \enemies[17][is_active]_i_2_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[17][R][9]_i_4_n_0\,
       O => \enemies[17][R][9]_i_2_n_0\
     );
-\enemies[17][R][9]_i_3\: unisim.vcomponents.LUT5
+\enemies[17][R][9]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^enemies_reg[17][r][9]_0\(6),
+      I1 => \enemies[17][R][7]_i_2_n_0\,
+      O => \enemies[17][R][9]_i_3_n_0\
+    );
+\enemies[17][R][9]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFDFF"
     )
@@ -2904,15 +3009,6 @@ begin
       I2 => \lfsr_reg_n_0_[2]\,
       I3 => p_0_in(1),
       I4 => p_0_in(0),
-      O => \enemies[17][R][9]_i_3_n_0\
-    );
-\enemies[17][R][9]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[17][r][9]_0\(6),
-      I1 => \enemies[17][R][7]_i_2_n_0\,
       O => \enemies[17][R][9]_i_4_n_0\
     );
 \enemies[17][is_active]_i_1\: unisim.vcomponents.LUT6
@@ -2921,9 +3017,9 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(26),
+      I1 => \^enemies_reg[17][is_active]_0\,
       I2 => \enemies[17][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[17][is_active]_i_1_n_0\
@@ -2952,54 +3048,54 @@ begin
     );
 \enemies[18][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[18][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[2]\,
-      I3 => p_0_in(1),
-      I4 => \enemies[18][is_active]_i_2_n_0\,
-      I5 => \^q\(0),
+      I0 => \enemies[18][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[18][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[2]\,
+      I4 => p_0_in(1),
+      I5 => \^enemies_reg[18][r][9]_0\(0),
       O => \enemies[18][R][1]_i_1_n_0\
     );
 \enemies[18][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[18][is_active]_i_3_n_0\,
-      I2 => \enemies[18][is_active]_i_4_n_0\,
-      I3 => \enemies[18][is_active]_i_2_n_0\,
-      I4 => \^q\(1),
-      I5 => \^q\(0),
+      I0 => \enemies[18][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[18][is_active]_i_3_n_0\,
+      I3 => \enemies[18][is_active]_i_4_n_0\,
+      I4 => \^enemies_reg[18][r][9]_0\(1),
+      I5 => \^enemies_reg[18][r][9]_0\(0),
       O => \enemies[18][R][2]_i_1_n_0\
     );
 \enemies[18][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E0E0E000000000E0"
+      INIT => X"F1F1F11F11111111"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[18][R][9]_i_3_n_0\,
-      I2 => \enemies[18][is_active]_i_2_n_0\,
-      I3 => \^q\(0),
-      I4 => \^q\(1),
-      I5 => \^q\(2),
+      I0 => \enemies[18][R][9]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[18][r][9]_0\(2),
+      I3 => \^enemies_reg[18][r][9]_0\(1),
+      I4 => \^enemies_reg[18][r][9]_0\(0),
+      I5 => \enemies[18][is_active]_i_2_n_0\,
       O => \enemies[18][R][3]_i_1_n_0\
     );
 \enemies[18][R][4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AAAAAAAAAAAAAAAE"
+      INIT => X"FFFFFFFF00000002"
     )
         port map (
-      I0 => \enemies[18][R][4]_i_2_n_0\,
-      I1 => p_0_in(1),
-      I2 => \lfsr_reg_n_0_[2]\,
-      I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => p_0_in(0),
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I0 => p_0_in(1),
+      I1 => \lfsr_reg_n_0_[2]\,
+      I2 => \enemies[22][is_active]_i_3_n_0\,
+      I3 => p_0_in(0),
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[18][R][4]_i_2_n_0\,
       O => \enemies[18][R][4]_i_1_n_0\
     );
 \enemies[18][R][4]_i_2\: unisim.vcomponents.LUT5
@@ -3008,85 +3104,87 @@ begin
     )
         port map (
       I0 => \enemies[18][is_active]_i_2_n_0\,
-      I1 => \^q\(2),
-      I2 => \^q\(1),
-      I3 => \^q\(0),
-      I4 => \^q\(3),
+      I1 => \^enemies_reg[18][r][9]_0\(2),
+      I2 => \^enemies_reg[18][r][9]_0\(1),
+      I3 => \^enemies_reg[18][r][9]_0\(0),
+      I4 => \^enemies_reg[18][r][9]_0\(3),
       O => \enemies[18][R][4]_i_2_n_0\
     );
 \enemies[18][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"FFFFFFFF00000002"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[18][is_active]_i_3_n_0\,
-      I2 => \enemies[18][is_active]_i_4_n_0\,
-      I3 => \enemies[18][is_active]_i_2_n_0\,
-      I4 => \enemies[18][R][5]_i_2_n_0\,
-      I5 => \^q\(4),
+      I0 => p_0_in(1),
+      I1 => \lfsr_reg_n_0_[2]\,
+      I2 => \enemies[22][is_active]_i_3_n_0\,
+      I3 => p_0_in(0),
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[18][R][5]_i_2_n_0\,
       O => \enemies[18][R][5]_i_1_n_0\
     );
-\enemies[18][R][5]_i_2\: unisim.vcomponents.LUT4
+\enemies[18][R][5]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFE"
+      INIT => X"AAAAAAA800000002"
     )
         port map (
-      I0 => \^q\(3),
-      I1 => \^q\(0),
-      I2 => \^q\(1),
-      I3 => \^q\(2),
+      I0 => \enemies[18][is_active]_i_2_n_0\,
+      I1 => \^enemies_reg[18][r][9]_0\(3),
+      I2 => \^enemies_reg[18][r][9]_0\(0),
+      I3 => \^enemies_reg[18][r][9]_0\(1),
+      I4 => \^enemies_reg[18][r][9]_0\(2),
+      I5 => \^enemies_reg[18][r][9]_0\(4),
       O => \enemies[18][R][5]_i_2_n_0\
     );
 \enemies[18][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"01FFFF0101010101"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
+      I0 => \enemies[18][is_active]_i_4_n_0\,
       I1 => \enemies[18][is_active]_i_3_n_0\,
-      I2 => \enemies[18][is_active]_i_4_n_0\,
-      I3 => \enemies[18][is_active]_i_2_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \^enemies_reg[18][r][9]_0\(5),
       I4 => \enemies[18][R][6]_i_2_n_0\,
-      I5 => \^q\(5),
+      I5 => \enemies[18][is_active]_i_2_n_0\,
       O => \enemies[18][R][6]_i_1_n_0\
     );
 \enemies[18][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
-      I0 => \^q\(4),
-      I1 => \^q\(2),
-      I2 => \^q\(1),
-      I3 => \^q\(0),
-      I4 => \^q\(3),
+      I0 => \^enemies_reg[18][r][9]_0\(4),
+      I1 => \^enemies_reg[18][r][9]_0\(2),
+      I2 => \^enemies_reg[18][r][9]_0\(1),
+      I3 => \^enemies_reg[18][r][9]_0\(0),
+      I4 => \^enemies_reg[18][r][9]_0\(3),
       O => \enemies[18][R][6]_i_2_n_0\
     );
 \enemies[18][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^q\(6),
-      I1 => \enemies[18][R][8]_i_2_n_0\,
-      I2 => \enemies[18][is_active]_i_2_n_0\,
+      I0 => \enemies[18][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[18][is_active]_i_3_n_0\,
       I3 => \enemies[18][is_active]_i_4_n_0\,
-      I4 => \enemies[18][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[18][R][8]_i_2_n_0\,
+      I5 => \^enemies_reg[18][r][9]_0\(6),
       O => \enemies[18][R][7]_i_1_n_0\
     );
 \enemies[18][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"A900A900A900FFFF"
+      INIT => X"E100E100E1000000"
     )
         port map (
-      I0 => \^q\(7),
+      I0 => \^enemies_reg[18][r][9]_0\(6),
       I1 => \enemies[18][R][8]_i_2_n_0\,
-      I2 => \^q\(6),
+      I2 => \^enemies_reg[18][r][9]_0\(7),
       I3 => \enemies[18][is_active]_i_2_n_0\,
-      I4 => \enemies[18][R][9]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[18][R][9]_i_4_n_0\,
       O => \enemies[18][R][8]_i_1_n_0\
     );
 \enemies[18][R][8]_i_2\: unisim.vcomponents.LUT6
@@ -3094,41 +3192,50 @@ begin
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => \^q\(5),
-      I1 => \^q\(3),
-      I2 => \^q\(0),
-      I3 => \^q\(1),
-      I4 => \^q\(2),
-      I5 => \^q\(4),
+      I0 => \^enemies_reg[18][r][9]_0\(5),
+      I1 => \^enemies_reg[18][r][9]_0\(3),
+      I2 => \^enemies_reg[18][r][9]_0\(0),
+      I3 => \^enemies_reg[18][r][9]_0\(1),
+      I4 => \^enemies_reg[18][r][9]_0\(2),
+      I5 => \^enemies_reg[18][r][9]_0\(4),
       O => \enemies[18][R][8]_i_2_n_0\
     );
 \enemies[18][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"8888888A88888888"
+      INIT => X"AAAAAAAA00020000"
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(27),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
-      I3 => \enemies[18][is_active]_i_3_n_0\,
-      I4 => \lfsr_reg_n_0_[2]\,
-      I5 => p_0_in(1),
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[18][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[2]\,
+      I4 => p_0_in(1),
+      I5 => \^enemies_reg[18][is_active]_0\,
       O => \enemies[18][R]\
     );
 \enemies[18][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E000E0E000E00000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[18][R][9]_i_3_n_0\,
-      I2 => \enemies[18][is_active]_i_2_n_0\,
-      I3 => \^q\(7),
-      I4 => \enemies[18][R][9]_i_4_n_0\,
-      I5 => \^q\(8),
+      I0 => \enemies[18][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[18][r][9]_0\(7),
+      I2 => \^enemies_reg[18][r][9]_0\(8),
+      I3 => \enemies[18][is_active]_i_2_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[18][R][9]_i_4_n_0\,
       O => \enemies[18][R][9]_i_2_n_0\
     );
-\enemies[18][R][9]_i_3\: unisim.vcomponents.LUT5
+\enemies[18][R][9]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^enemies_reg[18][r][9]_0\(6),
+      I1 => \enemies[18][R][8]_i_2_n_0\,
+      O => \enemies[18][R][9]_i_3_n_0\
+    );
+\enemies[18][R][9]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFDFF"
     )
@@ -3138,15 +3245,6 @@ begin
       I2 => \lfsr_reg_n_0_[0]\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => p_0_in(0),
-      O => \enemies[18][R][9]_i_3_n_0\
-    );
-\enemies[18][R][9]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^q\(6),
-      I1 => \enemies[18][R][8]_i_2_n_0\,
       O => \enemies[18][R][9]_i_4_n_0\
     );
 \enemies[18][is_active]_i_1\: unisim.vcomponents.LUT6
@@ -3155,9 +3253,9 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(27),
+      I1 => \^enemies_reg[18][is_active]_0\,
       I2 => \enemies[18][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[18][is_active]_i_3_n_0\,
       I5 => \enemies[18][is_active]_i_4_n_0\,
       O => \enemies[18][is_active]_i_1_n_0\
@@ -3167,9 +3265,9 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => \^q\(7),
-      I1 => \^q\(5),
-      I2 => \^q\(8),
+      I0 => \^enemies_reg[18][r][9]_0\(7),
+      I1 => \^enemies_reg[18][r][9]_0\(5),
+      I2 => \^enemies_reg[18][r][9]_0\(8),
       I3 => \enemies[18][is_active]_i_5_n_0\,
       O => \enemies[18][is_active]_i_2_n_0\
     );
@@ -3197,49 +3295,49 @@ begin
       INIT => X"FFF8"
     )
         port map (
-      I0 => \^q\(3),
-      I1 => \^q\(2),
-      I2 => \^q\(4),
-      I3 => \^q\(6),
+      I0 => \^enemies_reg[18][r][9]_0\(3),
+      I1 => \^enemies_reg[18][r][9]_0\(2),
+      I2 => \^enemies_reg[18][r][9]_0\(4),
+      I3 => \^enemies_reg[18][r][9]_0\(6),
       O => \enemies[18][is_active]_i_5_n_0\
     );
 \enemies[19][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"00000000A8AAAAAA"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[19][is_active]_i_2_n_0\,
+      I0 => \enemies[19][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[19][r][9]_0\(0),
       O => \enemies[19][R][1]_i_1_n_0\
     );
 \enemies[19][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[19][is_active]_i_2_n_0\,
+      I0 => \enemies[19][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[19][r][9]_0\(1),
       I5 => \^enemies_reg[19][r][9]_0\(0),
       O => \enemies[19][R][2]_i_1_n_0\
     );
 \enemies[19][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[19][is_active]_i_2_n_0\,
-      I4 => \enemies[19][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[19][r][9]_0\(2),
+      I0 => \^enemies_reg[19][r][9]_0\(2),
+      I1 => \enemies[19][R][3]_i_2_n_0\,
+      I2 => \enemies[19][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[19][R][3]_i_1_n_0\
     );
 \enemies[19][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -3259,9 +3357,9 @@ begin
       I0 => \^enemies_reg[19][r][9]_0\(3),
       I1 => \enemies[19][R][4]_i_2_n_0\,
       I2 => \enemies[19][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[19][R][4]_i_1_n_0\
     );
 \enemies[19][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -3276,15 +3374,15 @@ begin
     );
 \enemies[19][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[19][is_active]_i_2_n_0\,
-      I4 => \enemies[19][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[19][r][9]_0\(4),
+      I0 => \^enemies_reg[19][r][9]_0\(4),
+      I1 => \enemies[19][R][5]_i_2_n_0\,
+      I2 => \enemies[19][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[19][R][5]_i_1_n_0\
     );
 \enemies[19][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -3300,20 +3398,20 @@ begin
     );
 \enemies[19][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[19][is_active]_i_2_n_0\,
-      I4 => \enemies[19][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[19][r][9]_0\(5),
+      I0 => \^enemies_reg[19][r][9]_0\(5),
+      I1 => \enemies[19][R][6]_i_2_n_0\,
+      I2 => \enemies[19][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[19][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[19][R][6]_i_1_n_0\
     );
 \enemies[19][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[19][r][9]_0\(4),
@@ -3325,15 +3423,15 @@ begin
     );
 \enemies[19][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[19][r][9]_0\(6),
-      I1 => \enemies[19][R][7]_i_2_n_0\,
-      I2 => \enemies[19][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I0 => \enemies[19][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[19][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[19][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[19][r][9]_0\(6),
       O => \enemies[19][R][7]_i_1_n_0\
     );
 \enemies[19][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -3351,15 +3449,15 @@ begin
     );
 \enemies[19][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[19][r][9]_0\(7),
-      I1 => \enemies[19][R][9]_i_4_n_0\,
+      I0 => \enemies[19][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[19][r][9]_0\(7),
       I2 => \enemies[19][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[19][R][8]_i_1_n_0\
     );
 \enemies[19][R][9]_i_1\: unisim.vcomponents.LUT6
@@ -3368,8 +3466,8 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(28),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I1 => \^enemies_reg[19][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[19][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -3377,18 +3475,27 @@ begin
     );
 \enemies[19][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E000E0E000E00000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[19][R][9]_i_3_n_0\,
-      I2 => \enemies[19][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[19][r][9]_0\(7),
-      I4 => \enemies[19][R][9]_i_4_n_0\,
-      I5 => \^enemies_reg[19][r][9]_0\(8),
+      I0 => \enemies[19][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[19][r][9]_0\(7),
+      I2 => \^enemies_reg[19][r][9]_0\(8),
+      I3 => \enemies[19][is_active]_i_2_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[19][R][9]_i_4_n_0\,
       O => \enemies[19][R][9]_i_2_n_0\
     );
-\enemies[19][R][9]_i_3\: unisim.vcomponents.LUT5
+\enemies[19][R][9]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^enemies_reg[19][r][9]_0\(6),
+      I1 => \enemies[19][R][7]_i_2_n_0\,
+      O => \enemies[19][R][9]_i_3_n_0\
+    );
+\enemies[19][R][9]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFF7FF"
     )
@@ -3398,15 +3505,6 @@ begin
       I2 => \lfsr_reg_n_0_[2]\,
       I3 => p_0_in(1),
       I4 => p_0_in(0),
-      O => \enemies[19][R][9]_i_3_n_0\
-    );
-\enemies[19][R][9]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[19][r][9]_0\(6),
-      I1 => \enemies[19][R][7]_i_2_n_0\,
       O => \enemies[19][R][9]_i_4_n_0\
     );
 \enemies[19][is_active]_i_1\: unisim.vcomponents.LUT6
@@ -3415,11 +3513,11 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(28),
+      I1 => \^enemies_reg[19][is_active]_0\,
       I2 => \enemies[19][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[19][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_6_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[19][is_active]_i_1_n_0\
     );
 \enemies[19][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -3456,42 +3554,42 @@ begin
     );
 \enemies[1][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFEF0000"
+      INIT => X"00000000AAAAA8AA"
     )
         port map (
-      I0 => \enemies[3][is_active]_i_3_n_0\,
-      I1 => \lfsr_reg_n_0_[1]\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[1][is_active]_i_2_n_0\,
+      I0 => \enemies[1][is_active]_i_2_n_0\,
+      I1 => \enemies[3][is_active]_i_3_n_0\,
+      I2 => \lfsr_reg_n_0_[1]\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \^enemies_reg[1][r][9]_0\(0),
-      O => \p_0_in__0\(1)
+      O => \enemies[1][R][1]_i_1_n_0\
     );
 \enemies[1][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[3][is_active]_i_3_n_0\,
-      I1 => \enemies[21][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[1][is_active]_i_2_n_0\,
+      I0 => \enemies[1][is_active]_i_2_n_0\,
+      I1 => \enemies[3][is_active]_i_3_n_0\,
+      I2 => \enemies[21][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[1][r][9]_0\(1),
       I5 => \^enemies_reg[1][r][9]_0\(0),
-      O => \p_0_in__0\(2)
+      O => \enemies[1][R][2]_i_1_n_0\
     );
 \enemies[1][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[3][is_active]_i_3_n_0\,
-      I1 => \enemies[21][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[1][is_active]_i_2_n_0\,
-      I4 => \enemies[1][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[1][r][9]_0\(2),
-      O => \p_0_in__0\(3)
+      I0 => \^enemies_reg[1][r][9]_0\(2),
+      I1 => \enemies[1][R][3]_i_2_n_0\,
+      I2 => \enemies[1][is_active]_i_2_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[21][is_active]_i_3_n_0\,
+      I5 => \enemies[3][is_active]_i_3_n_0\,
+      O => \enemies[1][R][3]_i_1_n_0\
     );
 \enemies[1][R][3]_i_2\: unisim.vcomponents.LUT2
     generic map(
@@ -3527,16 +3625,16 @@ begin
     );
 \enemies[1][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[3][is_active]_i_3_n_0\,
-      I1 => \enemies[21][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[1][is_active]_i_2_n_0\,
-      I4 => \enemies[1][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[1][r][9]_0\(4),
-      O => \p_0_in__0\(5)
+      I0 => \^enemies_reg[1][r][9]_0\(4),
+      I1 => \enemies[1][R][5]_i_2_n_0\,
+      I2 => \enemies[1][is_active]_i_2_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[21][is_active]_i_3_n_0\,
+      I5 => \enemies[3][is_active]_i_3_n_0\,
+      O => \enemies[1][R][5]_i_1_n_0\
     );
 \enemies[1][R][5]_i_2\: unisim.vcomponents.LUT4
     generic map(
@@ -3551,20 +3649,20 @@ begin
     );
 \enemies[1][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[3][is_active]_i_3_n_0\,
-      I1 => \enemies[21][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[1][is_active]_i_2_n_0\,
-      I4 => \enemies[1][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[1][r][9]_0\(5),
-      O => \p_0_in__0\(6)
+      I0 => \^enemies_reg[1][r][9]_0\(5),
+      I1 => \enemies[1][R][6]_i_2_n_0\,
+      I2 => \enemies[1][is_active]_i_2_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[21][is_active]_i_3_n_0\,
+      I5 => \enemies[3][is_active]_i_3_n_0\,
+      O => \enemies[1][R][6]_i_1_n_0\
     );
 \enemies[1][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[1][r][9]_0\(4),
@@ -3576,15 +3674,15 @@ begin
     );
 \enemies[1][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[1][r][9]_0\(6),
-      I1 => \enemies[1][R][7]_i_2_n_0\,
-      I2 => \enemies[1][is_active]_i_2_n_0\,
+      I0 => \enemies[1][is_active]_i_2_n_0\,
+      I1 => \enemies[3][is_active]_i_3_n_0\,
+      I2 => \enemies[21][is_active]_i_3_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[21][is_active]_i_3_n_0\,
-      I5 => \enemies[3][is_active]_i_3_n_0\,
+      I4 => \enemies[1][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[1][r][9]_0\(6),
       O => \enemies[1][R][7]_i_1_n_0\
     );
 \enemies[1][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -3602,16 +3700,16 @@ begin
     );
 \enemies[1][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[1][r][9]_0\(7),
-      I1 => \enemies[1][R][9]_i_4_n_0\,
+      I0 => \enemies[1][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[1][r][9]_0\(7),
       I2 => \enemies[1][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
-      I5 => \enemies[3][is_active]_i_3_n_0\,
-      O => \enemies[1][R][8]_i_1_n_0\
+      I5 => \enemies[15][is_active]_i_3_n_0\,
+      O => \p_0_in__0\(8)
     );
 \enemies[1][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -3619,7 +3717,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(10),
+      I1 => \^enemies_reg[1][is_active]_0\,
       I2 => \enemies[3][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -3628,18 +3726,27 @@ begin
     );
 \enemies[1][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E000E0E000E00000"
+      INIT => X"D200D200D2000000"
     )
         port map (
       I0 => \enemies[1][R][9]_i_3_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[1][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[1][r][9]_0\(7),
+      I1 => \^enemies_reg[1][r][9]_0\(7),
+      I2 => \^enemies_reg[1][r][9]_0\(8),
+      I3 => \enemies[1][is_active]_i_2_n_0\,
       I4 => \enemies[1][R][9]_i_4_n_0\,
-      I5 => \^enemies_reg[1][r][9]_0\(8),
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \p_0_in__0\(9)
     );
-\enemies[1][R][9]_i_3\: unisim.vcomponents.LUT5
+\enemies[1][R][9]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^enemies_reg[1][r][9]_0\(6),
+      I1 => \enemies[1][R][7]_i_2_n_0\,
+      O => \enemies[1][R][9]_i_3_n_0\
+    );
+\enemies[1][R][9]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFFD"
     )
@@ -3649,15 +3756,6 @@ begin
       I2 => \lfsr_reg_n_0_[2]\,
       I3 => p_0_in(1),
       I4 => p_0_in(0),
-      O => \enemies[1][R][9]_i_3_n_0\
-    );
-\enemies[1][R][9]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[1][r][9]_0\(6),
-      I1 => \enemies[1][R][7]_i_2_n_0\,
       O => \enemies[1][R][9]_i_4_n_0\
     );
 \enemies[1][is_active]_i_1\: unisim.vcomponents.LUT6
@@ -3666,7 +3764,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(10),
+      I1 => \^enemies_reg[1][is_active]_0\,
       I2 => \enemies[1][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
@@ -3697,41 +3795,41 @@ begin
     );
 \enemies[20][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"00000000AAAAAAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[20][is_active]_i_2_n_0\,
+      I0 => \enemies[20][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[20][r][9]_0\(0),
       O => \enemies[20][R][1]_i_1_n_0\
     );
 \enemies[20][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[20][is_active]_i_2_n_0\,
+      I0 => \enemies[20][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[20][r][9]_0\(1),
       I5 => \^enemies_reg[20][r][9]_0\(0),
       O => \enemies[20][R][2]_i_1_n_0\
     );
 \enemies[20][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[20][is_active]_i_2_n_0\,
-      I4 => \enemies[20][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[20][r][9]_0\(2),
+      I0 => \^enemies_reg[20][r][9]_0\(2),
+      I1 => \enemies[20][R][3]_i_2_n_0\,
+      I2 => \enemies[20][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[20][R][3]_i_1_n_0\
     );
 \enemies[20][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -3752,8 +3850,8 @@ begin
       I1 => \enemies[20][R][4]_i_2_n_0\,
       I2 => \enemies[20][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[20][R][4]_i_1_n_0\
     );
 \enemies[20][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -3768,15 +3866,15 @@ begin
     );
 \enemies[20][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[20][is_active]_i_2_n_0\,
-      I4 => \enemies[20][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[20][r][9]_0\(4),
+      I0 => \^enemies_reg[20][r][9]_0\(4),
+      I1 => \enemies[20][R][5]_i_2_n_0\,
+      I2 => \enemies[20][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[20][R][5]_i_1_n_0\
     );
 \enemies[20][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -3792,20 +3890,20 @@ begin
     );
 \enemies[20][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[20][is_active]_i_2_n_0\,
-      I4 => \enemies[20][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[20][r][9]_0\(5),
+      I0 => \^enemies_reg[20][r][9]_0\(5),
+      I1 => \enemies[20][R][6]_i_2_n_0\,
+      I2 => \enemies[20][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[20][R][6]_i_1_n_0\
     );
 \enemies[20][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[20][r][9]_0\(4),
@@ -3817,15 +3915,15 @@ begin
     );
 \enemies[20][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[20][r][9]_0\(6),
-      I1 => \enemies[20][R][7]_i_2_n_0\,
-      I2 => \enemies[20][is_active]_i_2_n_0\,
+      I0 => \enemies[20][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[20][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[20][r][9]_0\(6),
       O => \enemies[20][R][7]_i_1_n_0\
     );
 \enemies[20][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -3843,25 +3941,16 @@ begin
     );
 \enemies[20][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[20][r][9]_0\(7),
-      I1 => \enemies[20][R][8]_i_2_n_0\,
+      I0 => \enemies[20][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[20][r][9]_0\(7),
       I2 => \enemies[20][is_active]_i_2_n_0\,
-      I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[20][R][8]_i_1_n_0\
-    );
-\enemies[20][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[20][r][9]_0\(6),
-      I1 => \enemies[20][R][7]_i_2_n_0\,
-      O => \enemies[20][R][8]_i_2_n_0\
     );
 \enemies[20][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -3869,36 +3958,46 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(29),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
-      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I1 => \^enemies_reg[20][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_4_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
       O => \enemies[20][R]\
     );
 \enemies[20][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[20][is_active]_i_2_n_0\,
-      I5 => \enemies[20][R][9]_i_3_n_0\,
+      I0 => \enemies[20][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[20][r][9]_0\(7),
+      I2 => \^enemies_reg[20][r][9]_0\(8),
+      I3 => \enemies[20][is_active]_i_2_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[20][R][9]_i_4_n_0\,
       O => \enemies[20][R][9]_i_2_n_0\
     );
-\enemies[20][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[20][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[20][r][9]_0\(8),
-      I1 => \^enemies_reg[20][r][9]_0\(6),
-      I2 => \enemies[20][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[20][r][9]_0\(7),
+      I0 => \^enemies_reg[20][r][9]_0\(6),
+      I1 => \enemies[20][R][7]_i_2_n_0\,
       O => \enemies[20][R][9]_i_3_n_0\
+    );
+\enemies[20][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFEFFFFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[20][R][9]_i_4_n_0\
     );
 \enemies[20][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -3906,10 +4005,10 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(29),
+      I1 => \^enemies_reg[20][is_active]_0\,
       I2 => \enemies[20][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[20][is_active]_i_1_n_0\
     );
@@ -3946,41 +4045,41 @@ begin
     );
 \enemies[21][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[21][is_active]_i_2_n_0\,
+      I0 => \enemies[21][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[1]\,
+      I4 => \lfsr_reg_n_0_[0]\,
       I5 => \^enemies_reg[21][r][9]_0\(0),
       O => \enemies[21][R][1]_i_1_n_0\
     );
 \enemies[21][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[21][is_active]_i_2_n_0\,
+      I0 => \enemies[21][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[21][r][9]_0\(1),
       I5 => \^enemies_reg[21][r][9]_0\(0),
       O => \enemies[21][R][2]_i_1_n_0\
     );
 \enemies[21][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[21][is_active]_i_2_n_0\,
-      I4 => \enemies[21][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[21][r][9]_0\(2),
+      I0 => \^enemies_reg[21][r][9]_0\(2),
+      I1 => \enemies[21][R][3]_i_2_n_0\,
+      I2 => \enemies[21][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[21][R][3]_i_1_n_0\
     );
 \enemies[21][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -4001,8 +4100,8 @@ begin
       I1 => \enemies[21][R][4]_i_2_n_0\,
       I2 => \enemies[21][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[21][R][4]_i_1_n_0\
     );
 \enemies[21][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -4017,15 +4116,15 @@ begin
     );
 \enemies[21][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[21][is_active]_i_2_n_0\,
-      I4 => \enemies[21][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[21][r][9]_0\(4),
+      I0 => \^enemies_reg[21][r][9]_0\(4),
+      I1 => \enemies[21][R][5]_i_2_n_0\,
+      I2 => \enemies[21][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[21][R][5]_i_1_n_0\
     );
 \enemies[21][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -4041,20 +4140,20 @@ begin
     );
 \enemies[21][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[21][is_active]_i_2_n_0\,
-      I4 => \enemies[21][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[21][r][9]_0\(5),
+      I0 => \^enemies_reg[21][r][9]_0\(5),
+      I1 => \enemies[21][R][6]_i_2_n_0\,
+      I2 => \enemies[21][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[21][R][6]_i_1_n_0\
     );
 \enemies[21][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[21][r][9]_0\(4),
@@ -4066,15 +4165,15 @@ begin
     );
 \enemies[21][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[21][r][9]_0\(6),
-      I1 => \enemies[21][R][7]_i_2_n_0\,
-      I2 => \enemies[21][is_active]_i_2_n_0\,
+      I0 => \enemies[21][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[21][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[21][r][9]_0\(6),
       O => \enemies[21][R][7]_i_1_n_0\
     );
 \enemies[21][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -4092,25 +4191,16 @@ begin
     );
 \enemies[21][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[21][r][9]_0\(7),
-      I1 => \enemies[21][R][8]_i_2_n_0\,
+      I0 => \enemies[21][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[21][r][9]_0\(7),
       I2 => \enemies[21][is_active]_i_2_n_0\,
-      I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[21][R][8]_i_1_n_0\
-    );
-\enemies[21][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[21][r][9]_0\(6),
-      I1 => \enemies[21][R][7]_i_2_n_0\,
-      O => \enemies[21][R][8]_i_2_n_0\
     );
 \enemies[21][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -4118,36 +4208,46 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(30),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
-      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I1 => \^enemies_reg[21][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_4_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \lfsr_reg_n_0_[0]\,
       O => \enemies[21][R]\
     );
 \enemies[21][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[21][is_active]_i_2_n_0\,
-      I5 => \enemies[21][R][9]_i_3_n_0\,
+      I0 => \enemies[21][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[21][r][9]_0\(7),
+      I2 => \^enemies_reg[21][r][9]_0\(8),
+      I3 => \enemies[21][is_active]_i_2_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[21][R][9]_i_4_n_0\,
       O => \enemies[21][R][9]_i_2_n_0\
     );
-\enemies[21][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[21][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[21][r][9]_0\(8),
-      I1 => \^enemies_reg[21][r][9]_0\(6),
-      I2 => \enemies[21][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[21][r][9]_0\(7),
+      I0 => \^enemies_reg[21][r][9]_0\(6),
+      I1 => \enemies[21][R][7]_i_2_n_0\,
       O => \enemies[21][R][9]_i_3_n_0\
+    );
+\enemies[21][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFDFFFFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[0]\,
+      I1 => \lfsr_reg_n_0_[1]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[21][R][9]_i_4_n_0\
     );
 \enemies[21][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -4155,10 +4255,10 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(30),
+      I1 => \^enemies_reg[21][is_active]_0\,
       I2 => \enemies[21][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[21][is_active]_i_1_n_0\
     );
@@ -4195,41 +4295,41 @@ begin
     );
 \enemies[22][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[22][is_active]_i_2_n_0\,
+      I0 => \enemies[22][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[22][r][9]_0\(0),
       O => \enemies[22][R][1]_i_1_n_0\
     );
 \enemies[22][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[22][is_active]_i_2_n_0\,
+      I0 => \enemies[22][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[22][r][9]_0\(1),
       I5 => \^enemies_reg[22][r][9]_0\(0),
       O => \enemies[22][R][2]_i_1_n_0\
     );
 \enemies[22][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[22][is_active]_i_2_n_0\,
-      I4 => \enemies[22][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[22][r][9]_0\(2),
+      I0 => \^enemies_reg[22][r][9]_0\(2),
+      I1 => \enemies[22][R][3]_i_2_n_0\,
+      I2 => \enemies[22][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[22][R][3]_i_1_n_0\
     );
 \enemies[22][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -4250,8 +4350,8 @@ begin
       I1 => \enemies[22][R][4]_i_2_n_0\,
       I2 => \enemies[22][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[22][R][4]_i_1_n_0\
     );
 \enemies[22][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -4266,15 +4366,15 @@ begin
     );
 \enemies[22][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[22][is_active]_i_2_n_0\,
-      I4 => \enemies[22][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[22][r][9]_0\(4),
+      I0 => \^enemies_reg[22][r][9]_0\(4),
+      I1 => \enemies[22][R][5]_i_2_n_0\,
+      I2 => \enemies[22][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[22][R][5]_i_1_n_0\
     );
 \enemies[22][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -4290,20 +4390,20 @@ begin
     );
 \enemies[22][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[22][is_active]_i_2_n_0\,
-      I4 => \enemies[22][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[22][r][9]_0\(5),
+      I0 => \^enemies_reg[22][r][9]_0\(5),
+      I1 => \enemies[22][R][6]_i_2_n_0\,
+      I2 => \enemies[22][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[22][R][6]_i_1_n_0\
     );
 \enemies[22][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[22][r][9]_0\(4),
@@ -4315,15 +4415,15 @@ begin
     );
 \enemies[22][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[22][r][9]_0\(6),
-      I1 => \enemies[22][R][7]_i_2_n_0\,
-      I2 => \enemies[22][is_active]_i_2_n_0\,
+      I0 => \enemies[22][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I4 => \enemies[22][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[22][r][9]_0\(6),
       O => \enemies[22][R][7]_i_1_n_0\
     );
 \enemies[22][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -4341,25 +4441,16 @@ begin
     );
 \enemies[22][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[22][r][9]_0\(7),
-      I1 => \enemies[22][R][8]_i_2_n_0\,
+      I0 => \enemies[22][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[22][r][9]_0\(7),
       I2 => \enemies[22][is_active]_i_2_n_0\,
-      I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[22][R][8]_i_1_n_0\
-    );
-\enemies[22][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[22][r][9]_0\(6),
-      I1 => \enemies[22][R][7]_i_2_n_0\,
-      O => \enemies[22][R][8]_i_2_n_0\
     );
 \enemies[22][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -4367,36 +4458,46 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(31),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
-      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I1 => \^enemies_reg[22][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_4_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
       O => \enemies[22][R]\
     );
 \enemies[22][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[22][is_active]_i_2_n_0\,
-      I5 => \enemies[22][R][9]_i_3_n_0\,
+      I0 => \enemies[22][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[22][r][9]_0\(7),
+      I2 => \^enemies_reg[22][r][9]_0\(8),
+      I3 => \enemies[22][is_active]_i_2_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I5 => \enemies[22][R][9]_i_4_n_0\,
       O => \enemies[22][R][9]_i_2_n_0\
     );
-\enemies[22][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[22][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[22][r][9]_0\(8),
-      I1 => \^enemies_reg[22][r][9]_0\(6),
-      I2 => \enemies[22][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[22][r][9]_0\(7),
+      I0 => \^enemies_reg[22][r][9]_0\(6),
+      I1 => \enemies[22][R][7]_i_2_n_0\,
       O => \enemies[22][R][9]_i_3_n_0\
+    );
+\enemies[22][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFDFFFFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[22][R][9]_i_4_n_0\
     );
 \enemies[22][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -4404,10 +4505,10 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(31),
+      I1 => \^enemies_reg[22][is_active]_0\,
       I2 => \enemies[22][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
       I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[22][is_active]_i_1_n_0\
     );
@@ -4444,41 +4545,41 @@ begin
     );
 \enemies[23][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"00000000A8AAAAAA"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[23][is_active]_i_3_n_0\,
+      I0 => \enemies[23][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[23][r][9]_0\(0),
       O => \enemies[23][R][1]_i_1_n_0\
     );
 \enemies[23][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I0 => \enemies[23][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[23][r][9]_0\(1),
       I5 => \^enemies_reg[23][r][9]_0\(0),
       O => \enemies[23][R][2]_i_1_n_0\
     );
 \enemies[23][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[23][is_active]_i_3_n_0\,
-      I4 => \enemies[23][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[23][r][9]_0\(2),
+      I0 => \^enemies_reg[23][r][9]_0\(2),
+      I1 => \enemies[23][R][3]_i_2_n_0\,
+      I2 => \enemies[23][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[23][R][3]_i_1_n_0\
     );
 \enemies[23][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -4497,10 +4598,10 @@ begin
         port map (
       I0 => \^enemies_reg[23][r][9]_0\(3),
       I1 => \enemies[23][R][4]_i_2_n_0\,
-      I2 => \enemies[23][is_active]_i_3_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I2 => \enemies[23][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[23][R][4]_i_1_n_0\
     );
 \enemies[23][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -4515,15 +4616,15 @@ begin
     );
 \enemies[23][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[23][is_active]_i_3_n_0\,
-      I4 => \enemies[23][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[23][r][9]_0\(4),
+      I0 => \^enemies_reg[23][r][9]_0\(4),
+      I1 => \enemies[23][R][5]_i_2_n_0\,
+      I2 => \enemies[23][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[23][R][5]_i_1_n_0\
     );
 \enemies[23][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -4539,20 +4640,20 @@ begin
     );
 \enemies[23][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[23][is_active]_i_3_n_0\,
-      I4 => \enemies[23][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[23][r][9]_0\(5),
+      I0 => \^enemies_reg[23][r][9]_0\(5),
+      I1 => \enemies[23][R][6]_i_2_n_0\,
+      I2 => \enemies[23][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[23][R][6]_i_1_n_0\
     );
 \enemies[23][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[23][r][9]_0\(4),
@@ -4564,15 +4665,15 @@ begin
     );
 \enemies[23][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[23][r][9]_0\(6),
-      I1 => \enemies[23][R][7]_i_2_n_0\,
-      I2 => \enemies[23][is_active]_i_3_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I0 => \enemies[23][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[23][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[23][r][9]_0\(6),
       O => \enemies[23][R][7]_i_1_n_0\
     );
 \enemies[23][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -4590,25 +4691,16 @@ begin
     );
 \enemies[23][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[23][r][9]_0\(7),
-      I1 => \enemies[23][R][8]_i_2_n_0\,
-      I2 => \enemies[23][is_active]_i_3_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_4_n_0\,
+      I0 => \enemies[23][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[23][r][9]_0\(7),
+      I2 => \enemies[23][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[23][R][8]_i_1_n_0\
-    );
-\enemies[23][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[23][r][9]_0\(6),
-      I1 => \enemies[23][R][7]_i_2_n_0\,
-      O => \enemies[23][R][8]_i_2_n_0\
     );
 \enemies[23][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -4616,36 +4708,46 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(32),
-      I2 => \enemies[23][is_active]_i_4_n_0\,
-      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I1 => \^enemies_reg[23][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_4_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
       O => \enemies[23][R]\
     );
 \enemies[23][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_5_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
+      I0 => \enemies[23][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[23][r][9]_0\(7),
+      I2 => \^enemies_reg[23][r][9]_0\(8),
+      I3 => \enemies[23][is_active]_i_2_n_0\,
       I4 => \enemies[23][is_active]_i_3_n_0\,
-      I5 => \enemies[23][R][9]_i_3_n_0\,
+      I5 => \enemies[23][R][9]_i_4_n_0\,
       O => \enemies[23][R][9]_i_2_n_0\
     );
-\enemies[23][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[23][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[23][r][9]_0\(8),
-      I1 => \^enemies_reg[23][r][9]_0\(6),
-      I2 => \enemies[23][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[23][r][9]_0\(7),
+      I0 => \^enemies_reg[23][r][9]_0\(6),
+      I1 => \enemies[23][R][7]_i_2_n_0\,
       O => \enemies[23][R][9]_i_3_n_0\
+    );
+\enemies[23][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FF7FFFFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[23][R][9]_i_4_n_0\
     );
 \enemies[23][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -4653,11 +4755,11 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(32),
-      I2 => \enemies[23][is_active]_i_3_n_0\,
-      I3 => \enemies[23][is_active]_i_4_n_0\,
-      I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[23][is_active]_i_6_n_0\,
+      I1 => \^enemies_reg[23][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[23][is_active]_i_1_n_0\
     );
 \enemies[23][is_active]_i_10\: unisim.vcomponents.LUT6
@@ -4665,12 +4767,12 @@ begin
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => \^enemiesout\(28),
-      I1 => \^enemiesout\(27),
+      I0 => \^enemies_reg[19][is_active]_0\,
+      I1 => \^enemies_reg[18][is_active]_0\,
       I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \^enemiesout\(26),
+      I3 => \^enemies_reg[17][is_active]_0\,
       I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \^enemiesout\(25),
+      I5 => \^enemies_reg[16][is_active]_0\,
       O => \enemies[23][is_active]_i_10_n_0\
     );
 \enemies[23][is_active]_i_11\: unisim.vcomponents.LUT6
@@ -4678,12 +4780,12 @@ begin
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => \^enemiesout\(32),
-      I1 => \^enemiesout\(31),
+      I0 => \^enemies_reg[3][is_active]_0\,
+      I1 => \^enemies_reg[2][is_active]_0\,
       I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \^enemiesout\(30),
+      I3 => \^enemies_reg[1][is_active]_0\,
       I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \^enemiesout\(29),
+      I5 => \^enemies_reg[0][is_active]_0\,
       O => \enemies[23][is_active]_i_11_n_0\
     );
 \enemies[23][is_active]_i_12\: unisim.vcomponents.LUT6
@@ -4691,12 +4793,12 @@ begin
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => \^enemiesout\(12),
-      I1 => \^enemiesout\(11),
+      I0 => \^enemies_reg[7][is_active]_0\,
+      I1 => \^enemies_reg[6][is_active]_0\,
       I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \^enemiesout\(10),
+      I3 => \^enemies_reg[5][is_active]_0\,
       I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \^enemiesout\(9),
+      I5 => \^enemies_reg[4][is_active]_0\,
       O => \enemies[23][is_active]_i_12_n_0\
     );
 \enemies[23][is_active]_i_13\: unisim.vcomponents.LUT6
@@ -4704,12 +4806,12 @@ begin
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => \^enemiesout\(16),
-      I1 => \^enemiesout\(15),
+      I0 => \^enemies_reg[15][is_active]_0\,
+      I1 => \^enemies_reg[14][is_active]_0\,
       I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \^enemiesout\(14),
+      I3 => \^enemies_reg[13][is_active]_0\,
       I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \^enemiesout\(13),
+      I5 => \^enemies_reg[12][is_active]_0\,
       O => \enemies[23][is_active]_i_13_n_0\
     );
 \enemies[23][is_active]_i_14\: unisim.vcomponents.LUT6
@@ -4717,36 +4819,15 @@ begin
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => \^enemiesout\(24),
-      I1 => \^enemiesout\(23),
+      I0 => \^enemies_reg[11][is_active]_0\,
+      I1 => \^enemies_reg[10][is_active]_0\,
       I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \^enemiesout\(22),
+      I3 => \^enemies_reg[9][is_active]_0\,
       I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \^enemiesout\(21),
+      I5 => \^enemies_reg[8][is_active]_0\,
       O => \enemies[23][is_active]_i_14_n_0\
     );
-\enemies[23][is_active]_i_15\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AFA0CFCFAFA0C0C0"
-    )
-        port map (
-      I0 => \^enemiesout\(20),
-      I1 => \^enemiesout\(19),
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \^enemiesout\(18),
-      I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \^enemiesout\(17),
-      O => \enemies[23][is_active]_i_15_n_0\
-    );
-\enemies[23][is_active]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => RstN,
-      O => \enemies[23][is_active]_i_2_n_0\
-    );
-\enemies[23][is_active]_i_3\: unisim.vcomponents.LUT4
+\enemies[23][is_active]_i_2\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFFE"
     )
@@ -4754,23 +4835,23 @@ begin
       I0 => \^enemies_reg[23][r][9]_0\(7),
       I1 => \^enemies_reg[23][r][9]_0\(5),
       I2 => \^enemies_reg[23][r][9]_0\(8),
-      I3 => \enemies[23][is_active]_i_7_n_0\,
-      O => \enemies[23][is_active]_i_3_n_0\
+      I3 => \enemies[23][is_active]_i_6_n_0\,
+      O => \enemies[23][is_active]_i_2_n_0\
     );
-\enemies[23][is_active]_i_4\: unisim.vcomponents.LUT6
+\enemies[23][is_active]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFDDFCDDCFDDCCDD"
+      INIT => X"FFDDCFDDFCDDCCDD"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_8_n_0\,
-      I1 => \enemies[23][is_active]_i_9_n_0\,
+      I0 => \enemies[23][is_active]_i_7_n_0\,
+      I1 => \enemies[23][is_active]_i_8_n_0\,
       I2 => \lfsr_reg_n_0_[2]\,
       I3 => p_0_in(1),
-      I4 => \enemies[23][is_active]_i_10_n_0\,
-      I5 => \enemies[23][is_active]_i_11_n_0\,
-      O => \enemies[23][is_active]_i_4_n_0\
+      I4 => \enemies[23][is_active]_i_9_n_0\,
+      I5 => \enemies[23][is_active]_i_10_n_0\,
+      O => \enemies[23][is_active]_i_3_n_0\
     );
-\enemies[23][is_active]_i_5\: unisim.vcomponents.LUT3
+\enemies[23][is_active]_i_4\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"DF"
     )
@@ -4778,18 +4859,18 @@ begin
       I0 => p_0_in(1),
       I1 => p_0_in(0),
       I2 => \lfsr_reg_n_0_[2]\,
-      O => \enemies[23][is_active]_i_5_n_0\
+      O => \enemies[23][is_active]_i_4_n_0\
     );
-\enemies[23][is_active]_i_6\: unisim.vcomponents.LUT2
+\enemies[23][is_active]_i_5\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"7"
     )
         port map (
       I0 => \lfsr_reg_n_0_[0]\,
       I1 => \lfsr_reg_n_0_[1]\,
-      O => \enemies[23][is_active]_i_6_n_0\
+      O => \enemies[23][is_active]_i_5_n_0\
     );
-\enemies[23][is_active]_i_7\: unisim.vcomponents.LUT4
+\enemies[23][is_active]_i_6\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFF8"
     )
@@ -4798,134 +4879,136 @@ begin
       I1 => \^enemies_reg[23][r][9]_0\(2),
       I2 => \^enemies_reg[23][r][9]_0\(4),
       I3 => \^enemies_reg[23][r][9]_0\(6),
-      O => \enemies[23][is_active]_i_7_n_0\
+      O => \enemies[23][is_active]_i_6_n_0\
     );
-\enemies[23][is_active]_i_8\: unisim.vcomponents.LUT6
+\enemies[23][is_active]_i_7\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0F3300550F33FF55"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_12_n_0\,
-      I1 => \enemies[23][is_active]_i_13_n_0\,
-      I2 => \enemies[23][is_active]_i_14_n_0\,
+      I0 => \enemies[23][is_active]_i_11_n_0\,
+      I1 => \enemies[23][is_active]_i_12_n_0\,
+      I2 => \enemies[23][is_active]_i_13_n_0\,
       I3 => p_0_in(0),
       I4 => \lfsr_reg_n_0_[2]\,
-      I5 => \enemies[23][is_active]_i_15_n_0\,
-      O => \enemies[23][is_active]_i_8_n_0\
+      I5 => \enemies[23][is_active]_i_14_n_0\,
+      O => \enemies[23][is_active]_i_7_n_0\
     );
-\enemies[23][is_active]_i_9\: unisim.vcomponents.LUT5
+\enemies[23][is_active]_i_8\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE000000"
+      INIT => X"FFFFFFFFFFFFFFE0"
     )
         port map (
-      I0 => p_0_in(4),
-      I1 => p_0_in(5),
-      I2 => p_0_in(3),
-      I3 => p_0_in(7),
+      I0 => p_0_in(2),
+      I1 => p_0_in(3),
+      I2 => p_0_in(4),
+      I3 => p_0_in(5),
       I4 => p_0_in(6),
+      I5 => p_0_in(7),
+      O => \enemies[23][is_active]_i_8_n_0\
+    );
+\enemies[23][is_active]_i_9\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AFA0CFCFAFA0C0C0"
+    )
+        port map (
+      I0 => \^enemies_reg[23][is_active]_0\,
+      I1 => \^enemies_reg[22][is_active]_0\,
+      I2 => \lfsr_reg_n_0_[1]\,
+      I3 => \^enemies_reg[21][is_active]_0\,
+      I4 => \lfsr_reg_n_0_[0]\,
+      I5 => \^enemies_reg[20][is_active]_0\,
       O => \enemies[23][is_active]_i_9_n_0\
     );
 \enemies[2][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"00000000AAAAAAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[18][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[2]\,
-      I3 => p_0_in(1),
-      I4 => \enemies[2][is_active]_i_2_n_0\,
+      I0 => \enemies[2][is_active]_i_2_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[18][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[2]\,
+      I4 => p_0_in(1),
       I5 => \^enemies_reg[2][r][9]_0\(0),
       O => \enemies[2][R][1]_i_1_n_0\
     );
-\enemies[2][R][2]_i_1\: unisim.vcomponents.LUT5
+\enemies[2][R][2]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E00000E0"
+      INIT => X"8008"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[2][is_active]_i_2_n_0\,
       I1 => \enemies[2][is_active]_i_3_n_0\,
-      I2 => \enemies[2][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[2][r][9]_0\(1),
-      I4 => \^enemies_reg[2][r][9]_0\(0),
+      I2 => \^enemies_reg[2][r][9]_0\(1),
+      I3 => \^enemies_reg[2][r][9]_0\(0),
       O => \enemies[2][R][2]_i_1_n_0\
     );
-\enemies[2][R][3]_i_1\: unisim.vcomponents.LUT6
+\enemies[2][R][3]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"E0E0E000000000E0"
+      INIT => X"A900FFFF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[2][is_active]_i_3_n_0\,
-      I2 => \enemies[2][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[2][r][9]_0\(0),
-      I4 => \^enemies_reg[2][r][9]_0\(1),
-      I5 => \^enemies_reg[2][r][9]_0\(2),
+      I0 => \^enemies_reg[2][r][9]_0\(2),
+      I1 => \^enemies_reg[2][r][9]_0\(1),
+      I2 => \^enemies_reg[2][r][9]_0\(0),
+      I3 => \enemies[2][is_active]_i_2_n_0\,
+      I4 => \enemies[2][is_active]_i_3_n_0\,
       O => \enemies[2][R][3]_i_1_n_0\
     );
 \enemies[2][R][4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AAAAAAAAAAAAAAAB"
-    )
-        port map (
-      I0 => \enemies[2][R][4]_i_2_n_0\,
-      I1 => p_0_in(1),
-      I2 => \lfsr_reg_n_0_[2]\,
-      I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => p_0_in(0),
-      I5 => \enemies[15][is_active]_i_3_n_0\,
-      O => \enemies[2][R][4]_i_1_n_0\
-    );
-\enemies[2][R][4]_i_2\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"AAA80002"
-    )
-        port map (
-      I0 => \enemies[2][is_active]_i_2_n_0\,
-      I1 => \^enemies_reg[2][r][9]_0\(2),
-      I2 => \^enemies_reg[2][r][9]_0\(1),
-      I3 => \^enemies_reg[2][r][9]_0\(0),
-      I4 => \^enemies_reg[2][r][9]_0\(3),
-      O => \enemies[2][R][4]_i_2_n_0\
-    );
-\enemies[2][R][5]_i_1\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"E00000E0"
-    )
-        port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[2][is_active]_i_3_n_0\,
-      I2 => \enemies[2][is_active]_i_2_n_0\,
-      I3 => \enemies[2][R][5]_i_2_n_0\,
-      I4 => \^enemies_reg[2][r][9]_0\(4),
-      O => \enemies[2][R][5]_i_1_n_0\
-    );
-\enemies[2][R][5]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
+      INIT => X"AAA90000FFFFFFFF"
     )
         port map (
       I0 => \^enemies_reg[2][r][9]_0\(3),
       I1 => \^enemies_reg[2][r][9]_0\(0),
       I2 => \^enemies_reg[2][r][9]_0\(1),
       I3 => \^enemies_reg[2][r][9]_0\(2),
-      O => \enemies[2][R][5]_i_2_n_0\
+      I4 => \enemies[2][is_active]_i_2_n_0\,
+      I5 => \enemies[2][is_active]_i_3_n_0\,
+      O => \enemies[2][R][4]_i_1_n_0\
     );
-\enemies[2][R][6]_i_1\: unisim.vcomponents.LUT5
+\enemies[2][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E00000E0"
+      INIT => X"AAAAAAAAAAAAAAAB"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[2][is_active]_i_3_n_0\,
+      I0 => \enemies[2][R][5]_i_2_n_0\,
+      I1 => p_0_in(1),
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => p_0_in(0),
+      I5 => \enemies[23][is_active]_i_3_n_0\,
+      O => \enemies[2][R][5]_i_1_n_0\
+    );
+\enemies[2][R][5]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"AAAAAAA800000002"
+    )
+        port map (
+      I0 => \enemies[2][is_active]_i_2_n_0\,
+      I1 => \^enemies_reg[2][r][9]_0\(3),
+      I2 => \^enemies_reg[2][r][9]_0\(0),
+      I3 => \^enemies_reg[2][r][9]_0\(1),
+      I4 => \^enemies_reg[2][r][9]_0\(2),
+      I5 => \^enemies_reg[2][r][9]_0\(4),
+      O => \enemies[2][R][5]_i_2_n_0\
+    );
+\enemies[2][R][6]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"60FF"
+    )
+        port map (
+      I0 => \^enemies_reg[2][r][9]_0\(5),
+      I1 => \enemies[2][R][6]_i_2_n_0\,
       I2 => \enemies[2][is_active]_i_2_n_0\,
-      I3 => \enemies[2][R][6]_i_2_n_0\,
-      I4 => \^enemies_reg[2][r][9]_0\(5),
+      I3 => \enemies[2][is_active]_i_3_n_0\,
       O => \enemies[2][R][6]_i_1_n_0\
     );
 \enemies[2][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[2][r][9]_0\(4),
@@ -4935,32 +5018,56 @@ begin
       I4 => \^enemies_reg[2][r][9]_0\(3),
       O => \enemies[2][R][6]_i_2_n_0\
     );
-\enemies[2][R][7]_i_1\: unisim.vcomponents.LUT5
+\enemies[2][R][7]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"909090FF"
+      INIT => X"8008"
+    )
+        port map (
+      I0 => \enemies[2][is_active]_i_2_n_0\,
+      I1 => \enemies[2][is_active]_i_3_n_0\,
+      I2 => \enemies[2][R][9]_i_3_n_0\,
+      I3 => \^enemies_reg[2][r][9]_0\(6),
+      O => \enemies[2][R][7]_i_1_n_0\
+    );
+\enemies[2][R][8]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"E1000000"
     )
         port map (
       I0 => \^enemies_reg[2][r][9]_0\(6),
-      I1 => \enemies[2][R][8]_i_2_n_0\,
-      I2 => \enemies[2][is_active]_i_2_n_0\,
-      I3 => \enemies[2][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
-      O => \enemies[2][R][7]_i_1_n_0\
-    );
-\enemies[2][R][8]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"A900A900A900FFFF"
-    )
-        port map (
-      I0 => \^enemies_reg[2][r][9]_0\(7),
-      I1 => \enemies[2][R][8]_i_2_n_0\,
-      I2 => \^enemies_reg[2][r][9]_0\(6),
+      I1 => \enemies[2][R][9]_i_3_n_0\,
+      I2 => \^enemies_reg[2][r][9]_0\(7),
       I3 => \enemies[2][is_active]_i_2_n_0\,
       I4 => \enemies[2][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[2][R][8]_i_1_n_0\
     );
-\enemies[2][R][8]_i_2\: unisim.vcomponents.LUT6
+\enemies[2][R][9]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"888888888888888A"
+    )
+        port map (
+      I0 => FrameTick,
+      I1 => \^enemies_reg[2][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[18][is_active]_i_3_n_0\,
+      I4 => \lfsr_reg_n_0_[2]\,
+      I5 => p_0_in(1),
+      O => \enemies[2][R]\
+    );
+\enemies[2][R][9]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FE01000000000000"
+    )
+        port map (
+      I0 => \enemies[2][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[2][r][9]_0\(6),
+      I2 => \^enemies_reg[2][r][9]_0\(7),
+      I3 => \^enemies_reg[2][r][9]_0\(8),
+      I4 => \enemies[2][is_active]_i_2_n_0\,
+      I5 => \enemies[2][is_active]_i_3_n_0\,
+      O => \enemies[2][R][9]_i_2_n_0\
+    );
+\enemies[2][R][9]_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFFFFFFFFFFFE"
     )
@@ -4971,53 +5078,17 @@ begin
       I3 => \^enemies_reg[2][r][9]_0\(1),
       I4 => \^enemies_reg[2][r][9]_0\(2),
       I5 => \^enemies_reg[2][r][9]_0\(4),
-      O => \enemies[2][R][8]_i_2_n_0\
-    );
-\enemies[2][R][9]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"888888888888888A"
-    )
-        port map (
-      I0 => FrameTick,
-      I1 => \^enemiesout\(11),
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[18][is_active]_i_3_n_0\,
-      I4 => \lfsr_reg_n_0_[2]\,
-      I5 => p_0_in(1),
-      O => \enemies[2][R]\
-    );
-\enemies[2][R][9]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"E000E0E000E00000"
-    )
-        port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[2][is_active]_i_3_n_0\,
-      I2 => \enemies[2][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[2][r][9]_0\(7),
-      I4 => \enemies[2][R][9]_i_3_n_0\,
-      I5 => \^enemies_reg[2][r][9]_0\(8),
-      O => \enemies[2][R][9]_i_2_n_0\
-    );
-\enemies[2][R][9]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[2][r][9]_0\(6),
-      I1 => \enemies[2][R][8]_i_2_n_0\,
       O => \enemies[2][R][9]_i_3_n_0\
     );
-\enemies[2][is_active]_i_1\: unisim.vcomponents.LUT5
+\enemies[2][is_active]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"C4C4C4EE"
+      INIT => X"C4EE"
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(11),
+      I1 => \^enemies_reg[2][is_active]_0\,
       I2 => \enemies[2][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[2][is_active]_i_3_n_0\,
+      I3 => \enemies[2][is_active]_i_3_n_0\,
       O => \enemies[2][is_active]_i_1_n_0\
     );
 \enemies[2][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -5031,16 +5102,17 @@ begin
       I3 => \enemies[2][is_active]_i_4_n_0\,
       O => \enemies[2][is_active]_i_2_n_0\
     );
-\enemies[2][is_active]_i_3\: unisim.vcomponents.LUT5
+\enemies[2][is_active]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFEFF"
+      INIT => X"FFFFFFFFFFFFFFFB"
     )
         port map (
-      I0 => p_0_in(1),
-      I1 => \lfsr_reg_n_0_[2]\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => p_0_in(0),
+      I0 => \enemies[2][is_active]_i_5_n_0\,
+      I1 => \enemies[23][is_active]_i_7_n_0\,
+      I2 => p_0_in(0),
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \lfsr_reg_n_0_[2]\,
+      I5 => p_0_in(1),
       O => \enemies[2][is_active]_i_3_n_0\
     );
 \enemies[2][is_active]_i_4\: unisim.vcomponents.LUT4
@@ -5054,43 +5126,55 @@ begin
       I3 => \^enemies_reg[2][r][9]_0\(6),
       O => \enemies[2][is_active]_i_4_n_0\
     );
-\enemies[3][R][1]_i_1\: unisim.vcomponents.LUT6
+\enemies[2][is_active]_i_5\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"00000000FFBF0000"
+      INIT => X"FFFFC0A0"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \lfsr_reg_n_0_[0]\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \enemies[3][is_active]_i_3_n_0\,
-      I4 => \enemies[3][is_active]_i_2_n_0\,
+      I0 => \enemies[23][is_active]_i_10_n_0\,
+      I1 => \enemies[23][is_active]_i_9_n_0\,
+      I2 => p_0_in(1),
+      I3 => \lfsr_reg_n_0_[2]\,
+      I4 => \enemies[23][is_active]_i_8_n_0\,
+      O => \enemies[2][is_active]_i_5_n_0\
+    );
+\enemies[3][R][1]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000AAAA8AAA"
+    )
+        port map (
+      I0 => \enemies[3][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \lfsr_reg_n_0_[0]\,
+      I3 => \lfsr_reg_n_0_[1]\,
+      I4 => \enemies[3][is_active]_i_3_n_0\,
       I5 => \^enemies_reg[3][r][9]_0\(0),
       O => \enemies[3][R][1]_i_1_n_0\
     );
 \enemies[3][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[23][is_active]_i_6_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[3][is_active]_i_2_n_0\,
+      I0 => \enemies[3][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_5_n_0\,
+      I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[3][r][9]_0\(1),
       I5 => \^enemies_reg[3][r][9]_0\(0),
       O => \enemies[3][R][2]_i_1_n_0\
     );
 \enemies[3][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[23][is_active]_i_6_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[3][is_active]_i_2_n_0\,
-      I4 => \enemies[3][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[3][r][9]_0\(2),
+      I0 => \^enemies_reg[3][r][9]_0\(2),
+      I1 => \enemies[3][R][3]_i_2_n_0\,
+      I2 => \enemies[3][is_active]_i_2_n_0\,
+      I3 => \enemies[3][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_5_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[3][R][3]_i_1_n_0\
     );
 \enemies[3][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5111,7 +5195,7 @@ begin
       I1 => \enemies[3][R][4]_i_2_n_0\,
       I2 => \enemies[3][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_6_n_0\,
+      I4 => \enemies[23][is_active]_i_5_n_0\,
       I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[3][R][4]_i_1_n_0\
     );
@@ -5127,15 +5211,15 @@ begin
     );
 \enemies[3][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[23][is_active]_i_6_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[3][is_active]_i_2_n_0\,
-      I4 => \enemies[3][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[3][r][9]_0\(4),
+      I0 => \^enemies_reg[3][r][9]_0\(4),
+      I1 => \enemies[3][R][5]_i_2_n_0\,
+      I2 => \enemies[3][is_active]_i_2_n_0\,
+      I3 => \enemies[3][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_5_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[3][R][5]_i_1_n_0\
     );
 \enemies[3][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5151,20 +5235,20 @@ begin
     );
 \enemies[3][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[23][is_active]_i_6_n_0\,
-      I2 => \enemies[3][is_active]_i_3_n_0\,
-      I3 => \enemies[3][is_active]_i_2_n_0\,
-      I4 => \enemies[3][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[3][r][9]_0\(5),
+      I0 => \^enemies_reg[3][r][9]_0\(5),
+      I1 => \enemies[3][R][6]_i_2_n_0\,
+      I2 => \enemies[3][is_active]_i_2_n_0\,
+      I3 => \enemies[3][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_5_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[3][R][6]_i_1_n_0\
     );
 \enemies[3][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[3][r][9]_0\(4),
@@ -5176,15 +5260,15 @@ begin
     );
 \enemies[3][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[3][r][9]_0\(6),
-      I1 => \enemies[3][R][7]_i_2_n_0\,
-      I2 => \enemies[3][is_active]_i_2_n_0\,
+      I0 => \enemies[3][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_5_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_6_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[3][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[3][r][9]_0\(6),
       O => \enemies[3][R][7]_i_1_n_0\
     );
 \enemies[3][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -5202,15 +5286,15 @@ begin
     );
 \enemies[3][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[3][r][9]_0\(7),
-      I1 => \enemies[3][R][9]_i_4_n_0\,
+      I0 => \enemies[3][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[3][r][9]_0\(7),
       I2 => \enemies[3][is_active]_i_2_n_0\,
-      I3 => \enemies[3][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_6_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_5_n_0\,
+      I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[3][R][8]_i_1_n_0\
     );
 \enemies[3][R][9]_i_1\: unisim.vcomponents.LUT6
@@ -5219,7 +5303,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(12),
+      I1 => \^enemies_reg[3][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -5228,18 +5312,27 @@ begin
     );
 \enemies[3][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E000E0E000E00000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[3][R][9]_i_3_n_0\,
-      I2 => \enemies[3][is_active]_i_2_n_0\,
-      I3 => \^enemies_reg[3][r][9]_0\(7),
-      I4 => \enemies[3][R][9]_i_4_n_0\,
-      I5 => \^enemies_reg[3][r][9]_0\(8),
+      I0 => \enemies[3][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[3][r][9]_0\(7),
+      I2 => \^enemies_reg[3][r][9]_0\(8),
+      I3 => \enemies[3][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[3][R][9]_i_4_n_0\,
       O => \enemies[3][R][9]_i_2_n_0\
     );
-\enemies[3][R][9]_i_3\: unisim.vcomponents.LUT5
+\enemies[3][R][9]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \^enemies_reg[3][r][9]_0\(6),
+      I1 => \enemies[3][R][7]_i_2_n_0\,
+      O => \enemies[3][R][9]_i_3_n_0\
+    );
+\enemies[3][R][9]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FEFFFFFF"
     )
@@ -5249,15 +5342,6 @@ begin
       I2 => p_0_in(0),
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \lfsr_reg_n_0_[0]\,
-      O => \enemies[3][R][9]_i_3_n_0\
-    );
-\enemies[3][R][9]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[3][r][9]_0\(6),
-      I1 => \enemies[3][R][7]_i_2_n_0\,
       O => \enemies[3][R][9]_i_4_n_0\
     );
 \enemies[3][is_active]_i_1\: unisim.vcomponents.LUT6
@@ -5266,10 +5350,10 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(12),
+      I1 => \^enemies_reg[3][is_active]_0\,
       I2 => \enemies[3][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[23][is_active]_i_6_n_0\,
+      I4 => \enemies[23][is_active]_i_5_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[3][is_active]_i_1_n_0\
     );
@@ -5307,41 +5391,41 @@ begin
     );
 \enemies[4][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"00000000AAAAAAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[4][is_active]_i_2_n_0\,
+      I0 => \enemies[4][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[4][r][9]_0\(0),
       O => \enemies[4][R][1]_i_1_n_0\
     );
 \enemies[4][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[4][is_active]_i_2_n_0\,
+      I0 => \enemies[4][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[4][r][9]_0\(1),
       I5 => \^enemies_reg[4][r][9]_0\(0),
       O => \enemies[4][R][2]_i_1_n_0\
     );
 \enemies[4][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[4][is_active]_i_2_n_0\,
-      I4 => \enemies[4][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[4][r][9]_0\(2),
+      I0 => \^enemies_reg[4][r][9]_0\(2),
+      I1 => \enemies[4][R][3]_i_2_n_0\,
+      I2 => \enemies[4][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[4][R][3]_i_1_n_0\
     );
 \enemies[4][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5378,15 +5462,15 @@ begin
     );
 \enemies[4][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[4][is_active]_i_2_n_0\,
-      I4 => \enemies[4][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[4][r][9]_0\(4),
+      I0 => \^enemies_reg[4][r][9]_0\(4),
+      I1 => \enemies[4][R][5]_i_2_n_0\,
+      I2 => \enemies[4][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[4][R][5]_i_1_n_0\
     );
 \enemies[4][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5402,20 +5486,20 @@ begin
     );
 \enemies[4][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[4][is_active]_i_2_n_0\,
-      I4 => \enemies[4][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[4][r][9]_0\(5),
+      I0 => \^enemies_reg[4][r][9]_0\(5),
+      I1 => \enemies[4][R][6]_i_2_n_0\,
+      I2 => \enemies[4][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[4][R][6]_i_1_n_0\
     );
 \enemies[4][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[4][r][9]_0\(4),
@@ -5427,15 +5511,15 @@ begin
     );
 \enemies[4][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[4][r][9]_0\(6),
-      I1 => \enemies[4][R][7]_i_2_n_0\,
-      I2 => \enemies[4][is_active]_i_2_n_0\,
+      I0 => \enemies[4][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[4][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[4][r][9]_0\(6),
       O => \enemies[4][R][7]_i_1_n_0\
     );
 \enemies[4][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -5453,25 +5537,16 @@ begin
     );
 \enemies[4][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[4][r][9]_0\(7),
-      I1 => \enemies[4][R][8]_i_2_n_0\,
+      I0 => \enemies[4][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[4][r][9]_0\(7),
       I2 => \enemies[4][is_active]_i_2_n_0\,
-      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[4][R][8]_i_1_n_0\
-    );
-\enemies[4][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[4][r][9]_0\(6),
-      I1 => \enemies[4][R][7]_i_2_n_0\,
-      O => \enemies[4][R][8]_i_2_n_0\
     );
 \enemies[4][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -5479,7 +5554,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(13),
+      I1 => \^enemies_reg[4][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -5488,27 +5563,37 @@ begin
     );
 \enemies[4][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[4][is_active]_i_2_n_0\,
-      I5 => \enemies[4][R][9]_i_3_n_0\,
+      I0 => \enemies[4][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[4][r][9]_0\(7),
+      I2 => \^enemies_reg[4][r][9]_0\(8),
+      I3 => \enemies[4][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[4][R][9]_i_4_n_0\,
       O => \enemies[4][R][9]_i_2_n_0\
     );
-\enemies[4][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[4][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[4][r][9]_0\(8),
-      I1 => \^enemies_reg[4][r][9]_0\(6),
-      I2 => \enemies[4][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[4][r][9]_0\(7),
+      I0 => \^enemies_reg[4][r][9]_0\(6),
+      I1 => \enemies[4][R][7]_i_2_n_0\,
       O => \enemies[4][R][9]_i_3_n_0\
+    );
+\enemies[4][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFEF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[4][R][9]_i_4_n_0\
     );
 \enemies[4][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -5516,7 +5601,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(13),
+      I1 => \^enemies_reg[4][is_active]_0\,
       I2 => \enemies[4][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
@@ -5547,41 +5632,41 @@ begin
     );
 \enemies[5][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[5][is_active]_i_2_n_0\,
+      I0 => \enemies[5][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[1]\,
+      I4 => \lfsr_reg_n_0_[0]\,
       I5 => \^enemies_reg[5][r][9]_0\(0),
       O => \enemies[5][R][1]_i_1_n_0\
     );
 \enemies[5][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[5][is_active]_i_2_n_0\,
+      I0 => \enemies[5][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[5][r][9]_0\(1),
       I5 => \^enemies_reg[5][r][9]_0\(0),
       O => \enemies[5][R][2]_i_1_n_0\
     );
 \enemies[5][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[5][is_active]_i_2_n_0\,
-      I4 => \enemies[5][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[5][r][9]_0\(2),
+      I0 => \^enemies_reg[5][r][9]_0\(2),
+      I1 => \enemies[5][R][3]_i_2_n_0\,
+      I2 => \enemies[5][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[5][R][3]_i_1_n_0\
     );
 \enemies[5][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5618,15 +5703,15 @@ begin
     );
 \enemies[5][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[5][is_active]_i_2_n_0\,
-      I4 => \enemies[5][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[5][r][9]_0\(4),
+      I0 => \^enemies_reg[5][r][9]_0\(4),
+      I1 => \enemies[5][R][5]_i_2_n_0\,
+      I2 => \enemies[5][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[5][R][5]_i_1_n_0\
     );
 \enemies[5][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5642,20 +5727,20 @@ begin
     );
 \enemies[5][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[5][is_active]_i_2_n_0\,
-      I4 => \enemies[5][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[5][r][9]_0\(5),
+      I0 => \^enemies_reg[5][r][9]_0\(5),
+      I1 => \enemies[5][R][6]_i_2_n_0\,
+      I2 => \enemies[5][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[5][R][6]_i_1_n_0\
     );
 \enemies[5][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[5][r][9]_0\(4),
@@ -5667,15 +5752,15 @@ begin
     );
 \enemies[5][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[5][r][9]_0\(6),
-      I1 => \enemies[5][R][7]_i_2_n_0\,
-      I2 => \enemies[5][is_active]_i_2_n_0\,
+      I0 => \enemies[5][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[5][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[5][r][9]_0\(6),
       O => \enemies[5][R][7]_i_1_n_0\
     );
 \enemies[5][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -5693,25 +5778,16 @@ begin
     );
 \enemies[5][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[5][r][9]_0\(7),
-      I1 => \enemies[5][R][8]_i_2_n_0\,
+      I0 => \enemies[5][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[5][r][9]_0\(7),
       I2 => \enemies[5][is_active]_i_2_n_0\,
-      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[5][R][8]_i_1_n_0\
-    );
-\enemies[5][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[5][r][9]_0\(6),
-      I1 => \enemies[5][R][7]_i_2_n_0\,
-      O => \enemies[5][R][8]_i_2_n_0\
     );
 \enemies[5][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -5719,7 +5795,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(14),
+      I1 => \^enemies_reg[5][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -5728,27 +5804,37 @@ begin
     );
 \enemies[5][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[5][is_active]_i_2_n_0\,
-      I5 => \enemies[5][R][9]_i_3_n_0\,
+      I0 => \enemies[5][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[5][r][9]_0\(7),
+      I2 => \^enemies_reg[5][r][9]_0\(8),
+      I3 => \enemies[5][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[5][R][9]_i_4_n_0\,
       O => \enemies[5][R][9]_i_2_n_0\
     );
-\enemies[5][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[5][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[5][r][9]_0\(8),
-      I1 => \^enemies_reg[5][r][9]_0\(6),
-      I2 => \enemies[5][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[5][r][9]_0\(7),
+      I0 => \^enemies_reg[5][r][9]_0\(6),
+      I1 => \enemies[5][R][7]_i_2_n_0\,
       O => \enemies[5][R][9]_i_3_n_0\
+    );
+\enemies[5][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFDF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[0]\,
+      I1 => \lfsr_reg_n_0_[1]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[5][R][9]_i_4_n_0\
     );
 \enemies[5][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -5756,7 +5842,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(14),
+      I1 => \^enemies_reg[5][is_active]_0\,
       I2 => \enemies[5][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
@@ -5787,41 +5873,41 @@ begin
     );
 \enemies[6][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[6][is_active]_i_2_n_0\,
+      I0 => \enemies[6][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[6][r][9]_0\(0),
       O => \enemies[6][R][1]_i_1_n_0\
     );
 \enemies[6][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[6][is_active]_i_2_n_0\,
+      I0 => \enemies[6][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[6][r][9]_0\(1),
       I5 => \^enemies_reg[6][r][9]_0\(0),
       O => \enemies[6][R][2]_i_1_n_0\
     );
 \enemies[6][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[6][is_active]_i_2_n_0\,
-      I4 => \enemies[6][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[6][r][9]_0\(2),
+      I0 => \^enemies_reg[6][r][9]_0\(2),
+      I1 => \enemies[6][R][3]_i_2_n_0\,
+      I2 => \enemies[6][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[6][R][3]_i_1_n_0\
     );
 \enemies[6][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5858,15 +5944,15 @@ begin
     );
 \enemies[6][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[6][is_active]_i_2_n_0\,
-      I4 => \enemies[6][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[6][r][9]_0\(4),
+      I0 => \^enemies_reg[6][r][9]_0\(4),
+      I1 => \enemies[6][R][5]_i_2_n_0\,
+      I2 => \enemies[6][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[6][R][5]_i_1_n_0\
     );
 \enemies[6][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5882,20 +5968,20 @@ begin
     );
 \enemies[6][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => \enemies[6][is_active]_i_2_n_0\,
-      I4 => \enemies[6][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[6][r][9]_0\(5),
+      I0 => \^enemies_reg[6][r][9]_0\(5),
+      I1 => \enemies[6][R][6]_i_2_n_0\,
+      I2 => \enemies[6][is_active]_i_2_n_0\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[6][R][6]_i_1_n_0\
     );
 \enemies[6][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[6][r][9]_0\(4),
@@ -5907,15 +5993,15 @@ begin
     );
 \enemies[6][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[6][r][9]_0\(6),
-      I1 => \enemies[6][R][7]_i_2_n_0\,
-      I2 => \enemies[6][is_active]_i_2_n_0\,
+      I0 => \enemies[6][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[6][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[6][r][9]_0\(6),
       O => \enemies[6][R][7]_i_1_n_0\
     );
 \enemies[6][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -5933,25 +6019,16 @@ begin
     );
 \enemies[6][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[6][r][9]_0\(7),
-      I1 => \enemies[6][R][8]_i_2_n_0\,
+      I0 => \enemies[6][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[6][r][9]_0\(7),
       I2 => \enemies[6][is_active]_i_2_n_0\,
-      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[6][R][8]_i_1_n_0\
-    );
-\enemies[6][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[6][r][9]_0\(6),
-      I1 => \enemies[6][R][7]_i_2_n_0\,
-      O => \enemies[6][R][8]_i_2_n_0\
     );
 \enemies[6][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -5959,7 +6036,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(15),
+      I1 => \^enemies_reg[6][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -5968,27 +6045,37 @@ begin
     );
 \enemies[6][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[6][is_active]_i_2_n_0\,
-      I5 => \enemies[6][R][9]_i_3_n_0\,
+      I0 => \enemies[6][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[6][r][9]_0\(7),
+      I2 => \^enemies_reg[6][r][9]_0\(8),
+      I3 => \enemies[6][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[6][R][9]_i_4_n_0\,
       O => \enemies[6][R][9]_i_2_n_0\
     );
-\enemies[6][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[6][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[6][r][9]_0\(8),
-      I1 => \^enemies_reg[6][r][9]_0\(6),
-      I2 => \enemies[6][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[6][r][9]_0\(7),
+      I0 => \^enemies_reg[6][r][9]_0\(6),
+      I1 => \enemies[6][R][7]_i_2_n_0\,
       O => \enemies[6][R][9]_i_3_n_0\
+    );
+\enemies[6][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFDF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[6][R][9]_i_4_n_0\
     );
 \enemies[6][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -5996,7 +6083,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(15),
+      I1 => \^enemies_reg[6][is_active]_0\,
       I2 => \enemies[6][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
@@ -6027,41 +6114,41 @@ begin
     );
 \enemies[7][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"00000000A8AAAAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[7][is_active]_i_2_n_0\,
+      I0 => \enemies[7][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[7][r][9]_0\(0),
       O => \enemies[7][R][1]_i_1_n_0\
     );
 \enemies[7][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[7][is_active]_i_2_n_0\,
+      I0 => \enemies[7][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[7][r][9]_0\(1),
       I5 => \^enemies_reg[7][r][9]_0\(0),
       O => \enemies[7][R][2]_i_1_n_0\
     );
 \enemies[7][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[7][is_active]_i_2_n_0\,
-      I4 => \enemies[7][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[7][r][9]_0\(2),
+      I0 => \^enemies_reg[7][r][9]_0\(2),
+      I1 => \enemies[7][R][3]_i_2_n_0\,
+      I2 => \enemies[7][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[7][R][3]_i_1_n_0\
     );
 \enemies[7][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -6081,7 +6168,7 @@ begin
       I0 => \^enemies_reg[7][r][9]_0\(3),
       I1 => \enemies[7][R][4]_i_2_n_0\,
       I2 => \enemies[7][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[7][R][4]_i_1_n_0\
@@ -6098,15 +6185,15 @@ begin
     );
 \enemies[7][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[7][is_active]_i_2_n_0\,
-      I4 => \enemies[7][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[7][r][9]_0\(4),
+      I0 => \^enemies_reg[7][r][9]_0\(4),
+      I1 => \enemies[7][R][5]_i_2_n_0\,
+      I2 => \enemies[7][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[7][R][5]_i_1_n_0\
     );
 \enemies[7][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -6122,20 +6209,20 @@ begin
     );
 \enemies[7][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_6_n_0\,
-      I3 => \enemies[7][is_active]_i_2_n_0\,
-      I4 => \enemies[7][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[7][r][9]_0\(5),
+      I0 => \^enemies_reg[7][r][9]_0\(5),
+      I1 => \enemies[7][R][6]_i_2_n_0\,
+      I2 => \enemies[7][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[7][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[7][R][6]_i_1_n_0\
     );
 \enemies[7][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[7][r][9]_0\(4),
@@ -6147,15 +6234,15 @@ begin
     );
 \enemies[7][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[7][r][9]_0\(6),
-      I1 => \enemies[7][R][7]_i_2_n_0\,
-      I2 => \enemies[7][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
-      I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I0 => \enemies[7][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[7][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[7][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[7][r][9]_0\(6),
       O => \enemies[7][R][7]_i_1_n_0\
     );
 \enemies[7][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -6173,25 +6260,16 @@ begin
     );
 \enemies[7][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[7][r][9]_0\(7),
-      I1 => \enemies[7][R][8]_i_2_n_0\,
+      I0 => \enemies[7][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[7][r][9]_0\(7),
       I2 => \enemies[7][is_active]_i_2_n_0\,
-      I3 => \enemies[23][is_active]_i_6_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[7][R][8]_i_1_n_0\
-    );
-\enemies[7][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[7][r][9]_0\(6),
-      I1 => \enemies[7][R][7]_i_2_n_0\,
-      O => \enemies[7][R][8]_i_2_n_0\
     );
 \enemies[7][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -6199,7 +6277,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(16),
+      I1 => \^enemies_reg[7][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -6208,27 +6286,37 @@ begin
     );
 \enemies[7][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000EFFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[7][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[7][is_active]_i_2_n_0\,
-      I5 => \enemies[7][R][9]_i_3_n_0\,
+      I0 => \enemies[7][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[7][r][9]_0\(7),
+      I2 => \^enemies_reg[7][r][9]_0\(8),
+      I3 => \enemies[7][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[7][R][9]_i_4_n_0\,
       O => \enemies[7][R][9]_i_2_n_0\
     );
-\enemies[7][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[7][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[7][r][9]_0\(8),
-      I1 => \^enemies_reg[7][r][9]_0\(6),
-      I2 => \enemies[7][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[7][r][9]_0\(7),
+      I0 => \^enemies_reg[7][r][9]_0\(6),
+      I1 => \enemies[7][R][7]_i_2_n_0\,
       O => \enemies[7][R][9]_i_3_n_0\
+    );
+\enemies[7][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFF7F"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[7][R][9]_i_4_n_0\
     );
 \enemies[7][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -6236,11 +6324,11 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(16),
+      I1 => \^enemies_reg[7][is_active]_0\,
       I2 => \enemies[7][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[23][is_active]_i_6_n_0\,
+      I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[7][is_active]_i_1_n_0\
     );
 \enemies[7][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -6277,41 +6365,41 @@ begin
     );
 \enemies[8][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"00000000AAAAAAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[8][is_active]_i_2_n_0\,
+      I0 => \enemies[8][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[0]\,
+      I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[8][r][9]_0\(0),
       O => \enemies[8][R][1]_i_1_n_0\
     );
 \enemies[8][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[8][is_active]_i_2_n_0\,
+      I0 => \enemies[8][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[8][r][9]_0\(1),
       I5 => \^enemies_reg[8][r][9]_0\(0),
       O => \enemies[8][R][2]_i_1_n_0\
     );
 \enemies[8][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[8][is_active]_i_2_n_0\,
-      I4 => \enemies[8][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[8][r][9]_0\(2),
+      I0 => \^enemies_reg[8][r][9]_0\(2),
+      I1 => \enemies[8][R][3]_i_2_n_0\,
+      I2 => \enemies[8][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[8][R][3]_i_1_n_0\
     );
 \enemies[8][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -6348,15 +6436,15 @@ begin
     );
 \enemies[8][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[8][is_active]_i_2_n_0\,
-      I4 => \enemies[8][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[8][r][9]_0\(4),
+      I0 => \^enemies_reg[8][r][9]_0\(4),
+      I1 => \enemies[8][R][5]_i_2_n_0\,
+      I2 => \enemies[8][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[8][R][5]_i_1_n_0\
     );
 \enemies[8][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -6372,20 +6460,20 @@ begin
     );
 \enemies[8][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[20][is_active]_i_3_n_0\,
-      I3 => \enemies[8][is_active]_i_2_n_0\,
-      I4 => \enemies[8][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[8][r][9]_0\(5),
+      I0 => \^enemies_reg[8][r][9]_0\(5),
+      I1 => \enemies[8][R][6]_i_2_n_0\,
+      I2 => \enemies[8][is_active]_i_2_n_0\,
+      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[8][R][6]_i_1_n_0\
     );
 \enemies[8][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[8][r][9]_0\(4),
@@ -6397,15 +6485,15 @@ begin
     );
 \enemies[8][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[8][r][9]_0\(6),
-      I1 => \enemies[8][R][7]_i_2_n_0\,
-      I2 => \enemies[8][is_active]_i_2_n_0\,
+      I0 => \enemies[8][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[8][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[8][r][9]_0\(6),
       O => \enemies[8][R][7]_i_1_n_0\
     );
 \enemies[8][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -6423,25 +6511,16 @@ begin
     );
 \enemies[8][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[8][r][9]_0\(7),
-      I1 => \enemies[8][R][8]_i_2_n_0\,
+      I0 => \enemies[8][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[8][r][9]_0\(7),
       I2 => \enemies[8][is_active]_i_2_n_0\,
-      I3 => \enemies[20][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[8][R][8]_i_1_n_0\
-    );
-\enemies[8][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[8][r][9]_0\(6),
-      I1 => \enemies[8][R][7]_i_2_n_0\,
-      O => \enemies[8][R][8]_i_2_n_0\
     );
 \enemies[8][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -6449,7 +6528,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(17),
+      I1 => \^enemies_reg[8][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -6458,27 +6537,37 @@ begin
     );
 \enemies[8][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FFFE0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[0]\,
-      I3 => \lfsr_reg_n_0_[1]\,
-      I4 => \enemies[8][is_active]_i_2_n_0\,
-      I5 => \enemies[8][R][9]_i_3_n_0\,
+      I0 => \enemies[8][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[8][r][9]_0\(7),
+      I2 => \^enemies_reg[8][r][9]_0\(8),
+      I3 => \enemies[8][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[8][R][9]_i_4_n_0\,
       O => \enemies[8][R][9]_i_2_n_0\
     );
-\enemies[8][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[8][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[8][r][9]_0\(8),
-      I1 => \^enemies_reg[8][r][9]_0\(6),
-      I2 => \enemies[8][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[8][r][9]_0\(7),
+      I0 => \^enemies_reg[8][r][9]_0\(6),
+      I1 => \enemies[8][R][7]_i_2_n_0\,
       O => \enemies[8][R][9]_i_3_n_0\
+    );
+\enemies[8][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFEFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[1]\,
+      I1 => \lfsr_reg_n_0_[0]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[8][R][9]_i_4_n_0\
     );
 \enemies[8][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -6486,7 +6575,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(17),
+      I1 => \^enemies_reg[8][is_active]_0\,
       I2 => \enemies[8][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
@@ -6517,41 +6606,41 @@ begin
     );
 \enemies[9][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"00000000AAA8AAAA"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[9][is_active]_i_2_n_0\,
+      I0 => \enemies[9][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \lfsr_reg_n_0_[1]\,
+      I4 => \lfsr_reg_n_0_[0]\,
       I5 => \^enemies_reg[9][r][9]_0\(0),
       O => \enemies[9][R][1]_i_1_n_0\
     );
 \enemies[9][R][2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[9][is_active]_i_2_n_0\,
+      I0 => \enemies[9][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[9][r][9]_0\(1),
       I5 => \^enemies_reg[9][r][9]_0\(0),
       O => \enemies[9][R][2]_i_1_n_0\
     );
 \enemies[9][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[9][is_active]_i_2_n_0\,
-      I4 => \enemies[9][R][3]_i_2_n_0\,
-      I5 => \^enemies_reg[9][r][9]_0\(2),
+      I0 => \^enemies_reg[9][r][9]_0\(2),
+      I1 => \enemies[9][R][3]_i_2_n_0\,
+      I2 => \enemies[9][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[9][R][3]_i_1_n_0\
     );
 \enemies[9][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -6588,15 +6677,15 @@ begin
     );
 \enemies[9][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[9][is_active]_i_2_n_0\,
-      I4 => \enemies[9][R][5]_i_2_n_0\,
-      I5 => \^enemies_reg[9][r][9]_0\(4),
+      I0 => \^enemies_reg[9][r][9]_0\(4),
+      I1 => \enemies[9][R][5]_i_2_n_0\,
+      I2 => \enemies[9][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[9][R][5]_i_1_n_0\
     );
 \enemies[9][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -6612,20 +6701,20 @@ begin
     );
 \enemies[9][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FE0000000000FE00"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[9][is_active]_i_2_n_0\,
-      I4 => \enemies[9][R][6]_i_2_n_0\,
-      I5 => \^enemies_reg[9][r][9]_0\(5),
+      I0 => \^enemies_reg[9][r][9]_0\(5),
+      I1 => \enemies[9][R][6]_i_2_n_0\,
+      I2 => \enemies[9][is_active]_i_2_n_0\,
+      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I4 => \enemies[11][is_active]_i_3_n_0\,
+      I5 => \enemies[15][is_active]_i_3_n_0\,
       O => \enemies[9][R][6]_i_1_n_0\
     );
 \enemies[9][R][6]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"00000001"
     )
         port map (
       I0 => \^enemies_reg[9][r][9]_0\(4),
@@ -6637,15 +6726,15 @@ begin
     );
 \enemies[9][R][7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"90909090909090FF"
+      INIT => X"AAA800000000AAA8"
     )
         port map (
-      I0 => \^enemies_reg[9][r][9]_0\(6),
-      I1 => \enemies[9][R][7]_i_2_n_0\,
-      I2 => \enemies[9][is_active]_i_2_n_0\,
+      I0 => \enemies[9][is_active]_i_2_n_0\,
+      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[9][R][7]_i_2_n_0\,
+      I5 => \^enemies_reg[9][r][9]_0\(6),
       O => \enemies[9][R][7]_i_1_n_0\
     );
 \enemies[9][R][7]_i_2\: unisim.vcomponents.LUT6
@@ -6663,25 +6752,16 @@ begin
     );
 \enemies[9][R][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"60606060606060FF"
+      INIT => X"6060606060606000"
     )
         port map (
-      I0 => \^enemies_reg[9][r][9]_0\(7),
-      I1 => \enemies[9][R][8]_i_2_n_0\,
+      I0 => \enemies[9][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[9][r][9]_0\(7),
       I2 => \enemies[9][is_active]_i_2_n_0\,
-      I3 => \enemies[21][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[9][R][8]_i_1_n_0\
-    );
-\enemies[9][R][8]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => \^enemies_reg[9][r][9]_0\(6),
-      I1 => \enemies[9][R][7]_i_2_n_0\,
-      O => \enemies[9][R][8]_i_2_n_0\
     );
 \enemies[9][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -6689,7 +6769,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(18),
+      I1 => \^enemies_reg[9][is_active]_0\,
       I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -6698,27 +6778,37 @@ begin
     );
 \enemies[9][R][9]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000FEFF0000"
+      INIT => X"D200D200D2000000"
     )
         port map (
-      I0 => \enemies[15][is_active]_i_3_n_0\,
-      I1 => \enemies[11][is_active]_i_3_n_0\,
-      I2 => \lfsr_reg_n_0_[1]\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[9][is_active]_i_2_n_0\,
-      I5 => \enemies[9][R][9]_i_3_n_0\,
+      I0 => \enemies[9][R][9]_i_3_n_0\,
+      I1 => \^enemies_reg[9][r][9]_0\(7),
+      I2 => \^enemies_reg[9][r][9]_0\(8),
+      I3 => \enemies[9][is_active]_i_2_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[9][R][9]_i_4_n_0\,
       O => \enemies[9][R][9]_i_2_n_0\
     );
-\enemies[9][R][9]_i_3\: unisim.vcomponents.LUT4
+\enemies[9][R][9]_i_3\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"5556"
+      INIT => X"1"
     )
         port map (
-      I0 => \^enemies_reg[9][r][9]_0\(8),
-      I1 => \^enemies_reg[9][r][9]_0\(6),
-      I2 => \enemies[9][R][7]_i_2_n_0\,
-      I3 => \^enemies_reg[9][r][9]_0\(7),
+      I0 => \^enemies_reg[9][r][9]_0\(6),
+      I1 => \enemies[9][R][7]_i_2_n_0\,
       O => \enemies[9][R][9]_i_3_n_0\
+    );
+\enemies[9][R][9]_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFDFF"
+    )
+        port map (
+      I0 => \lfsr_reg_n_0_[0]\,
+      I1 => \lfsr_reg_n_0_[1]\,
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => p_0_in(0),
+      I4 => p_0_in(1),
+      O => \enemies[9][R][9]_i_4_n_0\
     );
 \enemies[9][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -6726,7 +6816,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \^enemiesout\(18),
+      I1 => \^enemies_reg[9][is_active]_0\,
       I2 => \enemies[9][is_active]_i_2_n_0\,
       I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
@@ -6762,9 +6852,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][1]_i_1_n_0\,
-      Q => \^enemiesout\(0)
+      Q => \^q\(0)
     );
 \enemies_reg[0][R][2]\: unisim.vcomponents.FDCE
     generic map(
@@ -6773,9 +6863,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][2]_i_1_n_0\,
-      Q => \^enemiesout\(1)
+      Q => \^q\(1)
     );
 \enemies_reg[0][R][3]\: unisim.vcomponents.FDCE
     generic map(
@@ -6784,9 +6874,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][3]_i_1_n_0\,
-      Q => \^enemiesout\(2)
+      Q => \^q\(2)
     );
 \enemies_reg[0][R][4]\: unisim.vcomponents.FDCE
     generic map(
@@ -6795,9 +6885,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][4]_i_1_n_0\,
-      Q => \^enemiesout\(3)
+      Q => \^q\(3)
     );
 \enemies_reg[0][R][5]\: unisim.vcomponents.FDCE
     generic map(
@@ -6806,9 +6896,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][5]_i_1_n_0\,
-      Q => \^enemiesout\(4)
+      Q => \^q\(4)
     );
 \enemies_reg[0][R][6]\: unisim.vcomponents.FDCE
     generic map(
@@ -6817,9 +6907,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][6]_i_1_n_0\,
-      Q => \^enemiesout\(5)
+      Q => \^q\(5)
     );
 \enemies_reg[0][R][7]\: unisim.vcomponents.FDCE
     generic map(
@@ -6828,9 +6918,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][7]_i_1_n_0\,
-      Q => \^enemiesout\(6)
+      Q => \^q\(6)
     );
 \enemies_reg[0][R][8]\: unisim.vcomponents.FDCE
     generic map(
@@ -6839,9 +6929,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][8]_i_1_n_0\,
-      Q => \^enemiesout\(7)
+      Q => \^q\(7)
     );
 \enemies_reg[0][R][9]\: unisim.vcomponents.FDCE
     generic map(
@@ -6850,17 +6940,17 @@ begin
         port map (
       C => Clk,
       CE => \enemies[0][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][R][9]_i_2_n_0\,
-      Q => \^enemiesout\(8)
+      Q => \^q\(8)
     );
 \enemies_reg[0][is_active]\: unisim.vcomponents.FDCE
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[0][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(9)
+      Q => \^enemies_reg[0][is_active]_0\
     );
 \enemies_reg[10][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -6869,7 +6959,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][1]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(0)
     );
@@ -6880,7 +6970,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][2]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(1)
     );
@@ -6891,7 +6981,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][3]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(2)
     );
@@ -6902,7 +6992,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][4]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(3)
     );
@@ -6913,7 +7003,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][5]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(4)
     );
@@ -6924,7 +7014,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][6]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(5)
     );
@@ -6935,7 +7025,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][7]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(6)
     );
@@ -6946,7 +7036,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][8]_i_1_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(7)
     );
@@ -6957,7 +7047,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[10][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][R][9]_i_2_n_0\,
       Q => \^enemies_reg[10][r][9]_0\(8)
     );
@@ -6965,9 +7055,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[10][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(19)
+      Q => \^enemies_reg[10][is_active]_0\
     );
 \enemies_reg[11][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -6976,7 +7066,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][1]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(0)
     );
@@ -6987,7 +7077,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][2]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(1)
     );
@@ -6998,7 +7088,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][3]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(2)
     );
@@ -7009,7 +7099,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][4]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(3)
     );
@@ -7020,7 +7110,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][5]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(4)
     );
@@ -7031,7 +7121,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][6]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(5)
     );
@@ -7042,7 +7132,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][7]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(6)
     );
@@ -7053,7 +7143,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][8]_i_1_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(7)
     );
@@ -7064,7 +7154,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[11][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][R][9]_i_2_n_0\,
       Q => \^enemies_reg[11][r][9]_0\(8)
     );
@@ -7072,9 +7162,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[11][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(20)
+      Q => \^enemies_reg[11][is_active]_0\
     );
 \enemies_reg[12][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7083,7 +7173,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][1]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(0)
     );
@@ -7094,7 +7184,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][2]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(1)
     );
@@ -7105,7 +7195,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][3]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(2)
     );
@@ -7116,7 +7206,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][4]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(3)
     );
@@ -7127,7 +7217,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][5]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(4)
     );
@@ -7138,7 +7228,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][6]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(5)
     );
@@ -7149,7 +7239,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][7]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(6)
     );
@@ -7160,7 +7250,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][8]_i_1_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(7)
     );
@@ -7171,7 +7261,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[12][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][R][9]_i_2_n_0\,
       Q => \^enemies_reg[12][r][9]_0\(8)
     );
@@ -7179,9 +7269,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[12][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(21)
+      Q => \^enemies_reg[12][is_active]_0\
     );
 \enemies_reg[13][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7190,7 +7280,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][1]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(0)
     );
@@ -7201,7 +7291,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][2]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(1)
     );
@@ -7212,7 +7302,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][3]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(2)
     );
@@ -7223,7 +7313,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][4]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(3)
     );
@@ -7234,7 +7324,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][5]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(4)
     );
@@ -7245,7 +7335,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][6]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(5)
     );
@@ -7256,7 +7346,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][7]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(6)
     );
@@ -7267,7 +7357,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][8]_i_1_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(7)
     );
@@ -7278,7 +7368,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[13][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][R][9]_i_2_n_0\,
       Q => \^enemies_reg[13][r][9]_0\(8)
     );
@@ -7286,9 +7376,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[13][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(22)
+      Q => \^enemies_reg[13][is_active]_0\
     );
 \enemies_reg[14][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7297,7 +7387,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][1]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(0)
     );
@@ -7308,7 +7398,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][2]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(1)
     );
@@ -7319,7 +7409,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][3]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(2)
     );
@@ -7330,7 +7420,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][4]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(3)
     );
@@ -7341,7 +7431,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][5]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(4)
     );
@@ -7352,7 +7442,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][6]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(5)
     );
@@ -7363,7 +7453,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][7]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(6)
     );
@@ -7374,7 +7464,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][8]_i_1_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(7)
     );
@@ -7385,7 +7475,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[14][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][R][9]_i_2_n_0\,
       Q => \^enemies_reg[14][r][9]_0\(8)
     );
@@ -7393,9 +7483,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[14][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(23)
+      Q => \^enemies_reg[14][is_active]_0\
     );
 \enemies_reg[15][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7404,7 +7494,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][1]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(0)
     );
@@ -7415,7 +7505,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][2]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(1)
     );
@@ -7426,7 +7516,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][3]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(2)
     );
@@ -7437,7 +7527,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][4]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(3)
     );
@@ -7448,7 +7538,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][5]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(4)
     );
@@ -7459,7 +7549,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][6]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(5)
     );
@@ -7470,7 +7560,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][7]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(6)
     );
@@ -7481,7 +7571,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][8]_i_1_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(7)
     );
@@ -7492,7 +7582,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[15][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][R][9]_i_2_n_0\,
       Q => \^enemies_reg[15][r][9]_0\(8)
     );
@@ -7500,9 +7590,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[15][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(24)
+      Q => \^enemies_reg[15][is_active]_0\
     );
 \enemies_reg[16][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7511,7 +7601,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][1]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(0)
     );
@@ -7522,7 +7612,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][2]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(1)
     );
@@ -7533,7 +7623,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][3]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(2)
     );
@@ -7544,7 +7634,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][4]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(3)
     );
@@ -7555,7 +7645,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][5]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(4)
     );
@@ -7566,7 +7656,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][6]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(5)
     );
@@ -7577,7 +7667,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][7]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(6)
     );
@@ -7588,7 +7678,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][8]_i_1_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(7)
     );
@@ -7599,7 +7689,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[16][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][R][9]_i_2_n_0\,
       Q => \^enemies_reg[16][r][9]_0\(8)
     );
@@ -7607,9 +7697,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[16][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(25)
+      Q => \^enemies_reg[16][is_active]_0\
     );
 \enemies_reg[17][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7618,7 +7708,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][1]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(0)
     );
@@ -7629,7 +7719,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][2]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(1)
     );
@@ -7640,7 +7730,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][3]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(2)
     );
@@ -7651,7 +7741,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][4]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(3)
     );
@@ -7662,7 +7752,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][5]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(4)
     );
@@ -7673,7 +7763,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][6]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(5)
     );
@@ -7684,7 +7774,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][7]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(6)
     );
@@ -7695,7 +7785,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][8]_i_1_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(7)
     );
@@ -7706,7 +7796,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[17][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][R][9]_i_2_n_0\,
       Q => \^enemies_reg[17][r][9]_0\(8)
     );
@@ -7714,9 +7804,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[17][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(26)
+      Q => \^enemies_reg[17][is_active]_0\
     );
 \enemies_reg[18][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7725,9 +7815,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][1]_i_1_n_0\,
-      Q => \^q\(0)
+      Q => \^enemies_reg[18][r][9]_0\(0)
     );
 \enemies_reg[18][R][2]\: unisim.vcomponents.FDCE
     generic map(
@@ -7736,9 +7826,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][2]_i_1_n_0\,
-      Q => \^q\(1)
+      Q => \^enemies_reg[18][r][9]_0\(1)
     );
 \enemies_reg[18][R][3]\: unisim.vcomponents.FDCE
     generic map(
@@ -7747,9 +7837,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][3]_i_1_n_0\,
-      Q => \^q\(2)
+      Q => \^enemies_reg[18][r][9]_0\(2)
     );
 \enemies_reg[18][R][4]\: unisim.vcomponents.FDCE
     generic map(
@@ -7758,9 +7848,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][4]_i_1_n_0\,
-      Q => \^q\(3)
+      Q => \^enemies_reg[18][r][9]_0\(3)
     );
 \enemies_reg[18][R][5]\: unisim.vcomponents.FDCE
     generic map(
@@ -7769,9 +7859,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][5]_i_1_n_0\,
-      Q => \^q\(4)
+      Q => \^enemies_reg[18][r][9]_0\(4)
     );
 \enemies_reg[18][R][6]\: unisim.vcomponents.FDCE
     generic map(
@@ -7780,9 +7870,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][6]_i_1_n_0\,
-      Q => \^q\(5)
+      Q => \^enemies_reg[18][r][9]_0\(5)
     );
 \enemies_reg[18][R][7]\: unisim.vcomponents.FDCE
     generic map(
@@ -7791,9 +7881,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][7]_i_1_n_0\,
-      Q => \^q\(6)
+      Q => \^enemies_reg[18][r][9]_0\(6)
     );
 \enemies_reg[18][R][8]\: unisim.vcomponents.FDCE
     generic map(
@@ -7802,9 +7892,9 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][8]_i_1_n_0\,
-      Q => \^q\(7)
+      Q => \^enemies_reg[18][r][9]_0\(7)
     );
 \enemies_reg[18][R][9]\: unisim.vcomponents.FDCE
     generic map(
@@ -7813,17 +7903,17 @@ begin
         port map (
       C => Clk,
       CE => \enemies[18][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][R][9]_i_2_n_0\,
-      Q => \^q\(8)
+      Q => \^enemies_reg[18][r][9]_0\(8)
     );
 \enemies_reg[18][is_active]\: unisim.vcomponents.FDCE
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[18][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(27)
+      Q => \^enemies_reg[18][is_active]_0\
     );
 \enemies_reg[19][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7832,7 +7922,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][1]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(0)
     );
@@ -7843,7 +7933,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][2]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(1)
     );
@@ -7854,7 +7944,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][3]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(2)
     );
@@ -7865,7 +7955,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][4]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(3)
     );
@@ -7876,7 +7966,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][5]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(4)
     );
@@ -7887,7 +7977,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][6]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(5)
     );
@@ -7898,7 +7988,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][7]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(6)
     );
@@ -7909,7 +7999,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][8]_i_1_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(7)
     );
@@ -7920,7 +8010,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[19][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][R][9]_i_2_n_0\,
       Q => \^enemies_reg[19][r][9]_0\(8)
     );
@@ -7928,9 +8018,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[19][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(28)
+      Q => \^enemies_reg[19][is_active]_0\
     );
 \enemies_reg[1][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -7939,8 +8029,8 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
-      D => \p_0_in__0\(1),
+      CLR => RstN,
+      D => \enemies[1][R][1]_i_1_n_0\,
       Q => \^enemies_reg[1][r][9]_0\(0)
     );
 \enemies_reg[1][R][2]\: unisim.vcomponents.FDCE
@@ -7950,8 +8040,8 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
-      D => \p_0_in__0\(2),
+      CLR => RstN,
+      D => \enemies[1][R][2]_i_1_n_0\,
       Q => \^enemies_reg[1][r][9]_0\(1)
     );
 \enemies_reg[1][R][3]\: unisim.vcomponents.FDCE
@@ -7961,8 +8051,8 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
-      D => \p_0_in__0\(3),
+      CLR => RstN,
+      D => \enemies[1][R][3]_i_1_n_0\,
       Q => \^enemies_reg[1][r][9]_0\(2)
     );
 \enemies_reg[1][R][4]\: unisim.vcomponents.FDCE
@@ -7972,7 +8062,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[1][R][4]_i_1_n_0\,
       Q => \^enemies_reg[1][r][9]_0\(3)
     );
@@ -7983,8 +8073,8 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
-      D => \p_0_in__0\(5),
+      CLR => RstN,
+      D => \enemies[1][R][5]_i_1_n_0\,
       Q => \^enemies_reg[1][r][9]_0\(4)
     );
 \enemies_reg[1][R][6]\: unisim.vcomponents.FDCE
@@ -7994,8 +8084,8 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
-      D => \p_0_in__0\(6),
+      CLR => RstN,
+      D => \enemies[1][R][6]_i_1_n_0\,
       Q => \^enemies_reg[1][r][9]_0\(5)
     );
 \enemies_reg[1][R][7]\: unisim.vcomponents.FDCE
@@ -8005,7 +8095,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[1][R][7]_i_1_n_0\,
       Q => \^enemies_reg[1][r][9]_0\(6)
     );
@@ -8016,8 +8106,8 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
-      D => \enemies[1][R][8]_i_1_n_0\,
+      CLR => RstN,
+      D => \p_0_in__0\(8),
       Q => \^enemies_reg[1][r][9]_0\(7)
     );
 \enemies_reg[1][R][9]\: unisim.vcomponents.FDCE
@@ -8027,7 +8117,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[1][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \p_0_in__0\(9),
       Q => \^enemies_reg[1][r][9]_0\(8)
     );
@@ -8035,9 +8125,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[1][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(10)
+      Q => \^enemies_reg[1][is_active]_0\
     );
 \enemies_reg[20][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8046,7 +8136,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][1]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(0)
     );
@@ -8057,7 +8147,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][2]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(1)
     );
@@ -8068,7 +8158,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][3]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(2)
     );
@@ -8079,7 +8169,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][4]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(3)
     );
@@ -8090,7 +8180,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][5]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(4)
     );
@@ -8101,7 +8191,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][6]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(5)
     );
@@ -8112,7 +8202,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][7]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(6)
     );
@@ -8123,7 +8213,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][8]_i_1_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(7)
     );
@@ -8134,7 +8224,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[20][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][R][9]_i_2_n_0\,
       Q => \^enemies_reg[20][r][9]_0\(8)
     );
@@ -8142,9 +8232,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[20][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(29)
+      Q => \^enemies_reg[20][is_active]_0\
     );
 \enemies_reg[21][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8153,7 +8243,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][1]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(0)
     );
@@ -8164,7 +8254,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][2]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(1)
     );
@@ -8175,7 +8265,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][3]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(2)
     );
@@ -8186,7 +8276,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][4]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(3)
     );
@@ -8197,7 +8287,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][5]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(4)
     );
@@ -8208,7 +8298,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][6]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(5)
     );
@@ -8219,7 +8309,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][7]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(6)
     );
@@ -8230,7 +8320,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][8]_i_1_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(7)
     );
@@ -8241,7 +8331,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[21][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][R][9]_i_2_n_0\,
       Q => \^enemies_reg[21][r][9]_0\(8)
     );
@@ -8249,9 +8339,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[21][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(30)
+      Q => \^enemies_reg[21][is_active]_0\
     );
 \enemies_reg[22][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8260,7 +8350,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][1]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(0)
     );
@@ -8271,7 +8361,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][2]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(1)
     );
@@ -8282,7 +8372,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][3]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(2)
     );
@@ -8293,7 +8383,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][4]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(3)
     );
@@ -8304,7 +8394,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][5]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(4)
     );
@@ -8315,7 +8405,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][6]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(5)
     );
@@ -8326,7 +8416,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][7]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(6)
     );
@@ -8337,7 +8427,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][8]_i_1_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(7)
     );
@@ -8348,7 +8438,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[22][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][R][9]_i_2_n_0\,
       Q => \^enemies_reg[22][r][9]_0\(8)
     );
@@ -8356,9 +8446,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[22][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(31)
+      Q => \^enemies_reg[22][is_active]_0\
     );
 \enemies_reg[23][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8367,7 +8457,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][1]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(0)
     );
@@ -8378,7 +8468,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][2]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(1)
     );
@@ -8389,7 +8479,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][3]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(2)
     );
@@ -8400,7 +8490,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][4]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(3)
     );
@@ -8411,7 +8501,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][5]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(4)
     );
@@ -8422,7 +8512,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][6]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(5)
     );
@@ -8433,7 +8523,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][7]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(6)
     );
@@ -8444,7 +8534,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][8]_i_1_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(7)
     );
@@ -8455,7 +8545,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[23][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][R][9]_i_2_n_0\,
       Q => \^enemies_reg[23][r][9]_0\(8)
     );
@@ -8463,9 +8553,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[23][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(32)
+      Q => \^enemies_reg[23][is_active]_0\
     );
 \enemies_reg[2][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8474,7 +8564,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][1]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(0)
     );
@@ -8485,7 +8575,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][2]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(1)
     );
@@ -8496,7 +8586,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][3]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(2)
     );
@@ -8507,7 +8597,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][4]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(3)
     );
@@ -8518,7 +8608,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][5]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(4)
     );
@@ -8529,7 +8619,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][6]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(5)
     );
@@ -8540,7 +8630,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][7]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(6)
     );
@@ -8551,7 +8641,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][8]_i_1_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(7)
     );
@@ -8562,7 +8652,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[2][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][R][9]_i_2_n_0\,
       Q => \^enemies_reg[2][r][9]_0\(8)
     );
@@ -8570,9 +8660,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[2][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(11)
+      Q => \^enemies_reg[2][is_active]_0\
     );
 \enemies_reg[3][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8581,7 +8671,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][1]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(0)
     );
@@ -8592,7 +8682,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][2]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(1)
     );
@@ -8603,7 +8693,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][3]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(2)
     );
@@ -8614,7 +8704,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][4]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(3)
     );
@@ -8625,7 +8715,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][5]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(4)
     );
@@ -8636,7 +8726,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][6]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(5)
     );
@@ -8647,7 +8737,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][7]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(6)
     );
@@ -8658,7 +8748,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][8]_i_1_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(7)
     );
@@ -8669,7 +8759,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[3][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][R][9]_i_2_n_0\,
       Q => \^enemies_reg[3][r][9]_0\(8)
     );
@@ -8677,9 +8767,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[3][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(12)
+      Q => \^enemies_reg[3][is_active]_0\
     );
 \enemies_reg[4][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8688,7 +8778,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][1]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(0)
     );
@@ -8699,7 +8789,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][2]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(1)
     );
@@ -8710,7 +8800,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][3]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(2)
     );
@@ -8721,7 +8811,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][4]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(3)
     );
@@ -8732,7 +8822,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][5]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(4)
     );
@@ -8743,7 +8833,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][6]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(5)
     );
@@ -8754,7 +8844,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][7]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(6)
     );
@@ -8765,7 +8855,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][8]_i_1_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(7)
     );
@@ -8776,7 +8866,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[4][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][R][9]_i_2_n_0\,
       Q => \^enemies_reg[4][r][9]_0\(8)
     );
@@ -8784,9 +8874,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[4][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(13)
+      Q => \^enemies_reg[4][is_active]_0\
     );
 \enemies_reg[5][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8795,7 +8885,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][1]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(0)
     );
@@ -8806,7 +8896,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][2]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(1)
     );
@@ -8817,7 +8907,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][3]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(2)
     );
@@ -8828,7 +8918,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][4]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(3)
     );
@@ -8839,7 +8929,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][5]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(4)
     );
@@ -8850,7 +8940,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][6]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(5)
     );
@@ -8861,7 +8951,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][7]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(6)
     );
@@ -8872,7 +8962,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][8]_i_1_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(7)
     );
@@ -8883,7 +8973,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[5][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][R][9]_i_2_n_0\,
       Q => \^enemies_reg[5][r][9]_0\(8)
     );
@@ -8891,9 +8981,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[5][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(14)
+      Q => \^enemies_reg[5][is_active]_0\
     );
 \enemies_reg[6][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -8902,7 +8992,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][1]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(0)
     );
@@ -8913,7 +9003,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][2]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(1)
     );
@@ -8924,7 +9014,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][3]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(2)
     );
@@ -8935,7 +9025,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][4]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(3)
     );
@@ -8946,7 +9036,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][5]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(4)
     );
@@ -8957,7 +9047,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][6]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(5)
     );
@@ -8968,7 +9058,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][7]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(6)
     );
@@ -8979,7 +9069,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][8]_i_1_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(7)
     );
@@ -8990,7 +9080,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[6][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][R][9]_i_2_n_0\,
       Q => \^enemies_reg[6][r][9]_0\(8)
     );
@@ -8998,9 +9088,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[6][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(15)
+      Q => \^enemies_reg[6][is_active]_0\
     );
 \enemies_reg[7][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -9009,7 +9099,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][1]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(0)
     );
@@ -9020,7 +9110,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][2]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(1)
     );
@@ -9031,7 +9121,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][3]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(2)
     );
@@ -9042,7 +9132,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][4]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(3)
     );
@@ -9053,7 +9143,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][5]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(4)
     );
@@ -9064,7 +9154,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][6]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(5)
     );
@@ -9075,7 +9165,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][7]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(6)
     );
@@ -9086,7 +9176,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][8]_i_1_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(7)
     );
@@ -9097,7 +9187,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[7][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][R][9]_i_2_n_0\,
       Q => \^enemies_reg[7][r][9]_0\(8)
     );
@@ -9105,9 +9195,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[7][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(16)
+      Q => \^enemies_reg[7][is_active]_0\
     );
 \enemies_reg[8][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -9116,7 +9206,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][1]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(0)
     );
@@ -9127,7 +9217,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][2]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(1)
     );
@@ -9138,7 +9228,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][3]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(2)
     );
@@ -9149,7 +9239,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][4]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(3)
     );
@@ -9160,7 +9250,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][5]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(4)
     );
@@ -9171,7 +9261,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][6]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(5)
     );
@@ -9182,7 +9272,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][7]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(6)
     );
@@ -9193,7 +9283,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][8]_i_1_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(7)
     );
@@ -9204,7 +9294,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[8][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][R][9]_i_2_n_0\,
       Q => \^enemies_reg[8][r][9]_0\(8)
     );
@@ -9212,9 +9302,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[8][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(17)
+      Q => \^enemies_reg[8][is_active]_0\
     );
 \enemies_reg[9][R][1]\: unisim.vcomponents.FDCE
     generic map(
@@ -9223,7 +9313,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][1]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(0)
     );
@@ -9234,7 +9324,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][2]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(1)
     );
@@ -9245,7 +9335,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][3]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(2)
     );
@@ -9256,7 +9346,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][4]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(3)
     );
@@ -9267,7 +9357,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][5]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(4)
     );
@@ -9278,7 +9368,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][6]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(5)
     );
@@ -9289,7 +9379,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][7]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(6)
     );
@@ -9300,7 +9390,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][8]_i_1_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(7)
     );
@@ -9311,7 +9401,7 @@ begin
         port map (
       C => Clk,
       CE => \enemies[9][R]\,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][R][9]_i_2_n_0\,
       Q => \^enemies_reg[9][r][9]_0\(8)
     );
@@ -9319,9 +9409,9 @@ begin
      port map (
       C => Clk,
       CE => '1',
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \enemies[9][is_active]_i_1_n_0\,
-      Q => \^enemiesout\(18)
+      Q => \^enemies_reg[9][is_active]_0\
     );
 \lfsr[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -9342,7 +9432,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => p_0_out(0),
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => \lfsr_reg_n_0_[0]\
     );
 \lfsr_reg[10]\: unisim.vcomponents.FDPE
@@ -9353,7 +9443,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => p_0_in(6),
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => p_0_in(7)
     );
 \lfsr_reg[11]\: unisim.vcomponents.FDPE
@@ -9364,7 +9454,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => p_0_in(7),
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => \lfsr_reg_n_0_[11]\
     );
 \lfsr_reg[12]\: unisim.vcomponents.FDCE
@@ -9374,7 +9464,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \lfsr_reg_n_0_[11]\,
       Q => \lfsr_reg_n_0_[12]\
     );
@@ -9386,7 +9476,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => \lfsr_reg_n_0_[12]\,
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => \lfsr_reg_n_0_[13]\
     );
 \lfsr_reg[14]\: unisim.vcomponents.FDCE
@@ -9396,7 +9486,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \lfsr_reg_n_0_[13]\,
       Q => \lfsr_reg_n_0_[14]\
     );
@@ -9408,7 +9498,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => \lfsr_reg_n_0_[14]\,
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => \lfsr_reg_n_0_[15]\
     );
 \lfsr_reg[1]\: unisim.vcomponents.FDCE
@@ -9418,7 +9508,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \lfsr_reg_n_0_[0]\,
       Q => \lfsr_reg_n_0_[1]\
     );
@@ -9429,7 +9519,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \lfsr_reg_n_0_[1]\,
       Q => \lfsr_reg_n_0_[2]\
     );
@@ -9440,7 +9530,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => \lfsr_reg_n_0_[2]\,
       Q => p_0_in(0)
     );
@@ -9451,7 +9541,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => p_0_in(0),
       Q => p_0_in(1)
     );
@@ -9463,7 +9553,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => p_0_in(1),
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => p_0_in(2)
     );
 \lfsr_reg[6]\: unisim.vcomponents.FDPE
@@ -9474,7 +9564,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => p_0_in(2),
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => p_0_in(3)
     );
 \lfsr_reg[7]\: unisim.vcomponents.FDPE
@@ -9485,7 +9575,7 @@ begin
       C => Clk,
       CE => FrameTick,
       D => p_0_in(3),
-      PRE => \enemies[23][is_active]_i_2_n_0\,
+      PRE => RstN,
       Q => p_0_in(4)
     );
 \lfsr_reg[8]\: unisim.vcomponents.FDCE
@@ -9495,7 +9585,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => p_0_in(4),
       Q => p_0_in(5)
     );
@@ -9506,7 +9596,7 @@ begin
         port map (
       C => Clk,
       CE => FrameTick,
-      CLR => \enemies[23][is_active]_i_2_n_0\,
+      CLR => RstN,
       D => p_0_in(5),
       Q => p_0_in(6)
     );
@@ -9542,7 +9632,7 @@ architecture STRUCTURE of design_1_EnemyController_0_0 is
   attribute X_INTERFACE_MODE : string;
   attribute X_INTERFACE_MODE of Clk : signal is "slave";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of Clk : signal is "XIL_INTERFACENAME Clk, ASSOCIATED_RESET RstN, FREQ_HZ 25000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_0_clk25, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of Clk : signal is "XIL_INTERFACENAME Clk, ASSOCIATED_RESET RstN, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of RstN : signal is "xilinx.com:signal:reset:1.0 RstN RST";
   attribute X_INTERFACE_MODE of RstN : signal is "slave";
   attribute X_INTERFACE_PARAMETER of RstN : signal is "XIL_INTERFACENAME RstN, POLARITY ACTIVE_LOW, INSERT_VIP 0";
@@ -9602,54 +9692,55 @@ GND: unisim.vcomponents.GND
 inst: entity work.design_1_EnemyController_0_0_EnemyController
      port map (
       Clk => Clk,
-      EnemiesOut(32) => \^enemiesout\(263),
-      EnemiesOut(31) => \^enemiesout\(252),
-      EnemiesOut(30) => \^enemiesout\(241),
-      EnemiesOut(29) => \^enemiesout\(230),
-      EnemiesOut(28) => \^enemiesout\(219),
-      EnemiesOut(27) => \^enemiesout\(208),
-      EnemiesOut(26) => \^enemiesout\(197),
-      EnemiesOut(25) => \^enemiesout\(186),
-      EnemiesOut(24) => \^enemiesout\(175),
-      EnemiesOut(23) => \^enemiesout\(164),
-      EnemiesOut(22) => \^enemiesout\(153),
-      EnemiesOut(21) => \^enemiesout\(142),
-      EnemiesOut(20) => \^enemiesout\(131),
-      EnemiesOut(19) => \^enemiesout\(120),
-      EnemiesOut(18) => \^enemiesout\(109),
-      EnemiesOut(17) => \^enemiesout\(98),
-      EnemiesOut(16) => \^enemiesout\(87),
-      EnemiesOut(15) => \^enemiesout\(76),
-      EnemiesOut(14) => \^enemiesout\(65),
-      EnemiesOut(13) => \^enemiesout\(54),
-      EnemiesOut(12) => \^enemiesout\(43),
-      EnemiesOut(11) => \^enemiesout\(32),
-      EnemiesOut(10) => \^enemiesout\(21),
-      EnemiesOut(9 downto 0) => \^enemiesout\(10 downto 1),
       FrameTick => FrameTick,
-      Q(8 downto 0) => \^enemiesout\(207 downto 199),
+      Q(8 downto 0) => \^enemiesout\(9 downto 1),
       RstN => RstN,
+      \enemies_reg[0][is_active]_0\ => \^enemiesout\(10),
       \enemies_reg[10][R][9]_0\(8 downto 0) => \^enemiesout\(119 downto 111),
+      \enemies_reg[10][is_active]_0\ => \^enemiesout\(120),
       \enemies_reg[11][R][9]_0\(8 downto 0) => \^enemiesout\(130 downto 122),
+      \enemies_reg[11][is_active]_0\ => \^enemiesout\(131),
       \enemies_reg[12][R][9]_0\(8 downto 0) => \^enemiesout\(141 downto 133),
+      \enemies_reg[12][is_active]_0\ => \^enemiesout\(142),
       \enemies_reg[13][R][9]_0\(8 downto 0) => \^enemiesout\(152 downto 144),
+      \enemies_reg[13][is_active]_0\ => \^enemiesout\(153),
       \enemies_reg[14][R][9]_0\(8 downto 0) => \^enemiesout\(163 downto 155),
+      \enemies_reg[14][is_active]_0\ => \^enemiesout\(164),
       \enemies_reg[15][R][9]_0\(8 downto 0) => \^enemiesout\(174 downto 166),
+      \enemies_reg[15][is_active]_0\ => \^enemiesout\(175),
       \enemies_reg[16][R][9]_0\(8 downto 0) => \^enemiesout\(185 downto 177),
+      \enemies_reg[16][is_active]_0\ => \^enemiesout\(186),
       \enemies_reg[17][R][9]_0\(8 downto 0) => \^enemiesout\(196 downto 188),
+      \enemies_reg[17][is_active]_0\ => \^enemiesout\(197),
+      \enemies_reg[18][R][9]_0\(8 downto 0) => \^enemiesout\(207 downto 199),
+      \enemies_reg[18][is_active]_0\ => \^enemiesout\(208),
       \enemies_reg[19][R][9]_0\(8 downto 0) => \^enemiesout\(218 downto 210),
+      \enemies_reg[19][is_active]_0\ => \^enemiesout\(219),
       \enemies_reg[1][R][9]_0\(8 downto 0) => \^enemiesout\(20 downto 12),
+      \enemies_reg[1][is_active]_0\ => \^enemiesout\(21),
       \enemies_reg[20][R][9]_0\(8 downto 0) => \^enemiesout\(229 downto 221),
+      \enemies_reg[20][is_active]_0\ => \^enemiesout\(230),
       \enemies_reg[21][R][9]_0\(8 downto 0) => \^enemiesout\(240 downto 232),
+      \enemies_reg[21][is_active]_0\ => \^enemiesout\(241),
       \enemies_reg[22][R][9]_0\(8 downto 0) => \^enemiesout\(251 downto 243),
+      \enemies_reg[22][is_active]_0\ => \^enemiesout\(252),
       \enemies_reg[23][R][9]_0\(8 downto 0) => \^enemiesout\(262 downto 254),
+      \enemies_reg[23][is_active]_0\ => \^enemiesout\(263),
       \enemies_reg[2][R][9]_0\(8 downto 0) => \^enemiesout\(31 downto 23),
+      \enemies_reg[2][is_active]_0\ => \^enemiesout\(32),
       \enemies_reg[3][R][9]_0\(8 downto 0) => \^enemiesout\(42 downto 34),
+      \enemies_reg[3][is_active]_0\ => \^enemiesout\(43),
       \enemies_reg[4][R][9]_0\(8 downto 0) => \^enemiesout\(53 downto 45),
+      \enemies_reg[4][is_active]_0\ => \^enemiesout\(54),
       \enemies_reg[5][R][9]_0\(8 downto 0) => \^enemiesout\(64 downto 56),
+      \enemies_reg[5][is_active]_0\ => \^enemiesout\(65),
       \enemies_reg[6][R][9]_0\(8 downto 0) => \^enemiesout\(75 downto 67),
+      \enemies_reg[6][is_active]_0\ => \^enemiesout\(76),
       \enemies_reg[7][R][9]_0\(8 downto 0) => \^enemiesout\(86 downto 78),
+      \enemies_reg[7][is_active]_0\ => \^enemiesout\(87),
       \enemies_reg[8][R][9]_0\(8 downto 0) => \^enemiesout\(97 downto 89),
-      \enemies_reg[9][R][9]_0\(8 downto 0) => \^enemiesout\(108 downto 100)
+      \enemies_reg[8][is_active]_0\ => \^enemiesout\(98),
+      \enemies_reg[9][R][9]_0\(8 downto 0) => \^enemiesout\(108 downto 100),
+      \enemies_reg[9][is_active]_0\ => \^enemiesout\(109)
     );
 end STRUCTURE;

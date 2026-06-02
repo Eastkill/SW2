@@ -17,7 +17,8 @@
       "ImgGen_0": "",
       "RotaryEnc_0": "",
       "angle_encoder_1": "",
-      "EnemyController_0": ""
+      "EnemyController_0": "",
+      "TickGenerator_0": ""
     },
     "interface_ports": {
       "clk_100mhz": {
@@ -398,6 +399,49 @@
               "ASSOCIATED_RESET": {
                 "value": "RstN",
                 "value_src": "constant"
+              }
+            }
+          },
+          "RstN": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "FrameTick": {
+            "direction": "I"
+          },
+          "EnemiesOut": {
+            "direction": "O",
+            "left": "263",
+            "right": "0"
+          }
+        }
+      },
+      "TickGenerator_0": {
+        "vlnv": "xilinx.com:module_ref:TickGenerator:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_TickGenerator_0_0",
+        "xci_path": "ip\\design_1_TickGenerator_0_0\\design_1_TickGenerator_0_0.xci",
+        "inst_hier_path": "TickGenerator_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "TickGenerator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RstN",
+                "value_src": "constant"
               },
               "FREQ_HZ": {
                 "value": "25000000",
@@ -424,12 +468,7 @@
             }
           },
           "FrameTick": {
-            "direction": "I"
-          },
-          "EnemiesOut": {
-            "direction": "O",
-            "left": "263",
-            "right": "0"
+            "direction": "O"
           }
         }
       }
@@ -519,7 +558,8 @@
         "ports": [
           "PL_USER_PB0",
           "angle_encoder_1/RST",
-          "EnemyController_0/RstN"
+          "EnemyController_0/RstN",
+          "TickGenerator_0/RstN"
         ]
       },
       "ROT_A_1": {
@@ -544,6 +584,12 @@
         "ports": [
           "RotaryEnc_0/RotR",
           "angle_encoder_1/ROT_L"
+        ]
+      },
+      "TickGenerator_0_FrameTick": {
+        "ports": [
+          "TickGenerator_0/FrameTick",
+          "EnemyController_0/Clk"
         ]
       },
       "VideoTiming_0_DE": {
@@ -591,7 +637,7 @@
           "RotaryEnc_0/Clk",
           "VideoTiming_0/pixClk",
           "angle_encoder_1/CLK",
-          "EnemyController_0/Clk",
+          "TickGenerator_0/Clk",
           "ImgGen_0/Clk"
         ]
       },

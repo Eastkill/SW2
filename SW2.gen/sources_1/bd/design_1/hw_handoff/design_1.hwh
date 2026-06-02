@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue May 26 15:53:52 2026" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun  2 14:02:15 2026" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="realdigital.org:aup-zu3-8gb:part0:1.0" DEVICE="xczu3eg" NAME="design_1" PACKAGE="sfvc784" SPEEDGRADE="-2"/>
 
@@ -53,6 +53,7 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="angle_encoder_1" PORT="RST"/>
         <CONNECTION INSTANCE="EnemyController_0" PORT="RstN"/>
+        <CONNECTION INSTANCE="TickGenerator_0" PORT="RstN"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="ROT_A" SIGIS="undef" SIGNAME="External_Ports_ROT_A">
@@ -96,9 +97,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk25">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="Clk" SIGIS="clk" SIGNAME="TickGenerator_0_FrameTick">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk25"/>
+            <CONNECTION INSTANCE="TickGenerator_0" PORT="FrameTick"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="263" NAME="EnemiesOut" RIGHT="0" SIGIS="undef" SIGNAME="EnemyController_0_EnemiesOut">
@@ -299,6 +300,31 @@
         <PORT DIR="O" NAME="RotR" SIGIS="undef" SIGNAME="RotaryEnc_0_RotR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="angle_encoder_1" PORT="ROT_L"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/TickGenerator_0" HWVERSION="1.0" INSTANCE="TickGenerator_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="TickGenerator" VLNV="xilinx.com:module_ref:TickGenerator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_TickGenerator_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk25">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk25"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="FrameTick" SIGIS="undef" SIGNAME="TickGenerator_0_FrameTick">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="EnemyController_0" PORT="Clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RstN" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_PL_USER_PB0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="PL_USER_PB0"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -972,7 +998,7 @@
             <CONNECTION INSTANCE="RotaryEnc_0" PORT="Clk"/>
             <CONNECTION INSTANCE="VideoTiming_0" PORT="pixClk"/>
             <CONNECTION INSTANCE="angle_encoder_1" PORT="CLK"/>
-            <CONNECTION INSTANCE="EnemyController_0" PORT="Clk"/>
+            <CONNECTION INSTANCE="TickGenerator_0" PORT="Clk"/>
             <CONNECTION INSTANCE="ImgGen_0" PORT="Clk"/>
           </CONNECTIONS>
         </PORT>

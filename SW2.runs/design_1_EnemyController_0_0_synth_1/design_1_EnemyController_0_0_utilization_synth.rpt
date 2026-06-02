@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Tue May 26 15:59:30 2026
-| Host         : Lab016-03 running 64-bit major release  (build 9200)
+| Date         : Tue Jun  2 14:03:16 2026
+| Host         : Lab016-09 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_EnemyController_0_0_utilization_synth.rpt -pb design_1_EnemyController_0_0_utilization_synth.pb
 | Design       : design_1_EnemyController_0_0
 | Device       : xczu3eg-sfvc784-2-e
@@ -32,8 +32,8 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*               |  428 |     0 |          0 |     70560 |  0.61 |
-|   LUT as Logic          |  428 |     0 |          0 |     70560 |  0.61 |
+| CLB LUTs*               |  418 |     0 |          0 |     70560 |  0.59 |
+|   LUT as Logic          |  418 |     0 |          0 |     70560 |  0.59 |
 |   LUT as Memory         |    0 |     0 |          0 |     28800 |  0.00 |
 | CLB Registers           |  256 |     0 |          0 |    141120 |  0.18 |
 |   Register as Flip Flop |  256 |     0 |          0 |    141120 |  0.18 |
@@ -161,14 +161,13 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  292 |                 CLB |
+| LUT6     |  295 |                 CLB |
 | FDCE     |  248 |            Register |
-| LUT4     |   89 |                 CLB |
-| LUT2     |   51 |                 CLB |
-| LUT5     |   40 |                 CLB |
+| LUT4     |   75 |                 CLB |
+| LUT5     |   51 |                 CLB |
+| LUT2     |   50 |                 CLB |
 | LUT3     |   29 |                 CLB |
 | FDPE     |    8 |            Register |
-| LUT1     |    1 |                 CLB |
 +----------+------+---------------------+
 
 
