@@ -10,7 +10,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.PlayerSpritesPkg.all;
 use work.GameMathPkg.all; -- Dodajemy nasz nowy pakiet
-use work.EnemySpritesPkg.all;
 
 entity ImgGen is
     Port (
@@ -82,7 +81,6 @@ process(Enemies_in)
 
     -- ========================================================================
     -- PROCES KOMBINACYJNY: Przeliczenie biegunowych na kartezjańskie
-    -- Wykorzystuje wbudowane sprzętowe mnożarki (DSP)
     -- ========================================================================
     process(Enemies)
     begin
@@ -181,9 +179,9 @@ process(Enemies_in)
 --                        R <= pixel_color;
 --                        G <= pixel_color;
 --                        B <= pixel_color;
-R <= "11111111";
-G <= "00000000";
-B <= "00000000";
+                        R <= "11111111";
+                        G <= "11111111";
+                        B <= "11111111";
                         drawing_enemy := true;
                         exit; -- Narysowaliśmy przeciwnika (najwyższego w pętli), kończymy sprawdzanie reszty
                     end if;

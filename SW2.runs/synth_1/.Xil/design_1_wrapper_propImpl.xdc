@@ -28,7 +28,3 @@ set_property src_info {type:XDC file:2 line:29 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN AE7 [get_ports {PL_USER_LED[1]}]
 set_property src_info {type:XDC file:2 line:30 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN AH2 [get_ports {PL_USER_LED[2]}]
-set_property src_info {type:XDC file:2 line:31 export:INPUT save:INPUT read:READ} [current_design]
-set_property PACKAGE_PIN AE5 [get_ports {PL_USER_LED[3]}]
-set_property src_info {type:XDC file:2 line:32 export:INPUT save:INPUT read:READ} [current_design]
-set_property PACKAGE_PIN AH1 [get_ports {PL_USER_LED[4]}]

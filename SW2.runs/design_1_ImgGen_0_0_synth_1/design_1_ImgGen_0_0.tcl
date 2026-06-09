@@ -56,9 +56,8 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "design_1_ImgGen_0_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
+set_param general.maxThreads 6
 set_param general.usePosixSpawnForFork 1
-set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/mref

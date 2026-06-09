@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun  2 14:02:15 2026" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun  9 13:53:41 2026" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="realdigital.org:aup-zu3-8gb:part0:1.0" DEVICE="xczu3eg" NAME="design_1" PACKAGE="sfvc784" SPEEDGRADE="-2"/>
 
@@ -44,16 +44,17 @@
         <CONNECTION INSTANCE="HDMI_TX_0" PORT="HDMI_D2_P"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="4" NAME="PL_USER_LED" RIGHT="0" SIGIS="undef" SIGNAME="angle_encoder_1_ANG">
+    <PORT DIR="O" LEFT="2" NAME="PL_USER_LED" RIGHT="0" SIGIS="undef" SIGNAME="GameController_0_Health">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="angle_encoder_1" PORT="ANG"/>
+        <CONNECTION INSTANCE="GameController_0" PORT="Health"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="PL_USER_PB0" SIGIS="undef" SIGNAME="External_Ports_PL_USER_PB0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="angle_encoder_1" PORT="RST"/>
-        <CONNECTION INSTANCE="EnemyController_0" PORT="RstN"/>
         <CONNECTION INSTANCE="TickGenerator_0" PORT="RstN"/>
+        <CONNECTION INSTANCE="EnemyController_0" PORT="RstN"/>
+        <CONNECTION INSTANCE="GameController_0" PORT="RstN"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="ROT_A" SIGIS="undef" SIGNAME="External_Ports_ROT_A">
@@ -112,9 +113,44 @@
             <CONNECTION INSTANCE="VideoTiming_0" PORT="VSync"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" NAME="HIT" SIGIS="undef" SIGNAME="EnemyController_0_HIT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="GameController_0" PORT="hit"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="RstN" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_PL_USER_PB0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="PL_USER_PB0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/GameController_0" HWVERSION="1.0" INSTANCE="GameController_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="GameController" VLNV="xilinx.com:module_ref:GameController:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_GameController_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="25000000" DIR="I" NAME="Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk25">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk25"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="Health" RIGHT="0" SIGIS="undef" SIGNAME="GameController_0_Health">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="PL_USER_LED"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RstN" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_PL_USER_PB0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="PL_USER_PB0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="hit" SIGIS="undef" SIGNAME="EnemyController_0_HIT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="EnemyController_0" PORT="HIT"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -385,7 +421,6 @@
       <PORTS>
         <PORT DIR="O" LEFT="4" NAME="ANG" RIGHT="0" SIGIS="undef" SIGNAME="angle_encoder_1_ANG">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="PL_USER_LED"/>
             <CONNECTION INSTANCE="ImgGen_0" PORT="ANG"/>
           </CONNECTIONS>
         </PORT>
@@ -999,6 +1034,7 @@
             <CONNECTION INSTANCE="VideoTiming_0" PORT="pixClk"/>
             <CONNECTION INSTANCE="angle_encoder_1" PORT="CLK"/>
             <CONNECTION INSTANCE="TickGenerator_0" PORT="Clk"/>
+            <CONNECTION INSTANCE="GameController_0" PORT="Clk"/>
             <CONNECTION INSTANCE="ImgGen_0" PORT="Clk"/>
           </CONNECTIONS>
         </PORT>

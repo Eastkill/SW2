@@ -8,14 +8,15 @@ entity EnemyController is
         Clk       : in STD_LOGIC;
         RstN      : in STD_LOGIC;
         FrameTick : in STD_LOGIC; -- Impuls 1 na klatkę 
-        EnemiesOut: out std_logic_vector(263 downto 0)
+        EnemiesOut: out std_logic_vector(263 downto 0);
+        HIT: out STD_LOGIC
     );
 end EnemyController;
 
 architecture Behavioral of EnemyController is
     -- Rejestr stanu wszystkich wrogów
     signal enemies : Enemy_Array;
-    
+    signal hited : STD_LOGIC;
     -- Generator pseudolosowy (16-bitowy LFSR)
     signal lfsr : std_logic_vector(15 downto 0) := x"ACE1"; 
     
@@ -31,18 +32,19 @@ begin
         variable rand_angle : integer range 0 to 23;
         variable feedback : std_logic;
     begin
-        if RstN = '0'
+        if RstN = '1'
          then
             lfsr <= x"ACE1";
             for i in 0 to 23 loop
                 enemies(i).is_active <= '0';
                 enemies(i).R <= 0;
+                                hited <='0';
             end loop;
             
         elsif rising_edge(Clk) then
             -- Aktualizacja logiki gry tylko raz na klatkę obrazu
             if FrameTick = '1' then
-            
+                hited <='0';
                 -- 1. Przesunięcie LFSR (kolejna liczba "losowa")
                 feedback := lfsr(15) xor lfsr(13) xor lfsr(12) xor lfsr(10);
                 lfsr <= lfsr(14 downto 0) & feedback;
@@ -55,6 +57,7 @@ begin
                         else
                             enemies(i).is_active <= '0'; -- Uderzenie w gracza (zabicie/reset wroga)
                             enemies(i).R <= 0;
+                            hited <='1';
                         end if;
                     end if;
                 end loop;
@@ -78,4 +81,5 @@ begin
         end if;
     end process;
     EnemiesOut <= SerializeEnemies(enemies);
+    HIT <= hited;
 end Behavioral;

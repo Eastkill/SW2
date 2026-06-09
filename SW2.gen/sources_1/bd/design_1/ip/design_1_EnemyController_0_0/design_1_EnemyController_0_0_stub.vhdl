@@ -2,8 +2,8 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Tue Jun  2 14:03:16 2026
--- Host        : Lab016-09 running 64-bit major release  (build 9200)
+-- Date        : Tue Jun  9 13:54:51 2026
+-- Host        : Lab016-04 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0_stub.vhdl
 -- Design      : design_1_EnemyController_0_0
@@ -18,7 +18,8 @@ entity design_1_EnemyController_0_0 is
     Clk : in STD_LOGIC;
     RstN : in STD_LOGIC;
     FrameTick : in STD_LOGIC;
-    EnemiesOut : out STD_LOGIC_VECTOR ( 263 downto 0 )
+    EnemiesOut : out STD_LOGIC_VECTOR ( 263 downto 0 );
+    HIT : out STD_LOGIC
   );
 
   attribute CHECK_LICENSE_TYPE : string;
@@ -35,7 +36,7 @@ architecture stub of design_1_EnemyController_0_0 is
   attribute syn_black_box : boolean;
   attribute black_box_pad_pin : string;
   attribute syn_black_box of stub : architecture is true;
-  attribute black_box_pad_pin of stub : architecture is "Clk,RstN,FrameTick,EnemiesOut[263:0]";
+  attribute black_box_pad_pin of stub : architecture is "Clk,RstN,FrameTick,EnemiesOut[263:0],HIT";
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of Clk : signal is "xilinx.com:signal:clock:1.0 Clk CLK";
   attribute X_INTERFACE_MODE : string;

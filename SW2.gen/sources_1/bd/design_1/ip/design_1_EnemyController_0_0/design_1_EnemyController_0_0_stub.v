@@ -2,8 +2,8 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Tue Jun  2 14:03:16 2026
-// Host        : Lab016-09 running 64-bit major release  (build 9200)
+// Date        : Tue Jun  9 13:54:51 2026
+// Host        : Lab016-04 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0_stub.v
 // Design      : design_1_EnemyController_0_0
@@ -16,11 +16,12 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* CHECK_LICENSE_TYPE = "design_1_EnemyController_0_0,EnemyController,{}" *) (* CORE_GENERATION_INFO = "design_1_EnemyController_0_0,EnemyController,{x_ipProduct=Vivado 2025.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=EnemyController,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) 
 (* IP_DEFINITION_SOURCE = "module_ref" *) (* X_CORE_INFO = "EnemyController,Vivado 2025.1" *) 
-module design_1_EnemyController_0_0(Clk, RstN, FrameTick, EnemiesOut)
-/* synthesis syn_black_box black_box_pad_pin="RstN,FrameTick,EnemiesOut[263:0]" */
+module design_1_EnemyController_0_0(Clk, RstN, FrameTick, EnemiesOut, HIT)
+/* synthesis syn_black_box black_box_pad_pin="RstN,FrameTick,EnemiesOut[263:0],HIT" */
 /* synthesis syn_force_seq_prim="Clk" */;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clk CLK" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clk, ASSOCIATED_RESET RstN, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input Clk /* synthesis syn_isclock = 1 */;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RstN RST" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RstN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input RstN;
   input FrameTick;
   output [263:0]EnemiesOut;
+  output HIT;
 endmodule

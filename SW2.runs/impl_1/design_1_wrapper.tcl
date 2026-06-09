@@ -104,10 +104,11 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param general.maxThreads 6
   set_param chipscope.maxJobs 3
   set_param general.usePosixSpawnForFork 1
   set_param xicom.use_bs_reader 1
-  set_param runs.launchOptions { -jobs 12  }
+  set_param runs.launchOptions { -jobs 6  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xczu3eg-sfvc784-2-e
   set_property board_part_repo_paths {C:/Xilinx/Board_repo} [current_project]

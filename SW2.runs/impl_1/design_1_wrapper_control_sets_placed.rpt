@@ -1,0 +1,117 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Tue Jun  9 14:07:41 2026
+| Host         : Lab016-04 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
+| Design       : design_1_wrapper
+| Device       : xczu3eg
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    39 |
+|    Minimum number of control sets                        |    39 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    91 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    39 |
+| >= 0 to < 4        |     6 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |    24 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     5 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              38 |           19 |
+| No           | No                    | Yes                    |              44 |           28 |
+| No           | Yes                   | No                     |              67 |           27 |
+| Yes          | No                    | No                     |               2 |            1 |
+| Yes          | No                    | Yes                    |             236 |           85 |
+| Yes          | Yes                   | No                     |              14 |            5 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++---------------------------------------------------+-------------------------------------------------------+------------------------------------------------------+------------------+----------------+--------------+
+|                    Clock Signal                   |                     Enable Signal                     |                   Set/Reset Signal                   | Slice Load Count | Bel Load Count | Bels / Slice |
++---------------------------------------------------+-------------------------------------------------------+------------------------------------------------------+------------------+----------------+--------------+
+|  design_1_i/clk_wiz_0/inst/clk25                  | design_1_i/angle_encoder_1/inst/rot_l_delayed_i_1_n_0 |                                                      |                1 |              2 |         2.00 |
+|  design_1_i/clk_wiz_0/inst/clk25                  | design_1_i/EnemyController_0/inst/HIT                 | PL_USER_PB0_IBUF_inst/O                              |                1 |              3 |         3.00 |
+|  design_1_i/clk_wiz_0/inst/clk125                 |                                                       | design_1_i/HDMI_TX_0/U0/i_wrap/cntMod5[2]_i_1__0_n_0 |                1 |              3 |         3.00 |
+|  design_1_i/clk_wiz_0/inst/clk125                 |                                                       | design_1_i/HDMI_TX_0/U0/i_wrap/cntMod5[2]_i_1__1_n_0 |                1 |              3 |         3.00 |
+|  design_1_i/clk_wiz_0/inst/clk125                 |                                                       | design_1_i/HDMI_TX_0/U0/i_wrap/cntMod5[2]_i_1_n_0    |                1 |              3 |         3.00 |
+|  design_1_i/clk_wiz_0/inst/clk125                 |                                                       | design_1_i/HDMI_TX_0/U0/i_wrap/cntMod5[2]_i_1__2_n_0 |                1 |              3 |         3.00 |
+|  design_1_i/clk_wiz_0/inst/clk25                  | design_1_i/angle_encoder_1/inst/angle_reg[4]_i_2_n_0  | design_1_i/angle_encoder_1/inst/angle_reg[4]_i_1_n_0 |                2 |              4 |         2.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[23][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[2][R]       | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[22][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[4][R]       | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[5][R]       | PL_USER_PB0_IBUF_inst/O                              |                2 |              9 |         4.50 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[3][R]       | PL_USER_PB0_IBUF_inst/O                              |                5 |              9 |         1.80 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[6][R]       | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[8][R]       | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[7][R]       | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[9][R]       | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[0][R]       | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[10][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[11][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[12][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[13][R]      | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[14][R]      | PL_USER_PB0_IBUF_inst/O                              |                5 |              9 |         1.80 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[15][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[17][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[16][R]      | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[18][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[19][R]      | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[20][R]      | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[1][R]       | PL_USER_PB0_IBUF_inst/O                              |                3 |              9 |         3.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/EnemyController_0/inst/enemies[21][R]      | PL_USER_PB0_IBUF_inst/O                              |                4 |              9 |         2.25 |
+|  design_1_i/clk_wiz_0/inst/clk25                  |                                                       | design_1_i/VideoTiming_0/inst/cntX[9]_i_1_n_0        |                3 |             10 |         3.33 |
+|  design_1_i/clk_wiz_0/inst/clk25                  | design_1_i/VideoTiming_0/inst/cntX_TC                 | design_1_i/VideoTiming_0/inst/cntY[9]_i_1_n_0        |                3 |             10 |         3.33 |
+|  design_1_i/clk_wiz_0/inst/clk25                  |                                                       | design_1_i/HDMI_TX_0/U0/i_wrap/Cnt[4]_i_1_n_0        |               10 |             12 |         1.20 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE | design_1_i/VideoTiming_0/inst/VSync                   | PL_USER_PB0_IBUF_inst/O                              |                6 |             17 |         2.83 |
+|  design_1_i/clk_wiz_0/inst/clk25                  |                                                       | PL_USER_PB0_IBUF_inst/O                              |                4 |             20 |         5.00 |
+|  design_1_i/TickGenerator_0/inst/FrameTick_BUFGCE |                                                       | PL_USER_PB0_IBUF_inst/O                              |               24 |             24 |         1.00 |
+|  design_1_i/clk_wiz_0/inst/clk125                 |                                                       | design_1_i/clk_wiz_0/inst/locked                     |               12 |             33 |         2.75 |
+|  design_1_i/clk_wiz_0/inst/clk25                  |                                                       |                                                      |               19 |             38 |         2.00 |
++---------------------------------------------------+-------------------------------------------------------+------------------------------------------------------+------------------+----------------+--------------+
+
+

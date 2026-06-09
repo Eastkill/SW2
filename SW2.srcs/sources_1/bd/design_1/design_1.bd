@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD33906ACFAA3F9E2",
+      "boundary_crc": "0xF6525970DFC8A63E",
       "device": "xczu3eg-sfvc784-2-e",
       "gen_directory": "../../../../SW2.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -18,7 +18,8 @@
       "RotaryEnc_0": "",
       "angle_encoder_1": "",
       "EnemyController_0": "",
-      "TickGenerator_0": ""
+      "TickGenerator_0": "",
+      "GameController_0": ""
     },
     "interface_ports": {
       "clk_100mhz": {
@@ -82,7 +83,7 @@
       },
       "PL_USER_LED": {
         "direction": "O",
-        "left": "4",
+        "left": "2",
         "right": "0"
       }
     },
@@ -419,6 +420,9 @@
             "direction": "O",
             "left": "263",
             "right": "0"
+          },
+          "HIT": {
+            "direction": "O"
           }
         }
       },
@@ -471,6 +475,61 @@
             "direction": "O"
           }
         }
+      },
+      "GameController_0": {
+        "vlnv": "xilinx.com:module_ref:GameController:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_GameController_0_0",
+        "xci_path": "ip\\design_1_GameController_0_0\\design_1_GameController_0_0.xci",
+        "inst_hier_path": "GameController_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "GameController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "Clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RstN",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_wiz_0_0_clk25",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RstN": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "hit": {
+            "direction": "I"
+          },
+          "Health": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -486,6 +545,18 @@
         "ports": [
           "EnemyController_0/EnemiesOut",
           "ImgGen_0/Enemies_in"
+        ]
+      },
+      "EnemyController_0_HIT": {
+        "ports": [
+          "EnemyController_0/HIT",
+          "GameController_0/hit"
+        ]
+      },
+      "GameController_0_Health": {
+        "ports": [
+          "GameController_0/Health",
+          "PL_USER_LED"
         ]
       },
       "HDMI_TX_0_HDMI_CK_N": {
@@ -558,8 +629,9 @@
         "ports": [
           "PL_USER_PB0",
           "angle_encoder_1/RST",
+          "TickGenerator_0/RstN",
           "EnemyController_0/RstN",
-          "TickGenerator_0/RstN"
+          "GameController_0/RstN"
         ]
       },
       "ROT_A_1": {
@@ -626,7 +698,6 @@
       "angle_encoder_0_ANG": {
         "ports": [
           "angle_encoder_1/ANG",
-          "PL_USER_LED",
           "ImgGen_0/ANG"
         ]
       },
@@ -638,6 +709,7 @@
           "VideoTiming_0/pixClk",
           "angle_encoder_1/CLK",
           "TickGenerator_0/Clk",
+          "GameController_0/Clk",
           "ImgGen_0/Clk"
         ]
       },

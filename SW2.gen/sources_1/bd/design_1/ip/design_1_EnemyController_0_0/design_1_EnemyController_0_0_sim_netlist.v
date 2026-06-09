@@ -2,8 +2,8 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Tue Jun  2 14:03:16 2026
-// Host        : Lab016-09 running 64-bit major release  (build 9200)
+// Date        : Tue Jun  9 13:54:51 2026
+// Host        : Lab016-04 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0_sim_netlist.v
 // Design      : design_1_EnemyController_0_0
@@ -20,16 +20,19 @@ module design_1_EnemyController_0_0
    (Clk,
     RstN,
     FrameTick,
-    EnemiesOut);
+    EnemiesOut,
+    HIT);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clk CLK" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME Clk, ASSOCIATED_RESET RstN, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0" *) input Clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RstN RST" *) (* X_INTERFACE_MODE = "slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RstN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input RstN;
   input FrameTick;
   output [263:0]EnemiesOut;
+  output HIT;
 
   wire \<const0> ;
   wire Clk;
   wire [263:1]\^EnemiesOut ;
   wire FrameTick;
+  wire HIT;
   wire RstN;
 
   assign EnemiesOut[263:254] = \^EnemiesOut [263:254];
@@ -85,6 +88,7 @@ module design_1_EnemyController_0_0
   design_1_EnemyController_0_0_EnemyController inst
        (.Clk(Clk),
         .FrameTick(FrameTick),
+        .HIT(HIT),
         .Q(\^EnemiesOut [9:1]),
         .RstN(RstN),
         .\enemies_reg[0][is_active]_0 (\^EnemiesOut [10]),
@@ -162,6 +166,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies_reg[3][R][9]_0 ,
     \enemies_reg[2][R][9]_0 ,
     \enemies_reg[1][R][9]_0 ,
+    HIT,
     \enemies_reg[0][is_active]_0 ,
     \enemies_reg[23][is_active]_0 ,
     \enemies_reg[22][is_active]_0 ,
@@ -213,6 +218,7 @@ module design_1_EnemyController_0_0_EnemyController
   output [8:0]\enemies_reg[3][R][9]_0 ;
   output [8:0]\enemies_reg[2][R][9]_0 ;
   output [8:0]\enemies_reg[1][R][9]_0 ;
+  output HIT;
   output \enemies_reg[0][is_active]_0 ;
   output \enemies_reg[23][is_active]_0 ;
   output \enemies_reg[22][is_active]_0 ;
@@ -243,6 +249,7 @@ module design_1_EnemyController_0_0_EnemyController
 
   wire Clk;
   wire FrameTick;
+  wire HIT;
   wire [8:0]Q;
   wire RstN;
   wire \enemies[0][R] ;
@@ -387,7 +394,6 @@ module design_1_EnemyController_0_0_EnemyController
   wire \enemies[15][is_active]_i_2_n_0 ;
   wire \enemies[15][is_active]_i_3_n_0 ;
   wire \enemies[15][is_active]_i_4_n_0 ;
-  wire \enemies[15][is_active]_i_5_n_0 ;
   wire \enemies[16][R] ;
   wire \enemies[16][R][1]_i_1_n_0 ;
   wire \enemies[16][R][2]_i_1_n_0 ;
@@ -789,6 +795,25 @@ module design_1_EnemyController_0_0_EnemyController
   wire \enemies_reg[8][is_active]_0 ;
   wire [8:0]\enemies_reg[9][R][9]_0 ;
   wire \enemies_reg[9][is_active]_0 ;
+  wire hited_i_10_n_0;
+  wire hited_i_11_n_0;
+  wire hited_i_12_n_0;
+  wire hited_i_13_n_0;
+  wire hited_i_14_n_0;
+  wire hited_i_15_n_0;
+  wire hited_i_16_n_0;
+  wire hited_i_17_n_0;
+  wire hited_i_18_n_0;
+  wire hited_i_19_n_0;
+  wire hited_i_1_n_0;
+  wire hited_i_2_n_0;
+  wire hited_i_3_n_0;
+  wire hited_i_4_n_0;
+  wire hited_i_5_n_0;
+  wire hited_i_6_n_0;
+  wire hited_i_7_n_0;
+  wire hited_i_8_n_0;
+  wire hited_i_9_n_0;
   wire \lfsr_reg_n_0_[0] ;
   wire \lfsr_reg_n_0_[11] ;
   wire \lfsr_reg_n_0_[12] ;
@@ -805,7 +830,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAAAAAA8)) 
     \enemies[0][R][1]_i_1 
        (.I0(\enemies[0][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\lfsr_reg_n_0_[0] ),
         .I3(\lfsr_reg_n_0_[1] ),
         .I4(\enemies[3][is_active]_i_3_n_0 ),
@@ -815,7 +840,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[0][R][2]_i_1 
        (.I0(\enemies[0][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[20][is_active]_i_3_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(Q[1]),
@@ -826,12 +851,12 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[0][R][3]_i_1 
        (.I0(\enemies[3][is_active]_i_3_n_0 ),
         .I1(\enemies[20][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(Q[2]),
         .I4(\enemies[0][R][3]_i_2_n_0 ),
         .I5(\enemies[0][is_active]_i_2_n_0 ),
         .O(\enemies[0][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[0][R][3]_i_2 
@@ -843,12 +868,12 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[0][R][4]_i_1 
        (.I0(\enemies[3][is_active]_i_3_n_0 ),
         .I1(\enemies[20][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(Q[3]),
         .I4(\enemies[0][R][4]_i_2_n_0 ),
         .I5(\enemies[0][is_active]_i_2_n_0 ),
         .O(\enemies[0][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[0][R][4]_i_2 
@@ -861,12 +886,12 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[0][R][5]_i_1 
        (.I0(\enemies[3][is_active]_i_3_n_0 ),
         .I1(\enemies[20][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(Q[4]),
         .I4(\enemies[0][R][5]_i_2_n_0 ),
         .I5(\enemies[0][is_active]_i_2_n_0 ),
         .O(\enemies[0][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[0][R][5]_i_2 
@@ -880,12 +905,12 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[0][R][6]_i_1 
        (.I0(\enemies[3][is_active]_i_3_n_0 ),
         .I1(\enemies[20][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(Q[5]),
         .I4(\enemies[0][R][6]_i_2_n_0 ),
         .I5(\enemies[0][is_active]_i_2_n_0 ),
         .O(\enemies[0][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[0][R][6]_i_2 
@@ -899,7 +924,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[0][R][7]_i_1 
        (.I0(\enemies[0][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[20][is_active]_i_3_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[0][R][7]_i_2_n_0 ),
@@ -921,7 +946,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[0][R][9]_i_3_n_0 ),
         .I1(Q[7]),
         .I2(\enemies[0][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[20][is_active]_i_3_n_0 ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
         .O(\enemies[0][R][8]_i_1_n_0 ));
@@ -929,7 +954,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAAAAAAA00000002)) 
     \enemies[0][R][9]_i_1 
        (.I0(FrameTick),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\lfsr_reg_n_0_[0] ),
         .I3(\lfsr_reg_n_0_[1] ),
         .I4(\enemies[3][is_active]_i_3_n_0 ),
@@ -942,10 +967,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(Q[7]),
         .I2(Q[8]),
         .I3(\enemies[0][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[0][R][9]_i_4_n_0 ),
         .O(\enemies[0][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[0][R][9]_i_3 
@@ -963,16 +987,16 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\lfsr_reg_n_0_[0] ),
         .O(\enemies[0][R][9]_i_4_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFF555700020002)) 
+    .INIT(64'hFFFF000255570002)) 
     \enemies[0][is_active]_i_1 
        (.I0(FrameTick),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[20][is_active]_i_3_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
-        .I4(\enemies[0][is_active]_i_2_n_0 ),
-        .I5(\enemies_reg[0][is_active]_0 ),
+        .I4(\enemies_reg[0][is_active]_0 ),
+        .I5(\enemies[0][is_active]_i_2_n_0 ),
         .O(\enemies[0][is_active]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[0][is_active]_i_2 
@@ -993,7 +1017,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAA8AAAA)) 
     \enemies[10][R][1]_i_1 
        (.I0(\enemies[10][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
@@ -1003,7 +1027,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[10][R][2]_i_1 
        (.I0(\enemies[10][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[10][R][9]_0 [1]),
@@ -1017,9 +1041,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[10][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[10][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[10][R][3]_i_2 
@@ -1034,9 +1058,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[10][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[10][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[10][R][4]_i_2 
@@ -1052,9 +1076,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[10][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[10][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[10][R][5]_i_2 
@@ -1071,9 +1095,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[10][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[10][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[10][R][6]_i_2 
@@ -1087,7 +1111,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[10][R][7]_i_1 
        (.I0(\enemies[10][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[10][R][7]_i_2_n_0 ),
@@ -1109,7 +1133,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[10][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[10][R][9]_0 [7]),
         .I2(\enemies[10][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[22][is_active]_i_3_n_0 ),
         .O(\enemies[10][R][8]_i_1_n_0 ));
@@ -1118,7 +1142,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[10][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[10][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[11][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
@@ -1130,10 +1154,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[10][R][9]_0 [7]),
         .I2(\enemies_reg[10][R][9]_0 [8]),
         .I3(\enemies[10][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[10][R][9]_i_4_n_0 ),
         .O(\enemies[10][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[10][R][9]_i_3 
@@ -1156,7 +1180,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[10][is_active]_0 ),
         .I2(\enemies[10][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[22][is_active]_i_3_n_0 ),
         .O(\enemies[10][is_active]_i_1_n_0 ));
@@ -1168,7 +1192,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[10][R][9]_0 [8]),
         .I3(\enemies[10][is_active]_i_3_n_0 ),
         .O(\enemies[10][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[10][is_active]_i_3 
@@ -1181,7 +1205,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000A8AAAAAA)) 
     \enemies[11][R][1]_i_1 
        (.I0(\enemies[11][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
@@ -1191,7 +1215,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[11][R][2]_i_1 
        (.I0(\enemies[11][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies_reg[11][R][9]_0 [1]),
@@ -1205,9 +1229,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[11][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[11][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[11][R][3]_i_2 
@@ -1222,9 +1246,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[11][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[11][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[11][R][4]_i_2 
@@ -1240,9 +1264,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[11][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[11][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[11][R][5]_i_2 
@@ -1259,9 +1283,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[11][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[11][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[11][R][6]_i_2 
@@ -1275,7 +1299,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[11][R][7]_i_1 
        (.I0(\enemies[11][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[11][R][7]_i_2_n_0 ),
@@ -1297,7 +1321,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[11][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[11][R][9]_0 [7]),
         .I2(\enemies[11][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_5_n_0 ),
         .O(\enemies[11][R][8]_i_1_n_0 ));
@@ -1306,7 +1330,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[11][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[11][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[11][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
@@ -1318,10 +1342,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[11][R][9]_0 [7]),
         .I2(\enemies_reg[11][R][9]_0 [8]),
         .I3(\enemies[11][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[11][R][9]_i_4_n_0 ),
         .O(\enemies[11][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[11][R][9]_i_3 
@@ -1344,10 +1368,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[11][is_active]_0 ),
         .I2(\enemies[11][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_5_n_0 ),
         .O(\enemies[11][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[11][is_active]_i_2 
@@ -1363,7 +1388,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(p_0_in[0]),
         .I2(\lfsr_reg_n_0_[2] ),
         .O(\enemies[11][is_active]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[11][is_active]_i_4 
@@ -1376,8 +1401,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAAAAAA8)) 
     \enemies[12][R][1]_i_1 
        (.I0(\enemies[12][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
         .I5(\enemies_reg[12][R][9]_0 [0]),
@@ -1386,8 +1411,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[12][R][2]_i_1 
        (.I0(\enemies[12][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[12][R][9]_0 [1]),
         .I5(\enemies_reg[12][R][9]_0 [0]),
@@ -1399,10 +1424,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[12][R][3]_i_2_n_0 ),
         .I2(\enemies[12][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[12][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[12][R][3]_i_2 
@@ -1416,10 +1441,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[12][R][4]_i_2_n_0 ),
         .I2(\enemies[12][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[12][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[12][R][4]_i_2 
@@ -1434,10 +1459,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[12][R][5]_i_2_n_0 ),
         .I2(\enemies[12][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[12][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[12][R][5]_i_2 
@@ -1453,10 +1478,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[12][R][6]_i_2_n_0 ),
         .I2(\enemies[12][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[12][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[12][R][6]_i_2 
@@ -1470,8 +1495,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[12][R][7]_i_1 
        (.I0(\enemies[12][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[12][R][7]_i_2_n_0 ),
         .I5(\enemies_reg[12][R][9]_0 [6]),
@@ -1492,8 +1517,8 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[12][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[12][R][9]_0 [7]),
         .I2(\enemies[12][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[20][is_active]_i_3_n_0 ),
         .O(\enemies[12][R][8]_i_1_n_0 ));
   LUT6 #(
@@ -1501,8 +1526,8 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[12][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[12][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
-        .I3(\enemies[15][is_active]_i_4_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
+        .I3(\enemies[15][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
         .O(\enemies[12][R] ));
@@ -1513,10 +1538,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[12][R][9]_0 [7]),
         .I2(\enemies_reg[12][R][9]_0 [8]),
         .I3(\enemies[12][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[12][R][9]_i_4_n_0 ),
         .O(\enemies[12][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[12][R][9]_i_3 
@@ -1539,8 +1564,8 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[12][is_active]_0 ),
         .I2(\enemies[12][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[20][is_active]_i_3_n_0 ),
         .O(\enemies[12][is_active]_i_1_n_0 ));
   LUT4 #(
@@ -1551,7 +1576,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[12][R][9]_0 [8]),
         .I3(\enemies[12][is_active]_i_3_n_0 ),
         .O(\enemies[12][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[12][is_active]_i_3 
@@ -1564,8 +1589,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAA8AAAA)) 
     \enemies[13][R][1]_i_1 
        (.I0(\enemies[13][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[1] ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\enemies_reg[13][R][9]_0 [0]),
@@ -1574,8 +1599,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[13][R][2]_i_1 
        (.I0(\enemies[13][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[13][R][9]_0 [1]),
         .I5(\enemies_reg[13][R][9]_0 [0]),
@@ -1587,10 +1612,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[13][R][3]_i_2_n_0 ),
         .I2(\enemies[13][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[13][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[13][R][3]_i_2 
@@ -1604,10 +1629,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[13][R][4]_i_2_n_0 ),
         .I2(\enemies[13][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[13][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[13][R][4]_i_2 
@@ -1622,10 +1647,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[13][R][5]_i_2_n_0 ),
         .I2(\enemies[13][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[13][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[13][R][5]_i_2 
@@ -1641,10 +1666,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[13][R][6]_i_2_n_0 ),
         .I2(\enemies[13][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[13][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[13][R][6]_i_2 
@@ -1658,8 +1683,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[13][R][7]_i_1 
        (.I0(\enemies[13][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[13][R][7]_i_2_n_0 ),
         .I5(\enemies_reg[13][R][9]_0 [6]),
@@ -1680,8 +1705,8 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[13][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[13][R][9]_0 [7]),
         .I2(\enemies[13][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[21][is_active]_i_3_n_0 ),
         .O(\enemies[13][R][8]_i_1_n_0 ));
   LUT6 #(
@@ -1689,8 +1714,8 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[13][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[13][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
-        .I3(\enemies[15][is_active]_i_4_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
+        .I3(\enemies[15][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[1] ),
         .I5(\lfsr_reg_n_0_[0] ),
         .O(\enemies[13][R] ));
@@ -1701,10 +1726,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[13][R][9]_0 [7]),
         .I2(\enemies_reg[13][R][9]_0 [8]),
         .I3(\enemies[13][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[13][R][9]_i_4_n_0 ),
         .O(\enemies[13][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[13][R][9]_i_3 
@@ -1727,10 +1752,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[13][is_active]_0 ),
         .I2(\enemies[13][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[21][is_active]_i_3_n_0 ),
         .O(\enemies[13][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[13][is_active]_i_2 
@@ -1739,7 +1765,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[13][R][9]_0 [8]),
         .I3(\enemies[13][is_active]_i_3_n_0 ),
         .O(\enemies[13][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[13][is_active]_i_3 
@@ -1752,8 +1778,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAA8AAAA)) 
     \enemies[14][R][1]_i_1 
        (.I0(\enemies[14][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
         .I5(\enemies_reg[14][R][9]_0 [0]),
@@ -1762,8 +1788,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[14][R][2]_i_1 
        (.I0(\enemies[14][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[14][R][9]_0 [1]),
         .I5(\enemies_reg[14][R][9]_0 [0]),
@@ -1775,10 +1801,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[14][R][3]_i_2_n_0 ),
         .I2(\enemies[14][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[14][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[14][R][3]_i_2 
@@ -1792,10 +1818,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[14][R][4]_i_2_n_0 ),
         .I2(\enemies[14][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[14][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[14][R][4]_i_2 
@@ -1810,10 +1836,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[14][R][5]_i_2_n_0 ),
         .I2(\enemies[14][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[14][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[14][R][5]_i_2 
@@ -1829,10 +1855,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[14][R][6]_i_2_n_0 ),
         .I2(\enemies[14][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[14][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[14][R][6]_i_2 
@@ -1846,8 +1872,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[14][R][7]_i_1 
        (.I0(\enemies[14][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[14][R][7]_i_2_n_0 ),
         .I5(\enemies_reg[14][R][9]_0 [6]),
@@ -1868,8 +1894,8 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[14][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[14][R][9]_0 [7]),
         .I2(\enemies[14][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[22][is_active]_i_3_n_0 ),
         .O(\enemies[14][R][8]_i_1_n_0 ));
   LUT6 #(
@@ -1877,8 +1903,8 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[14][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[14][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
-        .I3(\enemies[15][is_active]_i_4_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
+        .I3(\enemies[15][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
         .O(\enemies[14][R] ));
@@ -1889,10 +1915,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[14][R][9]_0 [7]),
         .I2(\enemies_reg[14][R][9]_0 [8]),
         .I3(\enemies[14][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[14][R][9]_i_4_n_0 ),
         .O(\enemies[14][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[14][R][9]_i_3 
@@ -1915,10 +1941,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[14][is_active]_0 ),
         .I2(\enemies[14][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[22][is_active]_i_3_n_0 ),
         .O(\enemies[14][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[14][is_active]_i_2 
@@ -1927,7 +1954,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[14][R][9]_0 [8]),
         .I3(\enemies[14][is_active]_i_3_n_0 ),
         .O(\enemies[14][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[14][is_active]_i_3 
@@ -1940,8 +1967,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000A8AAAAAA)) 
     \enemies[15][R][1]_i_1 
        (.I0(\enemies[15][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
         .I5(\enemies_reg[15][R][9]_0 [0]),
@@ -1950,23 +1977,23 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[15][R][2]_i_1 
        (.I0(\enemies[15][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies_reg[15][R][9]_0 [1]),
         .I5(\enemies_reg[15][R][9]_0 [0]),
         .O(\enemies[15][R][2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFF0101FF01010101)) 
+    .INIT(64'h90909090909090FF)) 
     \enemies[15][R][3]_i_1 
-       (.I0(\enemies[23][is_active]_i_5_n_0 ),
-        .I1(\enemies[15][is_active]_i_4_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
-        .I3(\enemies_reg[15][R][9]_0 [2]),
-        .I4(\enemies[15][R][3]_i_2_n_0 ),
-        .I5(\enemies[15][is_active]_i_2_n_0 ),
+       (.I0(\enemies_reg[15][R][9]_0 [2]),
+        .I1(\enemies[15][R][3]_i_2_n_0 ),
+        .I2(\enemies[15][is_active]_i_2_n_0 ),
+        .I3(\enemies[23][is_active]_i_5_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[15][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[15][R][3]_i_2 
@@ -1974,16 +2001,16 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[15][R][9]_0 [1]),
         .O(\enemies[15][R][3]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFF0101FF01010101)) 
+    .INIT(64'h90909090909090FF)) 
     \enemies[15][R][4]_i_1 
-       (.I0(\enemies[23][is_active]_i_5_n_0 ),
-        .I1(\enemies[15][is_active]_i_4_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
-        .I3(\enemies_reg[15][R][9]_0 [3]),
-        .I4(\enemies[15][R][4]_i_2_n_0 ),
-        .I5(\enemies[15][is_active]_i_2_n_0 ),
+       (.I0(\enemies_reg[15][R][9]_0 [3]),
+        .I1(\enemies[15][R][4]_i_2_n_0 ),
+        .I2(\enemies[15][is_active]_i_2_n_0 ),
+        .I3(\enemies[23][is_active]_i_5_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[15][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[15][R][4]_i_2 
@@ -1992,16 +2019,16 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[15][R][9]_0 [0]),
         .O(\enemies[15][R][4]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFF0101FF01010101)) 
+    .INIT(64'h90909090909090FF)) 
     \enemies[15][R][5]_i_1 
-       (.I0(\enemies[23][is_active]_i_5_n_0 ),
-        .I1(\enemies[15][is_active]_i_4_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
-        .I3(\enemies_reg[15][R][9]_0 [4]),
-        .I4(\enemies[15][R][5]_i_2_n_0 ),
-        .I5(\enemies[15][is_active]_i_2_n_0 ),
+       (.I0(\enemies_reg[15][R][9]_0 [4]),
+        .I1(\enemies[15][R][5]_i_2_n_0 ),
+        .I2(\enemies[15][is_active]_i_2_n_0 ),
+        .I3(\enemies[23][is_active]_i_5_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[15][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[15][R][5]_i_2 
@@ -2011,16 +2038,16 @@ module design_1_EnemyController_0_0_EnemyController
         .I3(\enemies_reg[15][R][9]_0 [2]),
         .O(\enemies[15][R][5]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h01FFFF0101010101)) 
+    .INIT(64'h60606060606060FF)) 
     \enemies[15][R][6]_i_1 
-       (.I0(\enemies[23][is_active]_i_5_n_0 ),
-        .I1(\enemies[15][is_active]_i_4_n_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
-        .I3(\enemies_reg[15][R][9]_0 [5]),
-        .I4(\enemies[15][R][6]_i_2_n_0 ),
-        .I5(\enemies[15][is_active]_i_2_n_0 ),
+       (.I0(\enemies_reg[15][R][9]_0 [5]),
+        .I1(\enemies[15][R][6]_i_2_n_0 ),
+        .I2(\enemies[15][is_active]_i_2_n_0 ),
+        .I3(\enemies[23][is_active]_i_5_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[15][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[15][R][6]_i_2 
@@ -2034,8 +2061,8 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[15][R][7]_i_1 
        (.I0(\enemies[15][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
+        .I2(\enemies[15][is_active]_i_3_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[15][R][7]_i_2_n_0 ),
         .I5(\enemies_reg[15][R][9]_0 [6]),
@@ -2056,19 +2083,19 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[15][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[15][R][9]_0 [7]),
         .I2(\enemies[15][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_5_n_0 ),
         .O(\enemies[15][R][8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hAAAAAAAA02000000)) 
+    .INIT(64'h888A888888888888)) 
     \enemies[15][R][9]_i_1 
        (.I0(FrameTick),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
-        .I2(\enemies[15][is_active]_i_4_n_0 ),
-        .I3(\lfsr_reg_n_0_[0] ),
-        .I4(\lfsr_reg_n_0_[1] ),
-        .I5(\enemies_reg[15][is_active]_0 ),
+        .I1(\enemies_reg[15][is_active]_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
+        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\lfsr_reg_n_0_[0] ),
+        .I5(\lfsr_reg_n_0_[1] ),
         .O(\enemies[15][R] ));
   LUT6 #(
     .INIT(64'hD200D200D2000000)) 
@@ -2077,10 +2104,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[15][R][9]_0 [7]),
         .I2(\enemies_reg[15][R][9]_0 [8]),
         .I3(\enemies[15][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[15][R][9]_i_4_n_0 ),
         .O(\enemies[15][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[15][R][9]_i_3 
@@ -2103,44 +2130,35 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[15][is_active]_0 ),
         .I2(\enemies[15][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
-        .I4(\enemies[15][is_active]_i_4_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
+        .I4(\enemies[15][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_5_n_0 ),
         .O(\enemies[15][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[15][is_active]_i_2 
        (.I0(\enemies_reg[15][R][9]_0 [7]),
         .I1(\enemies_reg[15][R][9]_0 [5]),
         .I2(\enemies_reg[15][R][9]_0 [8]),
-        .I3(\enemies[15][is_active]_i_5_n_0 ),
+        .I3(\enemies[15][is_active]_i_4_n_0 ),
         .O(\enemies[15][is_active]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFDDCFDDFCDDCCDD)) 
-    \enemies[15][is_active]_i_3 
-       (.I0(\enemies[23][is_active]_i_7_n_0 ),
-        .I1(\enemies[23][is_active]_i_8_n_0 ),
-        .I2(\lfsr_reg_n_0_[2] ),
-        .I3(p_0_in[1]),
-        .I4(\enemies[23][is_active]_i_9_n_0 ),
-        .I5(\enemies[23][is_active]_i_10_n_0 ),
-        .O(\enemies[15][is_active]_i_3_n_0 ));
   LUT3 #(
     .INIT(8'hBF)) 
-    \enemies[15][is_active]_i_4 
+    \enemies[15][is_active]_i_3 
        (.I0(p_0_in[1]),
         .I1(p_0_in[0]),
         .I2(\lfsr_reg_n_0_[2] ),
-        .O(\enemies[15][is_active]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+        .O(\enemies[15][is_active]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
-    \enemies[15][is_active]_i_5 
+    \enemies[15][is_active]_i_4 
        (.I0(\enemies_reg[15][R][9]_0 [3]),
         .I1(\enemies_reg[15][R][9]_0 [2]),
         .I2(\enemies_reg[15][R][9]_0 [4]),
         .I3(\enemies_reg[15][R][9]_0 [6]),
-        .O(\enemies[15][is_active]_i_5_n_0 ));
+        .O(\enemies[15][is_active]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'h00000000AAAAAAA8)) 
     \enemies[16][R][1]_i_1 
@@ -2171,7 +2189,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[16][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[16][R][3]_i_2 
@@ -2188,7 +2206,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[16][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[16][R][4]_i_2 
@@ -2206,7 +2224,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[16][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[16][R][5]_i_2 
@@ -2225,7 +2243,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[16][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[16][R][6]_i_2 
@@ -2285,7 +2303,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[16][R][9]_i_4_n_0 ),
         .O(\enemies[16][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[16][R][9]_i_3 
@@ -2320,7 +2338,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[16][R][9]_0 [8]),
         .I3(\enemies[16][is_active]_i_3_n_0 ),
         .O(\enemies[16][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[16][is_active]_i_3 
@@ -2359,7 +2377,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[17][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[17][R][3]_i_2 
@@ -2376,7 +2394,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[17][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[17][R][4]_i_2 
@@ -2394,7 +2412,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[17][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[17][R][5]_i_2 
@@ -2413,7 +2431,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[17][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[17][R][6]_i_2 
@@ -2473,7 +2491,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[17][R][9]_i_4_n_0 ),
         .O(\enemies[17][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[17][R][9]_i_3 
@@ -2508,7 +2526,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[17][R][9]_0 [8]),
         .I3(\enemies[17][is_active]_i_3_n_0 ),
         .O(\enemies[17][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[17][is_active]_i_3 
@@ -2538,24 +2556,24 @@ module design_1_EnemyController_0_0_EnemyController
         .I5(\enemies_reg[18][R][9]_0 [0]),
         .O(\enemies[18][R][2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hF1F1F11F11111111)) 
+    .INIT(64'hA900A900A900FFFF)) 
     \enemies[18][R][3]_i_1 
-       (.I0(\enemies[18][R][9]_i_4_n_0 ),
-        .I1(\enemies[23][is_active]_i_3_n_0 ),
-        .I2(\enemies_reg[18][R][9]_0 [2]),
-        .I3(\enemies_reg[18][R][9]_0 [1]),
-        .I4(\enemies_reg[18][R][9]_0 [0]),
-        .I5(\enemies[18][is_active]_i_2_n_0 ),
+       (.I0(\enemies_reg[18][R][9]_0 [2]),
+        .I1(\enemies_reg[18][R][9]_0 [1]),
+        .I2(\enemies_reg[18][R][9]_0 [0]),
+        .I3(\enemies[18][is_active]_i_2_n_0 ),
+        .I4(\enemies[18][R][9]_i_4_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[18][R][3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFF00000002)) 
+    .INIT(64'hAAAAAAAAAAAAAAAE)) 
     \enemies[18][R][4]_i_1 
-       (.I0(p_0_in[1]),
-        .I1(\lfsr_reg_n_0_[2] ),
-        .I2(\enemies[22][is_active]_i_3_n_0 ),
-        .I3(p_0_in[0]),
-        .I4(\enemies[23][is_active]_i_3_n_0 ),
-        .I5(\enemies[18][R][4]_i_2_n_0 ),
+       (.I0(\enemies[18][R][4]_i_2_n_0 ),
+        .I1(p_0_in[1]),
+        .I2(\lfsr_reg_n_0_[2] ),
+        .I3(\enemies[22][is_active]_i_3_n_0 ),
+        .I4(p_0_in[0]),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[18][R][4]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hAAA80002)) 
@@ -2567,14 +2585,14 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies_reg[18][R][9]_0 [3]),
         .O(\enemies[18][R][4]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFF00000002)) 
+    .INIT(64'hAAAAAAAAAAAAAAAE)) 
     \enemies[18][R][5]_i_1 
-       (.I0(p_0_in[1]),
-        .I1(\lfsr_reg_n_0_[2] ),
-        .I2(\enemies[22][is_active]_i_3_n_0 ),
-        .I3(p_0_in[0]),
-        .I4(\enemies[23][is_active]_i_3_n_0 ),
-        .I5(\enemies[18][R][5]_i_2_n_0 ),
+       (.I0(\enemies[18][R][5]_i_2_n_0 ),
+        .I1(p_0_in[1]),
+        .I2(\lfsr_reg_n_0_[2] ),
+        .I3(\enemies[22][is_active]_i_3_n_0 ),
+        .I4(p_0_in[0]),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[18][R][5]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hAAAAAAA800000002)) 
@@ -2587,14 +2605,14 @@ module design_1_EnemyController_0_0_EnemyController
         .I5(\enemies_reg[18][R][9]_0 [4]),
         .O(\enemies[18][R][5]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h01FFFF0101010101)) 
+    .INIT(64'h60606060606060FF)) 
     \enemies[18][R][6]_i_1 
-       (.I0(\enemies[18][is_active]_i_4_n_0 ),
-        .I1(\enemies[18][is_active]_i_3_n_0 ),
-        .I2(\enemies[23][is_active]_i_3_n_0 ),
-        .I3(\enemies_reg[18][R][9]_0 [5]),
-        .I4(\enemies[18][R][6]_i_2_n_0 ),
-        .I5(\enemies[18][is_active]_i_2_n_0 ),
+       (.I0(\enemies_reg[18][R][9]_0 [5]),
+        .I1(\enemies[18][R][6]_i_2_n_0 ),
+        .I2(\enemies[18][is_active]_i_2_n_0 ),
+        .I3(\enemies[18][is_active]_i_4_n_0 ),
+        .I4(\enemies[18][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[18][R][6]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h00000001)) 
@@ -2636,14 +2654,14 @@ module design_1_EnemyController_0_0_EnemyController
         .I5(\enemies_reg[18][R][9]_0 [4]),
         .O(\enemies[18][R][8]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hAAAAAAAA00020000)) 
+    .INIT(64'h8888888A88888888)) 
     \enemies[18][R][9]_i_1 
        (.I0(FrameTick),
-        .I1(\enemies[23][is_active]_i_3_n_0 ),
-        .I2(\enemies[18][is_active]_i_3_n_0 ),
-        .I3(\lfsr_reg_n_0_[2] ),
-        .I4(p_0_in[1]),
-        .I5(\enemies_reg[18][is_active]_0 ),
+        .I1(\enemies_reg[18][is_active]_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
+        .I3(\enemies[18][is_active]_i_3_n_0 ),
+        .I4(\lfsr_reg_n_0_[2] ),
+        .I5(p_0_in[1]),
         .O(\enemies[18][R] ));
   LUT6 #(
     .INIT(64'hD200D200D2000000)) 
@@ -2655,7 +2673,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[18][R][9]_i_4_n_0 ),
         .O(\enemies[18][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[18][R][9]_i_3 
@@ -2705,7 +2723,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\lfsr_reg_n_0_[2] ),
         .I1(p_0_in[1]),
         .O(\enemies[18][is_active]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[18][is_active]_i_5 
@@ -2744,7 +2762,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[19][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[19][R][3]_i_2 
@@ -2761,7 +2779,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[19][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[19][R][4]_i_2 
@@ -2779,7 +2797,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[19][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[19][R][5]_i_2 
@@ -2798,7 +2816,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[19][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[19][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[19][R][6]_i_2 
@@ -2858,7 +2876,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[19][R][9]_i_4_n_0 ),
         .O(\enemies[19][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[19][R][9]_i_3 
@@ -2900,7 +2918,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(p_0_in[1]),
         .I2(\lfsr_reg_n_0_[2] ),
         .O(\enemies[19][is_active]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[19][is_active]_i_4 
@@ -2916,7 +2934,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies[3][is_active]_i_3_n_0 ),
         .I2(\lfsr_reg_n_0_[1] ),
         .I3(\lfsr_reg_n_0_[0] ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies_reg[1][R][9]_0 [0]),
         .O(\enemies[1][R][1]_i_1_n_0 ));
   LUT6 #(
@@ -2925,7 +2943,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[1][is_active]_i_2_n_0 ),
         .I1(\enemies[3][is_active]_i_3_n_0 ),
         .I2(\enemies[21][is_active]_i_3_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[1][R][9]_0 [1]),
         .I5(\enemies_reg[1][R][9]_0 [0]),
         .O(\enemies[1][R][2]_i_1_n_0 ));
@@ -2935,11 +2953,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies_reg[1][R][9]_0 [2]),
         .I1(\enemies[1][R][3]_i_2_n_0 ),
         .I2(\enemies[1][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[21][is_active]_i_3_n_0 ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
         .O(\enemies[1][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[1][R][3]_i_2 
@@ -2952,11 +2970,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies_reg[1][R][9]_0 [3]),
         .I1(\enemies[1][R][4]_i_2_n_0 ),
         .I2(\enemies[1][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[21][is_active]_i_3_n_0 ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
         .O(\enemies[1][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[1][R][4]_i_2 
@@ -2970,11 +2988,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies_reg[1][R][9]_0 [4]),
         .I1(\enemies[1][R][5]_i_2_n_0 ),
         .I2(\enemies[1][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[21][is_active]_i_3_n_0 ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
         .O(\enemies[1][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[1][R][5]_i_2 
@@ -2989,11 +3007,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies_reg[1][R][9]_0 [5]),
         .I1(\enemies[1][R][6]_i_2_n_0 ),
         .I2(\enemies[1][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[21][is_active]_i_3_n_0 ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
         .O(\enemies[1][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[1][R][6]_i_2 
@@ -3009,7 +3027,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[1][is_active]_i_2_n_0 ),
         .I1(\enemies[3][is_active]_i_3_n_0 ),
         .I2(\enemies[21][is_active]_i_3_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[1][R][7]_i_2_n_0 ),
         .I5(\enemies_reg[1][R][9]_0 [6]),
         .O(\enemies[1][R][7]_i_1_n_0 ));
@@ -3031,7 +3049,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[1][is_active]_i_2_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[21][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(p_0_in__0[8]));
   LUT6 #(
     .INIT(64'h88888888888A8888)) 
@@ -3041,7 +3059,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[3][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[1] ),
         .I4(\lfsr_reg_n_0_[0] ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[1][R] ));
   LUT6 #(
     .INIT(64'hD200D200D2000000)) 
@@ -3051,9 +3069,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[1][R][9]_0 [8]),
         .I3(\enemies[1][is_active]_i_2_n_0 ),
         .I4(\enemies[1][R][9]_i_4_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(p_0_in__0[9]));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[1][R][9]_i_3 
@@ -3078,7 +3096,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[1][is_active]_i_2_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[21][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[1][is_active]_i_1_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
@@ -3088,7 +3106,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[1][R][9]_0 [8]),
         .I3(\enemies[1][is_active]_i_3_n_0 ),
         .O(\enemies[1][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[1][is_active]_i_3 
@@ -3127,7 +3145,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[20][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[20][R][3]_i_2 
@@ -3144,7 +3162,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[20][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[20][R][4]_i_2 
@@ -3162,7 +3180,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[20][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[20][R][5]_i_2 
@@ -3181,7 +3199,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[20][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[20][R][6]_i_2 
@@ -3241,7 +3259,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[20][R][9]_i_4_n_0 ),
         .O(\enemies[20][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[20][R][9]_i_3 
@@ -3282,7 +3300,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\lfsr_reg_n_0_[0] ),
         .I1(\lfsr_reg_n_0_[1] ),
         .O(\enemies[20][is_active]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[20][is_active]_i_4 
@@ -3321,7 +3339,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[21][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[21][R][3]_i_2 
@@ -3338,7 +3356,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[21][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[21][R][4]_i_2 
@@ -3356,7 +3374,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[21][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[21][R][5]_i_2 
@@ -3375,7 +3393,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[21][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[21][R][6]_i_2 
@@ -3435,7 +3453,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[21][R][9]_i_4_n_0 ),
         .O(\enemies[21][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[21][R][9]_i_3 
@@ -3462,6 +3480,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[21][is_active]_i_3_n_0 ),
         .O(\enemies[21][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[21][is_active]_i_2 
@@ -3476,7 +3495,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\lfsr_reg_n_0_[1] ),
         .I1(\lfsr_reg_n_0_[0] ),
         .O(\enemies[21][is_active]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[21][is_active]_i_4 
@@ -3515,7 +3534,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[22][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[22][R][3]_i_2 
@@ -3532,7 +3551,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[22][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[22][R][4]_i_2 
@@ -3550,7 +3569,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[22][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[22][R][5]_i_2 
@@ -3569,7 +3588,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[22][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[22][R][6]_i_2 
@@ -3629,7 +3648,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[22][R][9]_i_4_n_0 ),
         .O(\enemies[22][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[22][R][9]_i_3 
@@ -3670,7 +3689,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\lfsr_reg_n_0_[0] ),
         .I1(\lfsr_reg_n_0_[1] ),
         .O(\enemies[22][is_active]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[22][is_active]_i_4 
@@ -3709,7 +3728,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[23][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[23][R][3]_i_2 
@@ -3726,7 +3745,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[23][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[23][R][4]_i_2 
@@ -3744,7 +3763,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[23][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[23][R][5]_i_2 
@@ -3763,7 +3782,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_4_n_0 ),
         .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[23][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[23][R][6]_i_2 
@@ -3823,7 +3842,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[23][R][9]_i_4_n_0 ),
         .O(\enemies[23][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[23][R][9]_i_3 
@@ -3931,7 +3950,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\lfsr_reg_n_0_[0] ),
         .I1(\lfsr_reg_n_0_[1] ),
         .O(\enemies[23][is_active]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[23][is_active]_i_6 
@@ -3950,15 +3969,14 @@ module design_1_EnemyController_0_0_EnemyController
         .I4(\lfsr_reg_n_0_[2] ),
         .I5(\enemies[23][is_active]_i_14_n_0 ),
         .O(\enemies[23][is_active]_i_7_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFE0)) 
+  LUT5 #(
+    .INIT(32'hFE000000)) 
     \enemies[23][is_active]_i_8 
-       (.I0(p_0_in[2]),
-        .I1(p_0_in[3]),
-        .I2(p_0_in[4]),
-        .I3(p_0_in[5]),
+       (.I0(p_0_in[4]),
+        .I1(p_0_in[5]),
+        .I2(p_0_in[3]),
+        .I3(p_0_in[7]),
         .I4(p_0_in[6]),
-        .I5(p_0_in[7]),
         .O(\enemies[23][is_active]_i_8_n_0 ));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
@@ -4143,7 +4161,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAAA8AAA)) 
     \enemies[3][R][1]_i_1 
        (.I0(\enemies[3][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\lfsr_reg_n_0_[0] ),
         .I3(\lfsr_reg_n_0_[1] ),
         .I4(\enemies[3][is_active]_i_3_n_0 ),
@@ -4153,7 +4171,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[3][R][2]_i_1 
        (.I0(\enemies[3][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[23][is_active]_i_5_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[3][R][9]_0 [1]),
@@ -4167,9 +4185,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[3][is_active]_i_2_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[23][is_active]_i_5_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[3][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[3][R][3]_i_2 
@@ -4184,9 +4202,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[3][is_active]_i_2_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[23][is_active]_i_5_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[3][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[3][R][4]_i_2 
@@ -4202,9 +4220,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[3][is_active]_i_2_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[23][is_active]_i_5_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[3][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[3][R][5]_i_2 
@@ -4221,9 +4239,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[3][is_active]_i_2_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[23][is_active]_i_5_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[3][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[3][R][6]_i_2 
@@ -4237,7 +4255,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[3][R][7]_i_1 
        (.I0(\enemies[3][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[23][is_active]_i_5_n_0 ),
         .I3(\enemies[3][is_active]_i_3_n_0 ),
         .I4(\enemies[3][R][7]_i_2_n_0 ),
@@ -4259,7 +4277,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[3][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[3][R][9]_0 [7]),
         .I2(\enemies[3][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[23][is_active]_i_5_n_0 ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
         .O(\enemies[3][R][8]_i_1_n_0 ));
@@ -4268,7 +4286,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[3][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[3][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
@@ -4280,10 +4298,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[3][R][9]_0 [7]),
         .I2(\enemies_reg[3][R][9]_0 [8]),
         .I3(\enemies[3][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[3][R][9]_i_4_n_0 ),
         .O(\enemies[3][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[3][R][9]_i_3 
@@ -4306,7 +4324,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[3][is_active]_0 ),
         .I2(\enemies[3][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[23][is_active]_i_5_n_0 ),
         .I5(\enemies[3][is_active]_i_3_n_0 ),
         .O(\enemies[3][is_active]_i_1_n_0 ));
@@ -4325,7 +4343,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(p_0_in[1]),
         .I2(\lfsr_reg_n_0_[2] ),
         .O(\enemies[3][is_active]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[3][is_active]_i_4 
@@ -4338,7 +4356,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAAAAAA8)) 
     \enemies[4][R][1]_i_1 
        (.I0(\enemies[4][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
@@ -4348,7 +4366,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[4][R][2]_i_1 
        (.I0(\enemies[4][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[4][R][9]_0 [1]),
@@ -4362,9 +4380,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[4][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[4][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[4][R][3]_i_2 
@@ -4379,9 +4397,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[4][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[4][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[4][R][4]_i_2 
@@ -4397,9 +4415,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[4][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[4][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[4][R][5]_i_2 
@@ -4416,9 +4434,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[4][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[4][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[4][R][6]_i_2 
@@ -4432,7 +4450,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[4][R][7]_i_1 
        (.I0(\enemies[4][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[4][R][7]_i_2_n_0 ),
@@ -4454,7 +4472,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[4][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[4][R][9]_0 [7]),
         .I2(\enemies[4][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[20][is_active]_i_3_n_0 ),
         .O(\enemies[4][R][8]_i_1_n_0 ));
@@ -4463,7 +4481,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[4][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[4][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[7][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
@@ -4475,10 +4493,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[4][R][9]_0 [7]),
         .I2(\enemies_reg[4][R][9]_0 [8]),
         .I3(\enemies[4][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[4][R][9]_i_4_n_0 ),
         .O(\enemies[4][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[4][R][9]_i_3 
@@ -4501,10 +4519,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[4][is_active]_0 ),
         .I2(\enemies[4][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[20][is_active]_i_3_n_0 ),
         .O(\enemies[4][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[4][is_active]_i_2 
@@ -4513,7 +4532,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[4][R][9]_0 [8]),
         .I3(\enemies[4][is_active]_i_3_n_0 ),
         .O(\enemies[4][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[4][is_active]_i_3 
@@ -4526,7 +4545,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAA8AAAA)) 
     \enemies[5][R][1]_i_1 
        (.I0(\enemies[5][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[1] ),
         .I4(\lfsr_reg_n_0_[0] ),
@@ -4536,7 +4555,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[5][R][2]_i_1 
        (.I0(\enemies[5][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[5][R][9]_0 [1]),
@@ -4550,9 +4569,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[5][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[5][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[5][R][3]_i_2 
@@ -4567,9 +4586,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[5][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[5][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[5][R][4]_i_2 
@@ -4585,9 +4604,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[5][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[5][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[5][R][5]_i_2 
@@ -4604,9 +4623,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[5][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[5][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[5][R][6]_i_2 
@@ -4620,7 +4639,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[5][R][7]_i_1 
        (.I0(\enemies[5][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[5][R][7]_i_2_n_0 ),
@@ -4642,7 +4661,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[5][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[5][R][9]_0 [7]),
         .I2(\enemies[5][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[21][is_active]_i_3_n_0 ),
         .O(\enemies[5][R][8]_i_1_n_0 ));
@@ -4651,7 +4670,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[5][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[5][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[7][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[1] ),
         .I5(\lfsr_reg_n_0_[0] ),
@@ -4663,10 +4682,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[5][R][9]_0 [7]),
         .I2(\enemies_reg[5][R][9]_0 [8]),
         .I3(\enemies[5][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[5][R][9]_i_4_n_0 ),
         .O(\enemies[5][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[5][R][9]_i_3 
@@ -4689,10 +4708,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[5][is_active]_0 ),
         .I2(\enemies[5][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[21][is_active]_i_3_n_0 ),
         .O(\enemies[5][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[5][is_active]_i_2 
@@ -4701,7 +4721,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[5][R][9]_0 [8]),
         .I3(\enemies[5][is_active]_i_3_n_0 ),
         .O(\enemies[5][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[5][is_active]_i_3 
@@ -4714,7 +4734,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAA8AAAA)) 
     \enemies[6][R][1]_i_1 
        (.I0(\enemies[6][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
@@ -4724,7 +4744,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[6][R][2]_i_1 
        (.I0(\enemies[6][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[6][R][9]_0 [1]),
@@ -4738,9 +4758,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[6][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[6][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[6][R][3]_i_2 
@@ -4755,9 +4775,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[6][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[6][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[6][R][4]_i_2 
@@ -4773,9 +4793,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[6][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[6][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[6][R][5]_i_2 
@@ -4792,9 +4812,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[6][is_active]_i_2_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[6][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[6][R][6]_i_2 
@@ -4808,7 +4828,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[6][R][7]_i_1 
        (.I0(\enemies[6][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[22][is_active]_i_3_n_0 ),
         .I4(\enemies[6][R][7]_i_2_n_0 ),
@@ -4830,7 +4850,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[6][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[6][R][9]_0 [7]),
         .I2(\enemies[6][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[22][is_active]_i_3_n_0 ),
         .O(\enemies[6][R][8]_i_1_n_0 ));
@@ -4839,7 +4859,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[6][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[6][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[7][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
@@ -4851,10 +4871,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[6][R][9]_0 [7]),
         .I2(\enemies_reg[6][R][9]_0 [8]),
         .I3(\enemies[6][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[6][R][9]_i_4_n_0 ),
         .O(\enemies[6][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[6][R][9]_i_3 
@@ -4877,10 +4897,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[6][is_active]_0 ),
         .I2(\enemies[6][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[22][is_active]_i_3_n_0 ),
         .O(\enemies[6][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[6][is_active]_i_2 
@@ -4889,7 +4910,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[6][R][9]_0 [8]),
         .I3(\enemies[6][is_active]_i_3_n_0 ),
         .O(\enemies[6][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[6][is_active]_i_3 
@@ -4902,7 +4923,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000A8AAAAAA)) 
     \enemies[7][R][1]_i_1 
        (.I0(\enemies[7][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
@@ -4912,7 +4933,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[7][R][2]_i_1 
        (.I0(\enemies[7][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies_reg[7][R][9]_0 [1]),
@@ -4926,9 +4947,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[7][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[7][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[7][R][3]_i_2 
@@ -4943,9 +4964,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[7][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[7][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[7][R][4]_i_2 
@@ -4961,9 +4982,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[7][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[7][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[7][R][5]_i_2 
@@ -4980,9 +5001,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[7][is_active]_i_2_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[7][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[7][R][6]_i_2 
@@ -4996,7 +5017,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[7][R][7]_i_1 
        (.I0(\enemies[7][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[7][is_active]_i_3_n_0 ),
         .I3(\enemies[23][is_active]_i_5_n_0 ),
         .I4(\enemies[7][R][7]_i_2_n_0 ),
@@ -5018,7 +5039,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[7][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[7][R][9]_0 [7]),
         .I2(\enemies[7][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_5_n_0 ),
         .O(\enemies[7][R][8]_i_1_n_0 ));
@@ -5027,7 +5048,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[7][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[7][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[7][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
@@ -5039,10 +5060,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[7][R][9]_0 [7]),
         .I2(\enemies_reg[7][R][9]_0 [8]),
         .I3(\enemies[7][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[7][R][9]_i_4_n_0 ),
         .O(\enemies[7][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[7][R][9]_i_3 
@@ -5065,10 +5086,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[7][is_active]_0 ),
         .I2(\enemies[7][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[7][is_active]_i_3_n_0 ),
         .I5(\enemies[23][is_active]_i_5_n_0 ),
         .O(\enemies[7][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[7][is_active]_i_2 
@@ -5084,7 +5106,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(p_0_in[0]),
         .I2(\lfsr_reg_n_0_[2] ),
         .O(\enemies[7][is_active]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[7][is_active]_i_4 
@@ -5097,7 +5119,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAAAAAA8)) 
     \enemies[8][R][1]_i_1 
        (.I0(\enemies[8][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[0] ),
         .I4(\lfsr_reg_n_0_[1] ),
@@ -5107,7 +5129,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[8][R][2]_i_1 
        (.I0(\enemies[8][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[8][R][9]_0 [1]),
@@ -5121,9 +5143,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[8][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[8][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[8][R][3]_i_2 
@@ -5138,9 +5160,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[8][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[8][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[8][R][4]_i_2 
@@ -5156,9 +5178,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[8][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[8][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[8][R][5]_i_2 
@@ -5175,9 +5197,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[8][is_active]_i_2_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[8][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[8][R][6]_i_2 
@@ -5191,7 +5213,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[8][R][7]_i_1 
        (.I0(\enemies[8][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[20][is_active]_i_3_n_0 ),
         .I4(\enemies[8][R][7]_i_2_n_0 ),
@@ -5213,7 +5235,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[8][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[8][R][9]_0 [7]),
         .I2(\enemies[8][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[20][is_active]_i_3_n_0 ),
         .O(\enemies[8][R][8]_i_1_n_0 ));
@@ -5222,7 +5244,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[8][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[8][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[11][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[0] ),
         .I5(\lfsr_reg_n_0_[1] ),
@@ -5234,10 +5256,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[8][R][9]_0 [7]),
         .I2(\enemies_reg[8][R][9]_0 [8]),
         .I3(\enemies[8][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[8][R][9]_i_4_n_0 ),
         .O(\enemies[8][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[8][R][9]_i_3 
@@ -5260,10 +5282,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[8][is_active]_0 ),
         .I2(\enemies[8][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[20][is_active]_i_3_n_0 ),
         .O(\enemies[8][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[8][is_active]_i_2 
@@ -5272,7 +5295,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[8][R][9]_0 [8]),
         .I3(\enemies[8][is_active]_i_3_n_0 ),
         .O(\enemies[8][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[8][is_active]_i_3 
@@ -5285,7 +5308,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'h00000000AAA8AAAA)) 
     \enemies[9][R][1]_i_1 
        (.I0(\enemies[9][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\lfsr_reg_n_0_[1] ),
         .I4(\lfsr_reg_n_0_[0] ),
@@ -5295,7 +5318,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[9][R][2]_i_1 
        (.I0(\enemies[9][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies_reg[9][R][9]_0 [1]),
@@ -5309,9 +5332,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[9][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[9][R][3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \enemies[9][R][3]_i_2 
@@ -5326,9 +5349,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[9][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[9][R][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \enemies[9][R][4]_i_2 
@@ -5344,9 +5367,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[9][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[9][R][5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[9][R][5]_i_2 
@@ -5363,9 +5386,9 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies[9][is_active]_i_2_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
-        .I5(\enemies[15][is_active]_i_3_n_0 ),
+        .I5(\enemies[23][is_active]_i_3_n_0 ),
         .O(\enemies[9][R][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT5 #(
     .INIT(32'h00000001)) 
     \enemies[9][R][6]_i_2 
@@ -5379,7 +5402,7 @@ module design_1_EnemyController_0_0_EnemyController
     .INIT(64'hAAA800000000AAA8)) 
     \enemies[9][R][7]_i_1 
        (.I0(\enemies[9][is_active]_i_2_n_0 ),
-        .I1(\enemies[15][is_active]_i_3_n_0 ),
+        .I1(\enemies[23][is_active]_i_3_n_0 ),
         .I2(\enemies[11][is_active]_i_3_n_0 ),
         .I3(\enemies[21][is_active]_i_3_n_0 ),
         .I4(\enemies[9][R][7]_i_2_n_0 ),
@@ -5401,7 +5424,7 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(\enemies[9][R][9]_i_3_n_0 ),
         .I1(\enemies_reg[9][R][9]_0 [7]),
         .I2(\enemies[9][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[21][is_active]_i_3_n_0 ),
         .O(\enemies[9][R][8]_i_1_n_0 ));
@@ -5410,7 +5433,7 @@ module design_1_EnemyController_0_0_EnemyController
     \enemies[9][R][9]_i_1 
        (.I0(FrameTick),
         .I1(\enemies_reg[9][is_active]_0 ),
-        .I2(\enemies[15][is_active]_i_3_n_0 ),
+        .I2(\enemies[23][is_active]_i_3_n_0 ),
         .I3(\enemies[11][is_active]_i_3_n_0 ),
         .I4(\lfsr_reg_n_0_[1] ),
         .I5(\lfsr_reg_n_0_[0] ),
@@ -5422,10 +5445,10 @@ module design_1_EnemyController_0_0_EnemyController
         .I1(\enemies_reg[9][R][9]_0 [7]),
         .I2(\enemies_reg[9][R][9]_0 [8]),
         .I3(\enemies[9][is_active]_i_2_n_0 ),
-        .I4(\enemies[15][is_active]_i_3_n_0 ),
+        .I4(\enemies[23][is_active]_i_3_n_0 ),
         .I5(\enemies[9][R][9]_i_4_n_0 ),
         .O(\enemies[9][R][9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \enemies[9][R][9]_i_3 
@@ -5448,10 +5471,11 @@ module design_1_EnemyController_0_0_EnemyController
        (.I0(FrameTick),
         .I1(\enemies_reg[9][is_active]_0 ),
         .I2(\enemies[9][is_active]_i_2_n_0 ),
-        .I3(\enemies[15][is_active]_i_3_n_0 ),
+        .I3(\enemies[23][is_active]_i_3_n_0 ),
         .I4(\enemies[11][is_active]_i_3_n_0 ),
         .I5(\enemies[21][is_active]_i_3_n_0 ),
         .O(\enemies[9][is_active]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \enemies[9][is_active]_i_2 
@@ -5460,7 +5484,7 @@ module design_1_EnemyController_0_0_EnemyController
         .I2(\enemies_reg[9][R][9]_0 [8]),
         .I3(\enemies[9][is_active]_i_3_n_0 ),
         .O(\enemies[9][is_active]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \enemies[9][is_active]_i_3 
@@ -7341,6 +7365,202 @@ module design_1_EnemyController_0_0_EnemyController
         .CLR(RstN),
         .D(\enemies[9][is_active]_i_1_n_0 ),
         .Q(\enemies_reg[9][is_active]_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    hited_i_1
+       (.I0(hited_i_2_n_0),
+        .I1(hited_i_3_n_0),
+        .I2(hited_i_4_n_0),
+        .I3(hited_i_5_n_0),
+        .I4(hited_i_6_n_0),
+        .I5(hited_i_7_n_0),
+        .O(hited_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_10
+       (.I0(\enemies_reg[15][is_active]_0 ),
+        .I1(\enemies[15][is_active]_i_4_n_0 ),
+        .I2(\enemies_reg[15][R][9]_0 [8]),
+        .I3(\enemies_reg[15][R][9]_0 [5]),
+        .I4(\enemies_reg[15][R][9]_0 [7]),
+        .O(hited_i_10_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_11
+       (.I0(\enemies_reg[7][is_active]_0 ),
+        .I1(\enemies[7][is_active]_i_4_n_0 ),
+        .I2(\enemies_reg[7][R][9]_0 [8]),
+        .I3(\enemies_reg[7][R][9]_0 [5]),
+        .I4(\enemies_reg[7][R][9]_0 [7]),
+        .O(hited_i_11_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_12
+       (.I0(\enemies_reg[0][is_active]_0 ),
+        .I1(\enemies[0][is_active]_i_3_n_0 ),
+        .I2(Q[6]),
+        .I3(Q[7]),
+        .I4(Q[4]),
+        .O(hited_i_12_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_13
+       (.I0(\enemies_reg[5][is_active]_0 ),
+        .I1(\enemies[5][is_active]_i_3_n_0 ),
+        .I2(\enemies_reg[5][R][9]_0 [8]),
+        .I3(\enemies_reg[5][R][9]_0 [5]),
+        .I4(\enemies_reg[5][R][9]_0 [7]),
+        .O(hited_i_13_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_14
+       (.I0(\enemies_reg[11][is_active]_0 ),
+        .I1(\enemies[11][is_active]_i_4_n_0 ),
+        .I2(\enemies_reg[11][R][9]_0 [8]),
+        .I3(\enemies_reg[11][R][9]_0 [5]),
+        .I4(\enemies_reg[11][R][9]_0 [7]),
+        .O(hited_i_14_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_15
+       (.I0(\enemies_reg[9][is_active]_0 ),
+        .I1(\enemies[9][is_active]_i_3_n_0 ),
+        .I2(\enemies_reg[9][R][9]_0 [8]),
+        .I3(\enemies_reg[9][R][9]_0 [5]),
+        .I4(\enemies_reg[9][R][9]_0 [7]),
+        .O(hited_i_15_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_16
+       (.I0(\enemies_reg[8][is_active]_0 ),
+        .I1(\enemies[8][is_active]_i_3_n_0 ),
+        .I2(\enemies_reg[8][R][9]_0 [8]),
+        .I3(\enemies_reg[8][R][9]_0 [5]),
+        .I4(\enemies_reg[8][R][9]_0 [7]),
+        .O(hited_i_16_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_17
+       (.I0(\enemies_reg[4][is_active]_0 ),
+        .I1(\enemies[4][is_active]_i_3_n_0 ),
+        .I2(\enemies_reg[4][R][9]_0 [8]),
+        .I3(\enemies_reg[4][R][9]_0 [5]),
+        .I4(\enemies_reg[4][R][9]_0 [7]),
+        .O(hited_i_17_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_18
+       (.I0(\enemies_reg[14][is_active]_0 ),
+        .I1(\enemies[14][is_active]_i_3_n_0 ),
+        .I2(\enemies_reg[14][R][9]_0 [8]),
+        .I3(\enemies_reg[14][R][9]_0 [5]),
+        .I4(\enemies_reg[14][R][9]_0 [7]),
+        .O(hited_i_18_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_19
+       (.I0(\enemies_reg[13][is_active]_0 ),
+        .I1(\enemies[13][is_active]_i_3_n_0 ),
+        .I2(\enemies_reg[13][R][9]_0 [8]),
+        .I3(\enemies_reg[13][R][9]_0 [5]),
+        .I4(\enemies_reg[13][R][9]_0 [7]),
+        .O(hited_i_19_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF22F2)) 
+    hited_i_2
+       (.I0(\enemies_reg[20][is_active]_0 ),
+        .I1(\enemies[20][is_active]_i_2_n_0 ),
+        .I2(\enemies_reg[18][is_active]_0 ),
+        .I3(\enemies[18][is_active]_i_2_n_0 ),
+        .I4(hited_i_8_n_0),
+        .I5(hited_i_9_n_0),
+        .O(hited_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF22F2)) 
+    hited_i_3
+       (.I0(\enemies_reg[19][is_active]_0 ),
+        .I1(\enemies[19][is_active]_i_2_n_0 ),
+        .I2(\enemies_reg[16][is_active]_0 ),
+        .I3(\enemies[16][is_active]_i_2_n_0 ),
+        .I4(hited_i_10_n_0),
+        .I5(hited_i_11_n_0),
+        .O(hited_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF22F2)) 
+    hited_i_4
+       (.I0(\enemies_reg[22][is_active]_0 ),
+        .I1(\enemies[22][is_active]_i_2_n_0 ),
+        .I2(\enemies_reg[2][is_active]_0 ),
+        .I3(\enemies[2][is_active]_i_2_n_0 ),
+        .I4(hited_i_12_n_0),
+        .I5(hited_i_13_n_0),
+        .O(hited_i_4_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF22F2)) 
+    hited_i_5
+       (.I0(\enemies_reg[23][is_active]_0 ),
+        .I1(\enemies[23][is_active]_i_2_n_0 ),
+        .I2(\enemies_reg[17][is_active]_0 ),
+        .I3(\enemies[17][is_active]_i_2_n_0 ),
+        .I4(hited_i_14_n_0),
+        .I5(hited_i_15_n_0),
+        .O(hited_i_5_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF22F2)) 
+    hited_i_6
+       (.I0(\enemies_reg[12][is_active]_0 ),
+        .I1(\enemies[12][is_active]_i_2_n_0 ),
+        .I2(\enemies_reg[3][is_active]_0 ),
+        .I3(\enemies[3][is_active]_i_2_n_0 ),
+        .I4(hited_i_16_n_0),
+        .I5(hited_i_17_n_0),
+        .O(hited_i_6_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF22F2)) 
+    hited_i_7
+       (.I0(\enemies_reg[10][is_active]_0 ),
+        .I1(\enemies[10][is_active]_i_2_n_0 ),
+        .I2(\enemies_reg[1][is_active]_0 ),
+        .I3(\enemies[1][is_active]_i_2_n_0 ),
+        .I4(hited_i_18_n_0),
+        .I5(hited_i_19_n_0),
+        .O(hited_i_7_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_8
+       (.I0(\enemies_reg[21][is_active]_0 ),
+        .I1(\enemies[21][is_active]_i_4_n_0 ),
+        .I2(\enemies_reg[21][R][9]_0 [8]),
+        .I3(\enemies_reg[21][R][9]_0 [5]),
+        .I4(\enemies_reg[21][R][9]_0 [7]),
+        .O(hited_i_8_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
+    hited_i_9
+       (.I0(\enemies_reg[6][is_active]_0 ),
+        .I1(\enemies[6][is_active]_i_3_n_0 ),
+        .I2(\enemies_reg[6][R][9]_0 [8]),
+        .I3(\enemies_reg[6][R][9]_0 [5]),
+        .I4(\enemies_reg[6][R][9]_0 [7]),
+        .O(hited_i_9_n_0));
+  FDCE hited_reg
+       (.C(Clk),
+        .CE(FrameTick),
+        .CLR(RstN),
+        .D(hited_i_1_n_0),
+        .Q(HIT));
   LUT4 #(
     .INIT(16'h6996)) 
     \lfsr[0]_i_1 

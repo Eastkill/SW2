@@ -137,6 +137,24 @@ package PlayerSpritesPkg is
         X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00", X"00"
     );
 
+        constant ENEMY : sprite_rom_type := (
+        x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"FF", x"FF", x"44", x"44", x"FF", x"FF", x"44", x"44", x"FF", x"FF", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"FF", x"44", x"D6", x"D6", x"44", x"44", x"D6", x"D6", x"44", x"FF", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"44", x"D6", x"44", x"D6", x"44", x"44", x"D6", x"44", x"D6", x"44", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"44", x"D6", x"44", x"D6", x"44", x"44", x"44", x"44", x"D6", x"44", x"D6", x"44", x"FF", x"FF", 
+        x"FF", x"FF", x"44", x"D6", x"D6", x"44", x"44", x"D6", x"D6", x"44", x"44", x"D6", x"D6", x"44", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"44", x"44", x"44", x"D6", x"44", x"44", x"D6", x"44", x"44", x"44", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"44", x"44", x"44", x"D6", x"44", x"44", x"D6", x"44", x"44", x"44", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"44", x"D6", x"D6", x"44", x"44", x"D6", x"D6", x"44", x"44", x"D6", x"D6", x"44", x"FF", x"FF", 
+        x"FF", x"FF", x"44", x"D6", x"44", x"D6", x"44", x"44", x"44", x"44", x"D6", x"44", x"D6", x"44", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"44", x"D6", x"44", x"D6", x"44", x"44", x"D6", x"44", x"D6", x"44", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"FF", x"44", x"D6", x"D6", x"44", x"44", x"D6", x"D6", x"44", x"FF", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"FF", x"FF", x"44", x"44", x"FF", x"FF", x"44", x"44", x"FF", x"FF", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", 
+        x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF", x"FF"
+    );
 end PlayerSpritesPkg;
 
 package body PlayerSpritesPkg is

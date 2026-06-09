@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Tue Jun  2 14:03:16 2026
-| Host         : Lab016-09 running 64-bit major release  (build 9200)
+| Date         : Tue Jun  9 13:54:51 2026
+| Host         : Lab016-04 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_EnemyController_0_0_utilization_synth.rpt -pb design_1_EnemyController_0_0_utilization_synth.pb
 | Design       : design_1_EnemyController_0_0
 | Device       : xczu3eg-sfvc784-2-e
@@ -32,11 +32,11 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*               |  418 |     0 |          0 |     70560 |  0.59 |
-|   LUT as Logic          |  418 |     0 |          0 |     70560 |  0.59 |
+| CLB LUTs*               |  425 |     0 |          0 |     70560 |  0.60 |
+|   LUT as Logic          |  425 |     0 |          0 |     70560 |  0.60 |
 |   LUT as Memory         |    0 |     0 |          0 |     28800 |  0.00 |
-| CLB Registers           |  256 |     0 |          0 |    141120 |  0.18 |
-|   Register as Flip Flop |  256 |     0 |          0 |    141120 |  0.18 |
+| CLB Registers           |  257 |     0 |          0 |    141120 |  0.18 |
+|   Register as Flip Flop |  257 |     0 |          0 |    141120 |  0.18 |
 |   Register as Latch     |    0 |     0 |          0 |    141120 |  0.00 |
 | CARRY8                  |    0 |     0 |          0 |      8820 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     35280 |  0.00 |
@@ -61,7 +61,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 8     |          Yes |           - |          Set |
-| 248   |          Yes |           - |        Reset |
+| 249   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -161,10 +161,10 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  295 |                 CLB |
-| FDCE     |  248 |            Register |
+| LUT6     |  300 |                 CLB |
+| FDCE     |  249 |            Register |
 | LUT4     |   75 |                 CLB |
-| LUT5     |   51 |                 CLB |
+| LUT5     |   64 |                 CLB |
 | LUT2     |   50 |                 CLB |
 | LUT3     |   29 |                 CLB |
 | FDPE     |    8 |            Register |

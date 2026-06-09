@@ -59,7 +59,8 @@ module design_1_EnemyController_0_0 (
   Clk,
   RstN,
   FrameTick,
-  EnemiesOut
+  EnemiesOut,
+  HIT
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 Clk CLK" *)
@@ -72,11 +73,13 @@ input wire Clk;
 input wire RstN;
 input wire FrameTick;
 output wire [263 : 0] EnemiesOut;
+output wire HIT;
 
   EnemyController inst (
     .Clk(Clk),
     .RstN(RstN),
     .FrameTick(FrameTick),
-    .EnemiesOut(EnemiesOut)
+    .EnemiesOut(EnemiesOut),
+    .HIT(HIT)
   );
 endmodule

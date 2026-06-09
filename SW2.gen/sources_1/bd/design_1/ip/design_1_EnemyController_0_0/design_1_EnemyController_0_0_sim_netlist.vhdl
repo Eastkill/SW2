@@ -2,8 +2,8 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Tue Jun  2 14:03:16 2026
--- Host        : Lab016-09 running 64-bit major release  (build 9200)
+-- Date        : Tue Jun  9 13:54:51 2026
+-- Host        : Lab016-04 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0_sim_netlist.vhdl
 -- Design      : design_1_EnemyController_0_0
@@ -41,6 +41,7 @@ entity design_1_EnemyController_0_0_EnemyController is
     \enemies_reg[3][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[2][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \enemies_reg[1][R][9]_0\ : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    HIT : out STD_LOGIC;
     \enemies_reg[0][is_active]_0\ : out STD_LOGIC;
     \enemies_reg[23][is_active]_0\ : out STD_LOGIC;
     \enemies_reg[22][is_active]_0\ : out STD_LOGIC;
@@ -217,7 +218,6 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \enemies[15][is_active]_i_2_n_0\ : STD_LOGIC;
   signal \enemies[15][is_active]_i_3_n_0\ : STD_LOGIC;
   signal \enemies[15][is_active]_i_4_n_0\ : STD_LOGIC;
-  signal \enemies[15][is_active]_i_5_n_0\ : STD_LOGIC;
   signal \enemies[16][R]\ : STD_LOGIC;
   signal \enemies[16][R][1]_i_1_n_0\ : STD_LOGIC;
   signal \enemies[16][R][2]_i_1_n_0\ : STD_LOGIC;
@@ -619,6 +619,25 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \^enemies_reg[8][is_active]_0\ : STD_LOGIC;
   signal \^enemies_reg[9][r][9]_0\ : STD_LOGIC_VECTOR ( 8 downto 0 );
   signal \^enemies_reg[9][is_active]_0\ : STD_LOGIC;
+  signal hited_i_10_n_0 : STD_LOGIC;
+  signal hited_i_11_n_0 : STD_LOGIC;
+  signal hited_i_12_n_0 : STD_LOGIC;
+  signal hited_i_13_n_0 : STD_LOGIC;
+  signal hited_i_14_n_0 : STD_LOGIC;
+  signal hited_i_15_n_0 : STD_LOGIC;
+  signal hited_i_16_n_0 : STD_LOGIC;
+  signal hited_i_17_n_0 : STD_LOGIC;
+  signal hited_i_18_n_0 : STD_LOGIC;
+  signal hited_i_19_n_0 : STD_LOGIC;
+  signal hited_i_1_n_0 : STD_LOGIC;
+  signal hited_i_2_n_0 : STD_LOGIC;
+  signal hited_i_3_n_0 : STD_LOGIC;
+  signal hited_i_4_n_0 : STD_LOGIC;
+  signal hited_i_5_n_0 : STD_LOGIC;
+  signal hited_i_6_n_0 : STD_LOGIC;
+  signal hited_i_7_n_0 : STD_LOGIC;
+  signal hited_i_8_n_0 : STD_LOGIC;
+  signal hited_i_9_n_0 : STD_LOGIC;
   signal \lfsr_reg_n_0_[0]\ : STD_LOGIC;
   signal \lfsr_reg_n_0_[11]\ : STD_LOGIC;
   signal \lfsr_reg_n_0_[12]\ : STD_LOGIC;
@@ -631,170 +650,192 @@ architecture STRUCTURE of design_1_EnemyController_0_0_EnemyController is
   signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 9 downto 8 );
   signal p_0_out : STD_LOGIC_VECTOR ( 0 to 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \enemies[0][R][3]_i_2\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \enemies[0][R][4]_i_2\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \enemies[0][R][5]_i_2\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \enemies[0][R][6]_i_2\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \enemies[0][R][9]_i_3\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \enemies[0][R][3]_i_2\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \enemies[0][R][4]_i_2\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \enemies[0][R][5]_i_2\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \enemies[0][R][6]_i_2\ : label is "soft_lutpair27";
   attribute SOFT_HLUTNM of \enemies[0][R][9]_i_4\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \enemies[0][is_active]_i_2\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \enemies[10][R][3]_i_2\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \enemies[10][R][4]_i_2\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \enemies[10][R][5]_i_2\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \enemies[10][R][6]_i_2\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \enemies[10][R][9]_i_3\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \enemies[0][is_active]_i_2\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \enemies[10][R][3]_i_2\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \enemies[10][R][4]_i_2\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \enemies[10][R][5]_i_2\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \enemies[10][R][6]_i_2\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \enemies[10][R][9]_i_3\ : label is "soft_lutpair57";
   attribute SOFT_HLUTNM of \enemies[10][R][9]_i_4\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \enemies[10][is_active]_i_3\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \enemies[11][R][3]_i_2\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \enemies[11][R][4]_i_2\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \enemies[11][R][5]_i_2\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \enemies[11][R][6]_i_2\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \enemies[11][R][9]_i_3\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \enemies[10][is_active]_i_3\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \enemies[11][R][3]_i_2\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \enemies[11][R][4]_i_2\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \enemies[11][R][5]_i_2\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \enemies[11][R][6]_i_2\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \enemies[11][R][9]_i_3\ : label is "soft_lutpair58";
   attribute SOFT_HLUTNM of \enemies[11][R][9]_i_4\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \enemies[11][is_active]_i_4\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \enemies[12][R][3]_i_2\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \enemies[12][R][4]_i_2\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \enemies[12][R][5]_i_2\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \enemies[12][R][6]_i_2\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \enemies[12][R][9]_i_3\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \enemies[11][is_active]_i_2\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \enemies[11][is_active]_i_4\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \enemies[12][R][3]_i_2\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \enemies[12][R][4]_i_2\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \enemies[12][R][5]_i_2\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \enemies[12][R][6]_i_2\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \enemies[12][R][9]_i_3\ : label is "soft_lutpair59";
   attribute SOFT_HLUTNM of \enemies[12][R][9]_i_4\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \enemies[12][is_active]_i_3\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \enemies[13][R][3]_i_2\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \enemies[13][R][4]_i_2\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \enemies[13][R][5]_i_2\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \enemies[13][R][6]_i_2\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \enemies[13][R][9]_i_3\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \enemies[12][is_active]_i_3\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \enemies[13][R][3]_i_2\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \enemies[13][R][4]_i_2\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \enemies[13][R][5]_i_2\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \enemies[13][R][6]_i_2\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \enemies[13][R][9]_i_3\ : label is "soft_lutpair60";
   attribute SOFT_HLUTNM of \enemies[13][R][9]_i_4\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \enemies[13][is_active]_i_3\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \enemies[14][R][3]_i_2\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \enemies[14][R][4]_i_2\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \enemies[14][R][5]_i_2\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \enemies[14][R][6]_i_2\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \enemies[14][R][9]_i_3\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \enemies[13][is_active]_i_2\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \enemies[13][is_active]_i_3\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \enemies[14][R][3]_i_2\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \enemies[14][R][4]_i_2\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \enemies[14][R][5]_i_2\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \enemies[14][R][6]_i_2\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \enemies[14][R][9]_i_3\ : label is "soft_lutpair61";
   attribute SOFT_HLUTNM of \enemies[14][R][9]_i_4\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \enemies[14][is_active]_i_3\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \enemies[15][R][3]_i_2\ : label is "soft_lutpair74";
-  attribute SOFT_HLUTNM of \enemies[15][R][4]_i_2\ : label is "soft_lutpair74";
-  attribute SOFT_HLUTNM of \enemies[15][R][5]_i_2\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \enemies[15][R][6]_i_2\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \enemies[15][R][9]_i_3\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \enemies[14][is_active]_i_2\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \enemies[14][is_active]_i_3\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \enemies[15][R][3]_i_2\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \enemies[15][R][4]_i_2\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \enemies[15][R][5]_i_2\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \enemies[15][R][6]_i_2\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \enemies[15][R][9]_i_3\ : label is "soft_lutpair62";
   attribute SOFT_HLUTNM of \enemies[15][R][9]_i_4\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \enemies[15][is_active]_i_5\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \enemies[16][R][3]_i_2\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \enemies[16][R][4]_i_2\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \enemies[16][R][5]_i_2\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \enemies[16][R][6]_i_2\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \enemies[16][R][9]_i_3\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \enemies[15][is_active]_i_2\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \enemies[15][is_active]_i_4\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \enemies[16][R][3]_i_2\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \enemies[16][R][4]_i_2\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \enemies[16][R][5]_i_2\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \enemies[16][R][6]_i_2\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \enemies[16][R][9]_i_3\ : label is "soft_lutpair63";
   attribute SOFT_HLUTNM of \enemies[16][R][9]_i_4\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \enemies[16][is_active]_i_3\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \enemies[17][R][3]_i_2\ : label is "soft_lutpair76";
-  attribute SOFT_HLUTNM of \enemies[17][R][4]_i_2\ : label is "soft_lutpair76";
-  attribute SOFT_HLUTNM of \enemies[17][R][5]_i_2\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \enemies[17][R][6]_i_2\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \enemies[17][R][9]_i_3\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \enemies[16][is_active]_i_3\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \enemies[17][R][3]_i_2\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \enemies[17][R][4]_i_2\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \enemies[17][R][5]_i_2\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \enemies[17][R][6]_i_2\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \enemies[17][R][9]_i_3\ : label is "soft_lutpair64";
   attribute SOFT_HLUTNM of \enemies[17][R][9]_i_4\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \enemies[17][is_active]_i_3\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \enemies[18][R][9]_i_3\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \enemies[17][is_active]_i_3\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \enemies[18][R][9]_i_3\ : label is "soft_lutpair65";
   attribute SOFT_HLUTNM of \enemies[18][R][9]_i_4\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \enemies[18][is_active]_i_3\ : label is "soft_lutpair14";
   attribute SOFT_HLUTNM of \enemies[18][is_active]_i_4\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \enemies[18][is_active]_i_5\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \enemies[19][R][3]_i_2\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \enemies[19][R][4]_i_2\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \enemies[19][R][5]_i_2\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \enemies[19][R][6]_i_2\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \enemies[19][R][9]_i_3\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \enemies[18][is_active]_i_5\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \enemies[19][R][3]_i_2\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \enemies[19][R][4]_i_2\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \enemies[19][R][5]_i_2\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \enemies[19][R][6]_i_2\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \enemies[19][R][9]_i_3\ : label is "soft_lutpair66";
   attribute SOFT_HLUTNM of \enemies[19][R][9]_i_4\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \enemies[19][is_active]_i_4\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \enemies[1][R][3]_i_2\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \enemies[1][R][4]_i_2\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \enemies[1][R][5]_i_2\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \enemies[1][R][6]_i_2\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \enemies[1][R][9]_i_3\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \enemies[19][is_active]_i_4\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \enemies[1][R][3]_i_2\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \enemies[1][R][4]_i_2\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \enemies[1][R][5]_i_2\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \enemies[1][R][6]_i_2\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \enemies[1][R][9]_i_3\ : label is "soft_lutpair49";
   attribute SOFT_HLUTNM of \enemies[1][R][9]_i_4\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \enemies[1][is_active]_i_3\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \enemies[20][R][3]_i_2\ : label is "soft_lutpair78";
-  attribute SOFT_HLUTNM of \enemies[20][R][4]_i_2\ : label is "soft_lutpair78";
-  attribute SOFT_HLUTNM of \enemies[20][R][5]_i_2\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \enemies[20][R][6]_i_2\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \enemies[20][R][9]_i_3\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \enemies[1][is_active]_i_3\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \enemies[20][R][3]_i_2\ : label is "soft_lutpair89";
+  attribute SOFT_HLUTNM of \enemies[20][R][4]_i_2\ : label is "soft_lutpair89";
+  attribute SOFT_HLUTNM of \enemies[20][R][5]_i_2\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \enemies[20][R][6]_i_2\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \enemies[20][R][9]_i_3\ : label is "soft_lutpair67";
   attribute SOFT_HLUTNM of \enemies[20][R][9]_i_4\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \enemies[20][is_active]_i_4\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \enemies[21][R][3]_i_2\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \enemies[21][R][4]_i_2\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \enemies[21][R][5]_i_2\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \enemies[21][R][6]_i_2\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \enemies[21][R][9]_i_3\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \enemies[20][is_active]_i_4\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \enemies[21][R][3]_i_2\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \enemies[21][R][4]_i_2\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \enemies[21][R][5]_i_2\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \enemies[21][R][6]_i_2\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \enemies[21][R][9]_i_3\ : label is "soft_lutpair68";
   attribute SOFT_HLUTNM of \enemies[21][R][9]_i_4\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \enemies[21][is_active]_i_4\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \enemies[22][R][3]_i_2\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \enemies[22][R][4]_i_2\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \enemies[22][R][5]_i_2\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \enemies[22][R][6]_i_2\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \enemies[22][R][9]_i_3\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \enemies[21][is_active]_i_2\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \enemies[21][is_active]_i_4\ : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \enemies[22][R][3]_i_2\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \enemies[22][R][4]_i_2\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \enemies[22][R][5]_i_2\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \enemies[22][R][6]_i_2\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \enemies[22][R][9]_i_3\ : label is "soft_lutpair69";
   attribute SOFT_HLUTNM of \enemies[22][R][9]_i_4\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \enemies[22][is_active]_i_4\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \enemies[23][R][3]_i_2\ : label is "soft_lutpair81";
-  attribute SOFT_HLUTNM of \enemies[23][R][4]_i_2\ : label is "soft_lutpair81";
-  attribute SOFT_HLUTNM of \enemies[23][R][5]_i_2\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \enemies[23][R][6]_i_2\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \enemies[23][R][9]_i_3\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \enemies[22][is_active]_i_4\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \enemies[23][R][3]_i_2\ : label is "soft_lutpair92";
+  attribute SOFT_HLUTNM of \enemies[23][R][4]_i_2\ : label is "soft_lutpair92";
+  attribute SOFT_HLUTNM of \enemies[23][R][5]_i_2\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \enemies[23][R][6]_i_2\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \enemies[23][R][9]_i_3\ : label is "soft_lutpair70";
   attribute SOFT_HLUTNM of \enemies[23][R][9]_i_4\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \enemies[23][is_active]_i_6\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \enemies[23][is_active]_i_6\ : label is "soft_lutpair70";
   attribute SOFT_HLUTNM of \enemies[2][R][2]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \enemies[2][R][3]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \enemies[2][R][7]_i_1\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \enemies[2][R][8]_i_1\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \enemies[2][is_active]_i_5\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \enemies[3][R][3]_i_2\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \enemies[3][R][4]_i_2\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \enemies[3][R][5]_i_2\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \enemies[3][R][6]_i_2\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \enemies[3][R][9]_i_3\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \enemies[3][R][3]_i_2\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \enemies[3][R][4]_i_2\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \enemies[3][R][5]_i_2\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \enemies[3][R][6]_i_2\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \enemies[3][R][9]_i_3\ : label is "soft_lutpair50";
   attribute SOFT_HLUTNM of \enemies[3][R][9]_i_4\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \enemies[3][is_active]_i_4\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \enemies[4][R][3]_i_2\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \enemies[4][R][4]_i_2\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \enemies[4][R][5]_i_2\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \enemies[4][R][6]_i_2\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \enemies[4][R][9]_i_3\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \enemies[3][is_active]_i_4\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \enemies[4][R][3]_i_2\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \enemies[4][R][4]_i_2\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \enemies[4][R][5]_i_2\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \enemies[4][R][6]_i_2\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \enemies[4][R][9]_i_3\ : label is "soft_lutpair51";
   attribute SOFT_HLUTNM of \enemies[4][R][9]_i_4\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \enemies[4][is_active]_i_3\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \enemies[5][R][3]_i_2\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \enemies[5][R][4]_i_2\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \enemies[5][R][5]_i_2\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \enemies[5][R][6]_i_2\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \enemies[5][R][9]_i_3\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \enemies[4][is_active]_i_2\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \enemies[4][is_active]_i_3\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \enemies[5][R][3]_i_2\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \enemies[5][R][4]_i_2\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \enemies[5][R][5]_i_2\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \enemies[5][R][6]_i_2\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \enemies[5][R][9]_i_3\ : label is "soft_lutpair52";
   attribute SOFT_HLUTNM of \enemies[5][R][9]_i_4\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \enemies[5][is_active]_i_3\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \enemies[6][R][3]_i_2\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \enemies[6][R][4]_i_2\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \enemies[6][R][5]_i_2\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \enemies[6][R][6]_i_2\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \enemies[6][R][9]_i_3\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \enemies[5][is_active]_i_2\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \enemies[5][is_active]_i_3\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \enemies[6][R][3]_i_2\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \enemies[6][R][4]_i_2\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \enemies[6][R][5]_i_2\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \enemies[6][R][6]_i_2\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \enemies[6][R][9]_i_3\ : label is "soft_lutpair53";
   attribute SOFT_HLUTNM of \enemies[6][R][9]_i_4\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \enemies[6][is_active]_i_3\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \enemies[7][R][3]_i_2\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \enemies[7][R][4]_i_2\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \enemies[7][R][5]_i_2\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \enemies[7][R][6]_i_2\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \enemies[7][R][9]_i_3\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \enemies[6][is_active]_i_2\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \enemies[6][is_active]_i_3\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \enemies[7][R][3]_i_2\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \enemies[7][R][4]_i_2\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \enemies[7][R][5]_i_2\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \enemies[7][R][6]_i_2\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \enemies[7][R][9]_i_3\ : label is "soft_lutpair54";
   attribute SOFT_HLUTNM of \enemies[7][R][9]_i_4\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \enemies[7][is_active]_i_4\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \enemies[8][R][3]_i_2\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \enemies[8][R][4]_i_2\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \enemies[8][R][5]_i_2\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \enemies[8][R][6]_i_2\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \enemies[8][R][9]_i_3\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \enemies[7][is_active]_i_2\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \enemies[7][is_active]_i_4\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \enemies[8][R][3]_i_2\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \enemies[8][R][4]_i_2\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \enemies[8][R][5]_i_2\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \enemies[8][R][6]_i_2\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \enemies[8][R][9]_i_3\ : label is "soft_lutpair55";
   attribute SOFT_HLUTNM of \enemies[8][R][9]_i_4\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \enemies[8][is_active]_i_3\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \enemies[9][R][3]_i_2\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \enemies[9][R][4]_i_2\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \enemies[9][R][5]_i_2\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \enemies[9][R][6]_i_2\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \enemies[9][R][9]_i_3\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \enemies[8][is_active]_i_2\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \enemies[8][is_active]_i_3\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \enemies[9][R][3]_i_2\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of \enemies[9][R][4]_i_2\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of \enemies[9][R][5]_i_2\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \enemies[9][R][6]_i_2\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \enemies[9][R][9]_i_3\ : label is "soft_lutpair56";
   attribute SOFT_HLUTNM of \enemies[9][R][9]_i_4\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \enemies[9][is_active]_i_3\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \enemies[9][is_active]_i_2\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \enemies[9][is_active]_i_3\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of hited_i_10 : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of hited_i_11 : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of hited_i_12 : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of hited_i_13 : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of hited_i_14 : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of hited_i_15 : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of hited_i_16 : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of hited_i_17 : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of hited_i_18 : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of hited_i_19 : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of hited_i_8 : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of hited_i_9 : label is "soft_lutpair17";
 begin
   Q(8 downto 0) <= \^q\(8 downto 0);
   \enemies_reg[0][is_active]_0\ <= \^enemies_reg[0][is_active]_0\;
@@ -850,7 +891,7 @@ begin
     )
         port map (
       I0 => \enemies[0][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \lfsr_reg_n_0_[0]\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \enemies[3][is_active]_i_3_n_0\,
@@ -863,7 +904,7 @@ begin
     )
         port map (
       I0 => \enemies[0][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[20][is_active]_i_3_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \^q\(1),
@@ -877,7 +918,7 @@ begin
         port map (
       I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \^q\(2),
       I4 => \enemies[0][R][3]_i_2_n_0\,
       I5 => \enemies[0][is_active]_i_2_n_0\,
@@ -899,7 +940,7 @@ begin
         port map (
       I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \^q\(3),
       I4 => \enemies[0][R][4]_i_2_n_0\,
       I5 => \enemies[0][is_active]_i_2_n_0\,
@@ -922,7 +963,7 @@ begin
         port map (
       I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \^q\(4),
       I4 => \enemies[0][R][5]_i_2_n_0\,
       I5 => \enemies[0][is_active]_i_2_n_0\,
@@ -946,7 +987,7 @@ begin
         port map (
       I0 => \enemies[3][is_active]_i_3_n_0\,
       I1 => \enemies[20][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \^q\(5),
       I4 => \enemies[0][R][6]_i_2_n_0\,
       I5 => \enemies[0][is_active]_i_2_n_0\,
@@ -970,7 +1011,7 @@ begin
     )
         port map (
       I0 => \enemies[0][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[20][is_active]_i_3_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[0][R][7]_i_2_n_0\,
@@ -998,7 +1039,7 @@ begin
       I0 => \enemies[0][R][9]_i_3_n_0\,
       I1 => \^q\(7),
       I2 => \enemies[0][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[20][is_active]_i_3_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[0][R][8]_i_1_n_0\
@@ -1009,7 +1050,7 @@ begin
     )
         port map (
       I0 => FrameTick,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \lfsr_reg_n_0_[0]\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \enemies[3][is_active]_i_3_n_0\,
@@ -1025,7 +1066,7 @@ begin
       I1 => \^q\(7),
       I2 => \^q\(8),
       I3 => \enemies[0][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[0][R][9]_i_4_n_0\,
       O => \enemies[0][R][9]_i_2_n_0\
     );
@@ -1052,15 +1093,15 @@ begin
     );
 \enemies[0][is_active]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFF555700020002"
+      INIT => X"FFFF000255570002"
     )
         port map (
       I0 => FrameTick,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[20][is_active]_i_3_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
-      I4 => \enemies[0][is_active]_i_2_n_0\,
-      I5 => \^enemies_reg[0][is_active]_0\,
+      I4 => \^enemies_reg[0][is_active]_0\,
+      I5 => \enemies[0][is_active]_i_2_n_0\,
       O => \enemies[0][is_active]_i_1_n_0\
     );
 \enemies[0][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -1091,7 +1132,7 @@ begin
     )
         port map (
       I0 => \enemies[10][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -1104,7 +1145,7 @@ begin
     )
         port map (
       I0 => \enemies[10][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[10][r][9]_0\(1),
@@ -1121,7 +1162,7 @@ begin
       I2 => \enemies[10][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[10][R][3]_i_1_n_0\
     );
 \enemies[10][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1143,7 +1184,7 @@ begin
       I2 => \enemies[10][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[10][R][4]_i_1_n_0\
     );
 \enemies[10][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -1166,7 +1207,7 @@ begin
       I2 => \enemies[10][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[10][R][5]_i_1_n_0\
     );
 \enemies[10][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1190,7 +1231,7 @@ begin
       I2 => \enemies[10][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[10][R][6]_i_1_n_0\
     );
 \enemies[10][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -1211,7 +1252,7 @@ begin
     )
         port map (
       I0 => \enemies[10][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[10][R][7]_i_2_n_0\,
@@ -1239,7 +1280,7 @@ begin
       I0 => \enemies[10][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[10][r][9]_0\(7),
       I2 => \enemies[10][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[10][R][8]_i_1_n_0\
@@ -1251,7 +1292,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[10][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -1266,7 +1307,7 @@ begin
       I1 => \^enemies_reg[10][r][9]_0\(7),
       I2 => \^enemies_reg[10][r][9]_0\(8),
       I3 => \enemies[10][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[10][R][9]_i_4_n_0\,
       O => \enemies[10][R][9]_i_2_n_0\
     );
@@ -1299,7 +1340,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[10][is_active]_0\,
       I2 => \enemies[10][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[10][is_active]_i_1_n_0\
@@ -1332,7 +1373,7 @@ begin
     )
         port map (
       I0 => \enemies[11][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -1345,7 +1386,7 @@ begin
     )
         port map (
       I0 => \enemies[11][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[11][r][9]_0\(1),
@@ -1362,7 +1403,7 @@ begin
       I2 => \enemies[11][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[11][R][3]_i_1_n_0\
     );
 \enemies[11][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1384,7 +1425,7 @@ begin
       I2 => \enemies[11][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[11][R][4]_i_1_n_0\
     );
 \enemies[11][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -1407,7 +1448,7 @@ begin
       I2 => \enemies[11][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[11][R][5]_i_1_n_0\
     );
 \enemies[11][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1431,7 +1472,7 @@ begin
       I2 => \enemies[11][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[11][R][6]_i_1_n_0\
     );
 \enemies[11][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -1452,7 +1493,7 @@ begin
     )
         port map (
       I0 => \enemies[11][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[11][R][7]_i_2_n_0\,
@@ -1480,7 +1521,7 @@ begin
       I0 => \enemies[11][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[11][r][9]_0\(7),
       I2 => \enemies[11][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[11][R][8]_i_1_n_0\
@@ -1492,7 +1533,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[11][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -1507,7 +1548,7 @@ begin
       I1 => \^enemies_reg[11][r][9]_0\(7),
       I2 => \^enemies_reg[11][r][9]_0\(8),
       I3 => \enemies[11][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[11][R][9]_i_4_n_0\,
       O => \enemies[11][R][9]_i_2_n_0\
     );
@@ -1540,7 +1581,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[11][is_active]_0\,
       I2 => \enemies[11][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[11][is_active]_i_1_n_0\
@@ -1583,8 +1624,8 @@ begin
     )
         port map (
       I0 => \enemies[12][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[12][r][9]_0\(0),
@@ -1596,8 +1637,8 @@ begin
     )
         port map (
       I0 => \enemies[12][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[12][r][9]_0\(1),
       I5 => \^enemies_reg[12][r][9]_0\(0),
@@ -1612,8 +1653,8 @@ begin
       I1 => \enemies[12][R][3]_i_2_n_0\,
       I2 => \enemies[12][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[12][R][3]_i_1_n_0\
     );
 \enemies[12][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1634,8 +1675,8 @@ begin
       I1 => \enemies[12][R][4]_i_2_n_0\,
       I2 => \enemies[12][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[12][R][4]_i_1_n_0\
     );
 \enemies[12][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -1657,8 +1698,8 @@ begin
       I1 => \enemies[12][R][5]_i_2_n_0\,
       I2 => \enemies[12][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[12][R][5]_i_1_n_0\
     );
 \enemies[12][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1681,8 +1722,8 @@ begin
       I1 => \enemies[12][R][6]_i_2_n_0\,
       I2 => \enemies[12][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[12][R][6]_i_1_n_0\
     );
 \enemies[12][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -1703,8 +1744,8 @@ begin
     )
         port map (
       I0 => \enemies[12][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[12][R][7]_i_2_n_0\,
       I5 => \^enemies_reg[12][r][9]_0\(6),
@@ -1731,8 +1772,8 @@ begin
       I0 => \enemies[12][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[12][r][9]_0\(7),
       I2 => \enemies[12][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[12][R][8]_i_1_n_0\
     );
@@ -1743,8 +1784,8 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[12][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[15][is_active]_i_4_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
       O => \enemies[12][R]\
@@ -1758,7 +1799,7 @@ begin
       I1 => \^enemies_reg[12][r][9]_0\(7),
       I2 => \^enemies_reg[12][r][9]_0\(8),
       I3 => \enemies[12][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[12][R][9]_i_4_n_0\,
       O => \enemies[12][R][9]_i_2_n_0\
     );
@@ -1791,8 +1832,8 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[12][is_active]_0\,
       I2 => \enemies[12][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[12][is_active]_i_1_n_0\
     );
@@ -1824,8 +1865,8 @@ begin
     )
         port map (
       I0 => \enemies[13][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \^enemies_reg[13][r][9]_0\(0),
@@ -1837,8 +1878,8 @@ begin
     )
         port map (
       I0 => \enemies[13][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[13][r][9]_0\(1),
       I5 => \^enemies_reg[13][r][9]_0\(0),
@@ -1853,8 +1894,8 @@ begin
       I1 => \enemies[13][R][3]_i_2_n_0\,
       I2 => \enemies[13][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[13][R][3]_i_1_n_0\
     );
 \enemies[13][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -1875,8 +1916,8 @@ begin
       I1 => \enemies[13][R][4]_i_2_n_0\,
       I2 => \enemies[13][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[13][R][4]_i_1_n_0\
     );
 \enemies[13][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -1898,8 +1939,8 @@ begin
       I1 => \enemies[13][R][5]_i_2_n_0\,
       I2 => \enemies[13][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[13][R][5]_i_1_n_0\
     );
 \enemies[13][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -1922,8 +1963,8 @@ begin
       I1 => \enemies[13][R][6]_i_2_n_0\,
       I2 => \enemies[13][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[13][R][6]_i_1_n_0\
     );
 \enemies[13][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -1944,8 +1985,8 @@ begin
     )
         port map (
       I0 => \enemies[13][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[13][R][7]_i_2_n_0\,
       I5 => \^enemies_reg[13][r][9]_0\(6),
@@ -1972,8 +2013,8 @@ begin
       I0 => \enemies[13][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[13][r][9]_0\(7),
       I2 => \enemies[13][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[13][R][8]_i_1_n_0\
     );
@@ -1984,8 +2025,8 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[13][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[15][is_active]_i_4_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \lfsr_reg_n_0_[0]\,
       O => \enemies[13][R]\
@@ -1999,7 +2040,7 @@ begin
       I1 => \^enemies_reg[13][r][9]_0\(7),
       I2 => \^enemies_reg[13][r][9]_0\(8),
       I3 => \enemies[13][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[13][R][9]_i_4_n_0\,
       O => \enemies[13][R][9]_i_2_n_0\
     );
@@ -2032,8 +2073,8 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[13][is_active]_0\,
       I2 => \enemies[13][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[13][is_active]_i_1_n_0\
     );
@@ -2065,8 +2106,8 @@ begin
     )
         port map (
       I0 => \enemies[14][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[14][r][9]_0\(0),
@@ -2078,8 +2119,8 @@ begin
     )
         port map (
       I0 => \enemies[14][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[14][r][9]_0\(1),
       I5 => \^enemies_reg[14][r][9]_0\(0),
@@ -2094,8 +2135,8 @@ begin
       I1 => \enemies[14][R][3]_i_2_n_0\,
       I2 => \enemies[14][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[14][R][3]_i_1_n_0\
     );
 \enemies[14][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -2116,8 +2157,8 @@ begin
       I1 => \enemies[14][R][4]_i_2_n_0\,
       I2 => \enemies[14][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[14][R][4]_i_1_n_0\
     );
 \enemies[14][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -2139,8 +2180,8 @@ begin
       I1 => \enemies[14][R][5]_i_2_n_0\,
       I2 => \enemies[14][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[14][R][5]_i_1_n_0\
     );
 \enemies[14][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -2163,8 +2204,8 @@ begin
       I1 => \enemies[14][R][6]_i_2_n_0\,
       I2 => \enemies[14][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[14][R][6]_i_1_n_0\
     );
 \enemies[14][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -2185,8 +2226,8 @@ begin
     )
         port map (
       I0 => \enemies[14][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[14][R][7]_i_2_n_0\,
       I5 => \^enemies_reg[14][r][9]_0\(6),
@@ -2213,8 +2254,8 @@ begin
       I0 => \enemies[14][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[14][r][9]_0\(7),
       I2 => \enemies[14][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[14][R][8]_i_1_n_0\
     );
@@ -2225,8 +2266,8 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[14][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \enemies[15][is_active]_i_4_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
       O => \enemies[14][R]\
@@ -2240,7 +2281,7 @@ begin
       I1 => \^enemies_reg[14][r][9]_0\(7),
       I2 => \^enemies_reg[14][r][9]_0\(8),
       I3 => \enemies[14][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[14][R][9]_i_4_n_0\,
       O => \enemies[14][R][9]_i_2_n_0\
     );
@@ -2273,8 +2314,8 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[14][is_active]_0\,
       I2 => \enemies[14][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[14][is_active]_i_1_n_0\
     );
@@ -2306,8 +2347,8 @@ begin
     )
         port map (
       I0 => \enemies[15][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \^enemies_reg[15][r][9]_0\(0),
@@ -2319,8 +2360,8 @@ begin
     )
         port map (
       I0 => \enemies[15][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[15][r][9]_0\(1),
       I5 => \^enemies_reg[15][r][9]_0\(0),
@@ -2328,15 +2369,15 @@ begin
     );
 \enemies[15][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FF0101FF01010101"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_5_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \^enemies_reg[15][r][9]_0\(2),
-      I4 => \enemies[15][R][3]_i_2_n_0\,
-      I5 => \enemies[15][is_active]_i_2_n_0\,
+      I0 => \^enemies_reg[15][r][9]_0\(2),
+      I1 => \enemies[15][R][3]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[15][R][3]_i_1_n_0\
     );
 \enemies[15][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -2350,15 +2391,15 @@ begin
     );
 \enemies[15][R][4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FF0101FF01010101"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_5_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \^enemies_reg[15][r][9]_0\(3),
-      I4 => \enemies[15][R][4]_i_2_n_0\,
-      I5 => \enemies[15][is_active]_i_2_n_0\,
+      I0 => \^enemies_reg[15][r][9]_0\(3),
+      I1 => \enemies[15][R][4]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[15][R][4]_i_1_n_0\
     );
 \enemies[15][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -2373,15 +2414,15 @@ begin
     );
 \enemies[15][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FF0101FF01010101"
+      INIT => X"90909090909090FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_5_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \^enemies_reg[15][r][9]_0\(4),
-      I4 => \enemies[15][R][5]_i_2_n_0\,
-      I5 => \enemies[15][is_active]_i_2_n_0\,
+      I0 => \^enemies_reg[15][r][9]_0\(4),
+      I1 => \enemies[15][R][5]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[15][R][5]_i_1_n_0\
     );
 \enemies[15][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -2397,15 +2438,15 @@ begin
     );
 \enemies[15][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"01FFFF0101010101"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[23][is_active]_i_5_n_0\,
-      I1 => \enemies[15][is_active]_i_4_n_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
-      I3 => \^enemies_reg[15][r][9]_0\(5),
-      I4 => \enemies[15][R][6]_i_2_n_0\,
-      I5 => \enemies[15][is_active]_i_2_n_0\,
+      I0 => \^enemies_reg[15][r][9]_0\(5),
+      I1 => \enemies[15][R][6]_i_2_n_0\,
+      I2 => \enemies[15][is_active]_i_2_n_0\,
+      I3 => \enemies[23][is_active]_i_5_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[15][R][6]_i_1_n_0\
     );
 \enemies[15][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -2426,8 +2467,8 @@ begin
     )
         port map (
       I0 => \enemies[15][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
+      I2 => \enemies[15][is_active]_i_3_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[15][R][7]_i_2_n_0\,
       I5 => \^enemies_reg[15][r][9]_0\(6),
@@ -2454,22 +2495,22 @@ begin
       I0 => \enemies[15][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[15][r][9]_0\(7),
       I2 => \enemies[15][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[15][R][8]_i_1_n_0\
     );
 \enemies[15][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AAAAAAAA02000000"
+      INIT => X"888A888888888888"
     )
         port map (
       I0 => FrameTick,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
-      I2 => \enemies[15][is_active]_i_4_n_0\,
-      I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \lfsr_reg_n_0_[1]\,
-      I5 => \^enemies_reg[15][is_active]_0\,
+      I1 => \^enemies_reg[15][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \lfsr_reg_n_0_[0]\,
+      I5 => \lfsr_reg_n_0_[1]\,
       O => \enemies[15][R]\
     );
 \enemies[15][R][9]_i_2\: unisim.vcomponents.LUT6
@@ -2481,7 +2522,7 @@ begin
       I1 => \^enemies_reg[15][r][9]_0\(7),
       I2 => \^enemies_reg[15][r][9]_0\(8),
       I3 => \enemies[15][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[15][R][9]_i_4_n_0\,
       O => \enemies[15][R][9]_i_2_n_0\
     );
@@ -2514,8 +2555,8 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[15][is_active]_0\,
       I2 => \enemies[15][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
-      I4 => \enemies[15][is_active]_i_4_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
+      I4 => \enemies[15][is_active]_i_3_n_0\,
       I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[15][is_active]_i_1_n_0\
     );
@@ -2527,23 +2568,10 @@ begin
       I0 => \^enemies_reg[15][r][9]_0\(7),
       I1 => \^enemies_reg[15][r][9]_0\(5),
       I2 => \^enemies_reg[15][r][9]_0\(8),
-      I3 => \enemies[15][is_active]_i_5_n_0\,
+      I3 => \enemies[15][is_active]_i_4_n_0\,
       O => \enemies[15][is_active]_i_2_n_0\
     );
-\enemies[15][is_active]_i_3\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFDDCFDDFCDDCCDD"
-    )
-        port map (
-      I0 => \enemies[23][is_active]_i_7_n_0\,
-      I1 => \enemies[23][is_active]_i_8_n_0\,
-      I2 => \lfsr_reg_n_0_[2]\,
-      I3 => p_0_in(1),
-      I4 => \enemies[23][is_active]_i_9_n_0\,
-      I5 => \enemies[23][is_active]_i_10_n_0\,
-      O => \enemies[15][is_active]_i_3_n_0\
-    );
-\enemies[15][is_active]_i_4\: unisim.vcomponents.LUT3
+\enemies[15][is_active]_i_3\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"BF"
     )
@@ -2551,9 +2579,9 @@ begin
       I0 => p_0_in(1),
       I1 => p_0_in(0),
       I2 => \lfsr_reg_n_0_[2]\,
-      O => \enemies[15][is_active]_i_4_n_0\
+      O => \enemies[15][is_active]_i_3_n_0\
     );
-\enemies[15][is_active]_i_5\: unisim.vcomponents.LUT4
+\enemies[15][is_active]_i_4\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFF8"
     )
@@ -2562,7 +2590,7 @@ begin
       I1 => \^enemies_reg[15][r][9]_0\(2),
       I2 => \^enemies_reg[15][r][9]_0\(4),
       I3 => \^enemies_reg[15][r][9]_0\(6),
-      O => \enemies[15][is_active]_i_5_n_0\
+      O => \enemies[15][is_active]_i_4_n_0\
     );
 \enemies[16][R][1]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -3074,28 +3102,28 @@ begin
     );
 \enemies[18][R][3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F1F1F11F11111111"
+      INIT => X"A900A900A900FFFF"
     )
         port map (
-      I0 => \enemies[18][R][9]_i_4_n_0\,
-      I1 => \enemies[23][is_active]_i_3_n_0\,
-      I2 => \^enemies_reg[18][r][9]_0\(2),
-      I3 => \^enemies_reg[18][r][9]_0\(1),
-      I4 => \^enemies_reg[18][r][9]_0\(0),
-      I5 => \enemies[18][is_active]_i_2_n_0\,
+      I0 => \^enemies_reg[18][r][9]_0\(2),
+      I1 => \^enemies_reg[18][r][9]_0\(1),
+      I2 => \^enemies_reg[18][r][9]_0\(0),
+      I3 => \enemies[18][is_active]_i_2_n_0\,
+      I4 => \enemies[18][R][9]_i_4_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[18][R][3]_i_1_n_0\
     );
 \enemies[18][R][4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFF00000002"
+      INIT => X"AAAAAAAAAAAAAAAE"
     )
         port map (
-      I0 => p_0_in(1),
-      I1 => \lfsr_reg_n_0_[2]\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => p_0_in(0),
-      I4 => \enemies[23][is_active]_i_3_n_0\,
-      I5 => \enemies[18][R][4]_i_2_n_0\,
+      I0 => \enemies[18][R][4]_i_2_n_0\,
+      I1 => p_0_in(1),
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => p_0_in(0),
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[18][R][4]_i_1_n_0\
     );
 \enemies[18][R][4]_i_2\: unisim.vcomponents.LUT5
@@ -3112,15 +3140,15 @@ begin
     );
 \enemies[18][R][5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFF00000002"
+      INIT => X"AAAAAAAAAAAAAAAE"
     )
         port map (
-      I0 => p_0_in(1),
-      I1 => \lfsr_reg_n_0_[2]\,
-      I2 => \enemies[22][is_active]_i_3_n_0\,
-      I3 => p_0_in(0),
-      I4 => \enemies[23][is_active]_i_3_n_0\,
-      I5 => \enemies[18][R][5]_i_2_n_0\,
+      I0 => \enemies[18][R][5]_i_2_n_0\,
+      I1 => p_0_in(1),
+      I2 => \lfsr_reg_n_0_[2]\,
+      I3 => \enemies[22][is_active]_i_3_n_0\,
+      I4 => p_0_in(0),
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[18][R][5]_i_1_n_0\
     );
 \enemies[18][R][5]_i_2\: unisim.vcomponents.LUT6
@@ -3138,15 +3166,15 @@ begin
     );
 \enemies[18][R][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"01FFFF0101010101"
+      INIT => X"60606060606060FF"
     )
         port map (
-      I0 => \enemies[18][is_active]_i_4_n_0\,
-      I1 => \enemies[18][is_active]_i_3_n_0\,
-      I2 => \enemies[23][is_active]_i_3_n_0\,
-      I3 => \^enemies_reg[18][r][9]_0\(5),
-      I4 => \enemies[18][R][6]_i_2_n_0\,
-      I5 => \enemies[18][is_active]_i_2_n_0\,
+      I0 => \^enemies_reg[18][r][9]_0\(5),
+      I1 => \enemies[18][R][6]_i_2_n_0\,
+      I2 => \enemies[18][is_active]_i_2_n_0\,
+      I3 => \enemies[18][is_active]_i_4_n_0\,
+      I4 => \enemies[18][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[18][R][6]_i_1_n_0\
     );
 \enemies[18][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -3202,15 +3230,15 @@ begin
     );
 \enemies[18][R][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AAAAAAAA00020000"
+      INIT => X"8888888A88888888"
     )
         port map (
       I0 => FrameTick,
-      I1 => \enemies[23][is_active]_i_3_n_0\,
-      I2 => \enemies[18][is_active]_i_3_n_0\,
-      I3 => \lfsr_reg_n_0_[2]\,
-      I4 => p_0_in(1),
-      I5 => \^enemies_reg[18][is_active]_0\,
+      I1 => \^enemies_reg[18][is_active]_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
+      I3 => \enemies[18][is_active]_i_3_n_0\,
+      I4 => \lfsr_reg_n_0_[2]\,
+      I5 => p_0_in(1),
       O => \enemies[18][R]\
     );
 \enemies[18][R][9]_i_2\: unisim.vcomponents.LUT6
@@ -3561,7 +3589,7 @@ begin
       I1 => \enemies[3][is_active]_i_3_n_0\,
       I2 => \lfsr_reg_n_0_[1]\,
       I3 => \lfsr_reg_n_0_[0]\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \^enemies_reg[1][r][9]_0\(0),
       O => \enemies[1][R][1]_i_1_n_0\
     );
@@ -3573,7 +3601,7 @@ begin
       I0 => \enemies[1][is_active]_i_2_n_0\,
       I1 => \enemies[3][is_active]_i_3_n_0\,
       I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[1][r][9]_0\(1),
       I5 => \^enemies_reg[1][r][9]_0\(0),
       O => \enemies[1][R][2]_i_1_n_0\
@@ -3586,7 +3614,7 @@ begin
       I0 => \^enemies_reg[1][r][9]_0\(2),
       I1 => \enemies[1][R][3]_i_2_n_0\,
       I2 => \enemies[1][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[1][R][3]_i_1_n_0\
@@ -3608,7 +3636,7 @@ begin
       I0 => \^enemies_reg[1][r][9]_0\(3),
       I1 => \enemies[1][R][4]_i_2_n_0\,
       I2 => \enemies[1][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[1][R][4]_i_1_n_0\
@@ -3631,7 +3659,7 @@ begin
       I0 => \^enemies_reg[1][r][9]_0\(4),
       I1 => \enemies[1][R][5]_i_2_n_0\,
       I2 => \enemies[1][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[1][R][5]_i_1_n_0\
@@ -3655,7 +3683,7 @@ begin
       I0 => \^enemies_reg[1][r][9]_0\(5),
       I1 => \enemies[1][R][6]_i_2_n_0\,
       I2 => \enemies[1][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[1][R][6]_i_1_n_0\
@@ -3680,7 +3708,7 @@ begin
       I0 => \enemies[1][is_active]_i_2_n_0\,
       I1 => \enemies[3][is_active]_i_3_n_0\,
       I2 => \enemies[21][is_active]_i_3_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[1][R][7]_i_2_n_0\,
       I5 => \^enemies_reg[1][r][9]_0\(6),
       O => \enemies[1][R][7]_i_1_n_0\
@@ -3708,7 +3736,7 @@ begin
       I2 => \enemies[1][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \p_0_in__0\(8)
     );
 \enemies[1][R][9]_i_1\: unisim.vcomponents.LUT6
@@ -3721,7 +3749,7 @@ begin
       I2 => \enemies[3][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \lfsr_reg_n_0_[0]\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[1][R]\
     );
 \enemies[1][R][9]_i_2\: unisim.vcomponents.LUT6
@@ -3734,7 +3762,7 @@ begin
       I2 => \^enemies_reg[1][r][9]_0\(8),
       I3 => \enemies[1][is_active]_i_2_n_0\,
       I4 => \enemies[1][R][9]_i_4_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \p_0_in__0\(9)
     );
 \enemies[1][R][9]_i_3\: unisim.vcomponents.LUT2
@@ -3768,7 +3796,7 @@ begin
       I2 => \enemies[1][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[21][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[1][is_active]_i_1_n_0\
     );
 \enemies[1][is_active]_i_2\: unisim.vcomponents.LUT4
@@ -4894,17 +4922,16 @@ begin
       I5 => \enemies[23][is_active]_i_14_n_0\,
       O => \enemies[23][is_active]_i_7_n_0\
     );
-\enemies[23][is_active]_i_8\: unisim.vcomponents.LUT6
+\enemies[23][is_active]_i_8\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFFFFFFFFE0"
+      INIT => X"FE000000"
     )
         port map (
-      I0 => p_0_in(2),
-      I1 => p_0_in(3),
-      I2 => p_0_in(4),
-      I3 => p_0_in(5),
+      I0 => p_0_in(4),
+      I1 => p_0_in(5),
+      I2 => p_0_in(3),
+      I3 => p_0_in(7),
       I4 => p_0_in(6),
-      I5 => p_0_in(7),
       O => \enemies[23][is_active]_i_8_n_0\
     );
 \enemies[23][is_active]_i_9\: unisim.vcomponents.LUT6
@@ -5144,7 +5171,7 @@ begin
     )
         port map (
       I0 => \enemies[3][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \lfsr_reg_n_0_[0]\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \enemies[3][is_active]_i_3_n_0\,
@@ -5157,7 +5184,7 @@ begin
     )
         port map (
       I0 => \enemies[3][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[23][is_active]_i_5_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[3][r][9]_0\(1),
@@ -5174,7 +5201,7 @@ begin
       I2 => \enemies[3][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[3][R][3]_i_1_n_0\
     );
 \enemies[3][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5196,7 +5223,7 @@ begin
       I2 => \enemies[3][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[3][R][4]_i_1_n_0\
     );
 \enemies[3][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -5219,7 +5246,7 @@ begin
       I2 => \enemies[3][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[3][R][5]_i_1_n_0\
     );
 \enemies[3][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5243,7 +5270,7 @@ begin
       I2 => \enemies[3][is_active]_i_2_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[23][is_active]_i_5_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[3][R][6]_i_1_n_0\
     );
 \enemies[3][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -5264,7 +5291,7 @@ begin
     )
         port map (
       I0 => \enemies[3][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[23][is_active]_i_5_n_0\,
       I3 => \enemies[3][is_active]_i_3_n_0\,
       I4 => \enemies[3][R][7]_i_2_n_0\,
@@ -5292,7 +5319,7 @@ begin
       I0 => \enemies[3][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[3][r][9]_0\(7),
       I2 => \enemies[3][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[23][is_active]_i_5_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[3][R][8]_i_1_n_0\
@@ -5304,7 +5331,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[3][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
@@ -5319,7 +5346,7 @@ begin
       I1 => \^enemies_reg[3][r][9]_0\(7),
       I2 => \^enemies_reg[3][r][9]_0\(8),
       I3 => \enemies[3][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[3][R][9]_i_4_n_0\,
       O => \enemies[3][R][9]_i_2_n_0\
     );
@@ -5352,7 +5379,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[3][is_active]_0\,
       I2 => \enemies[3][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[23][is_active]_i_5_n_0\,
       I5 => \enemies[3][is_active]_i_3_n_0\,
       O => \enemies[3][is_active]_i_1_n_0\
@@ -5395,7 +5422,7 @@ begin
     )
         port map (
       I0 => \enemies[4][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -5408,7 +5435,7 @@ begin
     )
         port map (
       I0 => \enemies[4][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[4][r][9]_0\(1),
@@ -5425,7 +5452,7 @@ begin
       I2 => \enemies[4][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[4][R][3]_i_1_n_0\
     );
 \enemies[4][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5447,7 +5474,7 @@ begin
       I2 => \enemies[4][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[4][R][4]_i_1_n_0\
     );
 \enemies[4][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -5470,7 +5497,7 @@ begin
       I2 => \enemies[4][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[4][R][5]_i_1_n_0\
     );
 \enemies[4][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5494,7 +5521,7 @@ begin
       I2 => \enemies[4][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[4][R][6]_i_1_n_0\
     );
 \enemies[4][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -5515,7 +5542,7 @@ begin
     )
         port map (
       I0 => \enemies[4][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[4][R][7]_i_2_n_0\,
@@ -5543,7 +5570,7 @@ begin
       I0 => \enemies[4][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[4][r][9]_0\(7),
       I2 => \enemies[4][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[4][R][8]_i_1_n_0\
@@ -5555,7 +5582,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[4][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -5570,7 +5597,7 @@ begin
       I1 => \^enemies_reg[4][r][9]_0\(7),
       I2 => \^enemies_reg[4][r][9]_0\(8),
       I3 => \enemies[4][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[4][R][9]_i_4_n_0\,
       O => \enemies[4][R][9]_i_2_n_0\
     );
@@ -5603,7 +5630,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[4][is_active]_0\,
       I2 => \enemies[4][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[4][is_active]_i_1_n_0\
@@ -5636,7 +5663,7 @@ begin
     )
         port map (
       I0 => \enemies[5][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -5649,7 +5676,7 @@ begin
     )
         port map (
       I0 => \enemies[5][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[5][r][9]_0\(1),
@@ -5666,7 +5693,7 @@ begin
       I2 => \enemies[5][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[5][R][3]_i_1_n_0\
     );
 \enemies[5][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5688,7 +5715,7 @@ begin
       I2 => \enemies[5][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[5][R][4]_i_1_n_0\
     );
 \enemies[5][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -5711,7 +5738,7 @@ begin
       I2 => \enemies[5][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[5][R][5]_i_1_n_0\
     );
 \enemies[5][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5735,7 +5762,7 @@ begin
       I2 => \enemies[5][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[5][R][6]_i_1_n_0\
     );
 \enemies[5][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -5756,7 +5783,7 @@ begin
     )
         port map (
       I0 => \enemies[5][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[5][R][7]_i_2_n_0\,
@@ -5784,7 +5811,7 @@ begin
       I0 => \enemies[5][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[5][r][9]_0\(7),
       I2 => \enemies[5][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[5][R][8]_i_1_n_0\
@@ -5796,7 +5823,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[5][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \lfsr_reg_n_0_[0]\,
@@ -5811,7 +5838,7 @@ begin
       I1 => \^enemies_reg[5][r][9]_0\(7),
       I2 => \^enemies_reg[5][r][9]_0\(8),
       I3 => \enemies[5][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[5][R][9]_i_4_n_0\,
       O => \enemies[5][R][9]_i_2_n_0\
     );
@@ -5844,7 +5871,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[5][is_active]_0\,
       I2 => \enemies[5][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[5][is_active]_i_1_n_0\
@@ -5877,7 +5904,7 @@ begin
     )
         port map (
       I0 => \enemies[6][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -5890,7 +5917,7 @@ begin
     )
         port map (
       I0 => \enemies[6][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[6][r][9]_0\(1),
@@ -5907,7 +5934,7 @@ begin
       I2 => \enemies[6][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[6][R][3]_i_1_n_0\
     );
 \enemies[6][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -5929,7 +5956,7 @@ begin
       I2 => \enemies[6][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[6][R][4]_i_1_n_0\
     );
 \enemies[6][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -5952,7 +5979,7 @@ begin
       I2 => \enemies[6][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[6][R][5]_i_1_n_0\
     );
 \enemies[6][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -5976,7 +6003,7 @@ begin
       I2 => \enemies[6][is_active]_i_2_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[6][R][6]_i_1_n_0\
     );
 \enemies[6][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -5997,7 +6024,7 @@ begin
     )
         port map (
       I0 => \enemies[6][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[22][is_active]_i_3_n_0\,
       I4 => \enemies[6][R][7]_i_2_n_0\,
@@ -6025,7 +6052,7 @@ begin
       I0 => \enemies[6][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[6][r][9]_0\(7),
       I2 => \enemies[6][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[6][R][8]_i_1_n_0\
@@ -6037,7 +6064,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[6][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -6052,7 +6079,7 @@ begin
       I1 => \^enemies_reg[6][r][9]_0\(7),
       I2 => \^enemies_reg[6][r][9]_0\(8),
       I3 => \enemies[6][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[6][R][9]_i_4_n_0\,
       O => \enemies[6][R][9]_i_2_n_0\
     );
@@ -6085,7 +6112,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[6][is_active]_0\,
       I2 => \enemies[6][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[22][is_active]_i_3_n_0\,
       O => \enemies[6][is_active]_i_1_n_0\
@@ -6118,7 +6145,7 @@ begin
     )
         port map (
       I0 => \enemies[7][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -6131,7 +6158,7 @@ begin
     )
         port map (
       I0 => \enemies[7][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \^enemies_reg[7][r][9]_0\(1),
@@ -6148,7 +6175,7 @@ begin
       I2 => \enemies[7][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[7][R][3]_i_1_n_0\
     );
 \enemies[7][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -6170,7 +6197,7 @@ begin
       I2 => \enemies[7][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[7][R][4]_i_1_n_0\
     );
 \enemies[7][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -6193,7 +6220,7 @@ begin
       I2 => \enemies[7][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[7][R][5]_i_1_n_0\
     );
 \enemies[7][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -6217,7 +6244,7 @@ begin
       I2 => \enemies[7][is_active]_i_2_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[7][R][6]_i_1_n_0\
     );
 \enemies[7][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -6238,7 +6265,7 @@ begin
     )
         port map (
       I0 => \enemies[7][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[7][is_active]_i_3_n_0\,
       I3 => \enemies[23][is_active]_i_5_n_0\,
       I4 => \enemies[7][R][7]_i_2_n_0\,
@@ -6266,7 +6293,7 @@ begin
       I0 => \enemies[7][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[7][r][9]_0\(7),
       I2 => \enemies[7][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[7][R][8]_i_1_n_0\
@@ -6278,7 +6305,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[7][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[7][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -6293,7 +6320,7 @@ begin
       I1 => \^enemies_reg[7][r][9]_0\(7),
       I2 => \^enemies_reg[7][r][9]_0\(8),
       I3 => \enemies[7][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[7][R][9]_i_4_n_0\,
       O => \enemies[7][R][9]_i_2_n_0\
     );
@@ -6326,7 +6353,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[7][is_active]_0\,
       I2 => \enemies[7][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[7][is_active]_i_3_n_0\,
       I5 => \enemies[23][is_active]_i_5_n_0\,
       O => \enemies[7][is_active]_i_1_n_0\
@@ -6369,7 +6396,7 @@ begin
     )
         port map (
       I0 => \enemies[8][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[0]\,
       I4 => \lfsr_reg_n_0_[1]\,
@@ -6382,7 +6409,7 @@ begin
     )
         port map (
       I0 => \enemies[8][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[8][r][9]_0\(1),
@@ -6399,7 +6426,7 @@ begin
       I2 => \enemies[8][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[8][R][3]_i_1_n_0\
     );
 \enemies[8][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -6421,7 +6448,7 @@ begin
       I2 => \enemies[8][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[8][R][4]_i_1_n_0\
     );
 \enemies[8][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -6444,7 +6471,7 @@ begin
       I2 => \enemies[8][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[8][R][5]_i_1_n_0\
     );
 \enemies[8][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -6468,7 +6495,7 @@ begin
       I2 => \enemies[8][is_active]_i_2_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[8][R][6]_i_1_n_0\
     );
 \enemies[8][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -6489,7 +6516,7 @@ begin
     )
         port map (
       I0 => \enemies[8][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[20][is_active]_i_3_n_0\,
       I4 => \enemies[8][R][7]_i_2_n_0\,
@@ -6517,7 +6544,7 @@ begin
       I0 => \enemies[8][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[8][r][9]_0\(7),
       I2 => \enemies[8][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[8][R][8]_i_1_n_0\
@@ -6529,7 +6556,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[8][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[0]\,
       I5 => \lfsr_reg_n_0_[1]\,
@@ -6544,7 +6571,7 @@ begin
       I1 => \^enemies_reg[8][r][9]_0\(7),
       I2 => \^enemies_reg[8][r][9]_0\(8),
       I3 => \enemies[8][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[8][R][9]_i_4_n_0\,
       O => \enemies[8][R][9]_i_2_n_0\
     );
@@ -6577,7 +6604,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[8][is_active]_0\,
       I2 => \enemies[8][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[20][is_active]_i_3_n_0\,
       O => \enemies[8][is_active]_i_1_n_0\
@@ -6610,7 +6637,7 @@ begin
     )
         port map (
       I0 => \enemies[9][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \lfsr_reg_n_0_[1]\,
       I4 => \lfsr_reg_n_0_[0]\,
@@ -6623,7 +6650,7 @@ begin
     )
         port map (
       I0 => \enemies[9][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \^enemies_reg[9][r][9]_0\(1),
@@ -6640,7 +6667,7 @@ begin
       I2 => \enemies[9][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[9][R][3]_i_1_n_0\
     );
 \enemies[9][R][3]_i_2\: unisim.vcomponents.LUT2
@@ -6662,7 +6689,7 @@ begin
       I2 => \enemies[9][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[9][R][4]_i_1_n_0\
     );
 \enemies[9][R][4]_i_2\: unisim.vcomponents.LUT3
@@ -6685,7 +6712,7 @@ begin
       I2 => \enemies[9][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[9][R][5]_i_1_n_0\
     );
 \enemies[9][R][5]_i_2\: unisim.vcomponents.LUT4
@@ -6709,7 +6736,7 @@ begin
       I2 => \enemies[9][is_active]_i_2_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
-      I5 => \enemies[15][is_active]_i_3_n_0\,
+      I5 => \enemies[23][is_active]_i_3_n_0\,
       O => \enemies[9][R][6]_i_1_n_0\
     );
 \enemies[9][R][6]_i_2\: unisim.vcomponents.LUT5
@@ -6730,7 +6757,7 @@ begin
     )
         port map (
       I0 => \enemies[9][is_active]_i_2_n_0\,
-      I1 => \enemies[15][is_active]_i_3_n_0\,
+      I1 => \enemies[23][is_active]_i_3_n_0\,
       I2 => \enemies[11][is_active]_i_3_n_0\,
       I3 => \enemies[21][is_active]_i_3_n_0\,
       I4 => \enemies[9][R][7]_i_2_n_0\,
@@ -6758,7 +6785,7 @@ begin
       I0 => \enemies[9][R][9]_i_3_n_0\,
       I1 => \^enemies_reg[9][r][9]_0\(7),
       I2 => \enemies[9][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[9][R][8]_i_1_n_0\
@@ -6770,7 +6797,7 @@ begin
         port map (
       I0 => FrameTick,
       I1 => \^enemies_reg[9][is_active]_0\,
-      I2 => \enemies[15][is_active]_i_3_n_0\,
+      I2 => \enemies[23][is_active]_i_3_n_0\,
       I3 => \enemies[11][is_active]_i_3_n_0\,
       I4 => \lfsr_reg_n_0_[1]\,
       I5 => \lfsr_reg_n_0_[0]\,
@@ -6785,7 +6812,7 @@ begin
       I1 => \^enemies_reg[9][r][9]_0\(7),
       I2 => \^enemies_reg[9][r][9]_0\(8),
       I3 => \enemies[9][is_active]_i_2_n_0\,
-      I4 => \enemies[15][is_active]_i_3_n_0\,
+      I4 => \enemies[23][is_active]_i_3_n_0\,
       I5 => \enemies[9][R][9]_i_4_n_0\,
       O => \enemies[9][R][9]_i_2_n_0\
     );
@@ -6818,7 +6845,7 @@ begin
       I0 => FrameTick,
       I1 => \^enemies_reg[9][is_active]_0\,
       I2 => \enemies[9][is_active]_i_2_n_0\,
-      I3 => \enemies[15][is_active]_i_3_n_0\,
+      I3 => \enemies[23][is_active]_i_3_n_0\,
       I4 => \enemies[11][is_active]_i_3_n_0\,
       I5 => \enemies[21][is_active]_i_3_n_0\,
       O => \enemies[9][is_active]_i_1_n_0\
@@ -9413,6 +9440,249 @@ begin
       D => \enemies[9][is_active]_i_1_n_0\,
       Q => \^enemies_reg[9][is_active]_0\
     );
+hited_i_1: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFFFE"
+    )
+        port map (
+      I0 => hited_i_2_n_0,
+      I1 => hited_i_3_n_0,
+      I2 => hited_i_4_n_0,
+      I3 => hited_i_5_n_0,
+      I4 => hited_i_6_n_0,
+      I5 => hited_i_7_n_0,
+      O => hited_i_1_n_0
+    );
+hited_i_10: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[15][is_active]_0\,
+      I1 => \enemies[15][is_active]_i_4_n_0\,
+      I2 => \^enemies_reg[15][r][9]_0\(8),
+      I3 => \^enemies_reg[15][r][9]_0\(5),
+      I4 => \^enemies_reg[15][r][9]_0\(7),
+      O => hited_i_10_n_0
+    );
+hited_i_11: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[7][is_active]_0\,
+      I1 => \enemies[7][is_active]_i_4_n_0\,
+      I2 => \^enemies_reg[7][r][9]_0\(8),
+      I3 => \^enemies_reg[7][r][9]_0\(5),
+      I4 => \^enemies_reg[7][r][9]_0\(7),
+      O => hited_i_11_n_0
+    );
+hited_i_12: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[0][is_active]_0\,
+      I1 => \enemies[0][is_active]_i_3_n_0\,
+      I2 => \^q\(6),
+      I3 => \^q\(7),
+      I4 => \^q\(4),
+      O => hited_i_12_n_0
+    );
+hited_i_13: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[5][is_active]_0\,
+      I1 => \enemies[5][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[5][r][9]_0\(8),
+      I3 => \^enemies_reg[5][r][9]_0\(5),
+      I4 => \^enemies_reg[5][r][9]_0\(7),
+      O => hited_i_13_n_0
+    );
+hited_i_14: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[11][is_active]_0\,
+      I1 => \enemies[11][is_active]_i_4_n_0\,
+      I2 => \^enemies_reg[11][r][9]_0\(8),
+      I3 => \^enemies_reg[11][r][9]_0\(5),
+      I4 => \^enemies_reg[11][r][9]_0\(7),
+      O => hited_i_14_n_0
+    );
+hited_i_15: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[9][is_active]_0\,
+      I1 => \enemies[9][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[9][r][9]_0\(8),
+      I3 => \^enemies_reg[9][r][9]_0\(5),
+      I4 => \^enemies_reg[9][r][9]_0\(7),
+      O => hited_i_15_n_0
+    );
+hited_i_16: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[8][is_active]_0\,
+      I1 => \enemies[8][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[8][r][9]_0\(8),
+      I3 => \^enemies_reg[8][r][9]_0\(5),
+      I4 => \^enemies_reg[8][r][9]_0\(7),
+      O => hited_i_16_n_0
+    );
+hited_i_17: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[4][is_active]_0\,
+      I1 => \enemies[4][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[4][r][9]_0\(8),
+      I3 => \^enemies_reg[4][r][9]_0\(5),
+      I4 => \^enemies_reg[4][r][9]_0\(7),
+      O => hited_i_17_n_0
+    );
+hited_i_18: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[14][is_active]_0\,
+      I1 => \enemies[14][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[14][r][9]_0\(8),
+      I3 => \^enemies_reg[14][r][9]_0\(5),
+      I4 => \^enemies_reg[14][r][9]_0\(7),
+      O => hited_i_18_n_0
+    );
+hited_i_19: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[13][is_active]_0\,
+      I1 => \enemies[13][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[13][r][9]_0\(8),
+      I3 => \^enemies_reg[13][r][9]_0\(5),
+      I4 => \^enemies_reg[13][r][9]_0\(7),
+      O => hited_i_19_n_0
+    );
+hited_i_2: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFF22F2"
+    )
+        port map (
+      I0 => \^enemies_reg[20][is_active]_0\,
+      I1 => \enemies[20][is_active]_i_2_n_0\,
+      I2 => \^enemies_reg[18][is_active]_0\,
+      I3 => \enemies[18][is_active]_i_2_n_0\,
+      I4 => hited_i_8_n_0,
+      I5 => hited_i_9_n_0,
+      O => hited_i_2_n_0
+    );
+hited_i_3: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFF22F2"
+    )
+        port map (
+      I0 => \^enemies_reg[19][is_active]_0\,
+      I1 => \enemies[19][is_active]_i_2_n_0\,
+      I2 => \^enemies_reg[16][is_active]_0\,
+      I3 => \enemies[16][is_active]_i_2_n_0\,
+      I4 => hited_i_10_n_0,
+      I5 => hited_i_11_n_0,
+      O => hited_i_3_n_0
+    );
+hited_i_4: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFF22F2"
+    )
+        port map (
+      I0 => \^enemies_reg[22][is_active]_0\,
+      I1 => \enemies[22][is_active]_i_2_n_0\,
+      I2 => \^enemies_reg[2][is_active]_0\,
+      I3 => \enemies[2][is_active]_i_2_n_0\,
+      I4 => hited_i_12_n_0,
+      I5 => hited_i_13_n_0,
+      O => hited_i_4_n_0
+    );
+hited_i_5: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFF22F2"
+    )
+        port map (
+      I0 => \^enemies_reg[23][is_active]_0\,
+      I1 => \enemies[23][is_active]_i_2_n_0\,
+      I2 => \^enemies_reg[17][is_active]_0\,
+      I3 => \enemies[17][is_active]_i_2_n_0\,
+      I4 => hited_i_14_n_0,
+      I5 => hited_i_15_n_0,
+      O => hited_i_5_n_0
+    );
+hited_i_6: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFF22F2"
+    )
+        port map (
+      I0 => \^enemies_reg[12][is_active]_0\,
+      I1 => \enemies[12][is_active]_i_2_n_0\,
+      I2 => \^enemies_reg[3][is_active]_0\,
+      I3 => \enemies[3][is_active]_i_2_n_0\,
+      I4 => hited_i_16_n_0,
+      I5 => hited_i_17_n_0,
+      O => hited_i_6_n_0
+    );
+hited_i_7: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFF22F2"
+    )
+        port map (
+      I0 => \^enemies_reg[10][is_active]_0\,
+      I1 => \enemies[10][is_active]_i_2_n_0\,
+      I2 => \^enemies_reg[1][is_active]_0\,
+      I3 => \enemies[1][is_active]_i_2_n_0\,
+      I4 => hited_i_18_n_0,
+      I5 => hited_i_19_n_0,
+      O => hited_i_7_n_0
+    );
+hited_i_8: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[21][is_active]_0\,
+      I1 => \enemies[21][is_active]_i_4_n_0\,
+      I2 => \^enemies_reg[21][r][9]_0\(8),
+      I3 => \^enemies_reg[21][r][9]_0\(5),
+      I4 => \^enemies_reg[21][r][9]_0\(7),
+      O => hited_i_8_n_0
+    );
+hited_i_9: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000002"
+    )
+        port map (
+      I0 => \^enemies_reg[6][is_active]_0\,
+      I1 => \enemies[6][is_active]_i_3_n_0\,
+      I2 => \^enemies_reg[6][r][9]_0\(8),
+      I3 => \^enemies_reg[6][r][9]_0\(5),
+      I4 => \^enemies_reg[6][r][9]_0\(7),
+      O => hited_i_9_n_0
+    );
+hited_reg: unisim.vcomponents.FDCE
+     port map (
+      C => Clk,
+      CE => FrameTick,
+      CLR => RstN,
+      D => hited_i_1_n_0,
+      Q => HIT
+    );
 \lfsr[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"6996"
@@ -9610,7 +9880,8 @@ entity design_1_EnemyController_0_0 is
     Clk : in STD_LOGIC;
     RstN : in STD_LOGIC;
     FrameTick : in STD_LOGIC;
-    EnemiesOut : out STD_LOGIC_VECTOR ( 263 downto 0 )
+    EnemiesOut : out STD_LOGIC_VECTOR ( 263 downto 0 );
+    HIT : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of design_1_EnemyController_0_0 : entity is true;
@@ -9693,6 +9964,7 @@ inst: entity work.design_1_EnemyController_0_0_EnemyController
      port map (
       Clk => Clk,
       FrameTick => FrameTick,
+      HIT => HIT,
       Q(8 downto 0) => \^enemiesout\(9 downto 1),
       RstN => RstN,
       \enemies_reg[0][is_active]_0\ => \^enemiesout\(10),
