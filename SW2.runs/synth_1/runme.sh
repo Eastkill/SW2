@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 
 # Vivado(TM)
@@ -12,9 +12,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=C:/Xilinx/2025.1/Vitis/bin;C:/Xilinx/2025.1/Vivado/ids_lite/ISE/bin/nt64;C:/Xilinx/2025.1/Vivado/ids_lite/ISE/lib/nt64:C:/Xilinx/2025.1/Vivado/bin
+  PATH=D:/Pobrane/AMDDesignTools/2025.2/Vitis/bin:D:/Pobrane/AMDDesignTools/2025.2/Vivado/bin
 else
-  PATH=C:/Xilinx/2025.1/Vitis/bin;C:/Xilinx/2025.1/Vivado/ids_lite/ISE/bin/nt64;C:/Xilinx/2025.1/Vivado/ids_lite/ISE/lib/nt64:C:/Xilinx/2025.1/Vivado/bin:$PATH
+  PATH=D:/Pobrane/AMDDesignTools/2025.2/Vitis/bin:D:/Pobrane/AMDDesignTools/2025.2/Vivado/bin:$PATH
 fi
 export PATH
 
@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1'
+HD_PWD='D:/GitHub/SW2/SW2.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

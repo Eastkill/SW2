@@ -32,7 +32,7 @@ begin
         variable rand_angle : integer range 0 to 23;
         variable feedback : std_logic;
     begin
-        if RstN = '1'
+        if RstN = '0'
          then
             lfsr <= x"ACE1";
             for i in 0 to 23 loop

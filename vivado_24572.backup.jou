@@ -1,0 +1,74 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Jun 22 06:25:01 2026
+# Process ID         : 24572
+# Current directory  : D:/GitHub/SW2
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent24432 D:\GitHub\SW2\SW2.xpr
+# Log file           : D:/GitHub/SW2/vivado.log
+# Journal file       : D:/GitHub/SW2\vivado.jou
+# Running On         : DESKTOP-FMR4U99
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i3-8130U CPU @ 2.20GHz
+# CPU Frequency      : 2208 MHz
+# CPU Physical cores : 2
+# CPU Logical cores  : 4
+# Host memory        : 12781 MB
+# Swap memory        : 3418 MB
+# Total Virtual      : 16200 MB
+# Available Virtual  : 4254 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/GitHub/SW2/SW2.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+open_bd_design {D:/GitHub/SW2/SW2.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {D:/GitHub/SW2/SW2.srcs/sources_1/bd/design_1/design_1.bd}
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  design_1_clk_wiz_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips design_1_clk_wiz_0_0] -no_script -sync -force -quiet
+update_module_reference [get_ips  {design_1_EnemyController_0_0 design_1_TickGenerator_0_0 design_1_ImgGen_0_0 design_1_GameController_0_0}]
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/GitHub/SW2/SW2.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_EnemyController_0_0_synth_1 design_1_GameController_0_0_synth_1 design_1_ImgGen_0_0_synth_1 design_1_TickGenerator_0_0_synth_1 design_1_clk_wiz_0_0_synth_1 -jobs 2
+wait_on_run design_1_EnemyController_0_0_synth_1
+wait_on_run design_1_GameController_0_0_synth_1
+wait_on_run design_1_ImgGen_0_0_synth_1
+wait_on_run design_1_TickGenerator_0_0_synth_1
+wait_on_run design_1_clk_wiz_0_0_synth_1
+startgroup
+set_property -dict [list \
+  CONFIG.CLKOUT1_JITTER {148.007} \
+  CONFIG.CLKOUT1_PHASE_ERROR {84.520} \
+  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25} \
+  CONFIG.CLKOUT2_JITTER {107.502} \
+  CONFIG.CLKOUT2_PHASE_ERROR {84.520} \
+  CONFIG.CLKOUT2_USED {true} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {12.500} \
+  CONFIG.MMCM_CLKOUT0_DIVIDE_F {50.000} \
+  CONFIG.MMCM_CLKOUT1_DIVIDE {10} \
+  CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+  CONFIG.NUM_OUT_CLKS {2} \
+  CONFIG.USE_LOCKED {false} \
+] [get_bd_cells clk_wiz_0]
+endgroup
+set_property location {-47 310} [get_bd_intf_ports clk_100mhz]
+connect_bd_net [get_bd_ports PL_USER_PB0] [get_bd_pins clk_wiz_0/reset]
+startgroup
+set_property CONFIG.CLK_OUT1_PORT {clk25} [get_bd_cells clk_wiz_0]
+endgroup
+connect_bd_net [get_bd_pins clk_wiz_0/clk25] [get_bd_pins HDMI_TX_0/pxClk]
+connect_bd_net [get_bd_pins HDMI_TX_0/pxClkX5] [get_bd_pins clk_wiz_0/clk125]
+connect_bd_net [get_bd_pins angle_encoder_1/ANG] [get_bd_pins EnemyController_0/PlayerAngle]
+create_bd_port -dir I PL_USER_PB1
+connect_bd_net [get_bd_ports PL_USER_PB1] [get_bd_pins EnemyController_0/ShootBtn]
+reset_run design_1_clk_wiz_0_0_synth_1
+reset_run design_1_ImgGen_0_0_synth_1
+reset_run design_1_EnemyController_0_0_synth_1
+reset_run design_1_TickGenerator_0_0_synth_1
+reset_run design_1_GameController_0_0_synth_1
+save_bd_design
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
