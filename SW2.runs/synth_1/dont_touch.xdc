@@ -35,4 +35,4 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_Ti
 # IP: bd/design_1/ip/design_1_GameController_0_0/design_1_GameController_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_GameController_0_0 || ORIG_REF_NAME==design_1_GameController_0_0} -quiet] -quiet
 
-# XDC: c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/design_1_ooc.xdc
+# XDC: d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/design_1_ooc.xdc
