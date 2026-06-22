@@ -1,128 +1,135 @@
 #-----------------------------------------------------------
-# Vivado v2025.1 (64-bit)
-# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
-# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
-# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Jun  9 14:04:36 2026
-# Process ID         : 12296
-# Current directory  : C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Jun 22 08:46:30 2026
+# Process ID         : 18380
+# Current directory  : D:/GitHub/SW2/SW2.runs/synth_1
 # Command line       : vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
-# Log file           : C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/design_1_wrapper.vds
-# Journal file       : C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1\vivado.jou
-# Running On         : Lab016-04
+# Log file           : D:/GitHub/SW2/SW2.runs/synth_1/design_1_wrapper.vds
+# Journal file       : D:/GitHub/SW2/SW2.runs/synth_1\vivado.jou
+# Running On         : DESKTOP-FMR4U99
 # Platform           : Windows Server 2016 or Windows 10
-# Operating System   : 19045
-# Processor Detail   : Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
-# CPU Frequency      : 3192 MHz
-# CPU Physical cores : 6
-# CPU Logical cores  : 12
-# Host memory        : 17030 MB
-# Swap memory        : 2550 MB
-# Total Virtual      : 19580 MB
-# Available Virtual  : 12243 MB
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i3-8130U CPU @ 2.20GHz
+# CPU Frequency      : 2208 MHz
+# CPU Physical cores : 2
+# CPU Logical cores  : 4
+# Host memory        : 12781 MB
+# Swap memory        : 3418 MB
+# Total Virtual      : 16200 MB
+# Available Virtual  : 5325 MB
 #-----------------------------------------------------------
-Sourcing tcl script 'C:/Users/lab/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
 source design_1_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:05 . Memory (MB): peak = 507.602 ; gain = 227.941
+create_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:14 . Memory (MB): peak = 530.328 ; gain = 219.277
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Xilinx/IP_Repo'.
-WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/Xilinx/IP_Repo/OLED_ASCII'. The path is contained within another repository.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/2025.1/Vivado/data/ip'.
-Command: read_checkpoint -auto_incremental -incremental C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/utils_1/imports/synth_1/ImgGen.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/utils_1/imports/synth_1/ImgGen.dcp for incremental synthesis
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/GitHub/SW2/SW2.runs/Xilinx/IP_Repo'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/GitHub/SW2/SW2.runs/Xilinx/IP_Repo/OLED_ASCII'. The path is contained within another repository.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Pobrane/AMDDesignTools/2025.2/Vivado/data/ip'.
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'design_1.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+design_1_HDMI_TX_0_0
+design_1_clk_wiz_0_0
+design_1_RotaryEnc_0_0
+
+Command: read_checkpoint -auto_incremental -incremental D:/GitHub/SW2/SW2.srcs/utils_1/imports/synth_1/ImgGen.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from D:/GitHub/SW2/SW2.srcs/utils_1/imports/synth_1/ImgGen.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top design_1_wrapper -part xczu3eg-sfvc784-2-e
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu3eg'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu3eg'
+WARNING: [Vivado_Tcl 4-1809] The reference checkpoint is from an old version of Vivado; A full resynthesis flow will be run
 INFO: [Device 21-403] Loading part xczu3eg-sfvc784-2-e
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 6 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 9840
+INFO: [Synth 8-7075] Helper process launched with PID 13960
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1681.172 ; gain = 201.156
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1786.414 ; gain = 205.621
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [C:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1' [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_EnemyController_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_EnemyController_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_EnemyController_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_EnemyController_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_GameController_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_GameController_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_GameController_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_GameController_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_HDMI_TX_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_HDMI_TX_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_HDMI_TX_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_HDMI_TX_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ImgGen_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_ImgGen_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ImgGen_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_ImgGen_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_RotaryEnc_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_RotaryEnc_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_RotaryEnc_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_RotaryEnc_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_TickGenerator_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_TickGenerator_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_TickGenerator_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_TickGenerator_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_VideoTiming_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_VideoTiming_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_VideoTiming_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_VideoTiming_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_angle_encoder_1_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_angle_encoder_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_angle_encoder_1_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_angle_encoder_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_clk_wiz_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-12296-Lab016-04/realtime/design_1_clk_wiz_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [C:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [D:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'design_1' [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/synth/design_1.v:13]
+INFO: [Synth 8-6157] synthesizing module 'design_1_EnemyController_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_EnemyController_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_EnemyController_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_EnemyController_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_GameController_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_GameController_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_GameController_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_GameController_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_HDMI_TX_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_HDMI_TX_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_HDMI_TX_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_HDMI_TX_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ImgGen_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_ImgGen_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ImgGen_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_ImgGen_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_RotaryEnc_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_RotaryEnc_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_RotaryEnc_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_RotaryEnc_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_TickGenerator_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_TickGenerator_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_TickGenerator_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_TickGenerator_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_VideoTiming_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_VideoTiming_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_VideoTiming_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_VideoTiming_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_angle_encoder_1_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_angle_encoder_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_angle_encoder_1_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_angle_encoder_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (0#1) [D:/GitHub/SW2/SW2.runs/synth_1/.Xil/Vivado-18380-DESKTOP-FMR4U99/realtime/design_1_clk_wiz_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/synth/design_1.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [D:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1788.441 ; gain = 308.426
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1906.137 ; gain = 325.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1788.441 ; gain = 308.426
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1906.137 ; gain = 325.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1788.441 ; gain = 308.426
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1906.137 ; gain = 325.344
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1788.441 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1906.137 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
-create_clock: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1811.898 ; gain = 13.551
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0_in_context.xdc] for cell 'design_1_i/HDMI_TX_0'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0_in_context.xdc] for cell 'design_1_i/HDMI_TX_0'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0_in_context.xdc] for cell 'design_1_i/VideoTiming_0'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0_in_context.xdc] for cell 'design_1_i/VideoTiming_0'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0/design_1_ImgGen_0_0_in_context.xdc] for cell 'design_1_i/ImgGen_0'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0/design_1_ImgGen_0_0_in_context.xdc] for cell 'design_1_i/ImgGen_0'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0_in_context.xdc] for cell 'design_1_i/RotaryEnc_0'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0_in_context.xdc] for cell 'design_1_i/RotaryEnc_0'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0_in_context.xdc] for cell 'design_1_i/angle_encoder_1'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0_in_context.xdc] for cell 'design_1_i/angle_encoder_1'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0/design_1_EnemyController_0_0_in_context.xdc] for cell 'design_1_i/EnemyController_0'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0/design_1_EnemyController_0_0_in_context.xdc] for cell 'design_1_i/EnemyController_0'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0_in_context.xdc] for cell 'design_1_i/TickGenerator_0'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0_in_context.xdc] for cell 'design_1_i/TickGenerator_0'
-Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_GameController_0_0/design_1_GameController_0_0/design_1_GameController_0_0_in_context.xdc] for cell 'design_1_i/GameController_0'
-Finished Parsing XDC File [c:/Users/lab/Documents/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_GameController_0_0/design_1_GameController_0_0/design_1_GameController_0_0_in_context.xdc] for cell 'design_1_i/GameController_0'
-Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]
-Finished Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
+create_clock: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1906.137 ; gain = 0.000
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_in_context.xdc] for cell 'design_1_i/clk_wiz_0'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0_in_context.xdc] for cell 'design_1_i/HDMI_TX_0'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0/design_1_HDMI_TX_0_0_in_context.xdc] for cell 'design_1_i/HDMI_TX_0'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0_in_context.xdc] for cell 'design_1_i/VideoTiming_0'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0/design_1_VideoTiming_0_0_in_context.xdc] for cell 'design_1_i/VideoTiming_0'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0/design_1_ImgGen_0_0_in_context.xdc] for cell 'design_1_i/ImgGen_0'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_ImgGen_0_0/design_1_ImgGen_0_0/design_1_ImgGen_0_0_in_context.xdc] for cell 'design_1_i/ImgGen_0'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0_in_context.xdc] for cell 'design_1_i/RotaryEnc_0'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0/design_1_RotaryEnc_0_0_in_context.xdc] for cell 'design_1_i/RotaryEnc_0'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0_in_context.xdc] for cell 'design_1_i/angle_encoder_1'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0/design_1_angle_encoder_1_0_in_context.xdc] for cell 'design_1_i/angle_encoder_1'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0/design_1_EnemyController_0_0_in_context.xdc] for cell 'design_1_i/EnemyController_0'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_EnemyController_0_0/design_1_EnemyController_0_0/design_1_EnemyController_0_0_in_context.xdc] for cell 'design_1_i/EnemyController_0'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0_in_context.xdc] for cell 'design_1_i/TickGenerator_0'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0/design_1_TickGenerator_0_0_in_context.xdc] for cell 'design_1_i/TickGenerator_0'
+Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_GameController_0_0/design_1_GameController_0_0/design_1_GameController_0_0_in_context.xdc] for cell 'design_1_i/GameController_0'
+Finished Parsing XDC File [d:/GitHub/SW2/SW2.gen/sources_1/bd/design_1/ip/design_1_GameController_0_0/design_1_GameController_0_0/design_1_GameController_0_0_in_context.xdc] for cell 'design_1_i/GameController_0'
+Parsing XDC File [D:/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]
+Finished Parsing XDC File [D:/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GitHub/SW2/SW2.srcs/constrs_1/new/mainconstraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/sideconstraint.xdc]
-Finished Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/sideconstraint.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/lab/Documents/GitHub/SW2/SW2.srcs/constrs_1/new/sideconstraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
+Parsing XDC File [D:/GitHub/SW2/SW2.srcs/constrs_1/new/sideconstraint.xdc]
+Finished Parsing XDC File [D:/GitHub/SW2/SW2.srcs/constrs_1/new/sideconstraint.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GitHub/SW2/SW2.srcs/constrs_1/new/sideconstraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/dont_touch.xdc]
+Parsing XDC File [D:/GitHub/SW2/SW2.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/GitHub/SW2/SW2.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1811.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1906.137 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1811.898 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1906.137 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1811.898 ; gain = 331.883
+Finished Constraint Validation : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1906.137 ; gain = 325.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -130,16 +137,16 @@ Start Loading Part and Timing Information
 Loading part: xczu3eg-sfvc784-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1811.898 ; gain = 331.883
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1906.137 ; gain = 325.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1811.898 ; gain = 331.883
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1906.137 ; gain = 325.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1811.898 ; gain = 331.883
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1906.137 ; gain = 325.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -160,27 +167,26 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1811.898 ; gain = 331.883
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1917.230 ; gain = 336.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2517.480 ; gain = 1037.465
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2621.059 ; gain = 1040.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2517.480 ; gain = 1037.465
+Finished Timing Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2621.320 ; gain = 1040.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2527.320 ; gain = 1047.305
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 2631.074 ; gain = 1050.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -198,37 +204,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Finished IO Insertion : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -266,28 +272,28 @@ Report Cell Usage:
 |11    |OBUF                       |    11|
 +------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:06 ; elapsed = 00:01:12 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 2762.801 ; gain = 1259.328
-Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 2762.801 ; gain = 1282.785
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:57 . Memory (MB): peak = 2881.703 ; gain = 1300.910
+Synthesis Optimization Complete : Time (s): cpu = 00:01:06 ; elapsed = 00:01:13 . Memory (MB): peak = 2881.703 ; gain = 1300.910
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2762.801 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2881.703 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2762.801 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2881.703 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 3 instances were transformed.
   IBUF => IBUF (IBUFCTRL, INBUF): 3 instances
 
 Synth Design complete | Checksum: c2a7d55c
 INFO: [Common 17-83] Releasing license: Synthesis
-48 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+47 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:51 . Memory (MB): peak = 2762.801 ; gain = 2205.805
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2762.801 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/lab/Documents/GitHub/SW2/SW2.runs/synth_1/design_1_wrapper.dcp' has been generated.
+synth_design: Time (s): cpu = 00:01:18 ; elapsed = 00:01:29 . Memory (MB): peak = 2881.703 ; gain = 2296.703
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2881.703 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/GitHub/SW2/SW2.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jun  9 14:05:37 2026...
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 22 08:48:20 2026...
